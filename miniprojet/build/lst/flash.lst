@@ -1,0 +1,1506 @@
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"flash.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.flash_addr_to_sector,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 4,,15
+  20              		.global	flash_addr_to_sector
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  25              		.type	flash_addr_to_sector, %function
+  26              	flash_addr_to_sector:
+  27              	.LFB0:
+  28              		.file 1 "../lib/e-puck2_main-processor/src/flash/flash.c"
+  29              		.loc 1 28 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 24
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 14, -4
+  36 0002 87B0     		sub	sp, sp, #28
+  37              		.cfi_def_cfa_offset 32
+  38 0004 0190     		str	r0, [sp, #4]
+  39              		.loc 1 28 0
+  40 0006 1C4B     		ldr	r3, .L8
+  41 0008 1B68     		ldr	r3, [r3]
+  42 000a 0593     		str	r3, [sp, #20]
+  43              		.loc 1 29 0
+  44 000c 019B     		ldr	r3, [sp, #4]
+  45 000e 0393     		str	r3, [sp, #12]
+  46              		.loc 1 31 0
+  47 0010 039B     		ldr	r3, [sp, #12]
+  48 0012 23F07F43 		bic	r3, r3, #-16777216
+  49 0016 0493     		str	r3, [sp, #16]
+  50              		.loc 1 32 0
+  51 0018 049B     		ldr	r3, [sp, #16]
+  52 001a B3F5803F 		cmp	r3, #65536
+  53 001e 04D2     		bcs	.L2
+  54              		.loc 1 33 0
+  55 0020 049B     		ldr	r3, [sp, #16]
+  56 0022 9B0B     		lsrs	r3, r3, #14
+  57 0024 8DF80B30 		strb	r3, [sp, #11]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 2
+
+
+  58 0028 10E0     		b	.L3
+  59              	.L2:
+  60              		.loc 1 34 0
+  61 002a 049B     		ldr	r3, [sp, #16]
+  62 002c B3F5003F 		cmp	r3, #131072
+  63 0030 06D2     		bcs	.L4
+  64              		.loc 1 35 0
+  65 0032 049B     		ldr	r3, [sp, #16]
+  66 0034 1B0C     		lsrs	r3, r3, #16
+  67 0036 DBB2     		uxtb	r3, r3
+  68 0038 0333     		adds	r3, r3, #3
+  69 003a 8DF80B30 		strb	r3, [sp, #11]
+  70 003e 05E0     		b	.L3
+  71              	.L4:
+  72              		.loc 1 37 0
+  73 0040 049B     		ldr	r3, [sp, #16]
+  74 0042 5B0C     		lsrs	r3, r3, #17
+  75 0044 DBB2     		uxtb	r3, r3
+  76 0046 0433     		adds	r3, r3, #4
+  77 0048 8DF80B30 		strb	r3, [sp, #11]
+  78              	.L3:
+  79              		.loc 1 39 0
+  80 004c 039B     		ldr	r3, [sp, #12]
+  81 004e B3F1016F 		cmp	r3, #135266304
+  82 0052 04D3     		bcc	.L5
+  83              		.loc 1 41 0
+  84 0054 9DF80B30 		ldrb	r3, [sp, #11]
+  85 0058 0C33     		adds	r3, r3, #12
+  86 005a 8DF80B30 		strb	r3, [sp, #11]
+  87              	.L5:
+  88              		.loc 1 43 0
+  89 005e 9DF80B30 		ldrb	r3, [sp, #11]	@ zero_extendqisi2
+  90              		.loc 1 44 0
+  91 0062 1846     		mov	r0, r3
+  92 0064 044B     		ldr	r3, .L8
+  93 0066 059A     		ldr	r2, [sp, #20]
+  94 0068 1B68     		ldr	r3, [r3]
+  95 006a 9A42     		cmp	r2, r3
+  96 006c 01D0     		beq	.L7
+  97 006e FFF7FEFF 		bl	__stack_chk_fail
+  98              	.L7:
+  99 0072 07B0     		add	sp, sp, #28
+ 100              		.cfi_def_cfa_offset 4
+ 101              		@ sp needed
+ 102 0074 5DF804FB 		ldr	pc, [sp], #4
+ 103              	.L9:
+ 104              		.align	2
+ 105              	.L8:
+ 106 0078 00000000 		.word	__stack_chk_guard
+ 107              		.cfi_endproc
+ 108              	.LFE0:
+ 109              		.size	flash_addr_to_sector, .-flash_addr_to_sector
+ 110              		.section	.text.flash_lock,"ax",%progbits
+ 111              		.align	1
+ 112              		.p2align 4,,15
+ 113              		.global	flash_lock
+ 114              		.syntax unified
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 3
+
+
+ 115              		.thumb
+ 116              		.thumb_func
+ 117              		.fpu fpv4-sp-d16
+ 118              		.type	flash_lock, %function
+ 119              	flash_lock:
+ 120              	.LFB1:
+ 121              		.loc 1 47 0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 8
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125 0000 00B5     		push	{lr}
+ 126              		.cfi_def_cfa_offset 4
+ 127              		.cfi_offset 14, -4
+ 128 0002 83B0     		sub	sp, sp, #12
+ 129              		.cfi_def_cfa_offset 16
+ 130              		.loc 1 47 0
+ 131 0004 094B     		ldr	r3, .L12
+ 132 0006 1B68     		ldr	r3, [r3]
+ 133 0008 0193     		str	r3, [sp, #4]
+ 134              		.loc 1 48 0
+ 135 000a 094B     		ldr	r3, .L12+4
+ 136 000c 1B68     		ldr	r3, [r3]
+ 137 000e 084A     		ldr	r2, .L12+4
+ 138 0010 43F00043 		orr	r3, r3, #-2147483648
+ 139 0014 1360     		str	r3, [r2]
+ 140              		.loc 1 49 0
+ 141 0016 00BF     		nop
+ 142 0018 044B     		ldr	r3, .L12
+ 143 001a 019A     		ldr	r2, [sp, #4]
+ 144 001c 1B68     		ldr	r3, [r3]
+ 145 001e 9A42     		cmp	r2, r3
+ 146 0020 01D0     		beq	.L11
+ 147 0022 FFF7FEFF 		bl	__stack_chk_fail
+ 148              	.L11:
+ 149 0026 03B0     		add	sp, sp, #12
+ 150              		.cfi_def_cfa_offset 4
+ 151              		@ sp needed
+ 152 0028 5DF804FB 		ldr	pc, [sp], #4
+ 153              	.L13:
+ 154              		.align	2
+ 155              	.L12:
+ 156 002c 00000000 		.word	__stack_chk_guard
+ 157 0030 103C0240 		.word	1073888272
+ 158              		.cfi_endproc
+ 159              	.LFE1:
+ 160              		.size	flash_lock, .-flash_lock
+ 161              		.section	.text.flash_unlock,"ax",%progbits
+ 162              		.align	1
+ 163              		.p2align 4,,15
+ 164              		.global	flash_unlock
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 168              		.fpu fpv4-sp-d16
+ 169              		.type	flash_unlock, %function
+ 170              	flash_unlock:
+ 171              	.LFB2:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 4
+
+
+ 172              		.loc 1 52 0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 8
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176 0000 00B5     		push	{lr}
+ 177              		.cfi_def_cfa_offset 4
+ 178              		.cfi_offset 14, -4
+ 179 0002 83B0     		sub	sp, sp, #12
+ 180              		.cfi_def_cfa_offset 16
+ 181              		.loc 1 52 0
+ 182 0004 0C4B     		ldr	r3, .L16
+ 183 0006 1B68     		ldr	r3, [r3]
+ 184 0008 0193     		str	r3, [sp, #4]
+ 185              		.loc 1 54 0
+ 186 000a 0C4B     		ldr	r3, .L16+4
+ 187 000c 1B68     		ldr	r3, [r3]
+ 188 000e 0B4A     		ldr	r2, .L16+4
+ 189 0010 43F00043 		orr	r3, r3, #-2147483648
+ 190 0014 1360     		str	r3, [r2]
+ 191              		.loc 1 57 0
+ 192 0016 0A4B     		ldr	r3, .L16+8
+ 193 0018 0A4A     		ldr	r2, .L16+12
+ 194 001a 1A60     		str	r2, [r3]
+ 195              		.loc 1 58 0
+ 196 001c 084B     		ldr	r3, .L16+8
+ 197 001e 0A4A     		ldr	r2, .L16+16
+ 198 0020 1A60     		str	r2, [r3]
+ 199              		.loc 1 59 0
+ 200 0022 00BF     		nop
+ 201 0024 044B     		ldr	r3, .L16
+ 202 0026 019A     		ldr	r2, [sp, #4]
+ 203 0028 1B68     		ldr	r3, [r3]
+ 204 002a 9A42     		cmp	r2, r3
+ 205 002c 01D0     		beq	.L15
+ 206 002e FFF7FEFF 		bl	__stack_chk_fail
+ 207              	.L15:
+ 208 0032 03B0     		add	sp, sp, #12
+ 209              		.cfi_def_cfa_offset 4
+ 210              		@ sp needed
+ 211 0034 5DF804FB 		ldr	pc, [sp], #4
+ 212              	.L17:
+ 213              		.align	2
+ 214              	.L16:
+ 215 0038 00000000 		.word	__stack_chk_guard
+ 216 003c 103C0240 		.word	1073888272
+ 217 0040 043C0240 		.word	1073888260
+ 218 0044 23016745 		.word	1164378403
+ 219 0048 AB89EFCD 		.word	-839939669
+ 220              		.cfi_endproc
+ 221              	.LFE2:
+ 222              		.size	flash_unlock, .-flash_unlock
+ 223              		.section	.text.flash_set_parallelism_8x,"ax",%progbits
+ 224              		.align	1
+ 225              		.p2align 4,,15
+ 226              		.syntax unified
+ 227              		.thumb
+ 228              		.thumb_func
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 5
+
+
+ 229              		.fpu fpv4-sp-d16
+ 230              		.type	flash_set_parallelism_8x, %function
+ 231              	flash_set_parallelism_8x:
+ 232              	.LFB3:
+ 233              		.loc 1 62 0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 8
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237 0000 00B5     		push	{lr}
+ 238              		.cfi_def_cfa_offset 4
+ 239              		.cfi_offset 14, -4
+ 240 0002 83B0     		sub	sp, sp, #12
+ 241              		.cfi_def_cfa_offset 16
+ 242              		.loc 1 62 0
+ 243 0004 094B     		ldr	r3, .L20
+ 244 0006 1B68     		ldr	r3, [r3]
+ 245 0008 0193     		str	r3, [sp, #4]
+ 246              		.loc 1 64 0
+ 247 000a 094B     		ldr	r3, .L20+4
+ 248 000c 1B68     		ldr	r3, [r3]
+ 249 000e 084A     		ldr	r2, .L20+4
+ 250 0010 23F44073 		bic	r3, r3, #768
+ 251 0014 1360     		str	r3, [r2]
+ 252              		.loc 1 65 0
+ 253 0016 00BF     		nop
+ 254 0018 044B     		ldr	r3, .L20
+ 255 001a 019A     		ldr	r2, [sp, #4]
+ 256 001c 1B68     		ldr	r3, [r3]
+ 257 001e 9A42     		cmp	r2, r3
+ 258 0020 01D0     		beq	.L19
+ 259 0022 FFF7FEFF 		bl	__stack_chk_fail
+ 260              	.L19:
+ 261 0026 03B0     		add	sp, sp, #12
+ 262              		.cfi_def_cfa_offset 4
+ 263              		@ sp needed
+ 264 0028 5DF804FB 		ldr	pc, [sp], #4
+ 265              	.L21:
+ 266              		.align	2
+ 267              	.L20:
+ 268 002c 00000000 		.word	__stack_chk_guard
+ 269 0030 103C0240 		.word	1073888272
+ 270              		.cfi_endproc
+ 271              	.LFE3:
+ 272              		.size	flash_set_parallelism_8x, .-flash_set_parallelism_8x
+ 273              		.section	.text.flash_wait_while_busy,"ax",%progbits
+ 274              		.align	1
+ 275              		.p2align 4,,15
+ 276              		.syntax unified
+ 277              		.thumb
+ 278              		.thumb_func
+ 279              		.fpu fpv4-sp-d16
+ 280              		.type	flash_wait_while_busy, %function
+ 281              	flash_wait_while_busy:
+ 282              	.LFB4:
+ 283              		.loc 1 68 0
+ 284              		.cfi_startproc
+ 285              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 6
+
+
+ 286              		@ frame_needed = 0, uses_anonymous_args = 0
+ 287 0000 00B5     		push	{lr}
+ 288              		.cfi_def_cfa_offset 4
+ 289              		.cfi_offset 14, -4
+ 290 0002 83B0     		sub	sp, sp, #12
+ 291              		.cfi_def_cfa_offset 16
+ 292              		.loc 1 68 0
+ 293 0004 0A4B     		ldr	r3, .L25
+ 294 0006 1B68     		ldr	r3, [r3]
+ 295 0008 0193     		str	r3, [sp, #4]
+ 296              		.loc 1 69 0
+ 297 000a 00BF     		nop
+ 298              	.L23:
+ 299              		.loc 1 69 0 is_stmt 0 discriminator 1
+ 300 000c 094B     		ldr	r3, .L25+4
+ 301 000e 1B68     		ldr	r3, [r3]
+ 302 0010 03F48033 		and	r3, r3, #65536
+ 303 0014 002B     		cmp	r3, #0
+ 304 0016 F9D1     		bne	.L23
+ 305              		.loc 1 72 0 is_stmt 1
+ 306 0018 00BF     		nop
+ 307 001a 054B     		ldr	r3, .L25
+ 308 001c 019A     		ldr	r2, [sp, #4]
+ 309 001e 1B68     		ldr	r3, [r3]
+ 310 0020 9A42     		cmp	r2, r3
+ 311 0022 01D0     		beq	.L24
+ 312 0024 FFF7FEFF 		bl	__stack_chk_fail
+ 313              	.L24:
+ 314 0028 03B0     		add	sp, sp, #12
+ 315              		.cfi_def_cfa_offset 4
+ 316              		@ sp needed
+ 317 002a 5DF804FB 		ldr	pc, [sp], #4
+ 318              	.L26:
+ 319 002e 00BF     		.align	2
+ 320              	.L25:
+ 321 0030 00000000 		.word	__stack_chk_guard
+ 322 0034 0C3C0240 		.word	1073888268
+ 323              		.cfi_endproc
+ 324              	.LFE4:
+ 325              		.size	flash_wait_while_busy, .-flash_wait_while_busy
+ 326              		.section	.text.flash_write_byte,"ax",%progbits
+ 327              		.align	1
+ 328              		.p2align 4,,15
+ 329              		.syntax unified
+ 330              		.thumb
+ 331              		.thumb_func
+ 332              		.fpu fpv4-sp-d16
+ 333              		.type	flash_write_byte, %function
+ 334              	flash_write_byte:
+ 335              	.LFB5:
+ 336              		.loc 1 75 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 16
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340 0000 00B5     		push	{lr}
+ 341              		.cfi_def_cfa_offset 4
+ 342              		.cfi_offset 14, -4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 7
+
+
+ 343 0002 85B0     		sub	sp, sp, #20
+ 344              		.cfi_def_cfa_offset 24
+ 345 0004 0190     		str	r0, [sp, #4]
+ 346 0006 0B46     		mov	r3, r1
+ 347 0008 8DF80330 		strb	r3, [sp, #3]
+ 348              		.loc 1 75 0
+ 349 000c 0C4B     		ldr	r3, .L29
+ 350 000e 1B68     		ldr	r3, [r3]
+ 351 0010 0393     		str	r3, [sp, #12]
+ 352              		.loc 1 77 0
+ 353 0012 0C4B     		ldr	r3, .L29+4
+ 354 0014 1B68     		ldr	r3, [r3]
+ 355 0016 0B4A     		ldr	r2, .L29+4
+ 356 0018 43F00103 		orr	r3, r3, #1
+ 357 001c 1360     		str	r3, [r2]
+ 358              		.loc 1 79 0
+ 359 001e 019B     		ldr	r3, [sp, #4]
+ 360 0020 9DF80320 		ldrb	r2, [sp, #3]
+ 361 0024 1A70     		strb	r2, [r3]
+ 362              		.loc 1 81 0
+ 363 0026 FFF7FEFF 		bl	flash_wait_while_busy
+ 364              		.loc 1 82 0
+ 365 002a 00BF     		nop
+ 366 002c 044B     		ldr	r3, .L29
+ 367 002e 039A     		ldr	r2, [sp, #12]
+ 368 0030 1B68     		ldr	r3, [r3]
+ 369 0032 9A42     		cmp	r2, r3
+ 370 0034 01D0     		beq	.L28
+ 371 0036 FFF7FEFF 		bl	__stack_chk_fail
+ 372              	.L28:
+ 373 003a 05B0     		add	sp, sp, #20
+ 374              		.cfi_def_cfa_offset 4
+ 375              		@ sp needed
+ 376 003c 5DF804FB 		ldr	pc, [sp], #4
+ 377              	.L30:
+ 378              		.align	2
+ 379              	.L29:
+ 380 0040 00000000 		.word	__stack_chk_guard
+ 381 0044 103C0240 		.word	1073888272
+ 382              		.cfi_endproc
+ 383              	.LFE5:
+ 384              		.size	flash_write_byte, .-flash_write_byte
+ 385              		.section	.text.flash_write,"ax",%progbits
+ 386              		.align	1
+ 387              		.p2align 4,,15
+ 388              		.global	flash_write
+ 389              		.syntax unified
+ 390              		.thumb
+ 391              		.thumb_func
+ 392              		.fpu fpv4-sp-d16
+ 393              		.type	flash_write, %function
+ 394              	flash_write:
+ 395              	.LFB6:
+ 396              		.loc 1 85 0
+ 397              		.cfi_startproc
+ 398              		@ args = 0, pretend = 0, frame = 32
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 8
+
+
+ 400 0000 00B5     		push	{lr}
+ 401              		.cfi_def_cfa_offset 4
+ 402              		.cfi_offset 14, -4
+ 403 0002 89B0     		sub	sp, sp, #36
+ 404              		.cfi_def_cfa_offset 40
+ 405 0004 0390     		str	r0, [sp, #12]
+ 406 0006 0291     		str	r1, [sp, #8]
+ 407 0008 0192     		str	r2, [sp, #4]
+ 408              		.loc 1 85 0
+ 409 000a 164B     		ldr	r3, .L35
+ 410 000c 1B68     		ldr	r3, [r3]
+ 411 000e 0793     		str	r3, [sp, #28]
+ 412              		.loc 1 86 0
+ 413 0010 FFF7FEFF 		bl	flash_wait_while_busy
+ 414              		.loc 1 92 0
+ 415 0014 FFF7FEFF 		bl	flash_set_parallelism_8x
+ 416              		.loc 1 94 0
+ 417 0018 029B     		ldr	r3, [sp, #8]
+ 418 001a 0593     		str	r3, [sp, #20]
+ 419              		.loc 1 95 0
+ 420 001c 039B     		ldr	r3, [sp, #12]
+ 421 001e 0693     		str	r3, [sp, #24]
+ 422              		.loc 1 97 0
+ 423 0020 0AE0     		b	.L32
+ 424              	.L33:
+ 425              		.loc 1 98 0
+ 426 0022 069A     		ldr	r2, [sp, #24]
+ 427 0024 531C     		adds	r3, r2, #1
+ 428 0026 0693     		str	r3, [sp, #24]
+ 429 0028 059B     		ldr	r3, [sp, #20]
+ 430 002a 591C     		adds	r1, r3, #1
+ 431 002c 0591     		str	r1, [sp, #20]
+ 432 002e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 433 0030 1946     		mov	r1, r3
+ 434 0032 1046     		mov	r0, r2
+ 435 0034 FFF7FEFF 		bl	flash_write_byte
+ 436              	.L32:
+ 437              		.loc 1 97 0
+ 438 0038 019B     		ldr	r3, [sp, #4]
+ 439 003a 5A1E     		subs	r2, r3, #1
+ 440 003c 0192     		str	r2, [sp, #4]
+ 441 003e 002B     		cmp	r3, #0
+ 442 0040 EFD1     		bne	.L33
+ 443              		.loc 1 102 0
+ 444 0042 094B     		ldr	r3, .L35+4
+ 445 0044 1B68     		ldr	r3, [r3]
+ 446 0046 084A     		ldr	r2, .L35+4
+ 447 0048 23F00103 		bic	r3, r3, #1
+ 448 004c 1360     		str	r3, [r2]
+ 449              		.loc 1 103 0
+ 450 004e 00BF     		nop
+ 451 0050 044B     		ldr	r3, .L35
+ 452 0052 079A     		ldr	r2, [sp, #28]
+ 453 0054 1B68     		ldr	r3, [r3]
+ 454 0056 9A42     		cmp	r2, r3
+ 455 0058 01D0     		beq	.L34
+ 456 005a FFF7FEFF 		bl	__stack_chk_fail
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 9
+
+
+ 457              	.L34:
+ 458 005e 09B0     		add	sp, sp, #36
+ 459              		.cfi_def_cfa_offset 4
+ 460              		@ sp needed
+ 461 0060 5DF804FB 		ldr	pc, [sp], #4
+ 462              	.L36:
+ 463              		.align	2
+ 464              	.L35:
+ 465 0064 00000000 		.word	__stack_chk_guard
+ 466 0068 103C0240 		.word	1073888272
+ 467              		.cfi_endproc
+ 468              	.LFE6:
+ 469              		.size	flash_write, .-flash_write
+ 470              		.section	.text.flash_sector_erase,"ax",%progbits
+ 471              		.align	1
+ 472              		.p2align 4,,15
+ 473              		.global	flash_sector_erase
+ 474              		.syntax unified
+ 475              		.thumb
+ 476              		.thumb_func
+ 477              		.fpu fpv4-sp-d16
+ 478              		.type	flash_sector_erase, %function
+ 479              	flash_sector_erase:
+ 480              	.LFB7:
+ 481              		.loc 1 106 0
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 16
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485 0000 00B5     		push	{lr}
+ 486              		.cfi_def_cfa_offset 4
+ 487              		.cfi_offset 14, -4
+ 488 0002 85B0     		sub	sp, sp, #20
+ 489              		.cfi_def_cfa_offset 24
+ 490 0004 0190     		str	r0, [sp, #4]
+ 491              		.loc 1 106 0
+ 492 0006 0C4B     		ldr	r3, .L39
+ 493 0008 1B68     		ldr	r3, [r3]
+ 494 000a 0393     		str	r3, [sp, #12]
+ 495              		.loc 1 107 0
+ 496 000c 0198     		ldr	r0, [sp, #4]
+ 497 000e FFF7FEFF 		bl	flash_addr_to_sector
+ 498 0012 0346     		mov	r3, r0
+ 499 0014 0293     		str	r3, [sp, #8]
+ 500              		.loc 1 109 0
+ 501 0016 029B     		ldr	r3, [sp, #8]
+ 502 0018 DBB2     		uxtb	r3, r3
+ 503 001a 1846     		mov	r0, r3
+ 504 001c FFF7FEFF 		bl	flash_sector_erase_number
+ 505              		.loc 1 110 0
+ 506 0020 00BF     		nop
+ 507 0022 054B     		ldr	r3, .L39
+ 508 0024 039A     		ldr	r2, [sp, #12]
+ 509 0026 1B68     		ldr	r3, [r3]
+ 510 0028 9A42     		cmp	r2, r3
+ 511 002a 01D0     		beq	.L38
+ 512 002c FFF7FEFF 		bl	__stack_chk_fail
+ 513              	.L38:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 10
+
+
+ 514 0030 05B0     		add	sp, sp, #20
+ 515              		.cfi_def_cfa_offset 4
+ 516              		@ sp needed
+ 517 0032 5DF804FB 		ldr	pc, [sp], #4
+ 518              	.L40:
+ 519 0036 00BF     		.align	2
+ 520              	.L39:
+ 521 0038 00000000 		.word	__stack_chk_guard
+ 522              		.cfi_endproc
+ 523              	.LFE7:
+ 524              		.size	flash_sector_erase, .-flash_sector_erase
+ 525              		.section	.text.flash_sector_erase_number,"ax",%progbits
+ 526              		.align	1
+ 527              		.p2align 4,,15
+ 528              		.global	flash_sector_erase_number
+ 529              		.syntax unified
+ 530              		.thumb
+ 531              		.thumb_func
+ 532              		.fpu fpv4-sp-d16
+ 533              		.type	flash_sector_erase_number, %function
+ 534              	flash_sector_erase_number:
+ 535              	.LFB8:
+ 536              		.loc 1 113 0
+ 537              		.cfi_startproc
+ 538              		@ args = 0, pretend = 0, frame = 16
+ 539              		@ frame_needed = 0, uses_anonymous_args = 0
+ 540 0000 00B5     		push	{lr}
+ 541              		.cfi_def_cfa_offset 4
+ 542              		.cfi_offset 14, -4
+ 543 0002 85B0     		sub	sp, sp, #20
+ 544              		.cfi_def_cfa_offset 24
+ 545 0004 0346     		mov	r3, r0
+ 546 0006 8DF80730 		strb	r3, [sp, #7]
+ 547              		.loc 1 113 0
+ 548 000a 174B     		ldr	r3, .L43
+ 549 000c 1B68     		ldr	r3, [r3]
+ 550 000e 0393     		str	r3, [sp, #12]
+ 551              		.loc 1 114 0
+ 552 0010 FFF7FEFF 		bl	flash_set_parallelism_8x
+ 553              		.loc 1 116 0
+ 554 0014 FFF7FEFF 		bl	flash_wait_while_busy
+ 555              		.loc 1 118 0
+ 556 0018 144B     		ldr	r3, .L43+4
+ 557 001a 1B68     		ldr	r3, [r3]
+ 558 001c 134A     		ldr	r2, .L43+4
+ 559 001e 23F0F803 		bic	r3, r3, #248
+ 560 0022 1360     		str	r3, [r2]
+ 561              		.loc 1 119 0
+ 562 0024 114B     		ldr	r3, .L43+4
+ 563 0026 1A68     		ldr	r2, [r3]
+ 564 0028 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
+ 565 002c DB00     		lsls	r3, r3, #3
+ 566 002e DBB2     		uxtb	r3, r3
+ 567 0030 0E49     		ldr	r1, .L43+4
+ 568 0032 1343     		orrs	r3, r3, r2
+ 569 0034 0B60     		str	r3, [r1]
+ 570              		.loc 1 120 0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 11
+
+
+ 571 0036 0D4B     		ldr	r3, .L43+4
+ 572 0038 1B68     		ldr	r3, [r3]
+ 573 003a 0C4A     		ldr	r2, .L43+4
+ 574 003c 43F00203 		orr	r3, r3, #2
+ 575 0040 1360     		str	r3, [r2]
+ 576              		.loc 1 121 0
+ 577 0042 0A4B     		ldr	r3, .L43+4
+ 578 0044 1B68     		ldr	r3, [r3]
+ 579 0046 094A     		ldr	r2, .L43+4
+ 580 0048 43F48033 		orr	r3, r3, #65536
+ 581 004c 1360     		str	r3, [r2]
+ 582              		.loc 1 123 0
+ 583 004e FFF7FEFF 		bl	flash_wait_while_busy
+ 584              		.loc 1 124 0
+ 585 0052 00BF     		nop
+ 586 0054 044B     		ldr	r3, .L43
+ 587 0056 039A     		ldr	r2, [sp, #12]
+ 588 0058 1B68     		ldr	r3, [r3]
+ 589 005a 9A42     		cmp	r2, r3
+ 590 005c 01D0     		beq	.L42
+ 591 005e FFF7FEFF 		bl	__stack_chk_fail
+ 592              	.L42:
+ 593 0062 05B0     		add	sp, sp, #20
+ 594              		.cfi_def_cfa_offset 4
+ 595              		@ sp needed
+ 596 0064 5DF804FB 		ldr	pc, [sp], #4
+ 597              	.L44:
+ 598              		.align	2
+ 599              	.L43:
+ 600 0068 00000000 		.word	__stack_chk_guard
+ 601 006c 103C0240 		.word	1073888272
+ 602              		.cfi_endproc
+ 603              	.LFE8:
+ 604              		.size	flash_sector_erase_number, .-flash_sector_erase_number
+ 605              		.text
+ 606              	.Letext0:
+ 607              		.file 2 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 608              		.file 3 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 609              		.file 4 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 610              		.section	.debug_info,"",%progbits
+ 611              	.Ldebug_info0:
+ 612 0000 25020000 		.4byte	0x225
+ 613 0004 0400     		.2byte	0x4
+ 614 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 615 000a 04       		.byte	0x4
+ 616 000b 01       		.uleb128 0x1
+ 617 000c 5F010000 		.4byte	.LASF29
+ 618 0010 0C       		.byte	0xc
+ 619 0011 22000000 		.4byte	.LASF30
+ 620 0015 ED020000 		.4byte	.LASF31
+ 621 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 622 001d 00000000 		.4byte	0
+ 623 0021 00000000 		.4byte	.Ldebug_line0
+ 624 0025 02       		.uleb128 0x2
+ 625 0026 01       		.byte	0x1
+ 626 0027 06       		.byte	0x6
+ 627 0028 E1020000 		.4byte	.LASF0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 12
+
+
+ 628 002c 03       		.uleb128 0x3
+ 629 002d 00000000 		.4byte	.LASF5
+ 630 0031 02       		.byte	0x2
+ 631 0032 2B       		.byte	0x2b
+ 632 0033 37000000 		.4byte	0x37
+ 633 0037 02       		.uleb128 0x2
+ 634 0038 01       		.byte	0x1
+ 635 0039 08       		.byte	0x8
+ 636 003a 90000000 		.4byte	.LASF1
+ 637 003e 02       		.uleb128 0x2
+ 638 003f 02       		.byte	0x2
+ 639 0040 05       		.byte	0x5
+ 640 0041 55010000 		.4byte	.LASF2
+ 641 0045 02       		.uleb128 0x2
+ 642 0046 02       		.byte	0x2
+ 643 0047 07       		.byte	0x7
+ 644 0048 B0000000 		.4byte	.LASF3
+ 645 004c 02       		.uleb128 0x2
+ 646 004d 04       		.byte	0x4
+ 647 004e 05       		.byte	0x5
+ 648 004f CC020000 		.4byte	.LASF4
+ 649 0053 03       		.uleb128 0x3
+ 650 0054 F0000000 		.4byte	.LASF6
+ 651 0058 02       		.byte	0x2
+ 652 0059 4F       		.byte	0x4f
+ 653 005a 5E000000 		.4byte	0x5e
+ 654 005e 02       		.uleb128 0x2
+ 655 005f 04       		.byte	0x4
+ 656 0060 07       		.byte	0x7
+ 657 0061 9E000000 		.4byte	.LASF7
+ 658 0065 02       		.uleb128 0x2
+ 659 0066 08       		.byte	0x8
+ 660 0067 05       		.byte	0x5
+ 661 0068 40010000 		.4byte	.LASF8
+ 662 006c 02       		.uleb128 0x2
+ 663 006d 08       		.byte	0x8
+ 664 006e 07       		.byte	0x7
+ 665 006f 21010000 		.4byte	.LASF9
+ 666 0073 04       		.uleb128 0x4
+ 667 0074 04       		.byte	0x4
+ 668 0075 05       		.byte	0x5
+ 669 0076 696E7400 		.ascii	"int\000"
+ 670 007a 02       		.uleb128 0x2
+ 671 007b 04       		.byte	0x4
+ 672 007c 07       		.byte	0x7
+ 673 007d 14010000 		.4byte	.LASF10
+ 674 0081 03       		.uleb128 0x3
+ 675 0082 38010000 		.4byte	.LASF11
+ 676 0086 03       		.byte	0x3
+ 677 0087 18       		.byte	0x18
+ 678 0088 2C000000 		.4byte	0x2c
+ 679 008c 03       		.uleb128 0x3
+ 680 008d C3020000 		.4byte	.LASF12
+ 681 0091 03       		.byte	0x3
+ 682 0092 30       		.byte	0x30
+ 683 0093 53000000 		.4byte	0x53
+ 684 0097 03       		.uleb128 0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 13
+
+
+ 685 0098 0A000000 		.4byte	.LASF13
+ 686 009c 04       		.byte	0x4
+ 687 009d D8       		.byte	0xd8
+ 688 009e 7A000000 		.4byte	0x7a
+ 689 00a2 02       		.uleb128 0x2
+ 690 00a3 08       		.byte	0x8
+ 691 00a4 04       		.byte	0x4
+ 692 00a5 D5020000 		.4byte	.LASF14
+ 693 00a9 05       		.uleb128 0x5
+ 694 00aa A9020000 		.4byte	.LASF15
+ 695 00ae 01       		.byte	0x1
+ 696 00af 70       		.byte	0x70
+ 697 00b0 00000000 		.4byte	.LFB8
+ 698 00b4 70000000 		.4byte	.LFE8-.LFB8
+ 699 00b8 01       		.uleb128 0x1
+ 700 00b9 9C       		.byte	0x9c
+ 701 00ba CD000000 		.4byte	0xcd
+ 702 00be 06       		.uleb128 0x6
+ 703 00bf 52000000 		.4byte	.LASF17
+ 704 00c3 01       		.byte	0x1
+ 705 00c4 70       		.byte	0x70
+ 706 00c5 81000000 		.4byte	0x81
+ 707 00c9 02       		.uleb128 0x2
+ 708 00ca 91       		.byte	0x91
+ 709 00cb 6F       		.sleb128 -17
+ 710 00cc 00       		.byte	0
+ 711 00cd 05       		.uleb128 0x5
+ 712 00ce 59000000 		.4byte	.LASF16
+ 713 00d2 01       		.byte	0x1
+ 714 00d3 69       		.byte	0x69
+ 715 00d4 00000000 		.4byte	.LFB7
+ 716 00d8 3C000000 		.4byte	.LFE7-.LFB7
+ 717 00dc 01       		.uleb128 0x1
+ 718 00dd 9C       		.byte	0x9c
+ 719 00de FF000000 		.4byte	0xff
+ 720 00e2 06       		.uleb128 0x6
+ 721 00e3 86000000 		.4byte	.LASF18
+ 722 00e7 01       		.byte	0x1
+ 723 00e8 69       		.byte	0x69
+ 724 00e9 FF000000 		.4byte	0xff
+ 725 00ed 02       		.uleb128 0x2
+ 726 00ee 91       		.byte	0x91
+ 727 00ef 6C       		.sleb128 -20
+ 728 00f0 07       		.uleb128 0x7
+ 729 00f1 52000000 		.4byte	.LASF17
+ 730 00f5 01       		.byte	0x1
+ 731 00f6 6B       		.byte	0x6b
+ 732 00f7 8C000000 		.4byte	0x8c
+ 733 00fb 02       		.uleb128 0x2
+ 734 00fc 91       		.byte	0x91
+ 735 00fd 70       		.sleb128 -16
+ 736 00fe 00       		.byte	0
+ 737 00ff 08       		.uleb128 0x8
+ 738 0100 04       		.byte	0x4
+ 739 0101 05       		.uleb128 0x5
+ 740 0102 E4000000 		.4byte	.LASF19
+ 741 0106 01       		.byte	0x1
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 14
+
+
+ 742 0107 54       		.byte	0x54
+ 743 0108 00000000 		.4byte	.LFB6
+ 744 010c 6C000000 		.4byte	.LFE6-.LFB6
+ 745 0110 01       		.uleb128 0x1
+ 746 0111 9C       		.byte	0x9c
+ 747 0112 59010000 		.4byte	0x159
+ 748 0116 06       		.uleb128 0x6
+ 749 0117 86000000 		.4byte	.LASF18
+ 750 011b 01       		.byte	0x1
+ 751 011c 54       		.byte	0x54
+ 752 011d FF000000 		.4byte	0xff
+ 753 0121 02       		.uleb128 0x2
+ 754 0122 91       		.byte	0x91
+ 755 0123 64       		.sleb128 -28
+ 756 0124 06       		.uleb128 0x6
+ 757 0125 8B000000 		.4byte	.LASF20
+ 758 0129 01       		.byte	0x1
+ 759 012a 54       		.byte	0x54
+ 760 012b 59010000 		.4byte	0x159
+ 761 012f 02       		.uleb128 0x2
+ 762 0130 91       		.byte	0x91
+ 763 0131 60       		.sleb128 -32
+ 764 0132 09       		.uleb128 0x9
+ 765 0133 6C656E00 		.ascii	"len\000"
+ 766 0137 01       		.byte	0x1
+ 767 0138 54       		.byte	0x54
+ 768 0139 97000000 		.4byte	0x97
+ 769 013d 02       		.uleb128 0x2
+ 770 013e 91       		.byte	0x91
+ 771 013f 5C       		.sleb128 -36
+ 772 0140 0A       		.uleb128 0xa
+ 773 0141 7200     		.ascii	"r\000"
+ 774 0143 01       		.byte	0x1
+ 775 0144 5E       		.byte	0x5e
+ 776 0145 60010000 		.4byte	0x160
+ 777 0149 02       		.uleb128 0x2
+ 778 014a 91       		.byte	0x91
+ 779 014b 6C       		.sleb128 -20
+ 780 014c 0A       		.uleb128 0xa
+ 781 014d 7700     		.ascii	"w\000"
+ 782 014f 01       		.byte	0x1
+ 783 0150 5F       		.byte	0x5f
+ 784 0151 60010000 		.4byte	0x160
+ 785 0155 02       		.uleb128 0x2
+ 786 0156 91       		.byte	0x91
+ 787 0157 70       		.sleb128 -16
+ 788 0158 00       		.byte	0
+ 789 0159 0B       		.uleb128 0xb
+ 790 015a 04       		.byte	0x4
+ 791 015b 5F010000 		.4byte	0x15f
+ 792 015f 0C       		.uleb128 0xc
+ 793 0160 0B       		.uleb128 0xb
+ 794 0161 04       		.byte	0x4
+ 795 0162 81000000 		.4byte	0x81
+ 796 0166 0D       		.uleb128 0xd
+ 797 0167 11000000 		.4byte	.LASF32
+ 798 016b 01       		.byte	0x1
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 15
+
+
+ 799 016c 4A       		.byte	0x4a
+ 800 016d 00000000 		.4byte	.LFB5
+ 801 0171 48000000 		.4byte	.LFE5-.LFB5
+ 802 0175 01       		.uleb128 0x1
+ 803 0176 9C       		.byte	0x9c
+ 804 0177 98010000 		.4byte	0x198
+ 805 017b 06       		.uleb128 0x6
+ 806 017c A3020000 		.4byte	.LASF21
+ 807 0180 01       		.byte	0x1
+ 808 0181 4A       		.byte	0x4a
+ 809 0182 60010000 		.4byte	0x160
+ 810 0186 02       		.uleb128 0x2
+ 811 0187 91       		.byte	0x91
+ 812 0188 6C       		.sleb128 -20
+ 813 0189 06       		.uleb128 0x6
+ 814 018a 81000000 		.4byte	.LASF22
+ 815 018e 01       		.byte	0x1
+ 816 018f 4A       		.byte	0x4a
+ 817 0190 81000000 		.4byte	0x81
+ 818 0194 02       		.uleb128 0x2
+ 819 0195 91       		.byte	0x91
+ 820 0196 6B       		.sleb128 -21
+ 821 0197 00       		.byte	0
+ 822 0198 0E       		.uleb128 0xe
+ 823 0199 CE000000 		.4byte	.LASF23
+ 824 019d 01       		.byte	0x1
+ 825 019e 43       		.byte	0x43
+ 826 019f 00000000 		.4byte	.LFB4
+ 827 01a3 38000000 		.4byte	.LFE4-.LFB4
+ 828 01a7 01       		.uleb128 0x1
+ 829 01a8 9C       		.byte	0x9c
+ 830 01a9 0E       		.uleb128 0xe
+ 831 01aa FB000000 		.4byte	.LASF24
+ 832 01ae 01       		.byte	0x1
+ 833 01af 3D       		.byte	0x3d
+ 834 01b0 00000000 		.4byte	.LFB3
+ 835 01b4 34000000 		.4byte	.LFE3-.LFB3
+ 836 01b8 01       		.uleb128 0x1
+ 837 01b9 9C       		.byte	0x9c
+ 838 01ba 0F       		.uleb128 0xf
+ 839 01bb 28030000 		.4byte	.LASF25
+ 840 01bf 01       		.byte	0x1
+ 841 01c0 33       		.byte	0x33
+ 842 01c1 00000000 		.4byte	.LFB2
+ 843 01c5 4C000000 		.4byte	.LFE2-.LFB2
+ 844 01c9 01       		.uleb128 0x1
+ 845 01ca 9C       		.byte	0x9c
+ 846 01cb 0F       		.uleb128 0xf
+ 847 01cc C3000000 		.4byte	.LASF26
+ 848 01d0 01       		.byte	0x1
+ 849 01d1 2E       		.byte	0x2e
+ 850 01d2 00000000 		.4byte	.LFB1
+ 851 01d6 34000000 		.4byte	.LFE1-.LFB1
+ 852 01da 01       		.uleb128 0x1
+ 853 01db 9C       		.byte	0x9c
+ 854 01dc 10       		.uleb128 0x10
+ 855 01dd 6C000000 		.4byte	.LASF27
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 16
+
+
+ 856 01e1 01       		.byte	0x1
+ 857 01e2 1B       		.byte	0x1b
+ 858 01e3 81000000 		.4byte	0x81
+ 859 01e7 00000000 		.4byte	.LFB0
+ 860 01eb 7C000000 		.4byte	.LFE0-.LFB0
+ 861 01ef 01       		.uleb128 0x1
+ 862 01f0 9C       		.byte	0x9c
+ 863 01f1 09       		.uleb128 0x9
+ 864 01f2 7000     		.ascii	"p\000"
+ 865 01f4 01       		.byte	0x1
+ 866 01f5 1B       		.byte	0x1b
+ 867 01f6 FF000000 		.4byte	0xff
+ 868 01fa 02       		.uleb128 0x2
+ 869 01fb 91       		.byte	0x91
+ 870 01fc 64       		.sleb128 -28
+ 871 01fd 07       		.uleb128 0x7
+ 872 01fe 86000000 		.4byte	.LASF18
+ 873 0202 01       		.byte	0x1
+ 874 0203 1D       		.byte	0x1d
+ 875 0204 8C000000 		.4byte	0x8c
+ 876 0208 02       		.uleb128 0x2
+ 877 0209 91       		.byte	0x91
+ 878 020a 6C       		.sleb128 -20
+ 879 020b 07       		.uleb128 0x7
+ 880 020c 52000000 		.4byte	.LASF17
+ 881 0210 01       		.byte	0x1
+ 882 0211 1E       		.byte	0x1e
+ 883 0212 81000000 		.4byte	0x81
+ 884 0216 02       		.uleb128 0x2
+ 885 0217 91       		.byte	0x91
+ 886 0218 6B       		.sleb128 -21
+ 887 0219 07       		.uleb128 0x7
+ 888 021a 4E010000 		.4byte	.LASF28
+ 889 021e 01       		.byte	0x1
+ 890 021f 1F       		.byte	0x1f
+ 891 0220 8C000000 		.4byte	0x8c
+ 892 0224 02       		.uleb128 0x2
+ 893 0225 91       		.byte	0x91
+ 894 0226 70       		.sleb128 -16
+ 895 0227 00       		.byte	0
+ 896 0228 00       		.byte	0
+ 897              		.section	.debug_abbrev,"",%progbits
+ 898              	.Ldebug_abbrev0:
+ 899 0000 01       		.uleb128 0x1
+ 900 0001 11       		.uleb128 0x11
+ 901 0002 01       		.byte	0x1
+ 902 0003 25       		.uleb128 0x25
+ 903 0004 0E       		.uleb128 0xe
+ 904 0005 13       		.uleb128 0x13
+ 905 0006 0B       		.uleb128 0xb
+ 906 0007 03       		.uleb128 0x3
+ 907 0008 0E       		.uleb128 0xe
+ 908 0009 1B       		.uleb128 0x1b
+ 909 000a 0E       		.uleb128 0xe
+ 910 000b 55       		.uleb128 0x55
+ 911 000c 17       		.uleb128 0x17
+ 912 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 17
+
+
+ 913 000e 01       		.uleb128 0x1
+ 914 000f 10       		.uleb128 0x10
+ 915 0010 17       		.uleb128 0x17
+ 916 0011 00       		.byte	0
+ 917 0012 00       		.byte	0
+ 918 0013 02       		.uleb128 0x2
+ 919 0014 24       		.uleb128 0x24
+ 920 0015 00       		.byte	0
+ 921 0016 0B       		.uleb128 0xb
+ 922 0017 0B       		.uleb128 0xb
+ 923 0018 3E       		.uleb128 0x3e
+ 924 0019 0B       		.uleb128 0xb
+ 925 001a 03       		.uleb128 0x3
+ 926 001b 0E       		.uleb128 0xe
+ 927 001c 00       		.byte	0
+ 928 001d 00       		.byte	0
+ 929 001e 03       		.uleb128 0x3
+ 930 001f 16       		.uleb128 0x16
+ 931 0020 00       		.byte	0
+ 932 0021 03       		.uleb128 0x3
+ 933 0022 0E       		.uleb128 0xe
+ 934 0023 3A       		.uleb128 0x3a
+ 935 0024 0B       		.uleb128 0xb
+ 936 0025 3B       		.uleb128 0x3b
+ 937 0026 0B       		.uleb128 0xb
+ 938 0027 49       		.uleb128 0x49
+ 939 0028 13       		.uleb128 0x13
+ 940 0029 00       		.byte	0
+ 941 002a 00       		.byte	0
+ 942 002b 04       		.uleb128 0x4
+ 943 002c 24       		.uleb128 0x24
+ 944 002d 00       		.byte	0
+ 945 002e 0B       		.uleb128 0xb
+ 946 002f 0B       		.uleb128 0xb
+ 947 0030 3E       		.uleb128 0x3e
+ 948 0031 0B       		.uleb128 0xb
+ 949 0032 03       		.uleb128 0x3
+ 950 0033 08       		.uleb128 0x8
+ 951 0034 00       		.byte	0
+ 952 0035 00       		.byte	0
+ 953 0036 05       		.uleb128 0x5
+ 954 0037 2E       		.uleb128 0x2e
+ 955 0038 01       		.byte	0x1
+ 956 0039 3F       		.uleb128 0x3f
+ 957 003a 19       		.uleb128 0x19
+ 958 003b 03       		.uleb128 0x3
+ 959 003c 0E       		.uleb128 0xe
+ 960 003d 3A       		.uleb128 0x3a
+ 961 003e 0B       		.uleb128 0xb
+ 962 003f 3B       		.uleb128 0x3b
+ 963 0040 0B       		.uleb128 0xb
+ 964 0041 27       		.uleb128 0x27
+ 965 0042 19       		.uleb128 0x19
+ 966 0043 11       		.uleb128 0x11
+ 967 0044 01       		.uleb128 0x1
+ 968 0045 12       		.uleb128 0x12
+ 969 0046 06       		.uleb128 0x6
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 18
+
+
+ 970 0047 40       		.uleb128 0x40
+ 971 0048 18       		.uleb128 0x18
+ 972 0049 9642     		.uleb128 0x2116
+ 973 004b 19       		.uleb128 0x19
+ 974 004c 01       		.uleb128 0x1
+ 975 004d 13       		.uleb128 0x13
+ 976 004e 00       		.byte	0
+ 977 004f 00       		.byte	0
+ 978 0050 06       		.uleb128 0x6
+ 979 0051 05       		.uleb128 0x5
+ 980 0052 00       		.byte	0
+ 981 0053 03       		.uleb128 0x3
+ 982 0054 0E       		.uleb128 0xe
+ 983 0055 3A       		.uleb128 0x3a
+ 984 0056 0B       		.uleb128 0xb
+ 985 0057 3B       		.uleb128 0x3b
+ 986 0058 0B       		.uleb128 0xb
+ 987 0059 49       		.uleb128 0x49
+ 988 005a 13       		.uleb128 0x13
+ 989 005b 02       		.uleb128 0x2
+ 990 005c 18       		.uleb128 0x18
+ 991 005d 00       		.byte	0
+ 992 005e 00       		.byte	0
+ 993 005f 07       		.uleb128 0x7
+ 994 0060 34       		.uleb128 0x34
+ 995 0061 00       		.byte	0
+ 996 0062 03       		.uleb128 0x3
+ 997 0063 0E       		.uleb128 0xe
+ 998 0064 3A       		.uleb128 0x3a
+ 999 0065 0B       		.uleb128 0xb
+ 1000 0066 3B       		.uleb128 0x3b
+ 1001 0067 0B       		.uleb128 0xb
+ 1002 0068 49       		.uleb128 0x49
+ 1003 0069 13       		.uleb128 0x13
+ 1004 006a 02       		.uleb128 0x2
+ 1005 006b 18       		.uleb128 0x18
+ 1006 006c 00       		.byte	0
+ 1007 006d 00       		.byte	0
+ 1008 006e 08       		.uleb128 0x8
+ 1009 006f 0F       		.uleb128 0xf
+ 1010 0070 00       		.byte	0
+ 1011 0071 0B       		.uleb128 0xb
+ 1012 0072 0B       		.uleb128 0xb
+ 1013 0073 00       		.byte	0
+ 1014 0074 00       		.byte	0
+ 1015 0075 09       		.uleb128 0x9
+ 1016 0076 05       		.uleb128 0x5
+ 1017 0077 00       		.byte	0
+ 1018 0078 03       		.uleb128 0x3
+ 1019 0079 08       		.uleb128 0x8
+ 1020 007a 3A       		.uleb128 0x3a
+ 1021 007b 0B       		.uleb128 0xb
+ 1022 007c 3B       		.uleb128 0x3b
+ 1023 007d 0B       		.uleb128 0xb
+ 1024 007e 49       		.uleb128 0x49
+ 1025 007f 13       		.uleb128 0x13
+ 1026 0080 02       		.uleb128 0x2
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 19
+
+
+ 1027 0081 18       		.uleb128 0x18
+ 1028 0082 00       		.byte	0
+ 1029 0083 00       		.byte	0
+ 1030 0084 0A       		.uleb128 0xa
+ 1031 0085 34       		.uleb128 0x34
+ 1032 0086 00       		.byte	0
+ 1033 0087 03       		.uleb128 0x3
+ 1034 0088 08       		.uleb128 0x8
+ 1035 0089 3A       		.uleb128 0x3a
+ 1036 008a 0B       		.uleb128 0xb
+ 1037 008b 3B       		.uleb128 0x3b
+ 1038 008c 0B       		.uleb128 0xb
+ 1039 008d 49       		.uleb128 0x49
+ 1040 008e 13       		.uleb128 0x13
+ 1041 008f 02       		.uleb128 0x2
+ 1042 0090 18       		.uleb128 0x18
+ 1043 0091 00       		.byte	0
+ 1044 0092 00       		.byte	0
+ 1045 0093 0B       		.uleb128 0xb
+ 1046 0094 0F       		.uleb128 0xf
+ 1047 0095 00       		.byte	0
+ 1048 0096 0B       		.uleb128 0xb
+ 1049 0097 0B       		.uleb128 0xb
+ 1050 0098 49       		.uleb128 0x49
+ 1051 0099 13       		.uleb128 0x13
+ 1052 009a 00       		.byte	0
+ 1053 009b 00       		.byte	0
+ 1054 009c 0C       		.uleb128 0xc
+ 1055 009d 26       		.uleb128 0x26
+ 1056 009e 00       		.byte	0
+ 1057 009f 00       		.byte	0
+ 1058 00a0 00       		.byte	0
+ 1059 00a1 0D       		.uleb128 0xd
+ 1060 00a2 2E       		.uleb128 0x2e
+ 1061 00a3 01       		.byte	0x1
+ 1062 00a4 03       		.uleb128 0x3
+ 1063 00a5 0E       		.uleb128 0xe
+ 1064 00a6 3A       		.uleb128 0x3a
+ 1065 00a7 0B       		.uleb128 0xb
+ 1066 00a8 3B       		.uleb128 0x3b
+ 1067 00a9 0B       		.uleb128 0xb
+ 1068 00aa 27       		.uleb128 0x27
+ 1069 00ab 19       		.uleb128 0x19
+ 1070 00ac 11       		.uleb128 0x11
+ 1071 00ad 01       		.uleb128 0x1
+ 1072 00ae 12       		.uleb128 0x12
+ 1073 00af 06       		.uleb128 0x6
+ 1074 00b0 40       		.uleb128 0x40
+ 1075 00b1 18       		.uleb128 0x18
+ 1076 00b2 9642     		.uleb128 0x2116
+ 1077 00b4 19       		.uleb128 0x19
+ 1078 00b5 01       		.uleb128 0x1
+ 1079 00b6 13       		.uleb128 0x13
+ 1080 00b7 00       		.byte	0
+ 1081 00b8 00       		.byte	0
+ 1082 00b9 0E       		.uleb128 0xe
+ 1083 00ba 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 20
+
+
+ 1084 00bb 00       		.byte	0
+ 1085 00bc 03       		.uleb128 0x3
+ 1086 00bd 0E       		.uleb128 0xe
+ 1087 00be 3A       		.uleb128 0x3a
+ 1088 00bf 0B       		.uleb128 0xb
+ 1089 00c0 3B       		.uleb128 0x3b
+ 1090 00c1 0B       		.uleb128 0xb
+ 1091 00c2 27       		.uleb128 0x27
+ 1092 00c3 19       		.uleb128 0x19
+ 1093 00c4 11       		.uleb128 0x11
+ 1094 00c5 01       		.uleb128 0x1
+ 1095 00c6 12       		.uleb128 0x12
+ 1096 00c7 06       		.uleb128 0x6
+ 1097 00c8 40       		.uleb128 0x40
+ 1098 00c9 18       		.uleb128 0x18
+ 1099 00ca 9642     		.uleb128 0x2116
+ 1100 00cc 19       		.uleb128 0x19
+ 1101 00cd 00       		.byte	0
+ 1102 00ce 00       		.byte	0
+ 1103 00cf 0F       		.uleb128 0xf
+ 1104 00d0 2E       		.uleb128 0x2e
+ 1105 00d1 00       		.byte	0
+ 1106 00d2 3F       		.uleb128 0x3f
+ 1107 00d3 19       		.uleb128 0x19
+ 1108 00d4 03       		.uleb128 0x3
+ 1109 00d5 0E       		.uleb128 0xe
+ 1110 00d6 3A       		.uleb128 0x3a
+ 1111 00d7 0B       		.uleb128 0xb
+ 1112 00d8 3B       		.uleb128 0x3b
+ 1113 00d9 0B       		.uleb128 0xb
+ 1114 00da 27       		.uleb128 0x27
+ 1115 00db 19       		.uleb128 0x19
+ 1116 00dc 11       		.uleb128 0x11
+ 1117 00dd 01       		.uleb128 0x1
+ 1118 00de 12       		.uleb128 0x12
+ 1119 00df 06       		.uleb128 0x6
+ 1120 00e0 40       		.uleb128 0x40
+ 1121 00e1 18       		.uleb128 0x18
+ 1122 00e2 9642     		.uleb128 0x2116
+ 1123 00e4 19       		.uleb128 0x19
+ 1124 00e5 00       		.byte	0
+ 1125 00e6 00       		.byte	0
+ 1126 00e7 10       		.uleb128 0x10
+ 1127 00e8 2E       		.uleb128 0x2e
+ 1128 00e9 01       		.byte	0x1
+ 1129 00ea 3F       		.uleb128 0x3f
+ 1130 00eb 19       		.uleb128 0x19
+ 1131 00ec 03       		.uleb128 0x3
+ 1132 00ed 0E       		.uleb128 0xe
+ 1133 00ee 3A       		.uleb128 0x3a
+ 1134 00ef 0B       		.uleb128 0xb
+ 1135 00f0 3B       		.uleb128 0x3b
+ 1136 00f1 0B       		.uleb128 0xb
+ 1137 00f2 27       		.uleb128 0x27
+ 1138 00f3 19       		.uleb128 0x19
+ 1139 00f4 49       		.uleb128 0x49
+ 1140 00f5 13       		.uleb128 0x13
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 21
+
+
+ 1141 00f6 11       		.uleb128 0x11
+ 1142 00f7 01       		.uleb128 0x1
+ 1143 00f8 12       		.uleb128 0x12
+ 1144 00f9 06       		.uleb128 0x6
+ 1145 00fa 40       		.uleb128 0x40
+ 1146 00fb 18       		.uleb128 0x18
+ 1147 00fc 9642     		.uleb128 0x2116
+ 1148 00fe 19       		.uleb128 0x19
+ 1149 00ff 00       		.byte	0
+ 1150 0100 00       		.byte	0
+ 1151 0101 00       		.byte	0
+ 1152              		.section	.debug_aranges,"",%progbits
+ 1153 0000 5C000000 		.4byte	0x5c
+ 1154 0004 0200     		.2byte	0x2
+ 1155 0006 00000000 		.4byte	.Ldebug_info0
+ 1156 000a 04       		.byte	0x4
+ 1157 000b 00       		.byte	0
+ 1158 000c 0000     		.2byte	0
+ 1159 000e 0000     		.2byte	0
+ 1160 0010 00000000 		.4byte	.LFB0
+ 1161 0014 7C000000 		.4byte	.LFE0-.LFB0
+ 1162 0018 00000000 		.4byte	.LFB1
+ 1163 001c 34000000 		.4byte	.LFE1-.LFB1
+ 1164 0020 00000000 		.4byte	.LFB2
+ 1165 0024 4C000000 		.4byte	.LFE2-.LFB2
+ 1166 0028 00000000 		.4byte	.LFB3
+ 1167 002c 34000000 		.4byte	.LFE3-.LFB3
+ 1168 0030 00000000 		.4byte	.LFB4
+ 1169 0034 38000000 		.4byte	.LFE4-.LFB4
+ 1170 0038 00000000 		.4byte	.LFB5
+ 1171 003c 48000000 		.4byte	.LFE5-.LFB5
+ 1172 0040 00000000 		.4byte	.LFB6
+ 1173 0044 6C000000 		.4byte	.LFE6-.LFB6
+ 1174 0048 00000000 		.4byte	.LFB7
+ 1175 004c 3C000000 		.4byte	.LFE7-.LFB7
+ 1176 0050 00000000 		.4byte	.LFB8
+ 1177 0054 70000000 		.4byte	.LFE8-.LFB8
+ 1178 0058 00000000 		.4byte	0
+ 1179 005c 00000000 		.4byte	0
+ 1180              		.section	.debug_ranges,"",%progbits
+ 1181              	.Ldebug_ranges0:
+ 1182 0000 00000000 		.4byte	.LFB0
+ 1183 0004 7C000000 		.4byte	.LFE0
+ 1184 0008 00000000 		.4byte	.LFB1
+ 1185 000c 34000000 		.4byte	.LFE1
+ 1186 0010 00000000 		.4byte	.LFB2
+ 1187 0014 4C000000 		.4byte	.LFE2
+ 1188 0018 00000000 		.4byte	.LFB3
+ 1189 001c 34000000 		.4byte	.LFE3
+ 1190 0020 00000000 		.4byte	.LFB4
+ 1191 0024 38000000 		.4byte	.LFE4
+ 1192 0028 00000000 		.4byte	.LFB5
+ 1193 002c 48000000 		.4byte	.LFE5
+ 1194 0030 00000000 		.4byte	.LFB6
+ 1195 0034 6C000000 		.4byte	.LFE6
+ 1196 0038 00000000 		.4byte	.LFB7
+ 1197 003c 3C000000 		.4byte	.LFE7
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 22
+
+
+ 1198 0040 00000000 		.4byte	.LFB8
+ 1199 0044 70000000 		.4byte	.LFE8
+ 1200 0048 00000000 		.4byte	0
+ 1201 004c 00000000 		.4byte	0
+ 1202              		.section	.debug_line,"",%progbits
+ 1203              	.Ldebug_line0:
+ 1204 0000 D3020000 		.section	.debug_str,"MS",%progbits,1
+ 1204      02000402 
+ 1204      00000201 
+ 1204      FB0E0D00 
+ 1204      01010101 
+ 1205              	.LASF5:
+ 1206 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1206      6E74385F 
+ 1206      7400
+ 1207              	.LASF13:
+ 1208 000a 73697A65 		.ascii	"size_t\000"
+ 1208      5F7400
+ 1209              	.LASF32:
+ 1210 0011 666C6173 		.ascii	"flash_write_byte\000"
+ 1210      685F7772 
+ 1210      6974655F 
+ 1210      62797465 
+ 1210      00
+ 1211              	.LASF30:
+ 1212 0022 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/src/flash/flash.c\000"
+ 1212      69622F65 
+ 1212      2D707563 
+ 1212      6B325F6D 
+ 1212      61696E2D 
+ 1213              	.LASF17:
+ 1214 0052 73656374 		.ascii	"sector\000"
+ 1214      6F7200
+ 1215              	.LASF16:
+ 1216 0059 666C6173 		.ascii	"flash_sector_erase\000"
+ 1216      685F7365 
+ 1216      63746F72 
+ 1216      5F657261 
+ 1216      736500
+ 1217              	.LASF27:
+ 1218 006c 666C6173 		.ascii	"flash_addr_to_sector\000"
+ 1218      685F6164 
+ 1218      64725F74 
+ 1218      6F5F7365 
+ 1218      63746F72 
+ 1219              	.LASF22:
+ 1220 0081 62797465 		.ascii	"byte\000"
+ 1220      00
+ 1221              	.LASF18:
+ 1222 0086 61646472 		.ascii	"addr\000"
+ 1222      00
+ 1223              	.LASF20:
+ 1224 008b 64617461 		.ascii	"data\000"
+ 1224      00
+ 1225              	.LASF1:
+ 1226 0090 756E7369 		.ascii	"unsigned char\000"
+ 1226      676E6564 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 23
+
+
+ 1226      20636861 
+ 1226      7200
+ 1227              	.LASF7:
+ 1228 009e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1228      20756E73 
+ 1228      69676E65 
+ 1228      6420696E 
+ 1228      7400
+ 1229              	.LASF3:
+ 1230 00b0 73686F72 		.ascii	"short unsigned int\000"
+ 1230      7420756E 
+ 1230      7369676E 
+ 1230      65642069 
+ 1230      6E7400
+ 1231              	.LASF26:
+ 1232 00c3 666C6173 		.ascii	"flash_lock\000"
+ 1232      685F6C6F 
+ 1232      636B00
+ 1233              	.LASF23:
+ 1234 00ce 666C6173 		.ascii	"flash_wait_while_busy\000"
+ 1234      685F7761 
+ 1234      69745F77 
+ 1234      68696C65 
+ 1234      5F627573 
+ 1235              	.LASF19:
+ 1236 00e4 666C6173 		.ascii	"flash_write\000"
+ 1236      685F7772 
+ 1236      69746500 
+ 1237              	.LASF6:
+ 1238 00f0 5F5F7569 		.ascii	"__uint32_t\000"
+ 1238      6E743332 
+ 1238      5F7400
+ 1239              	.LASF24:
+ 1240 00fb 666C6173 		.ascii	"flash_set_parallelism_8x\000"
+ 1240      685F7365 
+ 1240      745F7061 
+ 1240      72616C6C 
+ 1240      656C6973 
+ 1241              	.LASF10:
+ 1242 0114 756E7369 		.ascii	"unsigned int\000"
+ 1242      676E6564 
+ 1242      20696E74 
+ 1242      00
+ 1243              	.LASF9:
+ 1244 0121 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1244      206C6F6E 
+ 1244      6720756E 
+ 1244      7369676E 
+ 1244      65642069 
+ 1245              	.LASF11:
+ 1246 0138 75696E74 		.ascii	"uint8_t\000"
+ 1246      385F7400 
+ 1247              	.LASF8:
+ 1248 0140 6C6F6E67 		.ascii	"long long int\000"
+ 1248      206C6F6E 
+ 1248      6720696E 
+ 1248      7400
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 24
+
+
+ 1249              	.LASF28:
+ 1250 014e 6F666673 		.ascii	"offset\000"
+ 1250      657400
+ 1251              	.LASF2:
+ 1252 0155 73686F72 		.ascii	"short int\000"
+ 1252      7420696E 
+ 1252      7400
+ 1253              	.LASF29:
+ 1254 015f 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 1254      43313120 
+ 1254      372E322E 
+ 1254      31203230 
+ 1254      31373039 
+ 1255 0192 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
+ 1255      20726576 
+ 1255      6973696F 
+ 1255      6E203235 
+ 1255      35323034 
+ 1256 01c5 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 1256      2D6D6670 
+ 1256      753D6670 
+ 1256      76342D73 
+ 1256      702D6431 
+ 1257 01f8 2D676764 		.ascii	"-ggdb -O0 -fomit-frame-pointer -falign-functions=16"
+ 1257      62202D4F 
+ 1257      30202D66 
+ 1257      6F6D6974 
+ 1257      2D667261 
+ 1258 022b 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
+ 1258      6F2D7374 
+ 1258      72696374 
+ 1258      2D616C69 
+ 1258      6173696E 
+ 1259 025e 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
+ 1259      73656374 
+ 1259      696F6E73 
+ 1259      202D6664 
+ 1259      6174612D 
+ 1260 0291 72656369 		.ascii	"recision-constant\000"
+ 1260      73696F6E 
+ 1260      2D636F6E 
+ 1260      7374616E 
+ 1260      7400
+ 1261              	.LASF21:
+ 1262 02a3 666C6173 		.ascii	"flash\000"
+ 1262      6800
+ 1263              	.LASF15:
+ 1264 02a9 666C6173 		.ascii	"flash_sector_erase_number\000"
+ 1264      685F7365 
+ 1264      63746F72 
+ 1264      5F657261 
+ 1264      73655F6E 
+ 1265              	.LASF12:
+ 1266 02c3 75696E74 		.ascii	"uint32_t\000"
+ 1266      33325F74 
+ 1266      00
+ 1267              	.LASF4:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 25
+
+
+ 1268 02cc 6C6F6E67 		.ascii	"long int\000"
+ 1268      20696E74 
+ 1268      00
+ 1269              	.LASF14:
+ 1270 02d5 6C6F6E67 		.ascii	"long double\000"
+ 1270      20646F75 
+ 1270      626C6500 
+ 1271              	.LASF0:
+ 1272 02e1 7369676E 		.ascii	"signed char\000"
+ 1272      65642063 
+ 1272      68617200 
+ 1273              	.LASF31:
+ 1274 02ed 433A5C55 		.ascii	"C:\\Users\\Pchautems\\Documents\\RobotiqueTP\\Proje"
+ 1274      73657273 
+ 1274      5C506368 
+ 1274      61757465 
+ 1274      6D735C44 
+ 1275 031b 745C6D69 		.ascii	"t\\miniprojet\000"
+ 1275      6E697072 
+ 1275      6F6A6574 
+ 1275      00
+ 1276              	.LASF25:
+ 1277 0328 666C6173 		.ascii	"flash_unlock\000"
+ 1277      685F756E 
+ 1277      6C6F636B 
+ 1277      00
+ 1278              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 flash.c
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:18     .text.flash_addr_to_sector:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:26     .text.flash_addr_to_sector:00000000 flash_addr_to_sector
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:106    .text.flash_addr_to_sector:00000078 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:111    .text.flash_lock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:119    .text.flash_lock:00000000 flash_lock
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:156    .text.flash_lock:0000002c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:162    .text.flash_unlock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:170    .text.flash_unlock:00000000 flash_unlock
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:215    .text.flash_unlock:00000038 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:224    .text.flash_set_parallelism_8x:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:231    .text.flash_set_parallelism_8x:00000000 flash_set_parallelism_8x
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:268    .text.flash_set_parallelism_8x:0000002c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:274    .text.flash_wait_while_busy:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:281    .text.flash_wait_while_busy:00000000 flash_wait_while_busy
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:321    .text.flash_wait_while_busy:00000030 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:327    .text.flash_write_byte:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:334    .text.flash_write_byte:00000000 flash_write_byte
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:380    .text.flash_write_byte:00000040 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:386    .text.flash_write:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:394    .text.flash_write:00000000 flash_write
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:465    .text.flash_write:00000064 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:471    .text.flash_sector_erase:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:479    .text.flash_sector_erase:00000000 flash_sector_erase
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:534    .text.flash_sector_erase_number:00000000 flash_sector_erase_number
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:521    .text.flash_sector_erase:00000038 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:526    .text.flash_sector_erase_number:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc74Zv6x.s:600    .text.flash_sector_erase_number:00000068 $d
+
+UNDEFINED SYMBOLS
+__stack_chk_fail
+__stack_chk_guard

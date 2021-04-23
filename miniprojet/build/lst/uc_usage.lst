@@ -1,0 +1,3372 @@
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"uc_usage.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.chprintf,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 4,,15
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  24              		.type	chprintf, %function
+  25              	chprintf:
+  26              	.LFB219:
+  27              		.file 1 "../lib/e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h"
+  28              		.loc 1 69 0
+  29              		.cfi_startproc
+  30              		@ args = 4, pretend = 12, frame = 24
+  31              		@ frame_needed = 0, uses_anonymous_args = 1
+  32 0000 0EB4     		push	{r1, r2, r3}
+  33              		.cfi_def_cfa_offset 12
+  34              		.cfi_offset 1, -12
+  35              		.cfi_offset 2, -8
+  36              		.cfi_offset 3, -4
+  37 0002 00B5     		push	{lr}
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 14, -16
+  40 0004 86B0     		sub	sp, sp, #24
+  41              		.cfi_def_cfa_offset 40
+  42 0006 0190     		str	r0, [sp, #4]
+  43 0008 079B     		ldr	r3, [sp, #28]
+  44 000a 0093     		str	r3, [sp]
+  45              		.loc 1 69 0
+  46 000c 0C4B     		ldr	r3, .L4
+  47 000e 1B68     		ldr	r3, [r3]
+  48 0010 0593     		str	r3, [sp, #20]
+  49              		.loc 1 73 0
+  50 0012 08AB     		add	r3, sp, #32
+  51 0014 0393     		str	r3, [sp, #12]
+  52              		.loc 1 74 0
+  53 0016 039A     		ldr	r2, [sp, #12]
+  54 0018 0099     		ldr	r1, [sp]
+  55 001a 0198     		ldr	r0, [sp, #4]
+  56 001c FFF7FEFF 		bl	chvprintf
+  57 0020 0490     		str	r0, [sp, #16]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 2
+
+
+  58              		.loc 1 77 0
+  59 0022 049B     		ldr	r3, [sp, #16]
+  60              		.loc 1 78 0
+  61 0024 1846     		mov	r0, r3
+  62 0026 064B     		ldr	r3, .L4
+  63 0028 059A     		ldr	r2, [sp, #20]
+  64 002a 1B68     		ldr	r3, [r3]
+  65 002c 9A42     		cmp	r2, r3
+  66 002e 01D0     		beq	.L3
+  67 0030 FFF7FEFF 		bl	__stack_chk_fail
+  68              	.L3:
+  69 0034 06B0     		add	sp, sp, #24
+  70              		.cfi_def_cfa_offset 16
+  71              		@ sp needed
+  72 0036 5DF804EB 		ldr	lr, [sp], #4
+  73              		.cfi_restore 14
+  74              		.cfi_def_cfa_offset 12
+  75 003a 03B0     		add	sp, sp, #12
+  76              		.cfi_restore 3
+  77              		.cfi_restore 2
+  78              		.cfi_restore 1
+  79              		.cfi_def_cfa_offset 0
+  80 003c 7047     		bx	lr
+  81              	.L5:
+  82 003e 00BF     		.align	2
+  83              	.L4:
+  84 0040 00000000 		.word	__stack_chk_guard
+  85              		.cfi_endproc
+  86              	.LFE219:
+  87              		.size	chprintf, .-chprintf
+  88              		.global	__aeabi_uldivmod
+  89              		.section	.rodata
+  90              		.align	2
+  91              	.LC0:
+  92 0000 25313273 		.ascii	"%12s %u.%u%%\015\012\000"
+  92      2025752E 
+  92      25752525 
+  92      0D0A00
+  93 000f 00       		.align	2
+  94              	.LC1:
+  95 0010 63726974 		.ascii	"critical thd:%u.%u%%   critical isr:%u.%u%%\015\012"
+  95      6963616C 
+  95      20746864 
+  95      3A25752E 
+  95      25752525 
+  96 003d 00       		.ascii	"\000"
+  97 003e 0000     		.align	2
+  98              	.LC2:
+  99 0040 0D0A00   		.ascii	"\015\012\000"
+ 100              		.section	.text.printUcUsage,"ax",%progbits
+ 101              		.align	1
+ 102              		.p2align 4,,15
+ 103              		.global	printUcUsage
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 3
+
+
+ 108              		.type	printUcUsage, %function
+ 109              	printUcUsage:
+ 110              	.LFB220:
+ 111              		.file 2 "../lib/e-puck2_main-processor/src/uc_usage.c"
+ 112              		.loc 2 13 0
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 16
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116 0000 70B5     		push	{r4, r5, r6, lr}
+ 117              		.cfi_def_cfa_offset 16
+ 118              		.cfi_offset 4, -16
+ 119              		.cfi_offset 5, -12
+ 120              		.cfi_offset 6, -8
+ 121              		.cfi_offset 14, -4
+ 122 0002 86B0     		sub	sp, sp, #24
+ 123              		.cfi_def_cfa_offset 40
+ 124 0004 0390     		str	r0, [sp, #12]
+ 125              		.loc 2 13 0
+ 126 0006 B74B     		ldr	r3, .L10
+ 127 0008 1B68     		ldr	r3, [r3]
+ 128 000a 0593     		str	r3, [sp, #20]
+ 129              		.loc 2 19 0
+ 130 000c B64A     		ldr	r2, .L10+4
+ 131 000e 4FF00003 		mov	r3, #0
+ 132 0012 4FF00004 		mov	r4, #0
+ 133 0016 C2E90034 		strd	r3, [r2]
+ 134              		.loc 2 21 0
+ 135 001a FFF7FEFF 		bl	chRegFirstThread
+ 136 001e 0490     		str	r0, [sp, #16]
+ 137              	.L7:
+ 138              		.loc 2 24 0 discriminator 1
+ 139 0020 049B     		ldr	r3, [sp, #16]
+ 140 0022 D3E91812 		ldrd	r1, [r3, #96]
+ 141 0026 B04B     		ldr	r3, .L10+4
+ 142 0028 D3E90056 		ldrd	r5, [r3]
+ 143 002c 6B18     		adds	r3, r5, r1
+ 144 002e 46EB0204 		adc	r4, r6, r2
+ 145 0032 AD4A     		ldr	r2, .L10+4
+ 146 0034 C2E90034 		strd	r3, [r2]
+ 147              		.loc 2 25 0 discriminator 1
+ 148 0038 0498     		ldr	r0, [sp, #16]
+ 149 003a FFF7FEFF 		bl	chRegNextThread
+ 150 003e 0490     		str	r0, [sp, #16]
+ 151              		.loc 2 26 0 discriminator 1
+ 152 0040 049B     		ldr	r3, [sp, #16]
+ 153 0042 002B     		cmp	r3, #0
+ 154 0044 ECD1     		bne	.L7
+ 155              		.loc 2 27 0
+ 156 0046 A94B     		ldr	r3, .L10+8
+ 157 0048 03F59963 		add	r3, r3, #1224
+ 158 004c D3E90012 		ldrd	r1, [r3]
+ 159 0050 A54B     		ldr	r3, .L10+4
+ 160 0052 D3E90056 		ldrd	r5, [r3]
+ 161 0056 6B18     		adds	r3, r5, r1
+ 162 0058 46EB0204 		adc	r4, r6, r2
+ 163 005c A24A     		ldr	r2, .L10+4
+ 164 005e C2E90034 		strd	r3, [r2]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 4
+
+
+ 165              		.loc 2 28 0
+ 166 0062 A24B     		ldr	r3, .L10+8
+ 167 0064 03F59C63 		add	r3, r3, #1248
+ 168 0068 D3E90012 		ldrd	r1, [r3]
+ 169 006c 9E4B     		ldr	r3, .L10+4
+ 170 006e D3E90056 		ldrd	r5, [r3]
+ 171 0072 6B18     		adds	r3, r5, r1
+ 172 0074 46EB0204 		adc	r4, r6, r2
+ 173 0078 9B4A     		ldr	r2, .L10+4
+ 174 007a C2E90034 		strd	r3, [r2]
+ 175              		.loc 2 31 0
+ 176 007e FFF7FEFF 		bl	chRegFirstThread
+ 177 0082 0490     		str	r0, [sp, #16]
+ 178              	.L8:
+ 179              		.loc 2 34 0 discriminator 1
+ 180 0084 049B     		ldr	r3, [sp, #16]
+ 181 0086 D3E91856 		ldrd	r5, [r3, #96]
+ 182 008a 2B46     		mov	r3, r5
+ 183 008c 3446     		mov	r4, r6
+ 184 008e 4FF00001 		mov	r1, #0
+ 185 0092 4FF00002 		mov	r2, #0
+ 186 0096 A200     		lsls	r2, r4, #2
+ 187 0098 42EA9372 		orr	r2, r2, r3, lsr #30
+ 188 009c 9900     		lsls	r1, r3, #2
+ 189 009e 0B46     		mov	r3, r1
+ 190 00a0 1446     		mov	r4, r2
+ 191 00a2 5B19     		adds	r3, r3, r5
+ 192 00a4 44EB0604 		adc	r4, r4, r6
+ 193 00a8 4FF00001 		mov	r1, #0
+ 194 00ac 4FF00002 		mov	r2, #0
+ 195 00b0 E200     		lsls	r2, r4, #3
+ 196 00b2 42EA5372 		orr	r2, r2, r3, lsr #29
+ 197 00b6 D900     		lsls	r1, r3, #3
+ 198 00b8 0B46     		mov	r3, r1
+ 199 00ba 1446     		mov	r4, r2
+ 200 00bc 5B1B     		subs	r3, r3, r5
+ 201 00be 64EB0604 		sbc	r4, r4, r6
+ 202 00c2 4FF00001 		mov	r1, #0
+ 203 00c6 4FF00002 		mov	r2, #0
+ 204 00ca 2201     		lsls	r2, r4, #4
+ 205 00cc 42EA1372 		orr	r2, r2, r3, lsr #28
+ 206 00d0 1901     		lsls	r1, r3, #4
+ 207 00d2 0B46     		mov	r3, r1
+ 208 00d4 1446     		mov	r4, r2
+ 209 00d6 5B19     		adds	r3, r3, r5
+ 210 00d8 44EB0604 		adc	r4, r4, r6
+ 211 00dc 4FF00001 		mov	r1, #0
+ 212 00e0 4FF00002 		mov	r2, #0
+ 213 00e4 2201     		lsls	r2, r4, #4
+ 214 00e6 42EA1372 		orr	r2, r2, r3, lsr #28
+ 215 00ea 1901     		lsls	r1, r3, #4
+ 216 00ec 0B46     		mov	r3, r1
+ 217 00ee 1446     		mov	r4, r2
+ 218 00f0 1846     		mov	r0, r3
+ 219 00f2 2146     		mov	r1, r4
+ 220 00f4 7C4B     		ldr	r3, .L10+4
+ 221 00f6 D3E90034 		ldrd	r3, [r3]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 5
+
+
+ 222 00fa 1A46     		mov	r2, r3
+ 223 00fc 2346     		mov	r3, r4
+ 224 00fe FFF7FEFF 		bl	__aeabi_uldivmod
+ 225              	.LVL0:
+ 226 0102 0346     		mov	r3, r0
+ 227 0104 0C46     		mov	r4, r1
+ 228 0106 9AB2     		uxth	r2, r3
+ 229 0108 794B     		ldr	r3, .L10+12
+ 230 010a 1A80     		strh	r2, [r3]	@ movhi
+ 231              		.loc 2 35 0 discriminator 1
+ 232 010c 049B     		ldr	r3, [sp, #16]
+ 233 010e 9869     		ldr	r0, [r3, #24]
+ 234 0110 774B     		ldr	r3, .L10+12
+ 235 0112 1B88     		ldrh	r3, [r3]
+ 236 0114 774A     		ldr	r2, .L10+16
+ 237 0116 A2FB0323 		umull	r2, r3, r2, r3
+ 238 011a 5B09     		lsrs	r3, r3, #5
+ 239 011c 9BB2     		uxth	r3, r3
+ 240 011e 1C46     		mov	r4, r3
+ 241 0120 734B     		ldr	r3, .L10+12
+ 242 0122 1B88     		ldrh	r3, [r3]
+ 243 0124 734A     		ldr	r2, .L10+16
+ 244 0126 A2FB0312 		umull	r1, r2, r2, r3
+ 245 012a 5209     		lsrs	r2, r2, #5
+ 246 012c 6421     		movs	r1, #100
+ 247 012e 01FB02F2 		mul	r2, r1, r2
+ 248 0132 9B1A     		subs	r3, r3, r2
+ 249 0134 9BB2     		uxth	r3, r3
+ 250 0136 0093     		str	r3, [sp]
+ 251 0138 2346     		mov	r3, r4
+ 252 013a 0246     		mov	r2, r0
+ 253 013c 6E49     		ldr	r1, .L10+20
+ 254 013e 0398     		ldr	r0, [sp, #12]
+ 255 0140 FFF7FEFF 		bl	chprintf
+ 256              		.loc 2 36 0 discriminator 1
+ 257 0144 0498     		ldr	r0, [sp, #16]
+ 258 0146 FFF7FEFF 		bl	chRegNextThread
+ 259 014a 0490     		str	r0, [sp, #16]
+ 260              		.loc 2 37 0 discriminator 1
+ 261 014c 049B     		ldr	r3, [sp, #16]
+ 262 014e 002B     		cmp	r3, #0
+ 263 0150 98D1     		bne	.L8
+ 264              		.loc 2 39 0
+ 265 0152 664B     		ldr	r3, .L10+8
+ 266 0154 03F59963 		add	r3, r3, #1224
+ 267 0158 D3E90056 		ldrd	r5, [r3]
+ 268 015c 2B46     		mov	r3, r5
+ 269 015e 3446     		mov	r4, r6
+ 270 0160 4FF00001 		mov	r1, #0
+ 271 0164 4FF00002 		mov	r2, #0
+ 272 0168 A200     		lsls	r2, r4, #2
+ 273 016a 42EA9372 		orr	r2, r2, r3, lsr #30
+ 274 016e 9900     		lsls	r1, r3, #2
+ 275 0170 0B46     		mov	r3, r1
+ 276 0172 1446     		mov	r4, r2
+ 277 0174 5B19     		adds	r3, r3, r5
+ 278 0176 44EB0604 		adc	r4, r4, r6
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 6
+
+
+ 279 017a 4FF00001 		mov	r1, #0
+ 280 017e 4FF00002 		mov	r2, #0
+ 281 0182 E200     		lsls	r2, r4, #3
+ 282 0184 42EA5372 		orr	r2, r2, r3, lsr #29
+ 283 0188 D900     		lsls	r1, r3, #3
+ 284 018a 0B46     		mov	r3, r1
+ 285 018c 1446     		mov	r4, r2
+ 286 018e 5B1B     		subs	r3, r3, r5
+ 287 0190 64EB0604 		sbc	r4, r4, r6
+ 288 0194 4FF00001 		mov	r1, #0
+ 289 0198 4FF00002 		mov	r2, #0
+ 290 019c 2201     		lsls	r2, r4, #4
+ 291 019e 42EA1372 		orr	r2, r2, r3, lsr #28
+ 292 01a2 1901     		lsls	r1, r3, #4
+ 293 01a4 0B46     		mov	r3, r1
+ 294 01a6 1446     		mov	r4, r2
+ 295 01a8 5B19     		adds	r3, r3, r5
+ 296 01aa 44EB0604 		adc	r4, r4, r6
+ 297 01ae 4FF00001 		mov	r1, #0
+ 298 01b2 4FF00002 		mov	r2, #0
+ 299 01b6 2201     		lsls	r2, r4, #4
+ 300 01b8 42EA1372 		orr	r2, r2, r3, lsr #28
+ 301 01bc 1901     		lsls	r1, r3, #4
+ 302 01be 0B46     		mov	r3, r1
+ 303 01c0 1446     		mov	r4, r2
+ 304 01c2 1846     		mov	r0, r3
+ 305 01c4 2146     		mov	r1, r4
+ 306 01c6 484B     		ldr	r3, .L10+4
+ 307 01c8 D3E90034 		ldrd	r3, [r3]
+ 308 01cc 1A46     		mov	r2, r3
+ 309 01ce 2346     		mov	r3, r4
+ 310 01d0 FFF7FEFF 		bl	__aeabi_uldivmod
+ 311              	.LVL1:
+ 312 01d4 0346     		mov	r3, r0
+ 313 01d6 0C46     		mov	r4, r1
+ 314 01d8 9AB2     		uxth	r2, r3
+ 315 01da 454B     		ldr	r3, .L10+12
+ 316 01dc 1A80     		strh	r2, [r3]	@ movhi
+ 317              		.loc 2 40 0
+ 318 01de 434B     		ldr	r3, .L10+8
+ 319 01e0 03F59C63 		add	r3, r3, #1248
+ 320 01e4 D3E90056 		ldrd	r5, [r3]
+ 321 01e8 2B46     		mov	r3, r5
+ 322 01ea 3446     		mov	r4, r6
+ 323 01ec 4FF00001 		mov	r1, #0
+ 324 01f0 4FF00002 		mov	r2, #0
+ 325 01f4 A200     		lsls	r2, r4, #2
+ 326 01f6 42EA9372 		orr	r2, r2, r3, lsr #30
+ 327 01fa 9900     		lsls	r1, r3, #2
+ 328 01fc 0B46     		mov	r3, r1
+ 329 01fe 1446     		mov	r4, r2
+ 330 0200 5B19     		adds	r3, r3, r5
+ 331 0202 44EB0604 		adc	r4, r4, r6
+ 332 0206 4FF00001 		mov	r1, #0
+ 333 020a 4FF00002 		mov	r2, #0
+ 334 020e E200     		lsls	r2, r4, #3
+ 335 0210 42EA5372 		orr	r2, r2, r3, lsr #29
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 7
+
+
+ 336 0214 D900     		lsls	r1, r3, #3
+ 337 0216 0B46     		mov	r3, r1
+ 338 0218 1446     		mov	r4, r2
+ 339 021a 5B1B     		subs	r3, r3, r5
+ 340 021c 64EB0604 		sbc	r4, r4, r6
+ 341 0220 4FF00001 		mov	r1, #0
+ 342 0224 4FF00002 		mov	r2, #0
+ 343 0228 2201     		lsls	r2, r4, #4
+ 344 022a 42EA1372 		orr	r2, r2, r3, lsr #28
+ 345 022e 1901     		lsls	r1, r3, #4
+ 346 0230 0B46     		mov	r3, r1
+ 347 0232 1446     		mov	r4, r2
+ 348 0234 5B19     		adds	r3, r3, r5
+ 349 0236 44EB0604 		adc	r4, r4, r6
+ 350 023a 4FF00001 		mov	r1, #0
+ 351 023e 4FF00002 		mov	r2, #0
+ 352 0242 2201     		lsls	r2, r4, #4
+ 353 0244 42EA1372 		orr	r2, r2, r3, lsr #28
+ 354 0248 1901     		lsls	r1, r3, #4
+ 355 024a 0B46     		mov	r3, r1
+ 356 024c 1446     		mov	r4, r2
+ 357 024e 1846     		mov	r0, r3
+ 358 0250 2146     		mov	r1, r4
+ 359 0252 254B     		ldr	r3, .L10+4
+ 360 0254 D3E90034 		ldrd	r3, [r3]
+ 361 0258 1A46     		mov	r2, r3
+ 362 025a 2346     		mov	r3, r4
+ 363 025c FFF7FEFF 		bl	__aeabi_uldivmod
+ 364              	.LVL2:
+ 365 0260 0346     		mov	r3, r0
+ 366 0262 0C46     		mov	r4, r1
+ 367 0264 9AB2     		uxth	r2, r3
+ 368 0266 254B     		ldr	r3, .L10+24
+ 369 0268 1A80     		strh	r2, [r3]	@ movhi
+ 370              		.loc 2 42 0
+ 371 026a 214B     		ldr	r3, .L10+12
+ 372 026c 1B88     		ldrh	r3, [r3]
+ 373 026e 214A     		ldr	r2, .L10+16
+ 374 0270 A2FB0323 		umull	r2, r3, r2, r3
+ 375 0274 5B09     		lsrs	r3, r3, #5
+ 376 0276 9BB2     		uxth	r3, r3
+ 377 0278 1C46     		mov	r4, r3
+ 378 027a 1D4B     		ldr	r3, .L10+12
+ 379 027c 1B88     		ldrh	r3, [r3]
+ 380 027e 1D4A     		ldr	r2, .L10+16
+ 381 0280 A2FB0312 		umull	r1, r2, r2, r3
+ 382 0284 5209     		lsrs	r2, r2, #5
+ 383 0286 6421     		movs	r1, #100
+ 384 0288 01FB02F2 		mul	r2, r1, r2
+ 385 028c 9B1A     		subs	r3, r3, r2
+ 386 028e 9BB2     		uxth	r3, r3
+ 387 0290 1D46     		mov	r5, r3
+ 388 0292 1A4B     		ldr	r3, .L10+24
+ 389 0294 1B88     		ldrh	r3, [r3]
+ 390 0296 174A     		ldr	r2, .L10+16
+ 391 0298 A2FB0323 		umull	r2, r3, r2, r3
+ 392 029c 5B09     		lsrs	r3, r3, #5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 8
+
+
+ 393 029e 9BB2     		uxth	r3, r3
+ 394 02a0 1846     		mov	r0, r3
+ 395 02a2 164B     		ldr	r3, .L10+24
+ 396 02a4 1B88     		ldrh	r3, [r3]
+ 397 02a6 134A     		ldr	r2, .L10+16
+ 398 02a8 A2FB0312 		umull	r1, r2, r2, r3
+ 399 02ac 5209     		lsrs	r2, r2, #5
+ 400 02ae 6421     		movs	r1, #100
+ 401 02b0 01FB02F2 		mul	r2, r1, r2
+ 402 02b4 9B1A     		subs	r3, r3, r2
+ 403 02b6 9BB2     		uxth	r3, r3
+ 404 02b8 0193     		str	r3, [sp, #4]
+ 405 02ba 0090     		str	r0, [sp]
+ 406 02bc 2B46     		mov	r3, r5
+ 407 02be 2246     		mov	r2, r4
+ 408 02c0 0F49     		ldr	r1, .L10+28
+ 409 02c2 0398     		ldr	r0, [sp, #12]
+ 410 02c4 FFF7FEFF 		bl	chprintf
+ 411              		.loc 2 44 0
+ 412 02c8 0E49     		ldr	r1, .L10+32
+ 413 02ca 0398     		ldr	r0, [sp, #12]
+ 414 02cc FFF7FEFF 		bl	chprintf
+ 415              		.loc 2 45 0
+ 416 02d0 00BF     		nop
+ 417 02d2 044B     		ldr	r3, .L10
+ 418 02d4 059A     		ldr	r2, [sp, #20]
+ 419 02d6 1B68     		ldr	r3, [r3]
+ 420 02d8 9A42     		cmp	r2, r3
+ 421 02da 01D0     		beq	.L9
+ 422 02dc FFF7FEFF 		bl	__stack_chk_fail
+ 423              	.L9:
+ 424 02e0 06B0     		add	sp, sp, #24
+ 425              		.cfi_def_cfa_offset 16
+ 426              		@ sp needed
+ 427 02e2 70BD     		pop	{r4, r5, r6, pc}
+ 428              	.L11:
+ 429              		.align	2
+ 430              	.L10:
+ 431 02e4 00000000 		.word	__stack_chk_guard
+ 432 02e8 00000000 		.word	sum.7868
+ 433 02ec 00000000 		.word	ch
+ 434 02f0 00000000 		.word	tmp1.7869
+ 435 02f4 1F85EB51 		.word	1374389535
+ 436 02f8 00000000 		.word	.LC0
+ 437 02fc 00000000 		.word	tmp2.7870
+ 438 0300 10000000 		.word	.LC1
+ 439 0304 40000000 		.word	.LC2
+ 440              		.cfi_endproc
+ 441              	.LFE220:
+ 442              		.size	printUcUsage, .-printUcUsage
+ 443              		.section	.bss.sum.7868,"aw",%nobits
+ 444              		.align	3
+ 445              		.type	sum.7868, %object
+ 446              		.size	sum.7868, 8
+ 447              	sum.7868:
+ 448 0000 00000000 		.space	8
+ 448      00000000 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 9
+
+
+ 449              		.section	.bss.tmp1.7869,"aw",%nobits
+ 450              		.align	1
+ 451              		.type	tmp1.7869, %object
+ 452              		.size	tmp1.7869, 2
+ 453              	tmp1.7869:
+ 454 0000 0000     		.space	2
+ 455              		.section	.bss.tmp2.7870,"aw",%nobits
+ 456              		.align	1
+ 457              		.type	tmp2.7870, %object
+ 458              		.size	tmp2.7870, 2
+ 459              	tmp2.7870:
+ 460 0000 0000     		.space	2
+ 461              		.text
+ 462              	.Letext0:
+ 463              		.file 3 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 464              		.file 4 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 465              		.file 5 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 466              		.file 6 "../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/compilers/GCC/chtypes.h"
+ 467              		.file 7 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chsystypes.h"
+ 468              		.file 8 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chschd.h"
+ 469              		.file 9 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cm4.h"
+ 470              		.file 10 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/ST/system_stm32f4xx.h"
+ 471              		.file 11 "../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/chcore.h"
+ 472              		.file 12 "../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/chcore_v7m.h"
+ 473              		.file 13 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chdebug.h"
+ 474              		.file 14 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chtm.h"
+ 475              		.file 15 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chstats.h"
+ 476              		.file 16 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chsem.h"
+ 477              		.file 17 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chmtx.h"
+ 478              		.file 18 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chregistry.h"
+ 479              		.file 19 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chstreams.h"
+ 480              		.file 20 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-
+ 481              		.file 21 "<built-in>"
+ 482              		.section	.debug_info,"",%progbits
+ 483              	.Ldebug_info0:
+ 484 0000 BF0B0000 		.4byte	0xbbf
+ 485 0004 0400     		.2byte	0x4
+ 486 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 487 000a 04       		.byte	0x4
+ 488 000b 01       		.uleb128 0x1
+ 489 000c 81010000 		.4byte	.LASF168
+ 490 0010 0C       		.byte	0xc
+ 491 0011 7E040000 		.4byte	.LASF169
+ 492 0015 4E060000 		.4byte	.LASF170
+ 493 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 494 001d 00000000 		.4byte	0
+ 495 0021 00000000 		.4byte	.Ldebug_line0
+ 496 0025 02       		.uleb128 0x2
+ 497 0026 04       		.byte	0x4
+ 498 0027 05       		.byte	0x5
+ 499 0028 696E7400 		.ascii	"int\000"
+ 500 002c 03       		.uleb128 0x3
+ 501 002d 22000000 		.4byte	.LASF4
+ 502 0031 03       		.byte	0x3
+ 503 0032 D8       		.byte	0xd8
+ 504 0033 37000000 		.4byte	0x37
+ 505 0037 04       		.uleb128 0x4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 10
+
+
+ 506 0038 04       		.byte	0x4
+ 507 0039 07       		.byte	0x7
+ 508 003a 6C030000 		.4byte	.LASF0
+ 509 003e 04       		.uleb128 0x4
+ 510 003f 08       		.byte	0x8
+ 511 0040 05       		.byte	0x5
+ 512 0041 25010000 		.4byte	.LASF1
+ 513 0045 04       		.uleb128 0x4
+ 514 0046 08       		.byte	0x8
+ 515 0047 04       		.byte	0x4
+ 516 0048 CA040000 		.4byte	.LASF2
+ 517 004c 04       		.uleb128 0x4
+ 518 004d 01       		.byte	0x1
+ 519 004e 06       		.byte	0x6
+ 520 004f 33010000 		.4byte	.LASF3
+ 521 0053 03       		.uleb128 0x3
+ 522 0054 4C000000 		.4byte	.LASF5
+ 523 0058 04       		.byte	0x4
+ 524 0059 2B       		.byte	0x2b
+ 525 005a 5E000000 		.4byte	0x5e
+ 526 005e 04       		.uleb128 0x4
+ 527 005f 01       		.byte	0x1
+ 528 0060 08       		.byte	0x8
+ 529 0061 D6050000 		.4byte	.LASF6
+ 530 0065 04       		.uleb128 0x4
+ 531 0066 02       		.byte	0x2
+ 532 0067 05       		.byte	0x5
+ 533 0068 F6050000 		.4byte	.LASF7
+ 534 006c 03       		.uleb128 0x3
+ 535 006d 36070000 		.4byte	.LASF8
+ 536 0071 04       		.byte	0x4
+ 537 0072 39       		.byte	0x39
+ 538 0073 77000000 		.4byte	0x77
+ 539 0077 04       		.uleb128 0x4
+ 540 0078 02       		.byte	0x2
+ 541 0079 07       		.byte	0x7
+ 542 007a D1030000 		.4byte	.LASF9
+ 543 007e 03       		.uleb128 0x3
+ 544 007f 4C040000 		.4byte	.LASF10
+ 545 0083 04       		.byte	0x4
+ 546 0084 4D       		.byte	0x4d
+ 547 0085 89000000 		.4byte	0x89
+ 548 0089 04       		.uleb128 0x4
+ 549 008a 04       		.byte	0x4
+ 550 008b 05       		.byte	0x5
+ 551 008c 78010000 		.4byte	.LASF11
+ 552 0090 03       		.uleb128 0x3
+ 553 0091 74070000 		.4byte	.LASF12
+ 554 0095 04       		.byte	0x4
+ 555 0096 4F       		.byte	0x4f
+ 556 0097 9B000000 		.4byte	0x9b
+ 557 009b 04       		.uleb128 0x4
+ 558 009c 04       		.byte	0x4
+ 559 009d 07       		.byte	0x7
+ 560 009e 13070000 		.4byte	.LASF13
+ 561 00a2 03       		.uleb128 0x3
+ 562 00a3 6C050000 		.4byte	.LASF14
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 11
+
+
+ 563 00a7 04       		.byte	0x4
+ 564 00a8 69       		.byte	0x69
+ 565 00a9 AD000000 		.4byte	0xad
+ 566 00ad 04       		.uleb128 0x4
+ 567 00ae 08       		.byte	0x8
+ 568 00af 07       		.byte	0x7
+ 569 00b0 92000000 		.4byte	.LASF15
+ 570 00b4 03       		.uleb128 0x3
+ 571 00b5 03080000 		.4byte	.LASF16
+ 572 00b9 05       		.byte	0x5
+ 573 00ba 18       		.byte	0x18
+ 574 00bb 53000000 		.4byte	0x53
+ 575 00bf 05       		.uleb128 0x5
+ 576 00c0 B4000000 		.4byte	0xb4
+ 577 00c4 03       		.uleb128 0x3
+ 578 00c5 81030000 		.4byte	.LASF17
+ 579 00c9 05       		.byte	0x5
+ 580 00ca 24       		.byte	0x24
+ 581 00cb 6C000000 		.4byte	0x6c
+ 582 00cf 03       		.uleb128 0x3
+ 583 00d0 CE050000 		.4byte	.LASF18
+ 584 00d4 05       		.byte	0x5
+ 585 00d5 2C       		.byte	0x2c
+ 586 00d6 7E000000 		.4byte	0x7e
+ 587 00da 06       		.uleb128 0x6
+ 588 00db CF000000 		.4byte	0xcf
+ 589 00df 03       		.uleb128 0x3
+ 590 00e0 B7070000 		.4byte	.LASF19
+ 591 00e4 05       		.byte	0x5
+ 592 00e5 30       		.byte	0x30
+ 593 00e6 90000000 		.4byte	0x90
+ 594 00ea 03       		.uleb128 0x3
+ 595 00eb 36000000 		.4byte	.LASF20
+ 596 00ef 05       		.byte	0x5
+ 597 00f0 3C       		.byte	0x3c
+ 598 00f1 A2000000 		.4byte	0xa2
+ 599 00f5 03       		.uleb128 0x3
+ 600 00f6 AB040000 		.4byte	.LASF21
+ 601 00fa 06       		.byte	0x6
+ 602 00fb 45       		.byte	0x45
+ 603 00fc DF000000 		.4byte	0xdf
+ 604 0100 03       		.uleb128 0x3
+ 605 0101 FE000000 		.4byte	.LASF22
+ 606 0105 06       		.byte	0x6
+ 607 0106 46       		.byte	0x46
+ 608 0107 EA000000 		.4byte	0xea
+ 609 010b 03       		.uleb128 0x3
+ 610 010c 27060000 		.4byte	.LASF23
+ 611 0110 06       		.byte	0x6
+ 612 0111 48       		.byte	0x48
+ 613 0112 B4000000 		.4byte	0xb4
+ 614 0116 03       		.uleb128 0x3
+ 615 0117 C5020000 		.4byte	.LASF24
+ 616 011b 06       		.byte	0x6
+ 617 011c 49       		.byte	0x49
+ 618 011d B4000000 		.4byte	0xb4
+ 619 0121 03       		.uleb128 0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 12
+
+
+ 620 0122 82050000 		.4byte	.LASF25
+ 621 0126 06       		.byte	0x6
+ 622 0127 4A       		.byte	0x4a
+ 623 0128 B4000000 		.4byte	0xb4
+ 624 012c 03       		.uleb128 0x3
+ 625 012d 5E010000 		.4byte	.LASF26
+ 626 0131 06       		.byte	0x6
+ 627 0132 4B       		.byte	0x4b
+ 628 0133 B4000000 		.4byte	0xb4
+ 629 0137 03       		.uleb128 0x3
+ 630 0138 B6050000 		.4byte	.LASF27
+ 631 013c 06       		.byte	0x6
+ 632 013d 4C       		.byte	0x4c
+ 633 013e DF000000 		.4byte	0xdf
+ 634 0142 03       		.uleb128 0x3
+ 635 0143 FD030000 		.4byte	.LASF28
+ 636 0147 06       		.byte	0x6
+ 637 0148 4D       		.byte	0x4d
+ 638 0149 CF000000 		.4byte	0xcf
+ 639 014d 03       		.uleb128 0x3
+ 640 014e 40040000 		.4byte	.LASF29
+ 641 0152 06       		.byte	0x6
+ 642 0153 4F       		.byte	0x4f
+ 643 0154 DF000000 		.4byte	0xdf
+ 644 0158 03       		.uleb128 0x3
+ 645 0159 5B030000 		.4byte	.LASF30
+ 646 015d 06       		.byte	0x6
+ 647 015e 51       		.byte	0x51
+ 648 015f CF000000 		.4byte	0xcf
+ 649 0163 03       		.uleb128 0x3
+ 650 0164 08040000 		.4byte	.LASF31
+ 651 0168 06       		.byte	0x6
+ 652 0169 52       		.byte	0x52
+ 653 016a DF000000 		.4byte	0xdf
+ 654 016e 03       		.uleb128 0x3
+ 655 016f 56070000 		.4byte	.LASF32
+ 656 0173 07       		.byte	0x7
+ 657 0174 33       		.byte	0x33
+ 658 0175 DF000000 		.4byte	0xdf
+ 659 0179 06       		.uleb128 0x6
+ 660 017a 6E010000 		.4byte	0x16e
+ 661 017e 03       		.uleb128 0x3
+ 662 017f 41070000 		.4byte	.LASF33
+ 663 0183 07       		.byte	0x7
+ 664 0184 3F       		.byte	0x3f
+ 665 0185 89010000 		.4byte	0x189
+ 666 0189 07       		.uleb128 0x7
+ 667 018a F3030000 		.4byte	.LASF57
+ 668 018e 68       		.byte	0x68
+ 669 018f 08       		.byte	0x8
+ 670 0190 C2       		.byte	0xc2
+ 671 0191 A7020000 		.4byte	0x2a7
+ 672 0195 08       		.uleb128 0x8
+ 673 0196 20060000 		.4byte	.LASF34
+ 674 019a 08       		.byte	0x8
+ 675 019b C3       		.byte	0xc3
+ 676 019c B2020000 		.4byte	0x2b2
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 13
+
+
+ 677 01a0 00       		.byte	0
+ 678 01a1 08       		.uleb128 0x8
+ 679 01a2 AF050000 		.4byte	.LASF35
+ 680 01a6 08       		.byte	0x8
+ 681 01a7 C5       		.byte	0xc5
+ 682 01a8 B2020000 		.4byte	0x2b2
+ 683 01ac 04       		.byte	0x4
+ 684 01ad 08       		.uleb128 0x8
+ 685 01ae 07010000 		.4byte	.LASF36
+ 686 01b2 08       		.byte	0x8
+ 687 01b3 C7       		.byte	0xc7
+ 688 01b4 37010000 		.4byte	0x137
+ 689 01b8 08       		.byte	0x8
+ 690 01b9 08       		.uleb128 0x8
+ 691 01ba 3A050000 		.4byte	.LASF37
+ 692 01be 08       		.byte	0x8
+ 693 01bf C8       		.byte	0xc8
+ 694 01c0 2B050000 		.4byte	0x52b
+ 695 01c4 0C       		.byte	0xc
+ 696 01c5 08       		.uleb128 0x8
+ 697 01c6 E8020000 		.4byte	.LASF38
+ 698 01ca 08       		.byte	0x8
+ 699 01cb CA       		.byte	0xca
+ 700 01cc B2020000 		.4byte	0x2b2
+ 701 01d0 10       		.byte	0x10
+ 702 01d1 08       		.uleb128 0x8
+ 703 01d2 25050000 		.4byte	.LASF39
+ 704 01d6 08       		.byte	0x8
+ 705 01d7 CB       		.byte	0xcb
+ 706 01d8 B2020000 		.4byte	0x2b2
+ 707 01dc 14       		.byte	0x14
+ 708 01dd 08       		.uleb128 0x8
+ 709 01de BE050000 		.4byte	.LASF40
+ 710 01e2 08       		.byte	0x8
+ 711 01e3 D2       		.byte	0xd2
+ 712 01e4 A1080000 		.4byte	0x8a1
+ 713 01e8 18       		.byte	0x18
+ 714 01e9 08       		.uleb128 0x8
+ 715 01ea 61030000 		.4byte	.LASF41
+ 716 01ee 08       		.byte	0x8
+ 717 01ef D8       		.byte	0xd8
+ 718 01f0 B8080000 		.4byte	0x8b8
+ 719 01f4 1C       		.byte	0x1c
+ 720 01f5 08       		.uleb128 0x8
+ 721 01f6 00060000 		.4byte	.LASF42
+ 722 01fa 08       		.byte	0x8
+ 723 01fb DD       		.byte	0xdd
+ 724 01fc 16010000 		.4byte	0x116
+ 725 0200 20       		.byte	0x20
+ 726 0201 08       		.uleb128 0x8
+ 727 0202 3E060000 		.4byte	.LASF43
+ 728 0206 08       		.byte	0x8
+ 729 0207 E1       		.byte	0xe1
+ 730 0208 0B010000 		.4byte	0x10b
+ 731 020c 21       		.byte	0x21
+ 732 020d 08       		.uleb128 0x8
+ 733 020e E5070000 		.4byte	.LASF44
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 14
+
+
+ 734 0212 08       		.byte	0x8
+ 735 0213 E6       		.byte	0xe6
+ 736 0214 21010000 		.4byte	0x121
+ 737 0218 22       		.byte	0x22
+ 738 0219 08       		.uleb128 0x8
+ 739 021a 08060000 		.4byte	.LASF45
+ 740 021e 08       		.byte	0x8
+ 741 021f EC       		.byte	0xec
+ 742 0220 2C010000 		.4byte	0x12c
+ 743 0224 23       		.byte	0x23
+ 744 0225 08       		.uleb128 0x8
+ 745 0226 9A030000 		.4byte	.LASF46
+ 746 022a 08       		.byte	0x8
+ 747 022b F3       		.byte	0xf3
+ 748 022c 79010000 		.4byte	0x179
+ 749 0230 24       		.byte	0x24
+ 750 0231 09       		.uleb128 0x9
+ 751 0232 705F7500 		.ascii	"p_u\000"
+ 752 0236 08       		.byte	0x8
+ 753 0237 3101     		.2byte	0x131
+ 754 0239 D0070000 		.4byte	0x7d0
+ 755 023d 28       		.byte	0x28
+ 756 023e 0A       		.uleb128 0xa
+ 757 023f 87080000 		.4byte	.LASF47
+ 758 0243 08       		.byte	0x8
+ 759 0244 3601     		.2byte	0x136
+ 760 0246 B8020000 		.4byte	0x2b8
+ 761 024a 2C       		.byte	0x2c
+ 762 024b 0A       		.uleb128 0xa
+ 763 024c B1030000 		.4byte	.LASF48
+ 764 0250 08       		.byte	0x8
+ 765 0251 3C01     		.2byte	0x13c
+ 766 0253 DC020000 		.4byte	0x2dc
+ 767 0257 30       		.byte	0x30
+ 768 0258 0A       		.uleb128 0xa
+ 769 0259 AA070000 		.4byte	.LASF49
+ 770 025d 08       		.byte	0x8
+ 771 025e 4001     		.2byte	0x140
+ 772 0260 42010000 		.4byte	0x142
+ 773 0264 38       		.byte	0x38
+ 774 0265 0A       		.uleb128 0xa
+ 775 0266 C4060000 		.4byte	.LASF50
+ 776 026a 08       		.byte	0x8
+ 777 026b 4601     		.2byte	0x146
+ 778 026d 4D010000 		.4byte	0x14d
+ 779 0271 3C       		.byte	0x3c
+ 780 0272 0A       		.uleb128 0xa
+ 781 0273 EC050000 		.4byte	.LASF51
+ 782 0277 08       		.byte	0x8
+ 783 0278 4D01     		.2byte	0x14d
+ 784 027a 9B080000 		.4byte	0x89b
+ 785 027e 40       		.byte	0x40
+ 786 027f 0A       		.uleb128 0xa
+ 787 0280 60070000 		.4byte	.LASF52
+ 788 0284 08       		.byte	0x8
+ 789 0285 5101     		.2byte	0x151
+ 790 0287 37010000 		.4byte	0x137
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 15
+
+
+ 791 028b 44       		.byte	0x44
+ 792 028c 0A       		.uleb128 0xa
+ 793 028d 4F010000 		.4byte	.LASF53
+ 794 0291 08       		.byte	0x8
+ 795 0292 5801     		.2byte	0x158
+ 796 0294 8F030000 		.4byte	0x38f
+ 797 0298 48       		.byte	0x48
+ 798 0299 0A       		.uleb128 0xa
+ 799 029a 46060000 		.4byte	.LASF54
+ 800 029e 08       		.byte	0x8
+ 801 029f 5E01     		.2byte	0x15e
+ 802 02a1 81070000 		.4byte	0x781
+ 803 02a5 50       		.byte	0x50
+ 804 02a6 00       		.byte	0
+ 805 02a7 03       		.uleb128 0x3
+ 806 02a8 0B080000 		.4byte	.LASF55
+ 807 02ac 07       		.byte	0x7
+ 808 02ad 44       		.byte	0x44
+ 809 02ae B2020000 		.4byte	0x2b2
+ 810 02b2 0B       		.uleb128 0xb
+ 811 02b3 04       		.byte	0x4
+ 812 02b4 7E010000 		.4byte	0x17e
+ 813 02b8 03       		.uleb128 0x3
+ 814 02b9 61040000 		.4byte	.LASF56
+ 815 02bd 07       		.byte	0x7
+ 816 02be 49       		.byte	0x49
+ 817 02bf C3020000 		.4byte	0x2c3
+ 818 02c3 07       		.uleb128 0x7
+ 819 02c4 FB060000 		.4byte	.LASF58
+ 820 02c8 04       		.byte	0x4
+ 821 02c9 08       		.byte	0x8
+ 822 02ca B0       		.byte	0xb0
+ 823 02cb DC020000 		.4byte	0x2dc
+ 824 02cf 08       		.uleb128 0x8
+ 825 02d0 20060000 		.4byte	.LASF34
+ 826 02d4 08       		.byte	0x8
+ 827 02d5 B1       		.byte	0xb1
+ 828 02d6 B2020000 		.4byte	0x2b2
+ 829 02da 00       		.byte	0
+ 830 02db 00       		.byte	0
+ 831 02dc 03       		.uleb128 0x3
+ 832 02dd 89060000 		.4byte	.LASF59
+ 833 02e1 07       		.byte	0x7
+ 834 02e2 50       		.byte	0x50
+ 835 02e3 E7020000 		.4byte	0x2e7
+ 836 02e7 07       		.uleb128 0x7
+ 837 02e8 C0070000 		.4byte	.LASF60
+ 838 02ec 08       		.byte	0x8
+ 839 02ed 08       		.byte	0x8
+ 840 02ee B7       		.byte	0xb7
+ 841 02ef 0C030000 		.4byte	0x30c
+ 842 02f3 08       		.uleb128 0x8
+ 843 02f4 20060000 		.4byte	.LASF34
+ 844 02f8 08       		.byte	0x8
+ 845 02f9 B8       		.byte	0xb8
+ 846 02fa B2020000 		.4byte	0x2b2
+ 847 02fe 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 16
+
+
+ 848 02ff 08       		.uleb128 0x8
+ 849 0300 AF050000 		.4byte	.LASF35
+ 850 0304 08       		.byte	0x8
+ 851 0305 B9       		.byte	0xb9
+ 852 0306 B2020000 		.4byte	0x2b2
+ 853 030a 04       		.byte	0x4
+ 854 030b 00       		.byte	0
+ 855 030c 03       		.uleb128 0x3
+ 856 030d 0D000000 		.4byte	.LASF61
+ 857 0311 07       		.byte	0x7
+ 858 0312 57       		.byte	0x57
+ 859 0313 17030000 		.4byte	0x317
+ 860 0317 0C       		.uleb128 0xc
+ 861 0318 32040000 		.4byte	.LASF62
+ 862 031c 1C       		.byte	0x1c
+ 863 031d 08       		.byte	0x8
+ 864 031e 9001     		.2byte	0x190
+ 865 0320 73030000 		.4byte	0x373
+ 866 0324 0A       		.uleb128 0xa
+ 867 0325 F3060000 		.4byte	.LASF63
+ 868 0329 08       		.byte	0x8
+ 869 032a 9101     		.2byte	0x191
+ 870 032c DC020000 		.4byte	0x2dc
+ 871 0330 00       		.byte	0
+ 872 0331 0A       		.uleb128 0xa
+ 873 0332 12060000 		.4byte	.LASF64
+ 874 0336 08       		.byte	0x8
+ 875 0337 9201     		.2byte	0x192
+ 876 0339 37010000 		.4byte	0x137
+ 877 033d 08       		.byte	0x8
+ 878 033e 0A       		.uleb128 0xa
+ 879 033f 34050000 		.4byte	.LASF65
+ 880 0343 08       		.byte	0x8
+ 881 0344 9401     		.2byte	0x194
+ 882 0346 2B050000 		.4byte	0x52b
+ 883 034a 0C       		.byte	0xc
+ 884 034b 0A       		.uleb128 0xa
+ 885 034c 00030000 		.4byte	.LASF66
+ 886 0350 08       		.byte	0x8
+ 887 0351 9701     		.2byte	0x197
+ 888 0353 B2020000 		.4byte	0x2b2
+ 889 0357 10       		.byte	0x10
+ 890 0358 0A       		.uleb128 0xa
+ 891 0359 64050000 		.4byte	.LASF67
+ 892 035d 08       		.byte	0x8
+ 893 035e 9801     		.2byte	0x198
+ 894 0360 B2020000 		.4byte	0x2b2
+ 895 0364 14       		.byte	0x14
+ 896 0365 0A       		.uleb128 0xa
+ 897 0366 5A050000 		.4byte	.LASF68
+ 898 036a 08       		.byte	0x8
+ 899 036b 9B01     		.2byte	0x19b
+ 900 036d B2020000 		.4byte	0x2b2
+ 901 0371 18       		.byte	0x18
+ 902 0372 00       		.byte	0
+ 903 0373 03       		.uleb128 0x3
+ 904 0374 6B070000 		.4byte	.LASF69
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 17
+
+
+ 905 0378 07       		.byte	0x7
+ 906 0379 5C       		.byte	0x5c
+ 907 037a 7E030000 		.4byte	0x37e
+ 908 037e 0B       		.uleb128 0xb
+ 909 037f 04       		.byte	0x4
+ 910 0380 84030000 		.4byte	0x384
+ 911 0384 0D       		.uleb128 0xd
+ 912 0385 8F030000 		.4byte	0x38f
+ 913 0389 0E       		.uleb128 0xe
+ 914 038a 8F030000 		.4byte	0x38f
+ 915 038e 00       		.byte	0
+ 916 038f 0F       		.uleb128 0xf
+ 917 0390 04       		.byte	0x4
+ 918 0391 03       		.uleb128 0x3
+ 919 0392 9F050000 		.4byte	.LASF70
+ 920 0396 07       		.byte	0x7
+ 921 0397 61       		.byte	0x61
+ 922 0398 9C030000 		.4byte	0x39c
+ 923 039c 0C       		.uleb128 0xc
+ 924 039d 99060000 		.4byte	.LASF71
+ 925 03a1 14       		.byte	0x14
+ 926 03a2 08       		.byte	0x8
+ 927 03a3 6B01     		.2byte	0x16b
+ 928 03a5 EB030000 		.4byte	0x3eb
+ 929 03a9 0A       		.uleb128 0xa
+ 930 03aa 79030000 		.4byte	.LASF72
+ 931 03ae 08       		.byte	0x8
+ 932 03af 6C01     		.2byte	0x16c
+ 933 03b1 BE080000 		.4byte	0x8be
+ 934 03b5 00       		.byte	0
+ 935 03b6 0A       		.uleb128 0xa
+ 936 03b7 11030000 		.4byte	.LASF73
+ 937 03bb 08       		.byte	0x8
+ 938 03bc 6D01     		.2byte	0x16d
+ 939 03be BE080000 		.4byte	0x8be
+ 940 03c2 04       		.byte	0x4
+ 941 03c3 0A       		.uleb128 0xa
+ 942 03c4 A8030000 		.4byte	.LASF74
+ 943 03c8 08       		.byte	0x8
+ 944 03c9 6E01     		.2byte	0x16e
+ 945 03cb 6E010000 		.4byte	0x16e
+ 946 03cf 08       		.byte	0x8
+ 947 03d0 0A       		.uleb128 0xa
+ 948 03d1 7F080000 		.4byte	.LASF75
+ 949 03d5 08       		.byte	0x8
+ 950 03d6 6F01     		.2byte	0x16f
+ 951 03d8 73030000 		.4byte	0x373
+ 952 03dc 0C       		.byte	0xc
+ 953 03dd 0A       		.uleb128 0xa
+ 954 03de B0070000 		.4byte	.LASF76
+ 955 03e2 08       		.byte	0x8
+ 956 03e3 7101     		.2byte	0x171
+ 957 03e5 8F030000 		.4byte	0x38f
+ 958 03e9 10       		.byte	0x10
+ 959 03ea 00       		.byte	0
+ 960 03eb 03       		.uleb128 0x3
+ 961 03ec DB000000 		.4byte	.LASF77
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 18
+
+
+ 962 03f0 07       		.byte	0x7
+ 963 03f1 66       		.byte	0x66
+ 964 03f2 F6030000 		.4byte	0x3f6
+ 965 03f6 0C       		.uleb128 0xc
+ 966 03f7 B3040000 		.4byte	.LASF78
+ 967 03fb 10       		.byte	0x10
+ 968 03fc 08       		.byte	0x8
+ 969 03fd 7B01     		.2byte	0x17b
+ 970 03ff 38040000 		.4byte	0x438
+ 971 0403 0A       		.uleb128 0xa
+ 972 0404 79030000 		.4byte	.LASF72
+ 973 0408 08       		.byte	0x8
+ 974 0409 7C01     		.2byte	0x17c
+ 975 040b BE080000 		.4byte	0x8be
+ 976 040f 00       		.byte	0
+ 977 0410 0A       		.uleb128 0xa
+ 978 0411 11030000 		.4byte	.LASF73
+ 979 0415 08       		.byte	0x8
+ 980 0416 7E01     		.2byte	0x17e
+ 981 0418 BE080000 		.4byte	0x8be
+ 982 041c 04       		.byte	0x4
+ 983 041d 0A       		.uleb128 0xa
+ 984 041e A8030000 		.4byte	.LASF74
+ 985 0422 08       		.byte	0x8
+ 986 0423 8001     		.2byte	0x180
+ 987 0425 6E010000 		.4byte	0x16e
+ 988 0429 08       		.byte	0x8
+ 989 042a 0A       		.uleb128 0xa
+ 990 042b 25080000 		.4byte	.LASF79
+ 991 042f 08       		.byte	0x8
+ 992 0430 8201     		.2byte	0x182
+ 993 0432 79010000 		.4byte	0x179
+ 994 0436 0C       		.byte	0xc
+ 995 0437 00       		.byte	0
+ 996 0438 03       		.uleb128 0x3
+ 997 0439 6A000000 		.4byte	.LASF80
+ 998 043d 07       		.byte	0x7
+ 999 043e 6B       		.byte	0x6b
+ 1000 043f 43040000 		.4byte	0x443
+ 1001 0443 10       		.uleb128 0x10
+ 1002 0444 19030000 		.4byte	.LASF81
+ 1003 0448 1404     		.2byte	0x414
+ 1004 044a 08       		.byte	0x8
+ 1005 044b A201     		.2byte	0x1a2
+ 1006 044d 86040000 		.4byte	0x486
+ 1007 0451 0A       		.uleb128 0xa
+ 1008 0452 7F070000 		.4byte	.LASF82
+ 1009 0456 08       		.byte	0x8
+ 1010 0457 AA01     		.2byte	0x1aa
+ 1011 0459 A7080000 		.4byte	0x8a7
+ 1012 045d 00       		.byte	0
+ 1013 045e 0A       		.uleb128 0xa
+ 1014 045f EC070000 		.4byte	.LASF83
+ 1015 0463 08       		.byte	0x8
+ 1016 0464 AF01     		.2byte	0x1af
+ 1017 0466 58010000 		.4byte	0x158
+ 1018 046a 04       		.byte	0x4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 19
+
+
+ 1019 046b 0A       		.uleb128 0xa
+ 1020 046c 51050000 		.4byte	.LASF84
+ 1021 0470 08       		.byte	0x8
+ 1022 0471 B301     		.2byte	0x1b3
+ 1023 0473 58010000 		.4byte	0x158
+ 1024 0477 08       		.byte	0x8
+ 1025 0478 0A       		.uleb128 0xa
+ 1026 0479 30080000 		.4byte	.LASF85
+ 1027 047d 08       		.byte	0x8
+ 1028 047e B901     		.2byte	0x1b9
+ 1029 0480 13070000 		.4byte	0x713
+ 1030 0484 0C       		.byte	0xc
+ 1031 0485 00       		.byte	0
+ 1032 0486 03       		.uleb128 0x3
+ 1033 0487 0F040000 		.4byte	.LASF86
+ 1034 048b 07       		.byte	0x7
+ 1035 048c 70       		.byte	0x70
+ 1036 048d 91040000 		.4byte	0x491
+ 1037 0491 10       		.uleb128 0x10
+ 1038 0492 6E010000 		.4byte	.LASF87
+ 1039 0496 7006     		.2byte	0x670
+ 1040 0498 08       		.byte	0x8
+ 1041 0499 C201     		.2byte	0x1c2
+ 1042 049b FE040000 		.4byte	0x4fe
+ 1043 049f 0A       		.uleb128 0xa
+ 1044 04a0 FD070000 		.4byte	.LASF88
+ 1045 04a4 08       		.byte	0x8
+ 1046 04a5 C601     		.2byte	0x1c6
+ 1047 04a7 0C030000 		.4byte	0x30c
+ 1048 04ab 00       		.byte	0
+ 1049 04ac 0A       		.uleb128 0xa
+ 1050 04ad 57010000 		.4byte	.LASF89
+ 1051 04b1 08       		.byte	0x8
+ 1052 04b2 CA01     		.2byte	0x1ca
+ 1053 04b4 EB030000 		.4byte	0x3eb
+ 1054 04b8 1C       		.byte	0x1c
+ 1055 04b9 09       		.uleb128 0x9
+ 1056 04ba 64626700 		.ascii	"dbg\000"
+ 1057 04be 08       		.byte	0x8
+ 1058 04bf CE01     		.2byte	0x1ce
+ 1059 04c1 38040000 		.4byte	0x438
+ 1060 04c5 2C       		.byte	0x2c
+ 1061 04c6 11       		.uleb128 0x11
+ 1062 04c7 D0000000 		.4byte	.LASF90
+ 1063 04cb 08       		.byte	0x8
+ 1064 04cc D201     		.2byte	0x1d2
+ 1065 04ce 7E010000 		.4byte	0x17e
+ 1066 04d2 4004     		.2byte	0x440
+ 1067 04d4 12       		.uleb128 0x12
+ 1068 04d5 746D00   		.ascii	"tm\000"
+ 1069 04d8 08       		.byte	0x8
+ 1070 04d9 D701     		.2byte	0x1d7
+ 1071 04db 33070000 		.4byte	0x733
+ 1072 04df A804     		.2byte	0x4a8
+ 1073 04e1 11       		.uleb128 0x11
+ 1074 04e2 3F000000 		.4byte	.LASF91
+ 1075 04e6 08       		.byte	0x8
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 20
+
+
+ 1076 04e7 DD01     		.2byte	0x1dd
+ 1077 04e9 C5070000 		.4byte	0x7c5
+ 1078 04ed B004     		.2byte	0x4b0
+ 1079 04ef 11       		.uleb128 0x11
+ 1080 04f0 4C030000 		.4byte	.LASF92
+ 1081 04f4 08       		.byte	0x8
+ 1082 04f5 E301     		.2byte	0x1e3
+ 1083 04f7 C4080000 		.4byte	0x8c4
+ 1084 04fb E804     		.2byte	0x4e8
+ 1085 04fd 00       		.byte	0
+ 1086 04fe 13       		.uleb128 0x13
+ 1087 04ff F1000000 		.4byte	.LASF93
+ 1088 0503 09       		.byte	0x9
+ 1089 0504 A706     		.2byte	0x6a7
+ 1090 0506 DA000000 		.4byte	0xda
+ 1091 050a 14       		.uleb128 0x14
+ 1092 050b 8A030000 		.4byte	.LASF94
+ 1093 050f 0A       		.byte	0xa
+ 1094 0510 4C       		.byte	0x4c
+ 1095 0511 DF000000 		.4byte	0xdf
+ 1096 0515 03       		.uleb128 0x3
+ 1097 0516 08030000 		.4byte	.LASF95
+ 1098 051a 0B       		.byte	0xb
+ 1099 051b 65       		.byte	0x65
+ 1100 051c 8F030000 		.4byte	0x38f
+ 1101 0520 03       		.uleb128 0x3
+ 1102 0521 56040000 		.4byte	.LASF96
+ 1103 0525 0B       		.byte	0xb
+ 1104 0526 6D       		.byte	0x6d
+ 1105 0527 EA000000 		.4byte	0xea
+ 1106 052b 07       		.uleb128 0x7
+ 1107 052c A2070000 		.4byte	.LASF97
+ 1108 0530 04       		.byte	0x4
+ 1109 0531 0B       		.byte	0xb
+ 1110 0532 89       		.byte	0x89
+ 1111 0533 44050000 		.4byte	0x544
+ 1112 0537 15       		.uleb128 0x15
+ 1113 0538 72313300 		.ascii	"r13\000"
+ 1114 053c 0B       		.byte	0xb
+ 1115 053d 8A       		.byte	0x8a
+ 1116 053e 85060000 		.4byte	0x685
+ 1117 0542 00       		.byte	0
+ 1118 0543 00       		.byte	0
+ 1119 0544 07       		.uleb128 0x7
+ 1120 0545 56000000 		.4byte	.LASF98
+ 1121 0549 64       		.byte	0x64
+ 1122 054a 0C       		.byte	0xc
+ 1123 054b F4       		.byte	0xf4
+ 1124 054c 85060000 		.4byte	0x685
+ 1125 0550 15       		.uleb128 0x15
+ 1126 0551 73313600 		.ascii	"s16\000"
+ 1127 0555 0C       		.byte	0xc
+ 1128 0556 F6       		.byte	0xf6
+ 1129 0557 15050000 		.4byte	0x515
+ 1130 055b 00       		.byte	0
+ 1131 055c 15       		.uleb128 0x15
+ 1132 055d 73313700 		.ascii	"s17\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 21
+
+
+ 1133 0561 0C       		.byte	0xc
+ 1134 0562 F7       		.byte	0xf7
+ 1135 0563 15050000 		.4byte	0x515
+ 1136 0567 04       		.byte	0x4
+ 1137 0568 15       		.uleb128 0x15
+ 1138 0569 73313800 		.ascii	"s18\000"
+ 1139 056d 0C       		.byte	0xc
+ 1140 056e F8       		.byte	0xf8
+ 1141 056f 15050000 		.4byte	0x515
+ 1142 0573 08       		.byte	0x8
+ 1143 0574 15       		.uleb128 0x15
+ 1144 0575 73313900 		.ascii	"s19\000"
+ 1145 0579 0C       		.byte	0xc
+ 1146 057a F9       		.byte	0xf9
+ 1147 057b 15050000 		.4byte	0x515
+ 1148 057f 0C       		.byte	0xc
+ 1149 0580 15       		.uleb128 0x15
+ 1150 0581 73323000 		.ascii	"s20\000"
+ 1151 0585 0C       		.byte	0xc
+ 1152 0586 FA       		.byte	0xfa
+ 1153 0587 15050000 		.4byte	0x515
+ 1154 058b 10       		.byte	0x10
+ 1155 058c 15       		.uleb128 0x15
+ 1156 058d 73323100 		.ascii	"s21\000"
+ 1157 0591 0C       		.byte	0xc
+ 1158 0592 FB       		.byte	0xfb
+ 1159 0593 15050000 		.4byte	0x515
+ 1160 0597 14       		.byte	0x14
+ 1161 0598 15       		.uleb128 0x15
+ 1162 0599 73323200 		.ascii	"s22\000"
+ 1163 059d 0C       		.byte	0xc
+ 1164 059e FC       		.byte	0xfc
+ 1165 059f 15050000 		.4byte	0x515
+ 1166 05a3 18       		.byte	0x18
+ 1167 05a4 15       		.uleb128 0x15
+ 1168 05a5 73323300 		.ascii	"s23\000"
+ 1169 05a9 0C       		.byte	0xc
+ 1170 05aa FD       		.byte	0xfd
+ 1171 05ab 15050000 		.4byte	0x515
+ 1172 05af 1C       		.byte	0x1c
+ 1173 05b0 15       		.uleb128 0x15
+ 1174 05b1 73323400 		.ascii	"s24\000"
+ 1175 05b5 0C       		.byte	0xc
+ 1176 05b6 FE       		.byte	0xfe
+ 1177 05b7 15050000 		.4byte	0x515
+ 1178 05bb 20       		.byte	0x20
+ 1179 05bc 15       		.uleb128 0x15
+ 1180 05bd 73323500 		.ascii	"s25\000"
+ 1181 05c1 0C       		.byte	0xc
+ 1182 05c2 FF       		.byte	0xff
+ 1183 05c3 15050000 		.4byte	0x515
+ 1184 05c7 24       		.byte	0x24
+ 1185 05c8 09       		.uleb128 0x9
+ 1186 05c9 73323600 		.ascii	"s26\000"
+ 1187 05cd 0C       		.byte	0xc
+ 1188 05ce 0001     		.2byte	0x100
+ 1189 05d0 15050000 		.4byte	0x515
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 22
+
+
+ 1190 05d4 28       		.byte	0x28
+ 1191 05d5 09       		.uleb128 0x9
+ 1192 05d6 73323700 		.ascii	"s27\000"
+ 1193 05da 0C       		.byte	0xc
+ 1194 05db 0101     		.2byte	0x101
+ 1195 05dd 15050000 		.4byte	0x515
+ 1196 05e1 2C       		.byte	0x2c
+ 1197 05e2 09       		.uleb128 0x9
+ 1198 05e3 73323800 		.ascii	"s28\000"
+ 1199 05e7 0C       		.byte	0xc
+ 1200 05e8 0201     		.2byte	0x102
+ 1201 05ea 15050000 		.4byte	0x515
+ 1202 05ee 30       		.byte	0x30
+ 1203 05ef 09       		.uleb128 0x9
+ 1204 05f0 73323900 		.ascii	"s29\000"
+ 1205 05f4 0C       		.byte	0xc
+ 1206 05f5 0301     		.2byte	0x103
+ 1207 05f7 15050000 		.4byte	0x515
+ 1208 05fb 34       		.byte	0x34
+ 1209 05fc 09       		.uleb128 0x9
+ 1210 05fd 73333000 		.ascii	"s30\000"
+ 1211 0601 0C       		.byte	0xc
+ 1212 0602 0401     		.2byte	0x104
+ 1213 0604 15050000 		.4byte	0x515
+ 1214 0608 38       		.byte	0x38
+ 1215 0609 09       		.uleb128 0x9
+ 1216 060a 73333100 		.ascii	"s31\000"
+ 1217 060e 0C       		.byte	0xc
+ 1218 060f 0501     		.2byte	0x105
+ 1219 0611 15050000 		.4byte	0x515
+ 1220 0615 3C       		.byte	0x3c
+ 1221 0616 09       		.uleb128 0x9
+ 1222 0617 723400   		.ascii	"r4\000"
+ 1223 061a 0C       		.byte	0xc
+ 1224 061b 0701     		.2byte	0x107
+ 1225 061d 15050000 		.4byte	0x515
+ 1226 0621 40       		.byte	0x40
+ 1227 0622 09       		.uleb128 0x9
+ 1228 0623 723500   		.ascii	"r5\000"
+ 1229 0626 0C       		.byte	0xc
+ 1230 0627 0801     		.2byte	0x108
+ 1231 0629 15050000 		.4byte	0x515
+ 1232 062d 44       		.byte	0x44
+ 1233 062e 09       		.uleb128 0x9
+ 1234 062f 723600   		.ascii	"r6\000"
+ 1235 0632 0C       		.byte	0xc
+ 1236 0633 0901     		.2byte	0x109
+ 1237 0635 15050000 		.4byte	0x515
+ 1238 0639 48       		.byte	0x48
+ 1239 063a 09       		.uleb128 0x9
+ 1240 063b 723700   		.ascii	"r7\000"
+ 1241 063e 0C       		.byte	0xc
+ 1242 063f 0A01     		.2byte	0x10a
+ 1243 0641 15050000 		.4byte	0x515
+ 1244 0645 4C       		.byte	0x4c
+ 1245 0646 09       		.uleb128 0x9
+ 1246 0647 723800   		.ascii	"r8\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 23
+
+
+ 1247 064a 0C       		.byte	0xc
+ 1248 064b 0B01     		.2byte	0x10b
+ 1249 064d 15050000 		.4byte	0x515
+ 1250 0651 50       		.byte	0x50
+ 1251 0652 09       		.uleb128 0x9
+ 1252 0653 723900   		.ascii	"r9\000"
+ 1253 0656 0C       		.byte	0xc
+ 1254 0657 0C01     		.2byte	0x10c
+ 1255 0659 15050000 		.4byte	0x515
+ 1256 065d 54       		.byte	0x54
+ 1257 065e 09       		.uleb128 0x9
+ 1258 065f 72313000 		.ascii	"r10\000"
+ 1259 0663 0C       		.byte	0xc
+ 1260 0664 0D01     		.2byte	0x10d
+ 1261 0666 15050000 		.4byte	0x515
+ 1262 066a 58       		.byte	0x58
+ 1263 066b 09       		.uleb128 0x9
+ 1264 066c 72313100 		.ascii	"r11\000"
+ 1265 0670 0C       		.byte	0xc
+ 1266 0671 0E01     		.2byte	0x10e
+ 1267 0673 15050000 		.4byte	0x515
+ 1268 0677 5C       		.byte	0x5c
+ 1269 0678 09       		.uleb128 0x9
+ 1270 0679 6C7200   		.ascii	"lr\000"
+ 1271 067c 0C       		.byte	0xc
+ 1272 067d 0F01     		.2byte	0x10f
+ 1273 067f 15050000 		.4byte	0x515
+ 1274 0683 60       		.byte	0x60
+ 1275 0684 00       		.byte	0
+ 1276 0685 0B       		.uleb128 0xb
+ 1277 0686 04       		.byte	0x4
+ 1278 0687 44050000 		.4byte	0x544
+ 1279 068b 16       		.uleb128 0x16
+ 1280 068c 10       		.byte	0x10
+ 1281 068d 0D       		.byte	0xd
+ 1282 068e 51       		.byte	0x51
+ 1283 068f C4060000 		.4byte	0x6c4
+ 1284 0693 08       		.uleb128 0x8
+ 1285 0694 1A000000 		.4byte	.LASF99
+ 1286 0698 0D       		.byte	0xd
+ 1287 0699 55       		.byte	0x55
+ 1288 069a 6E010000 		.4byte	0x16e
+ 1289 069e 00       		.byte	0
+ 1290 069f 08       		.uleb128 0x8
+ 1291 06a0 D8020000 		.4byte	.LASF100
+ 1292 06a4 0D       		.byte	0xd
+ 1293 06a5 59       		.byte	0x59
+ 1294 06a6 B2020000 		.4byte	0x2b2
+ 1295 06aa 04       		.byte	0x4
+ 1296 06ab 08       		.uleb128 0x8
+ 1297 06ac 67080000 		.4byte	.LASF101
+ 1298 06b0 0D       		.byte	0xd
+ 1299 06b1 5D       		.byte	0x5d
+ 1300 06b2 8F030000 		.4byte	0x38f
+ 1301 06b6 08       		.byte	0x8
+ 1302 06b7 08       		.uleb128 0x8
+ 1303 06b8 F4070000 		.4byte	.LASF102
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 24
+
+
+ 1304 06bc 0D       		.byte	0xd
+ 1305 06bd 61       		.byte	0x61
+ 1306 06be B4000000 		.4byte	0xb4
+ 1307 06c2 0C       		.byte	0xc
+ 1308 06c3 00       		.byte	0
+ 1309 06c4 03       		.uleb128 0x3
+ 1310 06c5 F8040000 		.4byte	.LASF103
+ 1311 06c9 0D       		.byte	0xd
+ 1312 06ca 62       		.byte	0x62
+ 1313 06cb 8B060000 		.4byte	0x68b
+ 1314 06cf 17       		.uleb128 0x17
+ 1315 06d0 0804     		.2byte	0x408
+ 1316 06d2 0D       		.byte	0xd
+ 1317 06d3 67       		.byte	0x67
+ 1318 06d4 FD060000 		.4byte	0x6fd
+ 1319 06d8 08       		.uleb128 0x8
+ 1320 06d9 F8020000 		.4byte	.LASF104
+ 1321 06dd 0D       		.byte	0xd
+ 1322 06de 6B       		.byte	0x6b
+ 1323 06df 37000000 		.4byte	0x37
+ 1324 06e3 00       		.byte	0
+ 1325 06e4 08       		.uleb128 0x8
+ 1326 06e5 E2040000 		.4byte	.LASF105
+ 1327 06e9 0D       		.byte	0xd
+ 1328 06ea 6F       		.byte	0x6f
+ 1329 06eb FD060000 		.4byte	0x6fd
+ 1330 06ef 04       		.byte	0x4
+ 1331 06f0 08       		.uleb128 0x8
+ 1332 06f1 8A050000 		.4byte	.LASF106
+ 1333 06f5 0D       		.byte	0xd
+ 1334 06f6 73       		.byte	0x73
+ 1335 06f7 03070000 		.4byte	0x703
+ 1336 06fb 08       		.byte	0x8
+ 1337 06fc 00       		.byte	0
+ 1338 06fd 0B       		.uleb128 0xb
+ 1339 06fe 04       		.byte	0x4
+ 1340 06ff C4060000 		.4byte	0x6c4
+ 1341 0703 18       		.uleb128 0x18
+ 1342 0704 C4060000 		.4byte	0x6c4
+ 1343 0708 13070000 		.4byte	0x713
+ 1344 070c 19       		.uleb128 0x19
+ 1345 070d 37000000 		.4byte	0x37
+ 1346 0711 3F       		.byte	0x3f
+ 1347 0712 00       		.byte	0
+ 1348 0713 03       		.uleb128 0x3
+ 1349 0714 13050000 		.4byte	.LASF107
+ 1350 0718 0D       		.byte	0xd
+ 1351 0719 74       		.byte	0x74
+ 1352 071a CF060000 		.4byte	0x6cf
+ 1353 071e 16       		.uleb128 0x16
+ 1354 071f 04       		.byte	0x4
+ 1355 0720 0E       		.byte	0xe
+ 1356 0721 38       		.byte	0x38
+ 1357 0722 33070000 		.4byte	0x733
+ 1358 0726 08       		.uleb128 0x8
+ 1359 0727 89070000 		.4byte	.LASF108
+ 1360 072b 0E       		.byte	0xe
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 25
+
+
+ 1361 072c 3C       		.byte	0x3c
+ 1362 072d F5000000 		.4byte	0xf5
+ 1363 0731 00       		.byte	0
+ 1364 0732 00       		.byte	0
+ 1365 0733 03       		.uleb128 0x3
+ 1366 0734 40050000 		.4byte	.LASF109
+ 1367 0738 0E       		.byte	0xe
+ 1368 0739 3D       		.byte	0x3d
+ 1369 073a 1E070000 		.4byte	0x71e
+ 1370 073e 16       		.uleb128 0x16
+ 1371 073f 18       		.byte	0x18
+ 1372 0740 0E       		.byte	0xe
+ 1373 0741 48       		.byte	0x48
+ 1374 0742 81070000 		.4byte	0x781
+ 1375 0746 08       		.uleb128 0x8
+ 1376 0747 4A070000 		.4byte	.LASF110
+ 1377 074b 0E       		.byte	0xe
+ 1378 074c 49       		.byte	0x49
+ 1379 074d F5000000 		.4byte	0xf5
+ 1380 0751 00       		.byte	0
+ 1381 0752 08       		.uleb128 0x8
+ 1382 0753 79000000 		.4byte	.LASF111
+ 1383 0757 0E       		.byte	0xe
+ 1384 0758 4A       		.byte	0x4a
+ 1385 0759 F5000000 		.4byte	0xf5
+ 1386 075d 04       		.byte	0x4
+ 1387 075e 08       		.uleb128 0x8
+ 1388 075f 03040000 		.4byte	.LASF112
+ 1389 0763 0E       		.byte	0xe
+ 1390 0764 4B       		.byte	0x4b
+ 1391 0765 F5000000 		.4byte	0xf5
+ 1392 0769 08       		.byte	0x8
+ 1393 076a 15       		.uleb128 0x15
+ 1394 076b 6E00     		.ascii	"n\000"
+ 1395 076d 0E       		.byte	0xe
+ 1396 076e 4C       		.byte	0x4c
+ 1397 076f 63010000 		.4byte	0x163
+ 1398 0773 0C       		.byte	0xc
+ 1399 0774 08       		.uleb128 0x8
+ 1400 0775 77050000 		.4byte	.LASF113
+ 1401 0779 0E       		.byte	0xe
+ 1402 077a 4D       		.byte	0x4d
+ 1403 077b 00010000 		.4byte	0x100
+ 1404 077f 10       		.byte	0x10
+ 1405 0780 00       		.byte	0
+ 1406 0781 03       		.uleb128 0x3
+ 1407 0782 7F000000 		.4byte	.LASF114
+ 1408 0786 0E       		.byte	0xe
+ 1409 0787 4E       		.byte	0x4e
+ 1410 0788 3E070000 		.4byte	0x73e
+ 1411 078c 16       		.uleb128 0x16
+ 1412 078d 38       		.byte	0x38
+ 1413 078e 0F       		.byte	0xf
+ 1414 078f 38       		.byte	0x38
+ 1415 0790 C5070000 		.4byte	0x7c5
+ 1416 0794 08       		.uleb128 0x8
+ 1417 0795 C5030000 		.4byte	.LASF115
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 26
+
+
+ 1418 0799 0F       		.byte	0xf
+ 1419 079a 39       		.byte	0x39
+ 1420 079b 63010000 		.4byte	0x163
+ 1421 079f 00       		.byte	0
+ 1422 07a0 08       		.uleb128 0x8
+ 1423 07a1 C5050000 		.4byte	.LASF116
+ 1424 07a5 0F       		.byte	0xf
+ 1425 07a6 3A       		.byte	0x3a
+ 1426 07a7 63010000 		.4byte	0x163
+ 1427 07ab 04       		.byte	0x4
+ 1428 07ac 08       		.uleb128 0x8
+ 1429 07ad 54080000 		.4byte	.LASF117
+ 1430 07b1 0F       		.byte	0xf
+ 1431 07b2 3B       		.byte	0x3b
+ 1432 07b3 81070000 		.4byte	0x781
+ 1433 07b7 08       		.byte	0x8
+ 1434 07b8 08       		.uleb128 0x8
+ 1435 07b9 27040000 		.4byte	.LASF118
+ 1436 07bd 0F       		.byte	0xf
+ 1437 07be 3D       		.byte	0x3d
+ 1438 07bf 81070000 		.4byte	0x781
+ 1439 07c3 20       		.byte	0x20
+ 1440 07c4 00       		.byte	0
+ 1441 07c5 03       		.uleb128 0x3
+ 1442 07c6 E4030000 		.4byte	.LASF119
+ 1443 07ca 0F       		.byte	0xf
+ 1444 07cb 3F       		.byte	0x3f
+ 1445 07cc 8C070000 		.4byte	0x78c
+ 1446 07d0 1A       		.uleb128 0x1a
+ 1447 07d1 04       		.byte	0x4
+ 1448 07d2 08       		.byte	0x8
+ 1449 07d3 FA       		.byte	0xfa
+ 1450 07d4 2D080000 		.4byte	0x82d
+ 1451 07d8 1B       		.uleb128 0x1b
+ 1452 07d9 2D050000 		.4byte	.LASF120
+ 1453 07dd 08       		.byte	0x8
+ 1454 07de 0101     		.2byte	0x101
+ 1455 07e0 42010000 		.4byte	0x142
+ 1456 07e4 1B       		.uleb128 0x1b
+ 1457 07e5 C7000000 		.4byte	.LASF121
+ 1458 07e9 08       		.byte	0x8
+ 1459 07ea 0801     		.2byte	0x108
+ 1460 07ec 42010000 		.4byte	0x142
+ 1461 07f0 1B       		.uleb128 0x1b
+ 1462 07f1 1E080000 		.4byte	.LASF122
+ 1463 07f5 08       		.byte	0x8
+ 1464 07f6 0F01     		.2byte	0x10f
+ 1465 07f8 8F030000 		.4byte	0x38f
+ 1466 07fc 1B       		.uleb128 0x1b
+ 1467 07fd 68010000 		.4byte	.LASF123
+ 1468 0801 08       		.byte	0x8
+ 1469 0802 1601     		.2byte	0x116
+ 1470 0804 2D080000 		.4byte	0x82d
+ 1471 0808 1B       		.uleb128 0x1b
+ 1472 0809 A1030000 		.4byte	.LASF124
+ 1473 080d 08       		.byte	0x8
+ 1474 080e 1E01     		.2byte	0x11e
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 27
+
+
+ 1475 0810 58080000 		.4byte	0x858
+ 1476 0814 1B       		.uleb128 0x1b
+ 1477 0815 2F070000 		.4byte	.LASF125
+ 1478 0819 08       		.byte	0x8
+ 1479 081a 2701     		.2byte	0x127
+ 1480 081c 9B080000 		.4byte	0x89b
+ 1481 0820 1B       		.uleb128 0x1b
+ 1482 0821 19060000 		.4byte	.LASF126
+ 1483 0825 08       		.byte	0x8
+ 1484 0826 2F01     		.2byte	0x12f
+ 1485 0828 4D010000 		.4byte	0x14d
+ 1486 082c 00       		.byte	0
+ 1487 082d 0B       		.uleb128 0xb
+ 1488 082e 04       		.byte	0x4
+ 1489 082f A7020000 		.4byte	0x2a7
+ 1490 0833 07       		.uleb128 0x7
+ 1491 0834 B7060000 		.4byte	.LASF127
+ 1492 0838 0C       		.byte	0xc
+ 1493 0839 10       		.byte	0x10
+ 1494 083a 34       		.byte	0x34
+ 1495 083b 58080000 		.4byte	0x858
+ 1496 083f 08       		.uleb128 0x8
+ 1497 0840 F0020000 		.4byte	.LASF128
+ 1498 0844 10       		.byte	0x10
+ 1499 0845 35       		.byte	0x35
+ 1500 0846 DC020000 		.4byte	0x2dc
+ 1501 084a 00       		.byte	0
+ 1502 084b 08       		.uleb128 0x8
+ 1503 084c CB030000 		.4byte	.LASF129
+ 1504 0850 10       		.byte	0x10
+ 1505 0851 37       		.byte	0x37
+ 1506 0852 58010000 		.4byte	0x158
+ 1507 0856 08       		.byte	0x8
+ 1508 0857 00       		.byte	0
+ 1509 0858 0B       		.uleb128 0xb
+ 1510 0859 04       		.byte	0x4
+ 1511 085a 33080000 		.4byte	0x833
+ 1512 085e 07       		.uleb128 0x7
+ 1513 085f DC070000 		.4byte	.LASF130
+ 1514 0863 14       		.byte	0x14
+ 1515 0864 11       		.byte	0x11
+ 1516 0865 39       		.byte	0x39
+ 1517 0866 9B080000 		.4byte	0x89b
+ 1518 086a 08       		.uleb128 0x8
+ 1519 086b E4050000 		.4byte	.LASF131
+ 1520 086f 11       		.byte	0x11
+ 1521 0870 3A       		.byte	0x3a
+ 1522 0871 DC020000 		.4byte	0x2dc
+ 1523 0875 00       		.byte	0
+ 1524 0876 08       		.uleb128 0x8
+ 1525 0877 5F080000 		.4byte	.LASF132
+ 1526 087b 11       		.byte	0x11
+ 1527 087c 3C       		.byte	0x3c
+ 1528 087d B2020000 		.4byte	0x2b2
+ 1529 0881 08       		.byte	0x8
+ 1530 0882 08       		.uleb128 0x8
+ 1531 0883 4F070000 		.4byte	.LASF133
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 28
+
+
+ 1532 0887 11       		.byte	0x11
+ 1533 0888 3E       		.byte	0x3e
+ 1534 0889 F6090000 		.4byte	0x9f6
+ 1535 088d 0C       		.byte	0xc
+ 1536 088e 08       		.uleb128 0x8
+ 1537 088f 29030000 		.4byte	.LASF134
+ 1538 0893 11       		.byte	0x11
+ 1539 0894 41       		.byte	0x41
+ 1540 0895 58010000 		.4byte	0x158
+ 1541 0899 10       		.byte	0x10
+ 1542 089a 00       		.byte	0
+ 1543 089b 0B       		.uleb128 0xb
+ 1544 089c 04       		.byte	0x4
+ 1545 089d 5E080000 		.4byte	0x85e
+ 1546 08a1 0B       		.uleb128 0xb
+ 1547 08a2 04       		.byte	0x4
+ 1548 08a3 B3080000 		.4byte	0x8b3
+ 1549 08a7 06       		.uleb128 0x6
+ 1550 08a8 A1080000 		.4byte	0x8a1
+ 1551 08ac 04       		.uleb128 0x4
+ 1552 08ad 01       		.byte	0x1
+ 1553 08ae 08       		.byte	0x8
+ 1554 08af 2A070000 		.4byte	.LASF135
+ 1555 08b3 05       		.uleb128 0x5
+ 1556 08b4 AC080000 		.4byte	0x8ac
+ 1557 08b8 0B       		.uleb128 0xb
+ 1558 08b9 04       		.byte	0x4
+ 1559 08ba 20050000 		.4byte	0x520
+ 1560 08be 0B       		.uleb128 0xb
+ 1561 08bf 04       		.byte	0x4
+ 1562 08c0 91030000 		.4byte	0x391
+ 1563 08c4 18       		.uleb128 0x18
+ 1564 08c5 20050000 		.4byte	0x520
+ 1565 08c9 D4080000 		.4byte	0x8d4
+ 1566 08cd 19       		.uleb128 0x19
+ 1567 08ce 37000000 		.4byte	0x37
+ 1568 08d2 30       		.byte	0x30
+ 1569 08d3 00       		.byte	0
+ 1570 08d4 1C       		.uleb128 0x1c
+ 1571 08d5 636800   		.ascii	"ch\000"
+ 1572 08d8 08       		.byte	0x8
+ 1573 08d9 0902     		.2byte	0x209
+ 1574 08db 86040000 		.4byte	0x486
+ 1575 08df 16       		.uleb128 0x16
+ 1576 08e0 16       		.byte	0x16
+ 1577 08e1 12       		.byte	0x12
+ 1578 08e2 34       		.byte	0x34
+ 1579 08e3 C0090000 		.4byte	0x9c0
+ 1580 08e7 08       		.uleb128 0x8
+ 1581 08e8 71080000 		.4byte	.LASF136
+ 1582 08ec 12       		.byte	0x12
+ 1583 08ed 35       		.byte	0x35
+ 1584 08ee C0090000 		.4byte	0x9c0
+ 1585 08f2 00       		.byte	0
+ 1586 08f3 08       		.uleb128 0x8
+ 1587 08f4 70040000 		.4byte	.LASF137
+ 1588 08f8 12       		.byte	0x12
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 29
+
+
+ 1589 08f9 36       		.byte	0x36
+ 1590 08fa B4000000 		.4byte	0xb4
+ 1591 08fe 04       		.byte	0x4
+ 1592 08ff 08       		.uleb128 0x8
+ 1593 0900 0B070000 		.4byte	.LASF138
+ 1594 0904 12       		.byte	0x12
+ 1595 0905 37       		.byte	0x37
+ 1596 0906 B4000000 		.4byte	0xb4
+ 1597 090a 05       		.byte	0x5
+ 1598 090b 08       		.uleb128 0x8
+ 1599 090c 3D080000 		.4byte	.LASF139
+ 1600 0910 12       		.byte	0x12
+ 1601 0911 38       		.byte	0x38
+ 1602 0912 C4000000 		.4byte	0xc4
+ 1603 0916 06       		.byte	0x6
+ 1604 0917 08       		.uleb128 0x8
+ 1605 0918 94050000 		.4byte	.LASF140
+ 1606 091c 12       		.byte	0x12
+ 1607 091d 39       		.byte	0x39
+ 1608 091e B4000000 		.4byte	0xb4
+ 1609 0922 08       		.byte	0x8
+ 1610 0923 08       		.uleb128 0x8
+ 1611 0924 D6040000 		.4byte	.LASF141
+ 1612 0928 12       		.byte	0x12
+ 1613 0929 3A       		.byte	0x3a
+ 1614 092a B4000000 		.4byte	0xb4
+ 1615 092e 09       		.byte	0x9
+ 1616 092f 08       		.uleb128 0x8
+ 1617 0930 B9000000 		.4byte	.LASF142
+ 1618 0934 12       		.byte	0x12
+ 1619 0935 3B       		.byte	0x3b
+ 1620 0936 B4000000 		.4byte	0xb4
+ 1621 093a 0A       		.byte	0xa
+ 1622 093b 08       		.uleb128 0x8
+ 1623 093c E7060000 		.4byte	.LASF143
+ 1624 0940 12       		.byte	0x12
+ 1625 0941 3C       		.byte	0x3c
+ 1626 0942 B4000000 		.4byte	0xb4
+ 1627 0946 0B       		.byte	0xb
+ 1628 0947 08       		.uleb128 0x8
+ 1629 0948 D1070000 		.4byte	.LASF144
+ 1630 094c 12       		.byte	0x12
+ 1631 094d 3D       		.byte	0x3d
+ 1632 094e B4000000 		.4byte	0xb4
+ 1633 0952 0C       		.byte	0xc
+ 1634 0953 08       		.uleb128 0x8
+ 1635 0954 AA060000 		.4byte	.LASF145
+ 1636 0958 12       		.byte	0x12
+ 1637 0959 3E       		.byte	0x3e
+ 1638 095a B4000000 		.4byte	0xb4
+ 1639 095e 0D       		.byte	0xd
+ 1640 095f 08       		.uleb128 0x8
+ 1641 0960 00000000 		.4byte	.LASF146
+ 1642 0964 12       		.byte	0x12
+ 1643 0965 3F       		.byte	0x3f
+ 1644 0966 B4000000 		.4byte	0xb4
+ 1645 096a 0E       		.byte	0xe
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 30
+
+
+ 1646 096b 08       		.uleb128 0x8
+ 1647 096c 07050000 		.4byte	.LASF147
+ 1648 0970 12       		.byte	0x12
+ 1649 0971 40       		.byte	0x40
+ 1650 0972 B4000000 		.4byte	0xb4
+ 1651 0976 0F       		.byte	0xf
+ 1652 0977 08       		.uleb128 0x8
+ 1653 0978 3F010000 		.4byte	.LASF148
+ 1654 097c 12       		.byte	0x12
+ 1655 097d 41       		.byte	0x41
+ 1656 097e B4000000 		.4byte	0xb4
+ 1657 0982 10       		.byte	0x10
+ 1658 0983 08       		.uleb128 0x8
+ 1659 0984 0E010000 		.4byte	.LASF149
+ 1660 0988 12       		.byte	0x12
+ 1661 0989 43       		.byte	0x43
+ 1662 098a B4000000 		.4byte	0xb4
+ 1663 098e 11       		.byte	0x11
+ 1664 098f 08       		.uleb128 0x8
+ 1665 0990 90070000 		.4byte	.LASF150
+ 1666 0994 12       		.byte	0x12
+ 1667 0995 44       		.byte	0x44
+ 1668 0996 B4000000 		.4byte	0xb4
+ 1669 099a 12       		.byte	0x12
+ 1670 099b 08       		.uleb128 0x8
+ 1671 099c 48080000 		.4byte	.LASF151
+ 1672 09a0 12       		.byte	0x12
+ 1673 09a1 45       		.byte	0x45
+ 1674 09a2 B4000000 		.4byte	0xb4
+ 1675 09a6 13       		.byte	0x13
+ 1676 09a7 08       		.uleb128 0x8
+ 1677 09a8 2F060000 		.4byte	.LASF152
+ 1678 09ac 12       		.byte	0x12
+ 1679 09ad 46       		.byte	0x46
+ 1680 09ae B4000000 		.4byte	0xb4
+ 1681 09b2 14       		.byte	0x14
+ 1682 09b3 08       		.uleb128 0x8
+ 1683 09b4 1B040000 		.4byte	.LASF153
+ 1684 09b8 12       		.byte	0x12
+ 1685 09b9 48       		.byte	0x48
+ 1686 09ba B4000000 		.4byte	0xb4
+ 1687 09be 15       		.byte	0x15
+ 1688 09bf 00       		.byte	0
+ 1689 09c0 18       		.uleb128 0x18
+ 1690 09c1 AC080000 		.4byte	0x8ac
+ 1691 09c5 D0090000 		.4byte	0x9d0
+ 1692 09c9 19       		.uleb128 0x19
+ 1693 09ca 37000000 		.4byte	0x37
+ 1694 09ce 03       		.byte	0x3
+ 1695 09cf 00       		.byte	0
+ 1696 09d0 03       		.uleb128 0x3
+ 1697 09d1 DE020000 		.4byte	.LASF154
+ 1698 09d5 12       		.byte	0x12
+ 1699 09d6 49       		.byte	0x49
+ 1700 09d7 DF080000 		.4byte	0x8df
+ 1701 09db 05       		.uleb128 0x5
+ 1702 09dc D0090000 		.4byte	0x9d0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 31
+
+
+ 1703 09e0 14       		.uleb128 0x14
+ 1704 09e1 BC030000 		.4byte	.LASF155
+ 1705 09e5 12       		.byte	0x12
+ 1706 09e6 6E       		.byte	0x6e
+ 1707 09e7 DB090000 		.4byte	0x9db
+ 1708 09eb 03       		.uleb128 0x3
+ 1709 09ec 2F030000 		.4byte	.LASF156
+ 1710 09f0 11       		.byte	0x11
+ 1711 09f1 34       		.byte	0x34
+ 1712 09f2 5E080000 		.4byte	0x85e
+ 1713 09f6 0B       		.uleb128 0xb
+ 1714 09f7 04       		.byte	0x4
+ 1715 09f8 EB090000 		.4byte	0x9eb
+ 1716 09fc 0B       		.uleb128 0xb
+ 1717 09fd 04       		.byte	0x4
+ 1718 09fe B4000000 		.4byte	0xb4
+ 1719 0a02 07       		.uleb128 0x7
+ 1720 0a03 CF060000 		.4byte	.LASF157
+ 1721 0a07 10       		.byte	0x10
+ 1722 0a08 13       		.byte	0x13
+ 1723 0a09 40       		.byte	0x40
+ 1724 0a0a 3F0A0000 		.4byte	0xa3f
+ 1725 0a0e 08       		.uleb128 0x8
+ 1726 0a0f 78040000 		.4byte	.LASF158
+ 1727 0a13 13       		.byte	0x13
+ 1728 0a14 41       		.byte	0x41
+ 1729 0a15 630A0000 		.4byte	0xa63
+ 1730 0a19 00       		.byte	0
+ 1731 0a1a 08       		.uleb128 0x8
+ 1732 0a1b 25070000 		.4byte	.LASF159
+ 1733 0a1f 13       		.byte	0x13
+ 1734 0a20 41       		.byte	0x41
+ 1735 0a21 820A0000 		.4byte	0xa82
+ 1736 0a25 04       		.byte	0x4
+ 1737 0a26 15       		.uleb128 0x15
+ 1738 0a27 70757400 		.ascii	"put\000"
+ 1739 0a2b 13       		.byte	0x13
+ 1740 0a2c 41       		.byte	0x41
+ 1741 0a2d 9C0A0000 		.4byte	0xa9c
+ 1742 0a31 08       		.byte	0x8
+ 1743 0a32 15       		.uleb128 0x15
+ 1744 0a33 67657400 		.ascii	"get\000"
+ 1745 0a37 13       		.byte	0x13
+ 1746 0a38 41       		.byte	0x41
+ 1747 0a39 B10A0000 		.4byte	0xab1
+ 1748 0a3d 0C       		.byte	0xc
+ 1749 0a3e 00       		.byte	0
+ 1750 0a3f 05       		.uleb128 0x5
+ 1751 0a40 020A0000 		.4byte	0xa02
+ 1752 0a44 1D       		.uleb128 0x1d
+ 1753 0a45 2C000000 		.4byte	0x2c
+ 1754 0a49 5D0A0000 		.4byte	0xa5d
+ 1755 0a4d 0E       		.uleb128 0xe
+ 1756 0a4e 8F030000 		.4byte	0x38f
+ 1757 0a52 0E       		.uleb128 0xe
+ 1758 0a53 5D0A0000 		.4byte	0xa5d
+ 1759 0a57 0E       		.uleb128 0xe
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 32
+
+
+ 1760 0a58 2C000000 		.4byte	0x2c
+ 1761 0a5c 00       		.byte	0
+ 1762 0a5d 0B       		.uleb128 0xb
+ 1763 0a5e 04       		.byte	0x4
+ 1764 0a5f BF000000 		.4byte	0xbf
+ 1765 0a63 0B       		.uleb128 0xb
+ 1766 0a64 04       		.byte	0x4
+ 1767 0a65 440A0000 		.4byte	0xa44
+ 1768 0a69 1D       		.uleb128 0x1d
+ 1769 0a6a 2C000000 		.4byte	0x2c
+ 1770 0a6e 820A0000 		.4byte	0xa82
+ 1771 0a72 0E       		.uleb128 0xe
+ 1772 0a73 8F030000 		.4byte	0x38f
+ 1773 0a77 0E       		.uleb128 0xe
+ 1774 0a78 FC090000 		.4byte	0x9fc
+ 1775 0a7c 0E       		.uleb128 0xe
+ 1776 0a7d 2C000000 		.4byte	0x2c
+ 1777 0a81 00       		.byte	0
+ 1778 0a82 0B       		.uleb128 0xb
+ 1779 0a83 04       		.byte	0x4
+ 1780 0a84 690A0000 		.4byte	0xa69
+ 1781 0a88 1D       		.uleb128 0x1d
+ 1782 0a89 42010000 		.4byte	0x142
+ 1783 0a8d 9C0A0000 		.4byte	0xa9c
+ 1784 0a91 0E       		.uleb128 0xe
+ 1785 0a92 8F030000 		.4byte	0x38f
+ 1786 0a96 0E       		.uleb128 0xe
+ 1787 0a97 B4000000 		.4byte	0xb4
+ 1788 0a9b 00       		.byte	0
+ 1789 0a9c 0B       		.uleb128 0xb
+ 1790 0a9d 04       		.byte	0x4
+ 1791 0a9e 880A0000 		.4byte	0xa88
+ 1792 0aa2 1D       		.uleb128 0x1d
+ 1793 0aa3 42010000 		.4byte	0x142
+ 1794 0aa7 B10A0000 		.4byte	0xab1
+ 1795 0aab 0E       		.uleb128 0xe
+ 1796 0aac 8F030000 		.4byte	0x38f
+ 1797 0ab0 00       		.byte	0
+ 1798 0ab1 0B       		.uleb128 0xb
+ 1799 0ab2 04       		.byte	0x4
+ 1800 0ab3 A20A0000 		.4byte	0xaa2
+ 1801 0ab7 16       		.uleb128 0x16
+ 1802 0ab8 04       		.byte	0x4
+ 1803 0ab9 13       		.byte	0x13
+ 1804 0aba 49       		.byte	0x49
+ 1805 0abb CC0A0000 		.4byte	0xacc
+ 1806 0abf 15       		.uleb128 0x15
+ 1807 0ac0 766D7400 		.ascii	"vmt\000"
+ 1808 0ac4 13       		.byte	0x13
+ 1809 0ac5 4B       		.byte	0x4b
+ 1810 0ac6 CC0A0000 		.4byte	0xacc
+ 1811 0aca 00       		.byte	0
+ 1812 0acb 00       		.byte	0
+ 1813 0acc 0B       		.uleb128 0xb
+ 1814 0acd 04       		.byte	0x4
+ 1815 0ace 3F0A0000 		.4byte	0xa3f
+ 1816 0ad2 03       		.uleb128 0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 33
+
+
+ 1817 0ad3 37030000 		.4byte	.LASF160
+ 1818 0ad7 13       		.byte	0x13
+ 1819 0ad8 4D       		.byte	0x4d
+ 1820 0ad9 B70A0000 		.4byte	0xab7
+ 1821 0add 03       		.uleb128 0x3
+ 1822 0ade E9040000 		.4byte	.LASF161
+ 1823 0ae2 14       		.byte	0x14
+ 1824 0ae3 28       		.byte	0x28
+ 1825 0ae4 E80A0000 		.4byte	0xae8
+ 1826 0ae8 07       		.uleb128 0x7
+ 1827 0ae9 CE020000 		.4byte	.LASF162
+ 1828 0aed 04       		.byte	0x4
+ 1829 0aee 15       		.byte	0x15
+ 1830 0aef 00       		.byte	0
+ 1831 0af0 FF0A0000 		.4byte	0xaff
+ 1832 0af4 1E       		.uleb128 0x1e
+ 1833 0af5 9D070000 		.4byte	.LASF163
+ 1834 0af9 8F030000 		.4byte	0x38f
+ 1835 0afd 00       		.byte	0
+ 1836 0afe 00       		.byte	0
+ 1837 0aff 03       		.uleb128 0x3
+ 1838 0b00 62000000 		.4byte	.LASF164
+ 1839 0b04 14       		.byte	0x14
+ 1840 0b05 63       		.byte	0x63
+ 1841 0b06 DD0A0000 		.4byte	0xadd
+ 1842 0b0a 1F       		.uleb128 0x1f
+ 1843 0b0b 29000000 		.4byte	.LASF171
+ 1844 0b0f 02       		.byte	0x2
+ 1845 0b10 0D       		.byte	0xd
+ 1846 0b11 00000000 		.4byte	.LFB220
+ 1847 0b15 08030000 		.4byte	.LFE220-.LFB220
+ 1848 0b19 01       		.uleb128 0x1
+ 1849 0b1a 9C       		.byte	0x9c
+ 1850 0b1b 6E0B0000 		.4byte	0xb6e
+ 1851 0b1f 20       		.uleb128 0x20
+ 1852 0b20 6F757400 		.ascii	"out\000"
+ 1853 0b24 02       		.byte	0x2
+ 1854 0b25 0D       		.byte	0xd
+ 1855 0b26 6E0B0000 		.4byte	0xb6e
+ 1856 0b2a 02       		.uleb128 0x2
+ 1857 0b2b 91       		.byte	0x91
+ 1858 0b2c 64       		.sleb128 -28
+ 1859 0b2d 21       		.uleb128 0x21
+ 1860 0b2e 747000   		.ascii	"tp\000"
+ 1861 0b31 02       		.byte	0x2
+ 1862 0b32 0F       		.byte	0xf
+ 1863 0b33 B2020000 		.4byte	0x2b2
+ 1864 0b37 02       		.uleb128 0x2
+ 1865 0b38 91       		.byte	0x91
+ 1866 0b39 68       		.sleb128 -24
+ 1867 0b3a 21       		.uleb128 0x21
+ 1868 0b3b 73756D00 		.ascii	"sum\000"
+ 1869 0b3f 02       		.byte	0x2
+ 1870 0b40 11       		.byte	0x11
+ 1871 0b41 EA000000 		.4byte	0xea
+ 1872 0b45 05       		.uleb128 0x5
+ 1873 0b46 03       		.byte	0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 34
+
+
+ 1874 0b47 00000000 		.4byte	sum.7868
+ 1875 0b4b 22       		.uleb128 0x22
+ 1876 0b4c 1B010000 		.4byte	.LASF165
+ 1877 0b50 02       		.byte	0x2
+ 1878 0b51 12       		.byte	0x12
+ 1879 0b52 C4000000 		.4byte	0xc4
+ 1880 0b56 05       		.uleb128 0x5
+ 1881 0b57 03       		.byte	0x3
+ 1882 0b58 00000000 		.4byte	tmp1.7869
+ 1883 0b5c 22       		.uleb128 0x22
+ 1884 0b5d 20010000 		.4byte	.LASF166
+ 1885 0b61 02       		.byte	0x2
+ 1886 0b62 12       		.byte	0x12
+ 1887 0b63 C4000000 		.4byte	0xc4
+ 1888 0b67 05       		.uleb128 0x5
+ 1889 0b68 03       		.byte	0x3
+ 1890 0b69 00000000 		.4byte	tmp2.7870
+ 1891 0b6d 00       		.byte	0
+ 1892 0b6e 0B       		.uleb128 0xb
+ 1893 0b6f 04       		.byte	0x4
+ 1894 0b70 D20A0000 		.4byte	0xad2
+ 1895 0b74 23       		.uleb128 0x23
+ 1896 0b75 91080000 		.4byte	.LASF172
+ 1897 0b79 01       		.byte	0x1
+ 1898 0b7a 45       		.byte	0x45
+ 1899 0b7b 25000000 		.4byte	0x25
+ 1900 0b7f 00000000 		.4byte	.LFB219
+ 1901 0b83 44000000 		.4byte	.LFE219-.LFB219
+ 1902 0b87 01       		.uleb128 0x1
+ 1903 0b88 9C       		.byte	0x9c
+ 1904 0b89 20       		.uleb128 0x20
+ 1905 0b8a 63687000 		.ascii	"chp\000"
+ 1906 0b8e 01       		.byte	0x1
+ 1907 0b8f 45       		.byte	0x45
+ 1908 0b90 6E0B0000 		.4byte	0xb6e
+ 1909 0b94 02       		.uleb128 0x2
+ 1910 0b95 91       		.byte	0x91
+ 1911 0b96 5C       		.sleb128 -36
+ 1912 0b97 20       		.uleb128 0x20
+ 1913 0b98 666D7400 		.ascii	"fmt\000"
+ 1914 0b9c 01       		.byte	0x1
+ 1915 0b9d 45       		.byte	0x45
+ 1916 0b9e A1080000 		.4byte	0x8a1
+ 1917 0ba2 02       		.uleb128 0x2
+ 1918 0ba3 91       		.byte	0x91
+ 1919 0ba4 58       		.sleb128 -40
+ 1920 0ba5 24       		.uleb128 0x24
+ 1921 0ba6 21       		.uleb128 0x21
+ 1922 0ba7 617000   		.ascii	"ap\000"
+ 1923 0baa 01       		.byte	0x1
+ 1924 0bab 46       		.byte	0x46
+ 1925 0bac FF0A0000 		.4byte	0xaff
+ 1926 0bb0 02       		.uleb128 0x2
+ 1927 0bb1 91       		.byte	0x91
+ 1928 0bb2 64       		.sleb128 -28
+ 1929 0bb3 22       		.uleb128 0x22
+ 1930 0bb4 A9000000 		.4byte	.LASF167
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 35
+
+
+ 1931 0bb8 01       		.byte	0x1
+ 1932 0bb9 47       		.byte	0x47
+ 1933 0bba 25000000 		.4byte	0x25
+ 1934 0bbe 02       		.uleb128 0x2
+ 1935 0bbf 91       		.byte	0x91
+ 1936 0bc0 68       		.sleb128 -24
+ 1937 0bc1 00       		.byte	0
+ 1938 0bc2 00       		.byte	0
+ 1939              		.section	.debug_abbrev,"",%progbits
+ 1940              	.Ldebug_abbrev0:
+ 1941 0000 01       		.uleb128 0x1
+ 1942 0001 11       		.uleb128 0x11
+ 1943 0002 01       		.byte	0x1
+ 1944 0003 25       		.uleb128 0x25
+ 1945 0004 0E       		.uleb128 0xe
+ 1946 0005 13       		.uleb128 0x13
+ 1947 0006 0B       		.uleb128 0xb
+ 1948 0007 03       		.uleb128 0x3
+ 1949 0008 0E       		.uleb128 0xe
+ 1950 0009 1B       		.uleb128 0x1b
+ 1951 000a 0E       		.uleb128 0xe
+ 1952 000b 55       		.uleb128 0x55
+ 1953 000c 17       		.uleb128 0x17
+ 1954 000d 11       		.uleb128 0x11
+ 1955 000e 01       		.uleb128 0x1
+ 1956 000f 10       		.uleb128 0x10
+ 1957 0010 17       		.uleb128 0x17
+ 1958 0011 00       		.byte	0
+ 1959 0012 00       		.byte	0
+ 1960 0013 02       		.uleb128 0x2
+ 1961 0014 24       		.uleb128 0x24
+ 1962 0015 00       		.byte	0
+ 1963 0016 0B       		.uleb128 0xb
+ 1964 0017 0B       		.uleb128 0xb
+ 1965 0018 3E       		.uleb128 0x3e
+ 1966 0019 0B       		.uleb128 0xb
+ 1967 001a 03       		.uleb128 0x3
+ 1968 001b 08       		.uleb128 0x8
+ 1969 001c 00       		.byte	0
+ 1970 001d 00       		.byte	0
+ 1971 001e 03       		.uleb128 0x3
+ 1972 001f 16       		.uleb128 0x16
+ 1973 0020 00       		.byte	0
+ 1974 0021 03       		.uleb128 0x3
+ 1975 0022 0E       		.uleb128 0xe
+ 1976 0023 3A       		.uleb128 0x3a
+ 1977 0024 0B       		.uleb128 0xb
+ 1978 0025 3B       		.uleb128 0x3b
+ 1979 0026 0B       		.uleb128 0xb
+ 1980 0027 49       		.uleb128 0x49
+ 1981 0028 13       		.uleb128 0x13
+ 1982 0029 00       		.byte	0
+ 1983 002a 00       		.byte	0
+ 1984 002b 04       		.uleb128 0x4
+ 1985 002c 24       		.uleb128 0x24
+ 1986 002d 00       		.byte	0
+ 1987 002e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 36
+
+
+ 1988 002f 0B       		.uleb128 0xb
+ 1989 0030 3E       		.uleb128 0x3e
+ 1990 0031 0B       		.uleb128 0xb
+ 1991 0032 03       		.uleb128 0x3
+ 1992 0033 0E       		.uleb128 0xe
+ 1993 0034 00       		.byte	0
+ 1994 0035 00       		.byte	0
+ 1995 0036 05       		.uleb128 0x5
+ 1996 0037 26       		.uleb128 0x26
+ 1997 0038 00       		.byte	0
+ 1998 0039 49       		.uleb128 0x49
+ 1999 003a 13       		.uleb128 0x13
+ 2000 003b 00       		.byte	0
+ 2001 003c 00       		.byte	0
+ 2002 003d 06       		.uleb128 0x6
+ 2003 003e 35       		.uleb128 0x35
+ 2004 003f 00       		.byte	0
+ 2005 0040 49       		.uleb128 0x49
+ 2006 0041 13       		.uleb128 0x13
+ 2007 0042 00       		.byte	0
+ 2008 0043 00       		.byte	0
+ 2009 0044 07       		.uleb128 0x7
+ 2010 0045 13       		.uleb128 0x13
+ 2011 0046 01       		.byte	0x1
+ 2012 0047 03       		.uleb128 0x3
+ 2013 0048 0E       		.uleb128 0xe
+ 2014 0049 0B       		.uleb128 0xb
+ 2015 004a 0B       		.uleb128 0xb
+ 2016 004b 3A       		.uleb128 0x3a
+ 2017 004c 0B       		.uleb128 0xb
+ 2018 004d 3B       		.uleb128 0x3b
+ 2019 004e 0B       		.uleb128 0xb
+ 2020 004f 01       		.uleb128 0x1
+ 2021 0050 13       		.uleb128 0x13
+ 2022 0051 00       		.byte	0
+ 2023 0052 00       		.byte	0
+ 2024 0053 08       		.uleb128 0x8
+ 2025 0054 0D       		.uleb128 0xd
+ 2026 0055 00       		.byte	0
+ 2027 0056 03       		.uleb128 0x3
+ 2028 0057 0E       		.uleb128 0xe
+ 2029 0058 3A       		.uleb128 0x3a
+ 2030 0059 0B       		.uleb128 0xb
+ 2031 005a 3B       		.uleb128 0x3b
+ 2032 005b 0B       		.uleb128 0xb
+ 2033 005c 49       		.uleb128 0x49
+ 2034 005d 13       		.uleb128 0x13
+ 2035 005e 38       		.uleb128 0x38
+ 2036 005f 0B       		.uleb128 0xb
+ 2037 0060 00       		.byte	0
+ 2038 0061 00       		.byte	0
+ 2039 0062 09       		.uleb128 0x9
+ 2040 0063 0D       		.uleb128 0xd
+ 2041 0064 00       		.byte	0
+ 2042 0065 03       		.uleb128 0x3
+ 2043 0066 08       		.uleb128 0x8
+ 2044 0067 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 37
+
+
+ 2045 0068 0B       		.uleb128 0xb
+ 2046 0069 3B       		.uleb128 0x3b
+ 2047 006a 05       		.uleb128 0x5
+ 2048 006b 49       		.uleb128 0x49
+ 2049 006c 13       		.uleb128 0x13
+ 2050 006d 38       		.uleb128 0x38
+ 2051 006e 0B       		.uleb128 0xb
+ 2052 006f 00       		.byte	0
+ 2053 0070 00       		.byte	0
+ 2054 0071 0A       		.uleb128 0xa
+ 2055 0072 0D       		.uleb128 0xd
+ 2056 0073 00       		.byte	0
+ 2057 0074 03       		.uleb128 0x3
+ 2058 0075 0E       		.uleb128 0xe
+ 2059 0076 3A       		.uleb128 0x3a
+ 2060 0077 0B       		.uleb128 0xb
+ 2061 0078 3B       		.uleb128 0x3b
+ 2062 0079 05       		.uleb128 0x5
+ 2063 007a 49       		.uleb128 0x49
+ 2064 007b 13       		.uleb128 0x13
+ 2065 007c 38       		.uleb128 0x38
+ 2066 007d 0B       		.uleb128 0xb
+ 2067 007e 00       		.byte	0
+ 2068 007f 00       		.byte	0
+ 2069 0080 0B       		.uleb128 0xb
+ 2070 0081 0F       		.uleb128 0xf
+ 2071 0082 00       		.byte	0
+ 2072 0083 0B       		.uleb128 0xb
+ 2073 0084 0B       		.uleb128 0xb
+ 2074 0085 49       		.uleb128 0x49
+ 2075 0086 13       		.uleb128 0x13
+ 2076 0087 00       		.byte	0
+ 2077 0088 00       		.byte	0
+ 2078 0089 0C       		.uleb128 0xc
+ 2079 008a 13       		.uleb128 0x13
+ 2080 008b 01       		.byte	0x1
+ 2081 008c 03       		.uleb128 0x3
+ 2082 008d 0E       		.uleb128 0xe
+ 2083 008e 0B       		.uleb128 0xb
+ 2084 008f 0B       		.uleb128 0xb
+ 2085 0090 3A       		.uleb128 0x3a
+ 2086 0091 0B       		.uleb128 0xb
+ 2087 0092 3B       		.uleb128 0x3b
+ 2088 0093 05       		.uleb128 0x5
+ 2089 0094 01       		.uleb128 0x1
+ 2090 0095 13       		.uleb128 0x13
+ 2091 0096 00       		.byte	0
+ 2092 0097 00       		.byte	0
+ 2093 0098 0D       		.uleb128 0xd
+ 2094 0099 15       		.uleb128 0x15
+ 2095 009a 01       		.byte	0x1
+ 2096 009b 27       		.uleb128 0x27
+ 2097 009c 19       		.uleb128 0x19
+ 2098 009d 01       		.uleb128 0x1
+ 2099 009e 13       		.uleb128 0x13
+ 2100 009f 00       		.byte	0
+ 2101 00a0 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 38
+
+
+ 2102 00a1 0E       		.uleb128 0xe
+ 2103 00a2 05       		.uleb128 0x5
+ 2104 00a3 00       		.byte	0
+ 2105 00a4 49       		.uleb128 0x49
+ 2106 00a5 13       		.uleb128 0x13
+ 2107 00a6 00       		.byte	0
+ 2108 00a7 00       		.byte	0
+ 2109 00a8 0F       		.uleb128 0xf
+ 2110 00a9 0F       		.uleb128 0xf
+ 2111 00aa 00       		.byte	0
+ 2112 00ab 0B       		.uleb128 0xb
+ 2113 00ac 0B       		.uleb128 0xb
+ 2114 00ad 00       		.byte	0
+ 2115 00ae 00       		.byte	0
+ 2116 00af 10       		.uleb128 0x10
+ 2117 00b0 13       		.uleb128 0x13
+ 2118 00b1 01       		.byte	0x1
+ 2119 00b2 03       		.uleb128 0x3
+ 2120 00b3 0E       		.uleb128 0xe
+ 2121 00b4 0B       		.uleb128 0xb
+ 2122 00b5 05       		.uleb128 0x5
+ 2123 00b6 3A       		.uleb128 0x3a
+ 2124 00b7 0B       		.uleb128 0xb
+ 2125 00b8 3B       		.uleb128 0x3b
+ 2126 00b9 05       		.uleb128 0x5
+ 2127 00ba 01       		.uleb128 0x1
+ 2128 00bb 13       		.uleb128 0x13
+ 2129 00bc 00       		.byte	0
+ 2130 00bd 00       		.byte	0
+ 2131 00be 11       		.uleb128 0x11
+ 2132 00bf 0D       		.uleb128 0xd
+ 2133 00c0 00       		.byte	0
+ 2134 00c1 03       		.uleb128 0x3
+ 2135 00c2 0E       		.uleb128 0xe
+ 2136 00c3 3A       		.uleb128 0x3a
+ 2137 00c4 0B       		.uleb128 0xb
+ 2138 00c5 3B       		.uleb128 0x3b
+ 2139 00c6 05       		.uleb128 0x5
+ 2140 00c7 49       		.uleb128 0x49
+ 2141 00c8 13       		.uleb128 0x13
+ 2142 00c9 38       		.uleb128 0x38
+ 2143 00ca 05       		.uleb128 0x5
+ 2144 00cb 00       		.byte	0
+ 2145 00cc 00       		.byte	0
+ 2146 00cd 12       		.uleb128 0x12
+ 2147 00ce 0D       		.uleb128 0xd
+ 2148 00cf 00       		.byte	0
+ 2149 00d0 03       		.uleb128 0x3
+ 2150 00d1 08       		.uleb128 0x8
+ 2151 00d2 3A       		.uleb128 0x3a
+ 2152 00d3 0B       		.uleb128 0xb
+ 2153 00d4 3B       		.uleb128 0x3b
+ 2154 00d5 05       		.uleb128 0x5
+ 2155 00d6 49       		.uleb128 0x49
+ 2156 00d7 13       		.uleb128 0x13
+ 2157 00d8 38       		.uleb128 0x38
+ 2158 00d9 05       		.uleb128 0x5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 39
+
+
+ 2159 00da 00       		.byte	0
+ 2160 00db 00       		.byte	0
+ 2161 00dc 13       		.uleb128 0x13
+ 2162 00dd 34       		.uleb128 0x34
+ 2163 00de 00       		.byte	0
+ 2164 00df 03       		.uleb128 0x3
+ 2165 00e0 0E       		.uleb128 0xe
+ 2166 00e1 3A       		.uleb128 0x3a
+ 2167 00e2 0B       		.uleb128 0xb
+ 2168 00e3 3B       		.uleb128 0x3b
+ 2169 00e4 05       		.uleb128 0x5
+ 2170 00e5 49       		.uleb128 0x49
+ 2171 00e6 13       		.uleb128 0x13
+ 2172 00e7 3F       		.uleb128 0x3f
+ 2173 00e8 19       		.uleb128 0x19
+ 2174 00e9 3C       		.uleb128 0x3c
+ 2175 00ea 19       		.uleb128 0x19
+ 2176 00eb 00       		.byte	0
+ 2177 00ec 00       		.byte	0
+ 2178 00ed 14       		.uleb128 0x14
+ 2179 00ee 34       		.uleb128 0x34
+ 2180 00ef 00       		.byte	0
+ 2181 00f0 03       		.uleb128 0x3
+ 2182 00f1 0E       		.uleb128 0xe
+ 2183 00f2 3A       		.uleb128 0x3a
+ 2184 00f3 0B       		.uleb128 0xb
+ 2185 00f4 3B       		.uleb128 0x3b
+ 2186 00f5 0B       		.uleb128 0xb
+ 2187 00f6 49       		.uleb128 0x49
+ 2188 00f7 13       		.uleb128 0x13
+ 2189 00f8 3F       		.uleb128 0x3f
+ 2190 00f9 19       		.uleb128 0x19
+ 2191 00fa 3C       		.uleb128 0x3c
+ 2192 00fb 19       		.uleb128 0x19
+ 2193 00fc 00       		.byte	0
+ 2194 00fd 00       		.byte	0
+ 2195 00fe 15       		.uleb128 0x15
+ 2196 00ff 0D       		.uleb128 0xd
+ 2197 0100 00       		.byte	0
+ 2198 0101 03       		.uleb128 0x3
+ 2199 0102 08       		.uleb128 0x8
+ 2200 0103 3A       		.uleb128 0x3a
+ 2201 0104 0B       		.uleb128 0xb
+ 2202 0105 3B       		.uleb128 0x3b
+ 2203 0106 0B       		.uleb128 0xb
+ 2204 0107 49       		.uleb128 0x49
+ 2205 0108 13       		.uleb128 0x13
+ 2206 0109 38       		.uleb128 0x38
+ 2207 010a 0B       		.uleb128 0xb
+ 2208 010b 00       		.byte	0
+ 2209 010c 00       		.byte	0
+ 2210 010d 16       		.uleb128 0x16
+ 2211 010e 13       		.uleb128 0x13
+ 2212 010f 01       		.byte	0x1
+ 2213 0110 0B       		.uleb128 0xb
+ 2214 0111 0B       		.uleb128 0xb
+ 2215 0112 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 40
+
+
+ 2216 0113 0B       		.uleb128 0xb
+ 2217 0114 3B       		.uleb128 0x3b
+ 2218 0115 0B       		.uleb128 0xb
+ 2219 0116 01       		.uleb128 0x1
+ 2220 0117 13       		.uleb128 0x13
+ 2221 0118 00       		.byte	0
+ 2222 0119 00       		.byte	0
+ 2223 011a 17       		.uleb128 0x17
+ 2224 011b 13       		.uleb128 0x13
+ 2225 011c 01       		.byte	0x1
+ 2226 011d 0B       		.uleb128 0xb
+ 2227 011e 05       		.uleb128 0x5
+ 2228 011f 3A       		.uleb128 0x3a
+ 2229 0120 0B       		.uleb128 0xb
+ 2230 0121 3B       		.uleb128 0x3b
+ 2231 0122 0B       		.uleb128 0xb
+ 2232 0123 01       		.uleb128 0x1
+ 2233 0124 13       		.uleb128 0x13
+ 2234 0125 00       		.byte	0
+ 2235 0126 00       		.byte	0
+ 2236 0127 18       		.uleb128 0x18
+ 2237 0128 01       		.uleb128 0x1
+ 2238 0129 01       		.byte	0x1
+ 2239 012a 49       		.uleb128 0x49
+ 2240 012b 13       		.uleb128 0x13
+ 2241 012c 01       		.uleb128 0x1
+ 2242 012d 13       		.uleb128 0x13
+ 2243 012e 00       		.byte	0
+ 2244 012f 00       		.byte	0
+ 2245 0130 19       		.uleb128 0x19
+ 2246 0131 21       		.uleb128 0x21
+ 2247 0132 00       		.byte	0
+ 2248 0133 49       		.uleb128 0x49
+ 2249 0134 13       		.uleb128 0x13
+ 2250 0135 2F       		.uleb128 0x2f
+ 2251 0136 0B       		.uleb128 0xb
+ 2252 0137 00       		.byte	0
+ 2253 0138 00       		.byte	0
+ 2254 0139 1A       		.uleb128 0x1a
+ 2255 013a 17       		.uleb128 0x17
+ 2256 013b 01       		.byte	0x1
+ 2257 013c 0B       		.uleb128 0xb
+ 2258 013d 0B       		.uleb128 0xb
+ 2259 013e 3A       		.uleb128 0x3a
+ 2260 013f 0B       		.uleb128 0xb
+ 2261 0140 3B       		.uleb128 0x3b
+ 2262 0141 0B       		.uleb128 0xb
+ 2263 0142 01       		.uleb128 0x1
+ 2264 0143 13       		.uleb128 0x13
+ 2265 0144 00       		.byte	0
+ 2266 0145 00       		.byte	0
+ 2267 0146 1B       		.uleb128 0x1b
+ 2268 0147 0D       		.uleb128 0xd
+ 2269 0148 00       		.byte	0
+ 2270 0149 03       		.uleb128 0x3
+ 2271 014a 0E       		.uleb128 0xe
+ 2272 014b 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 41
+
+
+ 2273 014c 0B       		.uleb128 0xb
+ 2274 014d 3B       		.uleb128 0x3b
+ 2275 014e 05       		.uleb128 0x5
+ 2276 014f 49       		.uleb128 0x49
+ 2277 0150 13       		.uleb128 0x13
+ 2278 0151 00       		.byte	0
+ 2279 0152 00       		.byte	0
+ 2280 0153 1C       		.uleb128 0x1c
+ 2281 0154 34       		.uleb128 0x34
+ 2282 0155 00       		.byte	0
+ 2283 0156 03       		.uleb128 0x3
+ 2284 0157 08       		.uleb128 0x8
+ 2285 0158 3A       		.uleb128 0x3a
+ 2286 0159 0B       		.uleb128 0xb
+ 2287 015a 3B       		.uleb128 0x3b
+ 2288 015b 05       		.uleb128 0x5
+ 2289 015c 49       		.uleb128 0x49
+ 2290 015d 13       		.uleb128 0x13
+ 2291 015e 3F       		.uleb128 0x3f
+ 2292 015f 19       		.uleb128 0x19
+ 2293 0160 3C       		.uleb128 0x3c
+ 2294 0161 19       		.uleb128 0x19
+ 2295 0162 00       		.byte	0
+ 2296 0163 00       		.byte	0
+ 2297 0164 1D       		.uleb128 0x1d
+ 2298 0165 15       		.uleb128 0x15
+ 2299 0166 01       		.byte	0x1
+ 2300 0167 27       		.uleb128 0x27
+ 2301 0168 19       		.uleb128 0x19
+ 2302 0169 49       		.uleb128 0x49
+ 2303 016a 13       		.uleb128 0x13
+ 2304 016b 01       		.uleb128 0x1
+ 2305 016c 13       		.uleb128 0x13
+ 2306 016d 00       		.byte	0
+ 2307 016e 00       		.byte	0
+ 2308 016f 1E       		.uleb128 0x1e
+ 2309 0170 0D       		.uleb128 0xd
+ 2310 0171 00       		.byte	0
+ 2311 0172 03       		.uleb128 0x3
+ 2312 0173 0E       		.uleb128 0xe
+ 2313 0174 49       		.uleb128 0x49
+ 2314 0175 13       		.uleb128 0x13
+ 2315 0176 38       		.uleb128 0x38
+ 2316 0177 0B       		.uleb128 0xb
+ 2317 0178 34       		.uleb128 0x34
+ 2318 0179 19       		.uleb128 0x19
+ 2319 017a 00       		.byte	0
+ 2320 017b 00       		.byte	0
+ 2321 017c 1F       		.uleb128 0x1f
+ 2322 017d 2E       		.uleb128 0x2e
+ 2323 017e 01       		.byte	0x1
+ 2324 017f 3F       		.uleb128 0x3f
+ 2325 0180 19       		.uleb128 0x19
+ 2326 0181 03       		.uleb128 0x3
+ 2327 0182 0E       		.uleb128 0xe
+ 2328 0183 3A       		.uleb128 0x3a
+ 2329 0184 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 42
+
+
+ 2330 0185 3B       		.uleb128 0x3b
+ 2331 0186 0B       		.uleb128 0xb
+ 2332 0187 27       		.uleb128 0x27
+ 2333 0188 19       		.uleb128 0x19
+ 2334 0189 11       		.uleb128 0x11
+ 2335 018a 01       		.uleb128 0x1
+ 2336 018b 12       		.uleb128 0x12
+ 2337 018c 06       		.uleb128 0x6
+ 2338 018d 40       		.uleb128 0x40
+ 2339 018e 18       		.uleb128 0x18
+ 2340 018f 9642     		.uleb128 0x2116
+ 2341 0191 19       		.uleb128 0x19
+ 2342 0192 01       		.uleb128 0x1
+ 2343 0193 13       		.uleb128 0x13
+ 2344 0194 00       		.byte	0
+ 2345 0195 00       		.byte	0
+ 2346 0196 20       		.uleb128 0x20
+ 2347 0197 05       		.uleb128 0x5
+ 2348 0198 00       		.byte	0
+ 2349 0199 03       		.uleb128 0x3
+ 2350 019a 08       		.uleb128 0x8
+ 2351 019b 3A       		.uleb128 0x3a
+ 2352 019c 0B       		.uleb128 0xb
+ 2353 019d 3B       		.uleb128 0x3b
+ 2354 019e 0B       		.uleb128 0xb
+ 2355 019f 49       		.uleb128 0x49
+ 2356 01a0 13       		.uleb128 0x13
+ 2357 01a1 02       		.uleb128 0x2
+ 2358 01a2 18       		.uleb128 0x18
+ 2359 01a3 00       		.byte	0
+ 2360 01a4 00       		.byte	0
+ 2361 01a5 21       		.uleb128 0x21
+ 2362 01a6 34       		.uleb128 0x34
+ 2363 01a7 00       		.byte	0
+ 2364 01a8 03       		.uleb128 0x3
+ 2365 01a9 08       		.uleb128 0x8
+ 2366 01aa 3A       		.uleb128 0x3a
+ 2367 01ab 0B       		.uleb128 0xb
+ 2368 01ac 3B       		.uleb128 0x3b
+ 2369 01ad 0B       		.uleb128 0xb
+ 2370 01ae 49       		.uleb128 0x49
+ 2371 01af 13       		.uleb128 0x13
+ 2372 01b0 02       		.uleb128 0x2
+ 2373 01b1 18       		.uleb128 0x18
+ 2374 01b2 00       		.byte	0
+ 2375 01b3 00       		.byte	0
+ 2376 01b4 22       		.uleb128 0x22
+ 2377 01b5 34       		.uleb128 0x34
+ 2378 01b6 00       		.byte	0
+ 2379 01b7 03       		.uleb128 0x3
+ 2380 01b8 0E       		.uleb128 0xe
+ 2381 01b9 3A       		.uleb128 0x3a
+ 2382 01ba 0B       		.uleb128 0xb
+ 2383 01bb 3B       		.uleb128 0x3b
+ 2384 01bc 0B       		.uleb128 0xb
+ 2385 01bd 49       		.uleb128 0x49
+ 2386 01be 13       		.uleb128 0x13
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 43
+
+
+ 2387 01bf 02       		.uleb128 0x2
+ 2388 01c0 18       		.uleb128 0x18
+ 2389 01c1 00       		.byte	0
+ 2390 01c2 00       		.byte	0
+ 2391 01c3 23       		.uleb128 0x23
+ 2392 01c4 2E       		.uleb128 0x2e
+ 2393 01c5 01       		.byte	0x1
+ 2394 01c6 03       		.uleb128 0x3
+ 2395 01c7 0E       		.uleb128 0xe
+ 2396 01c8 3A       		.uleb128 0x3a
+ 2397 01c9 0B       		.uleb128 0xb
+ 2398 01ca 3B       		.uleb128 0x3b
+ 2399 01cb 0B       		.uleb128 0xb
+ 2400 01cc 27       		.uleb128 0x27
+ 2401 01cd 19       		.uleb128 0x19
+ 2402 01ce 49       		.uleb128 0x49
+ 2403 01cf 13       		.uleb128 0x13
+ 2404 01d0 11       		.uleb128 0x11
+ 2405 01d1 01       		.uleb128 0x1
+ 2406 01d2 12       		.uleb128 0x12
+ 2407 01d3 06       		.uleb128 0x6
+ 2408 01d4 40       		.uleb128 0x40
+ 2409 01d5 18       		.uleb128 0x18
+ 2410 01d6 9642     		.uleb128 0x2116
+ 2411 01d8 19       		.uleb128 0x19
+ 2412 01d9 00       		.byte	0
+ 2413 01da 00       		.byte	0
+ 2414 01db 24       		.uleb128 0x24
+ 2415 01dc 18       		.uleb128 0x18
+ 2416 01dd 00       		.byte	0
+ 2417 01de 00       		.byte	0
+ 2418 01df 00       		.byte	0
+ 2419 01e0 00       		.byte	0
+ 2420              		.section	.debug_aranges,"",%progbits
+ 2421 0000 24000000 		.4byte	0x24
+ 2422 0004 0200     		.2byte	0x2
+ 2423 0006 00000000 		.4byte	.Ldebug_info0
+ 2424 000a 04       		.byte	0x4
+ 2425 000b 00       		.byte	0
+ 2426 000c 0000     		.2byte	0
+ 2427 000e 0000     		.2byte	0
+ 2428 0010 00000000 		.4byte	.LFB219
+ 2429 0014 44000000 		.4byte	.LFE219-.LFB219
+ 2430 0018 00000000 		.4byte	.LFB220
+ 2431 001c 08030000 		.4byte	.LFE220-.LFB220
+ 2432 0020 00000000 		.4byte	0
+ 2433 0024 00000000 		.4byte	0
+ 2434              		.section	.debug_ranges,"",%progbits
+ 2435              	.Ldebug_ranges0:
+ 2436 0000 00000000 		.4byte	.LFB219
+ 2437 0004 44000000 		.4byte	.LFE219
+ 2438 0008 00000000 		.4byte	.LFB220
+ 2439 000c 08030000 		.4byte	.LFE220
+ 2440 0010 00000000 		.4byte	0
+ 2441 0014 00000000 		.4byte	0
+ 2442              		.section	.debug_line,"",%progbits
+ 2443              	.Ldebug_line0:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 44
+
+
+ 2444 0000 B2040000 		.section	.debug_str,"MS",%progbits,1
+ 2444      02004F04 
+ 2444      00000201 
+ 2444      FB0E0D00 
+ 2444      01010101 
+ 2445              	.LASF146:
+ 2446 0000 63665F6F 		.ascii	"cf_off_older\000"
+ 2446      66665F6F 
+ 2446      6C646572 
+ 2446      00
+ 2447              	.LASF61:
+ 2448 000d 72656164 		.ascii	"ready_list_t\000"
+ 2448      795F6C69 
+ 2448      73745F74 
+ 2448      00
+ 2449              	.LASF99:
+ 2450 001a 73655F74 		.ascii	"se_time\000"
+ 2450      696D6500 
+ 2451              	.LASF4:
+ 2452 0022 73697A65 		.ascii	"size_t\000"
+ 2452      5F7400
+ 2453              	.LASF171:
+ 2454 0029 7072696E 		.ascii	"printUcUsage\000"
+ 2454      74556355 
+ 2454      73616765 
+ 2454      00
+ 2455              	.LASF20:
+ 2456 0036 75696E74 		.ascii	"uint64_t\000"
+ 2456      36345F74 
+ 2456      00
+ 2457              	.LASF91:
+ 2458 003f 6B65726E 		.ascii	"kernel_stats\000"
+ 2458      656C5F73 
+ 2458      74617473 
+ 2458      00
+ 2459              	.LASF5:
+ 2460 004c 5F5F7569 		.ascii	"__uint8_t\000"
+ 2460      6E74385F 
+ 2460      7400
+ 2461              	.LASF98:
+ 2462 0056 706F7274 		.ascii	"port_intctx\000"
+ 2462      5F696E74 
+ 2462      63747800 
+ 2463              	.LASF164:
+ 2464 0062 76615F6C 		.ascii	"va_list\000"
+ 2464      69737400 
+ 2465              	.LASF80:
+ 2466 006a 73797374 		.ascii	"system_debug_t\000"
+ 2466      656D5F64 
+ 2466      65627567 
+ 2466      5F7400
+ 2467              	.LASF111:
+ 2468 0079 776F7273 		.ascii	"worst\000"
+ 2468      7400
+ 2469              	.LASF114:
+ 2470 007f 74696D65 		.ascii	"time_measurement_t\000"
+ 2470      5F6D6561 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 45
+
+
+ 2470      73757265 
+ 2470      6D656E74 
+ 2470      5F7400
+ 2471              	.LASF15:
+ 2472 0092 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2472      206C6F6E 
+ 2472      6720756E 
+ 2472      7369676E 
+ 2472      65642069 
+ 2473              	.LASF167:
+ 2474 00a9 666F726D 		.ascii	"formatted_bytes\000"
+ 2474      61747465 
+ 2474      645F6279 
+ 2474      74657300 
+ 2475              	.LASF142:
+ 2476 00b9 63685F74 		.ascii	"ch_threadsize\000"
+ 2476      68726561 
+ 2476      6473697A 
+ 2476      6500
+ 2477              	.LASF121:
+ 2478 00c7 65786974 		.ascii	"exitcode\000"
+ 2478      636F6465 
+ 2478      00
+ 2479              	.LASF90:
+ 2480 00d0 6D61696E 		.ascii	"mainthread\000"
+ 2480      74687265 
+ 2480      616400
+ 2481              	.LASF77:
+ 2482 00db 76697274 		.ascii	"virtual_timers_list_t\000"
+ 2482      75616C5F 
+ 2482      74696D65 
+ 2482      72735F6C 
+ 2482      6973745F 
+ 2483              	.LASF93:
+ 2484 00f1 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2484      52784275 
+ 2484      66666572 
+ 2484      00
+ 2485              	.LASF22:
+ 2486 00fe 72747469 		.ascii	"rttime_t\000"
+ 2486      6D655F74 
+ 2486      00
+ 2487              	.LASF36:
+ 2488 0107 705F7072 		.ascii	"p_prio\000"
+ 2488      696F00
+ 2489              	.LASF149:
+ 2490 010e 63665F6F 		.ascii	"cf_off_state\000"
+ 2490      66665F73 
+ 2490      74617465 
+ 2490      00
+ 2491              	.LASF165:
+ 2492 011b 746D7031 		.ascii	"tmp1\000"
+ 2492      00
+ 2493              	.LASF166:
+ 2494 0120 746D7032 		.ascii	"tmp2\000"
+ 2494      00
+ 2495              	.LASF1:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 46
+
+
+ 2496 0125 6C6F6E67 		.ascii	"long long int\000"
+ 2496      206C6F6E 
+ 2496      6720696E 
+ 2496      7400
+ 2497              	.LASF3:
+ 2498 0133 7369676E 		.ascii	"signed char\000"
+ 2498      65642063 
+ 2498      68617200 
+ 2499              	.LASF148:
+ 2500 013f 63665F6F 		.ascii	"cf_off_stklimit\000"
+ 2500      66665F73 
+ 2500      746B6C69 
+ 2500      6D697400 
+ 2501              	.LASF53:
+ 2502 014f 705F6D70 		.ascii	"p_mpool\000"
+ 2502      6F6F6C00 
+ 2503              	.LASF89:
+ 2504 0157 76746C69 		.ascii	"vtlist\000"
+ 2504      737400
+ 2505              	.LASF26:
+ 2506 015e 74736C69 		.ascii	"tslices_t\000"
+ 2506      6365735F 
+ 2506      7400
+ 2507              	.LASF123:
+ 2508 0168 77747472 		.ascii	"wttrp\000"
+ 2508      7000
+ 2509              	.LASF87:
+ 2510 016e 63685F73 		.ascii	"ch_system\000"
+ 2510      79737465 
+ 2510      6D00
+ 2511              	.LASF11:
+ 2512 0178 6C6F6E67 		.ascii	"long int\000"
+ 2512      20696E74 
+ 2512      00
+ 2513              	.LASF168:
+ 2514 0181 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 2514      43313120 
+ 2514      372E322E 
+ 2514      31203230 
+ 2514      31373039 
+ 2515 01b4 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
+ 2515      20726576 
+ 2515      6973696F 
+ 2515      6E203235 
+ 2515      35323034 
+ 2516 01e7 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 2516      2D6D6670 
+ 2516      753D6670 
+ 2516      76342D73 
+ 2516      702D6431 
+ 2517 021a 2D676764 		.ascii	"-ggdb -O0 -fomit-frame-pointer -falign-functions=16"
+ 2517      62202D4F 
+ 2517      30202D66 
+ 2517      6F6D6974 
+ 2517      2D667261 
+ 2518 024d 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
+ 2518      6F2D7374 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 47
+
+
+ 2518      72696374 
+ 2518      2D616C69 
+ 2518      6173696E 
+ 2519 0280 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
+ 2519      73656374 
+ 2519      696F6E73 
+ 2519      202D6664 
+ 2519      6174612D 
+ 2520 02b3 72656369 		.ascii	"recision-constant\000"
+ 2520      73696F6E 
+ 2520      2D636F6E 
+ 2520      7374616E 
+ 2520      7400
+ 2521              	.LASF24:
+ 2522 02c5 74737461 		.ascii	"tstate_t\000"
+ 2522      74655F74 
+ 2522      00
+ 2523              	.LASF162:
+ 2524 02ce 5F5F7661 		.ascii	"__va_list\000"
+ 2524      5F6C6973 
+ 2524      7400
+ 2525              	.LASF100:
+ 2526 02d8 73655F74 		.ascii	"se_tp\000"
+ 2526      7000
+ 2527              	.LASF154:
+ 2528 02de 63686465 		.ascii	"chdebug_t\000"
+ 2528      6275675F 
+ 2528      7400
+ 2529              	.LASF38:
+ 2530 02e8 705F6E65 		.ascii	"p_newer\000"
+ 2530      77657200 
+ 2531              	.LASF128:
+ 2532 02f0 735F7175 		.ascii	"s_queue\000"
+ 2532      65756500 
+ 2533              	.LASF104:
+ 2534 02f8 74625F73 		.ascii	"tb_size\000"
+ 2534      697A6500 
+ 2535              	.LASF66:
+ 2536 0300 725F6E65 		.ascii	"r_newer\000"
+ 2536      77657200 
+ 2537              	.LASF95:
+ 2538 0308 72656761 		.ascii	"regarm_t\000"
+ 2538      726D5F74 
+ 2538      00
+ 2539              	.LASF73:
+ 2540 0311 76745F70 		.ascii	"vt_prev\000"
+ 2540      72657600 
+ 2541              	.LASF81:
+ 2542 0319 63685F73 		.ascii	"ch_system_debug\000"
+ 2542      79737465 
+ 2542      6D5F6465 
+ 2542      62756700 
+ 2543              	.LASF134:
+ 2544 0329 6D5F636E 		.ascii	"m_cnt\000"
+ 2544      7400
+ 2545              	.LASF156:
+ 2546 032f 6D757465 		.ascii	"mutex_t\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 48
+
+
+ 2546      785F7400 
+ 2547              	.LASF160:
+ 2548 0337 42617365 		.ascii	"BaseSequentialStream\000"
+ 2548      53657175 
+ 2548      656E7469 
+ 2548      616C5374 
+ 2548      7265616D 
+ 2549              	.LASF92:
+ 2550 034c 69646C65 		.ascii	"idle_thread_wa\000"
+ 2550      5F746872 
+ 2550      6561645F 
+ 2550      776100
+ 2551              	.LASF30:
+ 2552 035b 636E745F 		.ascii	"cnt_t\000"
+ 2552      7400
+ 2553              	.LASF41:
+ 2554 0361 705F7374 		.ascii	"p_stklimit\000"
+ 2554      6B6C696D 
+ 2554      697400
+ 2555              	.LASF0:
+ 2556 036c 756E7369 		.ascii	"unsigned int\000"
+ 2556      676E6564 
+ 2556      20696E74 
+ 2556      00
+ 2557              	.LASF72:
+ 2558 0379 76745F6E 		.ascii	"vt_next\000"
+ 2558      65787400 
+ 2559              	.LASF17:
+ 2560 0381 75696E74 		.ascii	"uint16_t\000"
+ 2560      31365F74 
+ 2560      00
+ 2561              	.LASF94:
+ 2562 038a 53797374 		.ascii	"SystemCoreClock\000"
+ 2562      656D436F 
+ 2562      7265436C 
+ 2562      6F636B00 
+ 2563              	.LASF46:
+ 2564 039a 705F7469 		.ascii	"p_time\000"
+ 2564      6D6500
+ 2565              	.LASF124:
+ 2566 03a1 77747365 		.ascii	"wtsemp\000"
+ 2566      6D7000
+ 2567              	.LASF74:
+ 2568 03a8 76745F64 		.ascii	"vt_delta\000"
+ 2568      656C7461 
+ 2568      00
+ 2569              	.LASF48:
+ 2570 03b1 705F6D73 		.ascii	"p_msgqueue\000"
+ 2570      67717565 
+ 2570      756500
+ 2571              	.LASF155:
+ 2572 03bc 63685F64 		.ascii	"ch_debug\000"
+ 2572      65627567 
+ 2572      00
+ 2573              	.LASF115:
+ 2574 03c5 6E5F6972 		.ascii	"n_irq\000"
+ 2574      7100
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 49
+
+
+ 2575              	.LASF129:
+ 2576 03cb 735F636E 		.ascii	"s_cnt\000"
+ 2576      7400
+ 2577              	.LASF9:
+ 2578 03d1 73686F72 		.ascii	"short unsigned int\000"
+ 2578      7420756E 
+ 2578      7369676E 
+ 2578      65642069 
+ 2578      6E7400
+ 2579              	.LASF119:
+ 2580 03e4 6B65726E 		.ascii	"kernel_stats_t\000"
+ 2580      656C5F73 
+ 2580      74617473 
+ 2580      5F7400
+ 2581              	.LASF57:
+ 2582 03f3 63685F74 		.ascii	"ch_thread\000"
+ 2582      68726561 
+ 2582      6400
+ 2583              	.LASF28:
+ 2584 03fd 6D73675F 		.ascii	"msg_t\000"
+ 2584      7400
+ 2585              	.LASF112:
+ 2586 0403 6C617374 		.ascii	"last\000"
+ 2586      00
+ 2587              	.LASF31:
+ 2588 0408 75636E74 		.ascii	"ucnt_t\000"
+ 2588      5F7400
+ 2589              	.LASF86:
+ 2590 040f 63685F73 		.ascii	"ch_system_t\000"
+ 2590      79737465 
+ 2590      6D5F7400 
+ 2591              	.LASF153:
+ 2592 041b 63665F6F 		.ascii	"cf_off_time\000"
+ 2592      66665F74 
+ 2592      696D6500 
+ 2593              	.LASF118:
+ 2594 0427 6D5F6372 		.ascii	"m_crit_isr\000"
+ 2594      69745F69 
+ 2594      737200
+ 2595              	.LASF62:
+ 2596 0432 63685F72 		.ascii	"ch_ready_list\000"
+ 2596      65616479 
+ 2596      5F6C6973 
+ 2596      7400
+ 2597              	.LASF29:
+ 2598 0440 6576656E 		.ascii	"eventmask_t\000"
+ 2598      746D6173 
+ 2598      6B5F7400 
+ 2599              	.LASF10:
+ 2600 044c 5F5F696E 		.ascii	"__int32_t\000"
+ 2600      7433325F 
+ 2600      7400
+ 2601              	.LASF96:
+ 2602 0456 73746B61 		.ascii	"stkalign_t\000"
+ 2602      6C69676E 
+ 2602      5F7400
+ 2603              	.LASF56:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 50
+
+
+ 2604 0461 74687265 		.ascii	"threads_list_t\000"
+ 2604      6164735F 
+ 2604      6C697374 
+ 2604      5F7400
+ 2605              	.LASF137:
+ 2606 0470 63685F7A 		.ascii	"ch_zero\000"
+ 2606      65726F00 
+ 2607              	.LASF158:
+ 2608 0478 77726974 		.ascii	"write\000"
+ 2608      6500
+ 2609              	.LASF169:
+ 2610 047e 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/src/uc_usage.c\000"
+ 2610      69622F65 
+ 2610      2D707563 
+ 2610      6B325F6D 
+ 2610      61696E2D 
+ 2611              	.LASF21:
+ 2612 04ab 7274636E 		.ascii	"rtcnt_t\000"
+ 2612      745F7400 
+ 2613              	.LASF78:
+ 2614 04b3 63685F76 		.ascii	"ch_virtual_timers_list\000"
+ 2614      69727475 
+ 2614      616C5F74 
+ 2614      696D6572 
+ 2614      735F6C69 
+ 2615              	.LASF2:
+ 2616 04ca 6C6F6E67 		.ascii	"long double\000"
+ 2616      20646F75 
+ 2616      626C6500 
+ 2617              	.LASF141:
+ 2618 04d6 63685F74 		.ascii	"ch_timesize\000"
+ 2618      696D6573 
+ 2618      697A6500 
+ 2619              	.LASF105:
+ 2620 04e2 74625F70 		.ascii	"tb_ptr\000"
+ 2620      747200
+ 2621              	.LASF161:
+ 2622 04e9 5F5F676E 		.ascii	"__gnuc_va_list\000"
+ 2622      75635F76 
+ 2622      615F6C69 
+ 2622      737400
+ 2623              	.LASF103:
+ 2624 04f8 63685F73 		.ascii	"ch_swc_event_t\000"
+ 2624      77635F65 
+ 2624      76656E74 
+ 2624      5F7400
+ 2625              	.LASF147:
+ 2626 0507 63665F6F 		.ascii	"cf_off_name\000"
+ 2626      66665F6E 
+ 2626      616D6500 
+ 2627              	.LASF107:
+ 2628 0513 63685F74 		.ascii	"ch_trace_buffer_t\000"
+ 2628      72616365 
+ 2628      5F627566 
+ 2628      6665725F 
+ 2628      7400
+ 2629              	.LASF39:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 51
+
+
+ 2630 0525 705F6F6C 		.ascii	"p_older\000"
+ 2630      64657200 
+ 2631              	.LASF120:
+ 2632 052d 7264796D 		.ascii	"rdymsg\000"
+ 2632      736700
+ 2633              	.LASF65:
+ 2634 0534 725F6374 		.ascii	"r_ctx\000"
+ 2634      7800
+ 2635              	.LASF37:
+ 2636 053a 705F6374 		.ascii	"p_ctx\000"
+ 2636      7800
+ 2637              	.LASF109:
+ 2638 0540 746D5F63 		.ascii	"tm_calibration_t\000"
+ 2638      616C6962 
+ 2638      72617469 
+ 2638      6F6E5F74 
+ 2638      00
+ 2639              	.LASF84:
+ 2640 0551 6C6F636B 		.ascii	"lock_cnt\000"
+ 2640      5F636E74 
+ 2640      00
+ 2641              	.LASF68:
+ 2642 055a 725F6375 		.ascii	"r_current\000"
+ 2642      7272656E 
+ 2642      7400
+ 2643              	.LASF67:
+ 2644 0564 725F6F6C 		.ascii	"r_older\000"
+ 2644      64657200 
+ 2645              	.LASF14:
+ 2646 056c 5F5F7569 		.ascii	"__uint64_t\000"
+ 2646      6E743634 
+ 2646      5F7400
+ 2647              	.LASF113:
+ 2648 0577 63756D75 		.ascii	"cumulative\000"
+ 2648      6C617469 
+ 2648      766500
+ 2649              	.LASF25:
+ 2650 0582 74726566 		.ascii	"trefs_t\000"
+ 2650      735F7400 
+ 2651              	.LASF106:
+ 2652 058a 74625F62 		.ascii	"tb_buffer\000"
+ 2652      75666665 
+ 2652      7200
+ 2653              	.LASF140:
+ 2654 0594 63685F70 		.ascii	"ch_ptrsize\000"
+ 2654      74727369 
+ 2654      7A6500
+ 2655              	.LASF70:
+ 2656 059f 76697274 		.ascii	"virtual_timer_t\000"
+ 2656      75616C5F 
+ 2656      74696D65 
+ 2656      725F7400 
+ 2657              	.LASF35:
+ 2658 05af 705F7072 		.ascii	"p_prev\000"
+ 2658      657600
+ 2659              	.LASF27:
+ 2660 05b6 74707269 		.ascii	"tprio_t\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 52
+
+
+ 2660      6F5F7400 
+ 2661              	.LASF40:
+ 2662 05be 705F6E61 		.ascii	"p_name\000"
+ 2662      6D6500
+ 2663              	.LASF116:
+ 2664 05c5 6E5F6374 		.ascii	"n_ctxswc\000"
+ 2664      78737763 
+ 2664      00
+ 2665              	.LASF18:
+ 2666 05ce 696E7433 		.ascii	"int32_t\000"
+ 2666      325F7400 
+ 2667              	.LASF6:
+ 2668 05d6 756E7369 		.ascii	"unsigned char\000"
+ 2668      676E6564 
+ 2668      20636861 
+ 2668      7200
+ 2669              	.LASF131:
+ 2670 05e4 6D5F7175 		.ascii	"m_queue\000"
+ 2670      65756500 
+ 2671              	.LASF51:
+ 2672 05ec 705F6D74 		.ascii	"p_mtxlist\000"
+ 2672      786C6973 
+ 2672      7400
+ 2673              	.LASF7:
+ 2674 05f6 73686F72 		.ascii	"short int\000"
+ 2674      7420696E 
+ 2674      7400
+ 2675              	.LASF42:
+ 2676 0600 705F7374 		.ascii	"p_state\000"
+ 2676      61746500 
+ 2677              	.LASF45:
+ 2678 0608 705F7072 		.ascii	"p_preempt\000"
+ 2678      65656D70 
+ 2678      7400
+ 2679              	.LASF64:
+ 2680 0612 725F7072 		.ascii	"r_prio\000"
+ 2680      696F00
+ 2681              	.LASF126:
+ 2682 0619 65776D61 		.ascii	"ewmask\000"
+ 2682      736B00
+ 2683              	.LASF34:
+ 2684 0620 705F6E65 		.ascii	"p_next\000"
+ 2684      787400
+ 2685              	.LASF23:
+ 2686 0627 746D6F64 		.ascii	"tmode_t\000"
+ 2686      655F7400 
+ 2687              	.LASF152:
+ 2688 062f 63665F6F 		.ascii	"cf_off_preempt\000"
+ 2688      66665F70 
+ 2688      7265656D 
+ 2688      707400
+ 2689              	.LASF43:
+ 2690 063e 705F666C 		.ascii	"p_flags\000"
+ 2690      61677300 
+ 2691              	.LASF54:
+ 2692 0646 705F7374 		.ascii	"p_stats\000"
+ 2692      61747300 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 53
+
+
+ 2693              	.LASF170:
+ 2694 064e 433A5C55 		.ascii	"C:\\Users\\Pchautems\\Documents\\RobotiqueTP\\Proje"
+ 2694      73657273 
+ 2694      5C506368 
+ 2694      61757465 
+ 2694      6D735C44 
+ 2695 067c 745C6D69 		.ascii	"t\\miniprojet\000"
+ 2695      6E697072 
+ 2695      6F6A6574 
+ 2695      00
+ 2696              	.LASF59:
+ 2697 0689 74687265 		.ascii	"threads_queue_t\000"
+ 2697      6164735F 
+ 2697      71756575 
+ 2697      655F7400 
+ 2698              	.LASF71:
+ 2699 0699 63685F76 		.ascii	"ch_virtual_timer\000"
+ 2699      69727475 
+ 2699      616C5F74 
+ 2699      696D6572 
+ 2699      00
+ 2700              	.LASF145:
+ 2701 06aa 63665F6F 		.ascii	"cf_off_newer\000"
+ 2701      66665F6E 
+ 2701      65776572 
+ 2701      00
+ 2702              	.LASF127:
+ 2703 06b7 63685F73 		.ascii	"ch_semaphore\000"
+ 2703      656D6170 
+ 2703      686F7265 
+ 2703      00
+ 2704              	.LASF50:
+ 2705 06c4 705F6570 		.ascii	"p_epending\000"
+ 2705      656E6469 
+ 2705      6E6700
+ 2706              	.LASF157:
+ 2707 06cf 42617365 		.ascii	"BaseSequentialStreamVMT\000"
+ 2707      53657175 
+ 2707      656E7469 
+ 2707      616C5374 
+ 2707      7265616D 
+ 2708              	.LASF143:
+ 2709 06e7 63665F6F 		.ascii	"cf_off_prio\000"
+ 2709      66665F70 
+ 2709      72696F00 
+ 2710              	.LASF63:
+ 2711 06f3 725F7175 		.ascii	"r_queue\000"
+ 2711      65756500 
+ 2712              	.LASF58:
+ 2713 06fb 63685F74 		.ascii	"ch_threads_list\000"
+ 2713      68726561 
+ 2713      64735F6C 
+ 2713      69737400 
+ 2714              	.LASF138:
+ 2715 070b 63685F73 		.ascii	"ch_size\000"
+ 2715      697A6500 
+ 2716              	.LASF13:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 54
+
+
+ 2717 0713 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2717      20756E73 
+ 2717      69676E65 
+ 2717      6420696E 
+ 2717      7400
+ 2718              	.LASF159:
+ 2719 0725 72656164 		.ascii	"read\000"
+ 2719      00
+ 2720              	.LASF135:
+ 2721 072a 63686172 		.ascii	"char\000"
+ 2721      00
+ 2722              	.LASF125:
+ 2723 072f 77746D74 		.ascii	"wtmtxp\000"
+ 2723      787000
+ 2724              	.LASF8:
+ 2725 0736 5F5F7569 		.ascii	"__uint16_t\000"
+ 2725      6E743136 
+ 2725      5F7400
+ 2726              	.LASF33:
+ 2727 0741 74687265 		.ascii	"thread_t\000"
+ 2727      61645F74 
+ 2727      00
+ 2728              	.LASF110:
+ 2729 074a 62657374 		.ascii	"best\000"
+ 2729      00
+ 2730              	.LASF133:
+ 2731 074f 6D5F6E65 		.ascii	"m_next\000"
+ 2731      787400
+ 2732              	.LASF32:
+ 2733 0756 73797374 		.ascii	"systime_t\000"
+ 2733      696D655F 
+ 2733      7400
+ 2734              	.LASF52:
+ 2735 0760 705F7265 		.ascii	"p_realprio\000"
+ 2735      616C7072 
+ 2735      696F00
+ 2736              	.LASF69:
+ 2737 076b 76746675 		.ascii	"vtfunc_t\000"
+ 2737      6E635F74 
+ 2737      00
+ 2738              	.LASF12:
+ 2739 0774 5F5F7569 		.ascii	"__uint32_t\000"
+ 2739      6E743332 
+ 2739      5F7400
+ 2740              	.LASF82:
+ 2741 077f 70616E69 		.ascii	"panic_msg\000"
+ 2741      635F6D73 
+ 2741      6700
+ 2742              	.LASF108:
+ 2743 0789 6F666673 		.ascii	"offset\000"
+ 2743      657400
+ 2744              	.LASF150:
+ 2745 0790 63665F6F 		.ascii	"cf_off_flags\000"
+ 2745      66665F66 
+ 2745      6C616773 
+ 2745      00
+ 2746              	.LASF163:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 55
+
+
+ 2747 079d 5F5F6170 		.ascii	"__ap\000"
+ 2747      00
+ 2748              	.LASF97:
+ 2749 07a2 636F6E74 		.ascii	"context\000"
+ 2749      65787400 
+ 2750              	.LASF49:
+ 2751 07aa 705F6D73 		.ascii	"p_msg\000"
+ 2751      6700
+ 2752              	.LASF76:
+ 2753 07b0 76745F70 		.ascii	"vt_par\000"
+ 2753      617200
+ 2754              	.LASF19:
+ 2755 07b7 75696E74 		.ascii	"uint32_t\000"
+ 2755      33325F74 
+ 2755      00
+ 2756              	.LASF60:
+ 2757 07c0 63685F74 		.ascii	"ch_threads_queue\000"
+ 2757      68726561 
+ 2757      64735F71 
+ 2757      75657565 
+ 2757      00
+ 2758              	.LASF144:
+ 2759 07d1 63665F6F 		.ascii	"cf_off_ctx\000"
+ 2759      66665F63 
+ 2759      747800
+ 2760              	.LASF130:
+ 2761 07dc 63685F6D 		.ascii	"ch_mutex\000"
+ 2761      75746578 
+ 2761      00
+ 2762              	.LASF44:
+ 2763 07e5 705F7265 		.ascii	"p_refs\000"
+ 2763      667300
+ 2764              	.LASF83:
+ 2765 07ec 6973725F 		.ascii	"isr_cnt\000"
+ 2765      636E7400 
+ 2766              	.LASF102:
+ 2767 07f4 73655F73 		.ascii	"se_state\000"
+ 2767      74617465 
+ 2767      00
+ 2768              	.LASF88:
+ 2769 07fd 726C6973 		.ascii	"rlist\000"
+ 2769      7400
+ 2770              	.LASF16:
+ 2771 0803 75696E74 		.ascii	"uint8_t\000"
+ 2771      385F7400 
+ 2772              	.LASF55:
+ 2773 080b 74687265 		.ascii	"thread_reference_t\000"
+ 2773      61645F72 
+ 2773      65666572 
+ 2773      656E6365 
+ 2773      5F7400
+ 2774              	.LASF122:
+ 2775 081e 77746F62 		.ascii	"wtobjp\000"
+ 2775      6A7000
+ 2776              	.LASF79:
+ 2777 0825 76745F73 		.ascii	"vt_systime\000"
+ 2777      79737469 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 56
+
+
+ 2777      6D6500
+ 2778              	.LASF85:
+ 2779 0830 74726163 		.ascii	"trace_buffer\000"
+ 2779      655F6275 
+ 2779      66666572 
+ 2779      00
+ 2780              	.LASF139:
+ 2781 083d 63685F76 		.ascii	"ch_version\000"
+ 2781      65727369 
+ 2781      6F6E00
+ 2782              	.LASF151:
+ 2783 0848 63665F6F 		.ascii	"cf_off_refs\000"
+ 2783      66665F72 
+ 2783      65667300 
+ 2784              	.LASF117:
+ 2785 0854 6D5F6372 		.ascii	"m_crit_thd\000"
+ 2785      69745F74 
+ 2785      686400
+ 2786              	.LASF132:
+ 2787 085f 6D5F6F77 		.ascii	"m_owner\000"
+ 2787      6E657200 
+ 2788              	.LASF101:
+ 2789 0867 73655F77 		.ascii	"se_wtobjp\000"
+ 2789      746F626A 
+ 2789      7000
+ 2790              	.LASF136:
+ 2791 0871 63685F69 		.ascii	"ch_identifier\000"
+ 2791      64656E74 
+ 2791      69666965 
+ 2791      7200
+ 2792              	.LASF75:
+ 2793 087f 76745F66 		.ascii	"vt_func\000"
+ 2793      756E6300 
+ 2794              	.LASF47:
+ 2795 0887 705F7761 		.ascii	"p_waiting\000"
+ 2795      6974696E 
+ 2795      6700
+ 2796              	.LASF172:
+ 2797 0891 63687072 		.ascii	"chprintf\000"
+ 2797      696E7466 
+ 2797      00
+ 2798              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s 			page 57
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 uc_usage.c
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:18     .text.chprintf:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:25     .text.chprintf:00000000 chprintf
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:84     .text.chprintf:00000040 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:90     .rodata:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:101    .text.printUcUsage:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:109    .text.printUcUsage:00000000 printUcUsage
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:431    .text.printUcUsage:000002e4 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:447    .bss.sum.7868:00000000 sum.7868
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:453    .bss.tmp1.7869:00000000 tmp1.7869
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:459    .bss.tmp2.7870:00000000 tmp2.7870
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:444    .bss.sum.7868:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:450    .bss.tmp1.7869:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\cc3i1EGf.s:456    .bss.tmp2.7870:00000000 $d
+
+UNDEFINED SYMBOLS
+chvprintf
+__stack_chk_fail
+__stack_chk_guard
+__aeabi_uldivmod
+chRegFirstThread
+chRegNextThread
+ch

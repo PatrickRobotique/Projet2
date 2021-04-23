@@ -1,0 +1,695 @@
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"e_prox.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.e_calibrate_ir,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 4,,15
+  20              		.global	e_calibrate_ir
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  25              		.type	e_calibrate_ir, %function
+  26              	e_calibrate_ir:
+  27              	.LFB0:
+  28              		.file 1 "../lib/e-puck2_main-processor/src/epuck1x/a_d/advance_ad_scan/e_prox.c"
+  29              		.loc 1 5 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 14, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              		.cfi_def_cfa_offset 16
+  38              		.loc 1 5 0
+  39 0004 074B     		ldr	r3, .L3
+  40 0006 1B68     		ldr	r3, [r3]
+  41 0008 0193     		str	r3, [sp, #4]
+  42              		.loc 1 6 0
+  43 000a FFF7FEFF 		bl	calibrate_ir
+  44              		.loc 1 7 0
+  45 000e 00BF     		nop
+  46 0010 044B     		ldr	r3, .L3
+  47 0012 019A     		ldr	r2, [sp, #4]
+  48 0014 1B68     		ldr	r3, [r3]
+  49 0016 9A42     		cmp	r2, r3
+  50 0018 01D0     		beq	.L2
+  51 001a FFF7FEFF 		bl	__stack_chk_fail
+  52              	.L2:
+  53 001e 03B0     		add	sp, sp, #12
+  54              		.cfi_def_cfa_offset 4
+  55              		@ sp needed
+  56 0020 5DF804FB 		ldr	pc, [sp], #4
+  57              	.L4:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 2
+
+
+  58              		.align	2
+  59              	.L3:
+  60 0024 00000000 		.word	__stack_chk_guard
+  61              		.cfi_endproc
+  62              	.LFE0:
+  63              		.size	e_calibrate_ir, .-e_calibrate_ir
+  64              		.section	.text.e_get_prox,"ax",%progbits
+  65              		.align	1
+  66              		.p2align 4,,15
+  67              		.global	e_get_prox
+  68              		.syntax unified
+  69              		.thumb
+  70              		.thumb_func
+  71              		.fpu fpv4-sp-d16
+  72              		.type	e_get_prox, %function
+  73              	e_get_prox:
+  74              	.LFB1:
+  75              		.loc 1 10 0
+  76              		.cfi_startproc
+  77              		@ args = 0, pretend = 0, frame = 16
+  78              		@ frame_needed = 0, uses_anonymous_args = 0
+  79 0000 00B5     		push	{lr}
+  80              		.cfi_def_cfa_offset 4
+  81              		.cfi_offset 14, -4
+  82 0002 85B0     		sub	sp, sp, #20
+  83              		.cfi_def_cfa_offset 24
+  84 0004 0190     		str	r0, [sp, #4]
+  85              		.loc 1 10 0
+  86 0006 0B4B     		ldr	r3, .L9
+  87 0008 1B68     		ldr	r3, [r3]
+  88 000a 0393     		str	r3, [sp, #12]
+  89              		.loc 1 11 0
+  90 000c 019B     		ldr	r3, [sp, #4]
+  91 000e 072B     		cmp	r3, #7
+  92 0010 01D9     		bls	.L6
+  93              		.loc 1 12 0
+  94 0012 0023     		movs	r3, #0
+  95 0014 03E0     		b	.L7
+  96              	.L6:
+  97              		.loc 1 14 0
+  98 0016 0198     		ldr	r0, [sp, #4]
+  99 0018 FFF7FEFF 		bl	get_prox
+ 100 001c 0346     		mov	r3, r0
+ 101              	.L7:
+ 102              		.loc 1 16 0
+ 103 001e 1846     		mov	r0, r3
+ 104 0020 044B     		ldr	r3, .L9
+ 105 0022 039A     		ldr	r2, [sp, #12]
+ 106 0024 1B68     		ldr	r3, [r3]
+ 107 0026 9A42     		cmp	r2, r3
+ 108 0028 01D0     		beq	.L8
+ 109 002a FFF7FEFF 		bl	__stack_chk_fail
+ 110              	.L8:
+ 111 002e 05B0     		add	sp, sp, #20
+ 112              		.cfi_def_cfa_offset 4
+ 113              		@ sp needed
+ 114 0030 5DF804FB 		ldr	pc, [sp], #4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 3
+
+
+ 115              	.L10:
+ 116              		.align	2
+ 117              	.L9:
+ 118 0034 00000000 		.word	__stack_chk_guard
+ 119              		.cfi_endproc
+ 120              	.LFE1:
+ 121              		.size	e_get_prox, .-e_get_prox
+ 122              		.section	.text.e_get_calibrated_prox,"ax",%progbits
+ 123              		.align	1
+ 124              		.p2align 4,,15
+ 125              		.global	e_get_calibrated_prox
+ 126              		.syntax unified
+ 127              		.thumb
+ 128              		.thumb_func
+ 129              		.fpu fpv4-sp-d16
+ 130              		.type	e_get_calibrated_prox, %function
+ 131              	e_get_calibrated_prox:
+ 132              	.LFB2:
+ 133              		.loc 1 19 0
+ 134              		.cfi_startproc
+ 135              		@ args = 0, pretend = 0, frame = 16
+ 136              		@ frame_needed = 0, uses_anonymous_args = 0
+ 137 0000 00B5     		push	{lr}
+ 138              		.cfi_def_cfa_offset 4
+ 139              		.cfi_offset 14, -4
+ 140 0002 85B0     		sub	sp, sp, #20
+ 141              		.cfi_def_cfa_offset 24
+ 142 0004 0190     		str	r0, [sp, #4]
+ 143              		.loc 1 19 0
+ 144 0006 0B4B     		ldr	r3, .L15
+ 145 0008 1B68     		ldr	r3, [r3]
+ 146 000a 0393     		str	r3, [sp, #12]
+ 147              		.loc 1 20 0
+ 148 000c 019B     		ldr	r3, [sp, #4]
+ 149 000e 072B     		cmp	r3, #7
+ 150 0010 01D9     		bls	.L12
+ 151              		.loc 1 21 0
+ 152 0012 0023     		movs	r3, #0
+ 153 0014 03E0     		b	.L13
+ 154              	.L12:
+ 155              		.loc 1 23 0
+ 156 0016 0198     		ldr	r0, [sp, #4]
+ 157 0018 FFF7FEFF 		bl	get_calibrated_prox
+ 158 001c 0346     		mov	r3, r0
+ 159              	.L13:
+ 160              		.loc 1 25 0
+ 161 001e 1846     		mov	r0, r3
+ 162 0020 044B     		ldr	r3, .L15
+ 163 0022 039A     		ldr	r2, [sp, #12]
+ 164 0024 1B68     		ldr	r3, [r3]
+ 165 0026 9A42     		cmp	r2, r3
+ 166 0028 01D0     		beq	.L14
+ 167 002a FFF7FEFF 		bl	__stack_chk_fail
+ 168              	.L14:
+ 169 002e 05B0     		add	sp, sp, #20
+ 170              		.cfi_def_cfa_offset 4
+ 171              		@ sp needed
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 4
+
+
+ 172 0030 5DF804FB 		ldr	pc, [sp], #4
+ 173              	.L16:
+ 174              		.align	2
+ 175              	.L15:
+ 176 0034 00000000 		.word	__stack_chk_guard
+ 177              		.cfi_endproc
+ 178              	.LFE2:
+ 179              		.size	e_get_calibrated_prox, .-e_get_calibrated_prox
+ 180              		.section	.text.e_get_ambient_light,"ax",%progbits
+ 181              		.align	1
+ 182              		.p2align 4,,15
+ 183              		.global	e_get_ambient_light
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu fpv4-sp-d16
+ 188              		.type	e_get_ambient_light, %function
+ 189              	e_get_ambient_light:
+ 190              	.LFB3:
+ 191              		.loc 1 28 0
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 16
+ 194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195 0000 00B5     		push	{lr}
+ 196              		.cfi_def_cfa_offset 4
+ 197              		.cfi_offset 14, -4
+ 198 0002 85B0     		sub	sp, sp, #20
+ 199              		.cfi_def_cfa_offset 24
+ 200 0004 0190     		str	r0, [sp, #4]
+ 201              		.loc 1 28 0
+ 202 0006 0B4B     		ldr	r3, .L21
+ 203 0008 1B68     		ldr	r3, [r3]
+ 204 000a 0393     		str	r3, [sp, #12]
+ 205              		.loc 1 29 0
+ 206 000c 019B     		ldr	r3, [sp, #4]
+ 207 000e 072B     		cmp	r3, #7
+ 208 0010 01D9     		bls	.L18
+ 209              		.loc 1 30 0
+ 210 0012 0023     		movs	r3, #0
+ 211 0014 03E0     		b	.L19
+ 212              	.L18:
+ 213              		.loc 1 32 0
+ 214 0016 0198     		ldr	r0, [sp, #4]
+ 215 0018 FFF7FEFF 		bl	get_ambient_light
+ 216 001c 0346     		mov	r3, r0
+ 217              	.L19:
+ 218              		.loc 1 34 0
+ 219 001e 1846     		mov	r0, r3
+ 220 0020 044B     		ldr	r3, .L21
+ 221 0022 039A     		ldr	r2, [sp, #12]
+ 222 0024 1B68     		ldr	r3, [r3]
+ 223 0026 9A42     		cmp	r2, r3
+ 224 0028 01D0     		beq	.L20
+ 225 002a FFF7FEFF 		bl	__stack_chk_fail
+ 226              	.L20:
+ 227 002e 05B0     		add	sp, sp, #20
+ 228              		.cfi_def_cfa_offset 4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 5
+
+
+ 229              		@ sp needed
+ 230 0030 5DF804FB 		ldr	pc, [sp], #4
+ 231              	.L22:
+ 232              		.align	2
+ 233              	.L21:
+ 234 0034 00000000 		.word	__stack_chk_guard
+ 235              		.cfi_endproc
+ 236              	.LFE3:
+ 237              		.size	e_get_ambient_light, .-e_get_ambient_light
+ 238              		.text
+ 239              	.Letext0:
+ 240              		.section	.debug_info,"",%progbits
+ 241              	.Ldebug_info0:
+ 242 0000 F1000000 		.4byte	0xf1
+ 243 0004 0400     		.2byte	0x4
+ 244 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 245 000a 04       		.byte	0x4
+ 246 000b 01       		.uleb128 0x1
+ 247 000c FA000000 		.4byte	.LASF13
+ 248 0010 0C       		.byte	0xc
+ 249 0011 9B000000 		.4byte	.LASF14
+ 250 0015 61020000 		.4byte	.LASF15
+ 251 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 252 001d 00000000 		.4byte	0
+ 253 0021 00000000 		.4byte	.Ldebug_line0
+ 254 0025 02       		.uleb128 0x2
+ 255 0026 01       		.byte	0x1
+ 256 0027 06       		.byte	0x6
+ 257 0028 55020000 		.4byte	.LASF0
+ 258 002c 02       		.uleb128 0x2
+ 259 002d 01       		.byte	0x1
+ 260 002e 08       		.byte	0x8
+ 261 002f 14000000 		.4byte	.LASF1
+ 262 0033 02       		.uleb128 0x2
+ 263 0034 02       		.byte	0x2
+ 264 0035 05       		.byte	0x5
+ 265 0036 F0000000 		.4byte	.LASF2
+ 266 003a 02       		.uleb128 0x2
+ 267 003b 02       		.byte	0x2
+ 268 003c 07       		.byte	0x7
+ 269 003d 43000000 		.4byte	.LASF3
+ 270 0041 02       		.uleb128 0x2
+ 271 0042 04       		.byte	0x4
+ 272 0043 05       		.byte	0x5
+ 273 0044 4C020000 		.4byte	.LASF4
+ 274 0048 02       		.uleb128 0x2
+ 275 0049 04       		.byte	0x4
+ 276 004a 07       		.byte	0x7
+ 277 004b 31000000 		.4byte	.LASF5
+ 278 004f 02       		.uleb128 0x2
+ 279 0050 08       		.byte	0x8
+ 280 0051 05       		.byte	0x5
+ 281 0052 E2000000 		.4byte	.LASF6
+ 282 0056 02       		.uleb128 0x2
+ 283 0057 08       		.byte	0x8
+ 284 0058 07       		.byte	0x7
+ 285 0059 84000000 		.4byte	.LASF7
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 6
+
+
+ 286 005d 03       		.uleb128 0x3
+ 287 005e 04       		.byte	0x4
+ 288 005f 05       		.byte	0x5
+ 289 0060 696E7400 		.ascii	"int\000"
+ 290 0064 02       		.uleb128 0x2
+ 291 0065 04       		.byte	0x4
+ 292 0066 07       		.byte	0x7
+ 293 0067 77000000 		.4byte	.LASF8
+ 294 006b 04       		.uleb128 0x4
+ 295 006c 00000000 		.4byte	.LASF9
+ 296 0070 01       		.byte	0x1
+ 297 0071 1B       		.byte	0x1b
+ 298 0072 5D000000 		.4byte	0x5d
+ 299 0076 00000000 		.4byte	.LFB3
+ 300 007a 38000000 		.4byte	.LFE3-.LFB3
+ 301 007e 01       		.uleb128 0x1
+ 302 007f 9C       		.byte	0x9c
+ 303 0080 93000000 		.4byte	0x93
+ 304 0084 05       		.uleb128 0x5
+ 305 0085 3E020000 		.4byte	.LASF11
+ 306 0089 01       		.byte	0x1
+ 307 008a 1B       		.byte	0x1b
+ 308 008b 64000000 		.4byte	0x64
+ 309 008f 02       		.uleb128 0x2
+ 310 0090 91       		.byte	0x91
+ 311 0091 6C       		.sleb128 -20
+ 312 0092 00       		.byte	0
+ 313 0093 04       		.uleb128 0x4
+ 314 0094 61000000 		.4byte	.LASF10
+ 315 0098 01       		.byte	0x1
+ 316 0099 12       		.byte	0x12
+ 317 009a 5D000000 		.4byte	0x5d
+ 318 009e 00000000 		.4byte	.LFB2
+ 319 00a2 38000000 		.4byte	.LFE2-.LFB2
+ 320 00a6 01       		.uleb128 0x1
+ 321 00a7 9C       		.byte	0x9c
+ 322 00a8 BB000000 		.4byte	0xbb
+ 323 00ac 05       		.uleb128 0x5
+ 324 00ad 3E020000 		.4byte	.LASF11
+ 325 00b1 01       		.byte	0x1
+ 326 00b2 12       		.byte	0x12
+ 327 00b3 64000000 		.4byte	0x64
+ 328 00b7 02       		.uleb128 0x2
+ 329 00b8 91       		.byte	0x91
+ 330 00b9 6C       		.sleb128 -20
+ 331 00ba 00       		.byte	0
+ 332 00bb 04       		.uleb128 0x4
+ 333 00bc 56000000 		.4byte	.LASF12
+ 334 00c0 01       		.byte	0x1
+ 335 00c1 09       		.byte	0x9
+ 336 00c2 5D000000 		.4byte	0x5d
+ 337 00c6 00000000 		.4byte	.LFB1
+ 338 00ca 38000000 		.4byte	.LFE1-.LFB1
+ 339 00ce 01       		.uleb128 0x1
+ 340 00cf 9C       		.byte	0x9c
+ 341 00d0 E3000000 		.4byte	0xe3
+ 342 00d4 05       		.uleb128 0x5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 7
+
+
+ 343 00d5 3E020000 		.4byte	.LASF11
+ 344 00d9 01       		.byte	0x1
+ 345 00da 09       		.byte	0x9
+ 346 00db 64000000 		.4byte	0x64
+ 347 00df 02       		.uleb128 0x2
+ 348 00e0 91       		.byte	0x91
+ 349 00e1 6C       		.sleb128 -20
+ 350 00e2 00       		.byte	0
+ 351 00e3 06       		.uleb128 0x6
+ 352 00e4 22000000 		.4byte	.LASF16
+ 353 00e8 01       		.byte	0x1
+ 354 00e9 04       		.byte	0x4
+ 355 00ea 00000000 		.4byte	.LFB0
+ 356 00ee 28000000 		.4byte	.LFE0-.LFB0
+ 357 00f2 01       		.uleb128 0x1
+ 358 00f3 9C       		.byte	0x9c
+ 359 00f4 00       		.byte	0
+ 360              		.section	.debug_abbrev,"",%progbits
+ 361              	.Ldebug_abbrev0:
+ 362 0000 01       		.uleb128 0x1
+ 363 0001 11       		.uleb128 0x11
+ 364 0002 01       		.byte	0x1
+ 365 0003 25       		.uleb128 0x25
+ 366 0004 0E       		.uleb128 0xe
+ 367 0005 13       		.uleb128 0x13
+ 368 0006 0B       		.uleb128 0xb
+ 369 0007 03       		.uleb128 0x3
+ 370 0008 0E       		.uleb128 0xe
+ 371 0009 1B       		.uleb128 0x1b
+ 372 000a 0E       		.uleb128 0xe
+ 373 000b 55       		.uleb128 0x55
+ 374 000c 17       		.uleb128 0x17
+ 375 000d 11       		.uleb128 0x11
+ 376 000e 01       		.uleb128 0x1
+ 377 000f 10       		.uleb128 0x10
+ 378 0010 17       		.uleb128 0x17
+ 379 0011 00       		.byte	0
+ 380 0012 00       		.byte	0
+ 381 0013 02       		.uleb128 0x2
+ 382 0014 24       		.uleb128 0x24
+ 383 0015 00       		.byte	0
+ 384 0016 0B       		.uleb128 0xb
+ 385 0017 0B       		.uleb128 0xb
+ 386 0018 3E       		.uleb128 0x3e
+ 387 0019 0B       		.uleb128 0xb
+ 388 001a 03       		.uleb128 0x3
+ 389 001b 0E       		.uleb128 0xe
+ 390 001c 00       		.byte	0
+ 391 001d 00       		.byte	0
+ 392 001e 03       		.uleb128 0x3
+ 393 001f 24       		.uleb128 0x24
+ 394 0020 00       		.byte	0
+ 395 0021 0B       		.uleb128 0xb
+ 396 0022 0B       		.uleb128 0xb
+ 397 0023 3E       		.uleb128 0x3e
+ 398 0024 0B       		.uleb128 0xb
+ 399 0025 03       		.uleb128 0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 8
+
+
+ 400 0026 08       		.uleb128 0x8
+ 401 0027 00       		.byte	0
+ 402 0028 00       		.byte	0
+ 403 0029 04       		.uleb128 0x4
+ 404 002a 2E       		.uleb128 0x2e
+ 405 002b 01       		.byte	0x1
+ 406 002c 3F       		.uleb128 0x3f
+ 407 002d 19       		.uleb128 0x19
+ 408 002e 03       		.uleb128 0x3
+ 409 002f 0E       		.uleb128 0xe
+ 410 0030 3A       		.uleb128 0x3a
+ 411 0031 0B       		.uleb128 0xb
+ 412 0032 3B       		.uleb128 0x3b
+ 413 0033 0B       		.uleb128 0xb
+ 414 0034 27       		.uleb128 0x27
+ 415 0035 19       		.uleb128 0x19
+ 416 0036 49       		.uleb128 0x49
+ 417 0037 13       		.uleb128 0x13
+ 418 0038 11       		.uleb128 0x11
+ 419 0039 01       		.uleb128 0x1
+ 420 003a 12       		.uleb128 0x12
+ 421 003b 06       		.uleb128 0x6
+ 422 003c 40       		.uleb128 0x40
+ 423 003d 18       		.uleb128 0x18
+ 424 003e 9642     		.uleb128 0x2116
+ 425 0040 19       		.uleb128 0x19
+ 426 0041 01       		.uleb128 0x1
+ 427 0042 13       		.uleb128 0x13
+ 428 0043 00       		.byte	0
+ 429 0044 00       		.byte	0
+ 430 0045 05       		.uleb128 0x5
+ 431 0046 05       		.uleb128 0x5
+ 432 0047 00       		.byte	0
+ 433 0048 03       		.uleb128 0x3
+ 434 0049 0E       		.uleb128 0xe
+ 435 004a 3A       		.uleb128 0x3a
+ 436 004b 0B       		.uleb128 0xb
+ 437 004c 3B       		.uleb128 0x3b
+ 438 004d 0B       		.uleb128 0xb
+ 439 004e 49       		.uleb128 0x49
+ 440 004f 13       		.uleb128 0x13
+ 441 0050 02       		.uleb128 0x2
+ 442 0051 18       		.uleb128 0x18
+ 443 0052 00       		.byte	0
+ 444 0053 00       		.byte	0
+ 445 0054 06       		.uleb128 0x6
+ 446 0055 2E       		.uleb128 0x2e
+ 447 0056 00       		.byte	0
+ 448 0057 3F       		.uleb128 0x3f
+ 449 0058 19       		.uleb128 0x19
+ 450 0059 03       		.uleb128 0x3
+ 451 005a 0E       		.uleb128 0xe
+ 452 005b 3A       		.uleb128 0x3a
+ 453 005c 0B       		.uleb128 0xb
+ 454 005d 3B       		.uleb128 0x3b
+ 455 005e 0B       		.uleb128 0xb
+ 456 005f 27       		.uleb128 0x27
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 9
+
+
+ 457 0060 19       		.uleb128 0x19
+ 458 0061 11       		.uleb128 0x11
+ 459 0062 01       		.uleb128 0x1
+ 460 0063 12       		.uleb128 0x12
+ 461 0064 06       		.uleb128 0x6
+ 462 0065 40       		.uleb128 0x40
+ 463 0066 18       		.uleb128 0x18
+ 464 0067 9642     		.uleb128 0x2116
+ 465 0069 19       		.uleb128 0x19
+ 466 006a 00       		.byte	0
+ 467 006b 00       		.byte	0
+ 468 006c 00       		.byte	0
+ 469              		.section	.debug_aranges,"",%progbits
+ 470 0000 34000000 		.4byte	0x34
+ 471 0004 0200     		.2byte	0x2
+ 472 0006 00000000 		.4byte	.Ldebug_info0
+ 473 000a 04       		.byte	0x4
+ 474 000b 00       		.byte	0
+ 475 000c 0000     		.2byte	0
+ 476 000e 0000     		.2byte	0
+ 477 0010 00000000 		.4byte	.LFB0
+ 478 0014 28000000 		.4byte	.LFE0-.LFB0
+ 479 0018 00000000 		.4byte	.LFB1
+ 480 001c 38000000 		.4byte	.LFE1-.LFB1
+ 481 0020 00000000 		.4byte	.LFB2
+ 482 0024 38000000 		.4byte	.LFE2-.LFB2
+ 483 0028 00000000 		.4byte	.LFB3
+ 484 002c 38000000 		.4byte	.LFE3-.LFB3
+ 485 0030 00000000 		.4byte	0
+ 486 0034 00000000 		.4byte	0
+ 487              		.section	.debug_ranges,"",%progbits
+ 488              	.Ldebug_ranges0:
+ 489 0000 00000000 		.4byte	.LFB0
+ 490 0004 28000000 		.4byte	.LFE0
+ 491 0008 00000000 		.4byte	.LFB1
+ 492 000c 38000000 		.4byte	.LFE1
+ 493 0010 00000000 		.4byte	.LFB2
+ 494 0014 38000000 		.4byte	.LFE2
+ 495 0018 00000000 		.4byte	.LFB3
+ 496 001c 38000000 		.4byte	.LFE3
+ 497 0020 00000000 		.4byte	0
+ 498 0024 00000000 		.4byte	0
+ 499              		.section	.debug_line,"",%progbits
+ 500              	.Ldebug_line0:
+ 501 0000 AF000000 		.section	.debug_str,"MS",%progbits,1
+ 501      02005D00 
+ 501      00000201 
+ 501      FB0E0D00 
+ 501      01010101 
+ 502              	.LASF9:
+ 503 0000 655F6765 		.ascii	"e_get_ambient_light\000"
+ 503      745F616D 
+ 503      6269656E 
+ 503      745F6C69 
+ 503      67687400 
+ 504              	.LASF1:
+ 505 0014 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 10
+
+
+ 505      676E6564 
+ 505      20636861 
+ 505      7200
+ 506              	.LASF16:
+ 507 0022 655F6361 		.ascii	"e_calibrate_ir\000"
+ 507      6C696272 
+ 507      6174655F 
+ 507      697200
+ 508              	.LASF5:
+ 509 0031 6C6F6E67 		.ascii	"long unsigned int\000"
+ 509      20756E73 
+ 509      69676E65 
+ 509      6420696E 
+ 509      7400
+ 510              	.LASF3:
+ 511 0043 73686F72 		.ascii	"short unsigned int\000"
+ 511      7420756E 
+ 511      7369676E 
+ 511      65642069 
+ 511      6E7400
+ 512              	.LASF12:
+ 513 0056 655F6765 		.ascii	"e_get_prox\000"
+ 513      745F7072 
+ 513      6F7800
+ 514              	.LASF10:
+ 515 0061 655F6765 		.ascii	"e_get_calibrated_prox\000"
+ 515      745F6361 
+ 515      6C696272 
+ 515      61746564 
+ 515      5F70726F 
+ 516              	.LASF8:
+ 517 0077 756E7369 		.ascii	"unsigned int\000"
+ 517      676E6564 
+ 517      20696E74 
+ 517      00
+ 518              	.LASF7:
+ 519 0084 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 519      206C6F6E 
+ 519      6720756E 
+ 519      7369676E 
+ 519      65642069 
+ 520              	.LASF14:
+ 521 009b 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/src/epuck1x/a_d/advan"
+ 521      69622F65 
+ 521      2D707563 
+ 521      6B325F6D 
+ 521      61696E2D 
+ 522 00ce 63655F61 		.ascii	"ce_ad_scan/e_prox.c\000"
+ 522      645F7363 
+ 522      616E2F65 
+ 522      5F70726F 
+ 522      782E6300 
+ 523              	.LASF6:
+ 524 00e2 6C6F6E67 		.ascii	"long long int\000"
+ 524      206C6F6E 
+ 524      6720696E 
+ 524      7400
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 11
+
+
+ 525              	.LASF2:
+ 526 00f0 73686F72 		.ascii	"short int\000"
+ 526      7420696E 
+ 526      7400
+ 527              	.LASF13:
+ 528 00fa 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 528      43313120 
+ 528      372E322E 
+ 528      31203230 
+ 528      31373039 
+ 529 012d 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
+ 529      20726576 
+ 529      6973696F 
+ 529      6E203235 
+ 529      35323034 
+ 530 0160 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 530      2D6D6670 
+ 530      753D6670 
+ 530      76342D73 
+ 530      702D6431 
+ 531 0193 2D676764 		.ascii	"-ggdb -O0 -fomit-frame-pointer -falign-functions=16"
+ 531      62202D4F 
+ 531      30202D66 
+ 531      6F6D6974 
+ 531      2D667261 
+ 532 01c6 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
+ 532      6F2D7374 
+ 532      72696374 
+ 532      2D616C69 
+ 532      6173696E 
+ 533 01f9 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
+ 533      73656374 
+ 533      696F6E73 
+ 533      202D6664 
+ 533      6174612D 
+ 534 022c 72656369 		.ascii	"recision-constant\000"
+ 534      73696F6E 
+ 534      2D636F6E 
+ 534      7374616E 
+ 534      7400
+ 535              	.LASF11:
+ 536 023e 73656E73 		.ascii	"sensor_number\000"
+ 536      6F725F6E 
+ 536      756D6265 
+ 536      7200
+ 537              	.LASF4:
+ 538 024c 6C6F6E67 		.ascii	"long int\000"
+ 538      20696E74 
+ 538      00
+ 539              	.LASF0:
+ 540 0255 7369676E 		.ascii	"signed char\000"
+ 540      65642063 
+ 540      68617200 
+ 541              	.LASF15:
+ 542 0261 433A5C55 		.ascii	"C:\\Users\\Pchautems\\Documents\\RobotiqueTP\\Proje"
+ 542      73657273 
+ 542      5C506368 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 12
+
+
+ 542      61757465 
+ 542      6D735C44 
+ 543 028f 745C6D69 		.ascii	"t\\miniprojet\000"
+ 543      6E697072 
+ 543      6F6A6574 
+ 543      00
+ 544              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 e_prox.c
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:18     .text.e_calibrate_ir:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:26     .text.e_calibrate_ir:00000000 e_calibrate_ir
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:60     .text.e_calibrate_ir:00000024 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:65     .text.e_get_prox:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:73     .text.e_get_prox:00000000 e_get_prox
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:118    .text.e_get_prox:00000034 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:123    .text.e_get_calibrated_prox:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:131    .text.e_get_calibrated_prox:00000000 e_get_calibrated_prox
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:176    .text.e_get_calibrated_prox:00000034 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:181    .text.e_get_ambient_light:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:189    .text.e_get_ambient_light:00000000 e_get_ambient_light
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccMB2NKG.s:234    .text.e_get_ambient_light:00000034 $d
+
+UNDEFINED SYMBOLS
+calibrate_ir
+__stack_chk_fail
+__stack_chk_guard
+get_prox
+get_calibrated_prox
+get_ambient_light

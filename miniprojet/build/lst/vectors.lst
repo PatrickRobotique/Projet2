@@ -1,0 +1,1300 @@
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"vectors.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata
+  18              		.align	2
+  19              	.LC0:
+  20 0000 756E6861 		.ascii	"unhandled exception\000"
+  20      6E646C65 
+  20      64206578 
+  20      63657074 
+  20      696F6E00 
+  21              		.section	.text._unhandled_exception,"ax",%progbits
+  22              		.align	1
+  23              		.p2align 4,,15
+  24              		.global	_unhandled_exception
+  25              		.syntax unified
+  26              		.thumb
+  27              		.thumb_func
+  28              		.fpu fpv4-sp-d16
+  29              		.type	_unhandled_exception, %function
+  30              	_unhandled_exception:
+  31              	.LFB112:
+  32              		.file 1 "../lib/e-puck2_main-processor/ChibiOS//os/common/ports/ARMCMx/compilers/GCC/vectors.c"
+  33              		.loc 1 79 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 8
+  36              		@ frame_needed = 0, uses_anonymous_args = 0
+  37 0000 00B5     		push	{lr}
+  38              		.cfi_def_cfa_offset 4
+  39              		.cfi_offset 14, -4
+  40 0002 83B0     		sub	sp, sp, #12
+  41              		.cfi_def_cfa_offset 16
+  42              		.loc 1 79 0
+  43 0004 034B     		ldr	r3, .L4
+  44 0006 1B68     		ldr	r3, [r3]
+  45 0008 0193     		str	r3, [sp, #4]
+  46              		.loc 1 82 0
+  47 000a 0348     		ldr	r0, .L4+4
+  48 000c FFF7FEFF 		bl	chSysHalt
+  49              	.L2:
+  50              		.loc 1 83 0 discriminator 1
+  51 0010 FEE7     		b	.L2
+  52              	.L5:
+  53 0012 00BF     		.align	2
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 2
+
+
+  54              	.L4:
+  55 0014 00000000 		.word	__stack_chk_guard
+  56 0018 00000000 		.word	.LC0
+  57              		.cfi_endproc
+  58              	.LFE112:
+  59              		.size	_unhandled_exception, .-_unhandled_exception
+  60              		.weak	Vector1BC
+  61              		.thumb_set Vector1BC,_unhandled_exception
+  62              		.weak	Vector1B8
+  63              		.thumb_set Vector1B8,_unhandled_exception
+  64              		.weak	Vector1B4
+  65              		.thumb_set Vector1B4,_unhandled_exception
+  66              		.weak	Vector1B0
+  67              		.thumb_set Vector1B0,_unhandled_exception
+  68              		.weak	Vector1AC
+  69              		.thumb_set Vector1AC,_unhandled_exception
+  70              		.weak	Vector1A8
+  71              		.thumb_set Vector1A8,_unhandled_exception
+  72              		.weak	Vector1A4
+  73              		.thumb_set Vector1A4,_unhandled_exception
+  74              		.weak	Vector1A0
+  75              		.thumb_set Vector1A0,_unhandled_exception
+  76              		.weak	Vector19C
+  77              		.thumb_set Vector19C,_unhandled_exception
+  78              		.weak	Vector198
+  79              		.thumb_set Vector198,_unhandled_exception
+  80              		.weak	Vector194
+  81              		.thumb_set Vector194,_unhandled_exception
+  82              		.weak	Vector190
+  83              		.thumb_set Vector190,_unhandled_exception
+  84              		.weak	Vector18C
+  85              		.thumb_set Vector18C,_unhandled_exception
+  86              		.weak	Vector188
+  87              		.thumb_set Vector188,_unhandled_exception
+  88              		.weak	Vector184
+  89              		.thumb_set Vector184,_unhandled_exception
+  90              		.weak	Vector180
+  91              		.thumb_set Vector180,_unhandled_exception
+  92              		.weak	Vector17C
+  93              		.thumb_set Vector17C,_unhandled_exception
+  94              		.weak	Vector178
+  95              		.thumb_set Vector178,_unhandled_exception
+  96              		.weak	Vector174
+  97              		.thumb_set Vector174,_unhandled_exception
+  98              		.weak	Vector170
+  99              		.thumb_set Vector170,_unhandled_exception
+ 100              		.weak	Vector16C
+ 101              		.thumb_set Vector16C,_unhandled_exception
+ 102              		.weak	Vector168
+ 103              		.thumb_set Vector168,_unhandled_exception
+ 104              		.weak	Vector164
+ 105              		.thumb_set Vector164,_unhandled_exception
+ 106              		.weak	Vector160
+ 107              		.thumb_set Vector160,_unhandled_exception
+ 108              		.weak	Vector15C
+ 109              		.thumb_set Vector15C,_unhandled_exception
+ 110              		.weak	Vector158
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 3
+
+
+ 111              		.thumb_set Vector158,_unhandled_exception
+ 112              		.weak	Vector154
+ 113              		.thumb_set Vector154,_unhandled_exception
+ 114              		.weak	Vector150
+ 115              		.thumb_set Vector150,_unhandled_exception
+ 116              		.weak	Vector14C
+ 117              		.thumb_set Vector14C,_unhandled_exception
+ 118              		.weak	Vector148
+ 119              		.thumb_set Vector148,_unhandled_exception
+ 120              		.weak	Vector144
+ 121              		.thumb_set Vector144,_unhandled_exception
+ 122              		.weak	Vector140
+ 123              		.thumb_set Vector140,_unhandled_exception
+ 124              		.weak	Vector13C
+ 125              		.thumb_set Vector13C,_unhandled_exception
+ 126              		.weak	Vector138
+ 127              		.thumb_set Vector138,_unhandled_exception
+ 128              		.weak	Vector134
+ 129              		.thumb_set Vector134,_unhandled_exception
+ 130              		.weak	Vector130
+ 131              		.thumb_set Vector130,_unhandled_exception
+ 132              		.weak	Vector12C
+ 133              		.thumb_set Vector12C,_unhandled_exception
+ 134              		.weak	Vector128
+ 135              		.thumb_set Vector128,_unhandled_exception
+ 136              		.weak	Vector124
+ 137              		.thumb_set Vector124,_unhandled_exception
+ 138              		.weak	Vector120
+ 139              		.thumb_set Vector120,_unhandled_exception
+ 140              		.weak	Vector11C
+ 141              		.thumb_set Vector11C,_unhandled_exception
+ 142              		.weak	Vector118
+ 143              		.thumb_set Vector118,_unhandled_exception
+ 144              		.weak	Vector114
+ 145              		.thumb_set Vector114,_unhandled_exception
+ 146              		.weak	Vector110
+ 147              		.thumb_set Vector110,_unhandled_exception
+ 148              		.weak	Vector10C
+ 149              		.thumb_set Vector10C,_unhandled_exception
+ 150              		.weak	Vector108
+ 151              		.thumb_set Vector108,_unhandled_exception
+ 152              		.weak	Vector104
+ 153              		.thumb_set Vector104,_unhandled_exception
+ 154              		.weak	Vector100
+ 155              		.thumb_set Vector100,_unhandled_exception
+ 156              		.weak	VectorFC
+ 157              		.thumb_set VectorFC,_unhandled_exception
+ 158              		.weak	VectorF8
+ 159              		.thumb_set VectorF8,_unhandled_exception
+ 160              		.weak	VectorF4
+ 161              		.thumb_set VectorF4,_unhandled_exception
+ 162              		.weak	VectorF0
+ 163              		.thumb_set VectorF0,_unhandled_exception
+ 164              		.weak	VectorEC
+ 165              		.thumb_set VectorEC,_unhandled_exception
+ 166              		.weak	VectorE8
+ 167              		.thumb_set VectorE8,_unhandled_exception
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 4
+
+
+ 168              		.weak	VectorE4
+ 169              		.thumb_set VectorE4,_unhandled_exception
+ 170              		.weak	VectorE0
+ 171              		.thumb_set VectorE0,_unhandled_exception
+ 172              		.weak	VectorDC
+ 173              		.thumb_set VectorDC,_unhandled_exception
+ 174              		.weak	VectorD8
+ 175              		.thumb_set VectorD8,_unhandled_exception
+ 176              		.weak	VectorD4
+ 177              		.thumb_set VectorD4,_unhandled_exception
+ 178              		.weak	VectorD0
+ 179              		.thumb_set VectorD0,_unhandled_exception
+ 180              		.weak	VectorCC
+ 181              		.thumb_set VectorCC,_unhandled_exception
+ 182              		.weak	VectorC8
+ 183              		.thumb_set VectorC8,_unhandled_exception
+ 184              		.weak	VectorC4
+ 185              		.thumb_set VectorC4,_unhandled_exception
+ 186              		.weak	VectorC0
+ 187              		.thumb_set VectorC0,_unhandled_exception
+ 188              		.weak	VectorBC
+ 189              		.thumb_set VectorBC,_unhandled_exception
+ 190              		.weak	VectorB8
+ 191              		.thumb_set VectorB8,_unhandled_exception
+ 192              		.weak	VectorB4
+ 193              		.thumb_set VectorB4,_unhandled_exception
+ 194              		.weak	VectorB0
+ 195              		.thumb_set VectorB0,_unhandled_exception
+ 196              		.weak	VectorAC
+ 197              		.thumb_set VectorAC,_unhandled_exception
+ 198              		.weak	VectorA8
+ 199              		.thumb_set VectorA8,_unhandled_exception
+ 200              		.weak	VectorA4
+ 201              		.thumb_set VectorA4,_unhandled_exception
+ 202              		.weak	VectorA0
+ 203              		.thumb_set VectorA0,_unhandled_exception
+ 204              		.weak	Vector9C
+ 205              		.thumb_set Vector9C,_unhandled_exception
+ 206              		.weak	Vector98
+ 207              		.thumb_set Vector98,_unhandled_exception
+ 208              		.weak	Vector94
+ 209              		.thumb_set Vector94,_unhandled_exception
+ 210              		.weak	Vector90
+ 211              		.thumb_set Vector90,_unhandled_exception
+ 212              		.weak	Vector8C
+ 213              		.thumb_set Vector8C,_unhandled_exception
+ 214              		.weak	Vector88
+ 215              		.thumb_set Vector88,_unhandled_exception
+ 216              		.weak	Vector84
+ 217              		.thumb_set Vector84,_unhandled_exception
+ 218              		.weak	Vector80
+ 219              		.thumb_set Vector80,_unhandled_exception
+ 220              		.weak	Vector7C
+ 221              		.thumb_set Vector7C,_unhandled_exception
+ 222              		.weak	Vector78
+ 223              		.thumb_set Vector78,_unhandled_exception
+ 224              		.weak	Vector74
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 5
+
+
+ 225              		.thumb_set Vector74,_unhandled_exception
+ 226              		.weak	Vector70
+ 227              		.thumb_set Vector70,_unhandled_exception
+ 228              		.weak	Vector6C
+ 229              		.thumb_set Vector6C,_unhandled_exception
+ 230              		.weak	Vector68
+ 231              		.thumb_set Vector68,_unhandled_exception
+ 232              		.weak	Vector64
+ 233              		.thumb_set Vector64,_unhandled_exception
+ 234              		.weak	Vector60
+ 235              		.thumb_set Vector60,_unhandled_exception
+ 236              		.weak	Vector5C
+ 237              		.thumb_set Vector5C,_unhandled_exception
+ 238              		.weak	Vector58
+ 239              		.thumb_set Vector58,_unhandled_exception
+ 240              		.weak	Vector54
+ 241              		.thumb_set Vector54,_unhandled_exception
+ 242              		.weak	Vector50
+ 243              		.thumb_set Vector50,_unhandled_exception
+ 244              		.weak	Vector4C
+ 245              		.thumb_set Vector4C,_unhandled_exception
+ 246              		.weak	Vector48
+ 247              		.thumb_set Vector48,_unhandled_exception
+ 248              		.weak	Vector44
+ 249              		.thumb_set Vector44,_unhandled_exception
+ 250              		.weak	Vector40
+ 251              		.thumb_set Vector40,_unhandled_exception
+ 252              		.weak	SysTick_Handler
+ 253              		.thumb_set SysTick_Handler,_unhandled_exception
+ 254              		.weak	PendSV_Handler
+ 255              		.thumb_set PendSV_Handler,_unhandled_exception
+ 256              		.weak	Vector34
+ 257              		.thumb_set Vector34,_unhandled_exception
+ 258              		.weak	DebugMon_Handler
+ 259              		.thumb_set DebugMon_Handler,_unhandled_exception
+ 260              		.weak	SVC_Handler
+ 261              		.thumb_set SVC_Handler,_unhandled_exception
+ 262              		.weak	Vector28
+ 263              		.thumb_set Vector28,_unhandled_exception
+ 264              		.weak	Vector24
+ 265              		.thumb_set Vector24,_unhandled_exception
+ 266              		.weak	Vector20
+ 267              		.thumb_set Vector20,_unhandled_exception
+ 268              		.weak	Vector1C
+ 269              		.thumb_set Vector1C,_unhandled_exception
+ 270              		.weak	UsageFault_Handler
+ 271              		.thumb_set UsageFault_Handler,_unhandled_exception
+ 272              		.weak	BusFault_Handler
+ 273              		.thumb_set BusFault_Handler,_unhandled_exception
+ 274              		.weak	MemManage_Handler
+ 275              		.thumb_set MemManage_Handler,_unhandled_exception
+ 276              		.weak	HardFault_Handler
+ 277              		.thumb_set HardFault_Handler,_unhandled_exception
+ 278              		.weak	NMI_Handler
+ 279              		.thumb_set NMI_Handler,_unhandled_exception
+ 280              		.weak	Reset_Handler
+ 281              		.thumb_set Reset_Handler,_unhandled_exception
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 6
+
+
+ 282              		.global	_vectors
+ 283              		.section	.vectors,"aw",%progbits
+ 284              		.align	2
+ 285              		.type	_vectors, %object
+ 286              		.size	_vectors, 448
+ 287              	_vectors:
+ 288 0000 00000000 		.word	__main_stack_end__
+ 289 0004 00000000 		.word	Reset_Handler
+ 290 0008 00000000 		.word	NMI_Handler
+ 291 000c 00000000 		.word	HardFault_Handler
+ 292 0010 00000000 		.word	MemManage_Handler
+ 293 0014 00000000 		.word	BusFault_Handler
+ 294 0018 00000000 		.word	UsageFault_Handler
+ 295 001c 00000000 		.word	Vector1C
+ 296 0020 00000000 		.word	Vector20
+ 297 0024 00000000 		.word	Vector24
+ 298 0028 00000000 		.word	Vector28
+ 299 002c 00000000 		.word	SVC_Handler
+ 300 0030 00000000 		.word	DebugMon_Handler
+ 301 0034 00000000 		.word	Vector34
+ 302 0038 00000000 		.word	PendSV_Handler
+ 303 003c 00000000 		.word	SysTick_Handler
+ 304 0040 00000000 		.word	Vector40
+ 305 0044 00000000 		.word	Vector44
+ 306 0048 00000000 		.word	Vector48
+ 307 004c 00000000 		.word	Vector4C
+ 308 0050 00000000 		.word	Vector50
+ 309 0054 00000000 		.word	Vector54
+ 310 0058 00000000 		.word	Vector58
+ 311 005c 00000000 		.word	Vector5C
+ 312 0060 00000000 		.word	Vector60
+ 313 0064 00000000 		.word	Vector64
+ 314 0068 00000000 		.word	Vector68
+ 315 006c 00000000 		.word	Vector6C
+ 316 0070 00000000 		.word	Vector70
+ 317 0074 00000000 		.word	Vector74
+ 318 0078 00000000 		.word	Vector78
+ 319 007c 00000000 		.word	Vector7C
+ 320 0080 00000000 		.word	Vector80
+ 321 0084 00000000 		.word	Vector84
+ 322 0088 00000000 		.word	Vector88
+ 323 008c 00000000 		.word	Vector8C
+ 324 0090 00000000 		.word	Vector90
+ 325 0094 00000000 		.word	Vector94
+ 326 0098 00000000 		.word	Vector98
+ 327 009c 00000000 		.word	Vector9C
+ 328 00a0 00000000 		.word	VectorA0
+ 329 00a4 00000000 		.word	VectorA4
+ 330 00a8 00000000 		.word	VectorA8
+ 331 00ac 00000000 		.word	VectorAC
+ 332 00b0 00000000 		.word	VectorB0
+ 333 00b4 00000000 		.word	VectorB4
+ 334 00b8 00000000 		.word	VectorB8
+ 335 00bc 00000000 		.word	VectorBC
+ 336 00c0 00000000 		.word	VectorC0
+ 337 00c4 00000000 		.word	VectorC4
+ 338 00c8 00000000 		.word	VectorC8
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 7
+
+
+ 339 00cc 00000000 		.word	VectorCC
+ 340 00d0 00000000 		.word	VectorD0
+ 341 00d4 00000000 		.word	VectorD4
+ 342 00d8 00000000 		.word	VectorD8
+ 343 00dc 00000000 		.word	VectorDC
+ 344 00e0 00000000 		.word	VectorE0
+ 345 00e4 00000000 		.word	VectorE4
+ 346 00e8 00000000 		.word	VectorE8
+ 347 00ec 00000000 		.word	VectorEC
+ 348 00f0 00000000 		.word	VectorF0
+ 349 00f4 00000000 		.word	VectorF4
+ 350 00f8 00000000 		.word	VectorF8
+ 351 00fc 00000000 		.word	VectorFC
+ 352 0100 00000000 		.word	Vector100
+ 353 0104 00000000 		.word	Vector104
+ 354 0108 00000000 		.word	Vector108
+ 355 010c 00000000 		.word	Vector10C
+ 356 0110 00000000 		.word	Vector110
+ 357 0114 00000000 		.word	Vector114
+ 358 0118 00000000 		.word	Vector118
+ 359 011c 00000000 		.word	Vector11C
+ 360 0120 00000000 		.word	Vector120
+ 361 0124 00000000 		.word	Vector124
+ 362 0128 00000000 		.word	Vector128
+ 363 012c 00000000 		.word	Vector12C
+ 364 0130 00000000 		.word	Vector130
+ 365 0134 00000000 		.word	Vector134
+ 366 0138 00000000 		.word	Vector138
+ 367 013c 00000000 		.word	Vector13C
+ 368 0140 00000000 		.word	Vector140
+ 369 0144 00000000 		.word	Vector144
+ 370 0148 00000000 		.word	Vector148
+ 371 014c 00000000 		.word	Vector14C
+ 372 0150 00000000 		.word	Vector150
+ 373 0154 00000000 		.word	Vector154
+ 374 0158 00000000 		.word	Vector158
+ 375 015c 00000000 		.word	Vector15C
+ 376 0160 00000000 		.word	Vector160
+ 377 0164 00000000 		.word	Vector164
+ 378 0168 00000000 		.word	Vector168
+ 379 016c 00000000 		.word	Vector16C
+ 380 0170 00000000 		.word	Vector170
+ 381 0174 00000000 		.word	Vector174
+ 382 0178 00000000 		.word	Vector178
+ 383 017c 00000000 		.word	Vector17C
+ 384 0180 00000000 		.word	Vector180
+ 385 0184 00000000 		.word	Vector184
+ 386 0188 00000000 		.word	Vector188
+ 387 018c 00000000 		.word	Vector18C
+ 388 0190 00000000 		.word	Vector190
+ 389 0194 00000000 		.word	Vector194
+ 390 0198 00000000 		.word	Vector198
+ 391 019c 00000000 		.word	Vector19C
+ 392 01a0 00000000 		.word	Vector1A0
+ 393 01a4 00000000 		.word	Vector1A4
+ 394 01a8 00000000 		.word	Vector1A8
+ 395 01ac 00000000 		.word	Vector1AC
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 8
+
+
+ 396 01b0 00000000 		.word	Vector1B0
+ 397 01b4 00000000 		.word	Vector1B4
+ 398 01b8 00000000 		.word	Vector1B8
+ 399 01bc 00000000 		.word	Vector1BC
+ 400              		.text
+ 401              	.Letext0:
+ 402              		.file 2 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 403              		.file 3 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 404              		.file 4 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cm4.h"
+ 405              		.file 5 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/ST/system_stm32f4xx.h"
+ 406              		.section	.debug_info,"",%progbits
+ 407              	.Ldebug_info0:
+ 408 0000 E7010000 		.4byte	0x1e7
+ 409 0004 0400     		.2byte	0x4
+ 410 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 411 000a 04       		.byte	0x4
+ 412 000b 01       		.uleb128 0x1
+ 413 000c FA010000 		.4byte	.LASF36
+ 414 0010 0C       		.byte	0xc
+ 415 0011 C4000000 		.4byte	.LASF37
+ 416 0015 78030000 		.4byte	.LASF38
+ 417 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 418 001d 00000000 		.4byte	0
+ 419 0021 00000000 		.4byte	.Ldebug_line0
+ 420 0025 02       		.uleb128 0x2
+ 421 0026 01       		.byte	0x1
+ 422 0027 06       		.byte	0x6
+ 423 0028 62030000 		.4byte	.LASF0
+ 424 002c 02       		.uleb128 0x2
+ 425 002d 01       		.byte	0x1
+ 426 002e 08       		.byte	0x8
+ 427 002f 8B000000 		.4byte	.LASF1
+ 428 0033 02       		.uleb128 0x2
+ 429 0034 02       		.byte	0x2
+ 430 0035 05       		.byte	0x5
+ 431 0036 F0010000 		.4byte	.LASF2
+ 432 003a 02       		.uleb128 0x2
+ 433 003b 02       		.byte	0x2
+ 434 003c 07       		.byte	0x7
+ 435 003d 50000000 		.4byte	.LASF3
+ 436 0041 03       		.uleb128 0x3
+ 437 0042 36000000 		.4byte	.LASF5
+ 438 0046 02       		.byte	0x2
+ 439 0047 4D       		.byte	0x4d
+ 440 0048 4C000000 		.4byte	0x4c
+ 441 004c 02       		.uleb128 0x2
+ 442 004d 04       		.byte	0x4
+ 443 004e 05       		.byte	0x5
+ 444 004f 47030000 		.4byte	.LASF4
+ 445 0053 03       		.uleb128 0x3
+ 446 0054 35010000 		.4byte	.LASF6
+ 447 0058 02       		.byte	0x2
+ 448 0059 4F       		.byte	0x4f
+ 449 005a 5E000000 		.4byte	0x5e
+ 450 005e 02       		.uleb128 0x2
+ 451 005f 04       		.byte	0x4
+ 452 0060 07       		.byte	0x7
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 9
+
+
+ 453 0061 99000000 		.4byte	.LASF7
+ 454 0065 02       		.uleb128 0x2
+ 455 0066 08       		.byte	0x8
+ 456 0067 05       		.byte	0x5
+ 457 0068 B5010000 		.4byte	.LASF8
+ 458 006c 02       		.uleb128 0x2
+ 459 006d 08       		.byte	0x8
+ 460 006e 07       		.byte	0x7
+ 461 006f 62010000 		.4byte	.LASF9
+ 462 0073 04       		.uleb128 0x4
+ 463 0074 04       		.byte	0x4
+ 464 0075 05       		.byte	0x5
+ 465 0076 696E7400 		.ascii	"int\000"
+ 466 007a 02       		.uleb128 0x2
+ 467 007b 04       		.byte	0x4
+ 468 007c 07       		.byte	0x7
+ 469 007d 4C010000 		.4byte	.LASF10
+ 470 0081 03       		.uleb128 0x3
+ 471 0082 6E000000 		.4byte	.LASF11
+ 472 0086 03       		.byte	0x3
+ 473 0087 2C       		.byte	0x2c
+ 474 0088 41000000 		.4byte	0x41
+ 475 008c 05       		.uleb128 0x5
+ 476 008d 81000000 		.4byte	0x81
+ 477 0091 03       		.uleb128 0x3
+ 478 0092 3E030000 		.4byte	.LASF12
+ 479 0096 03       		.byte	0x3
+ 480 0097 30       		.byte	0x30
+ 481 0098 53000000 		.4byte	0x53
+ 482 009c 06       		.uleb128 0x6
+ 483 009d B7000000 		.4byte	.LASF13
+ 484 00a1 04       		.byte	0x4
+ 485 00a2 A706     		.2byte	0x6a7
+ 486 00a4 8C000000 		.4byte	0x8c
+ 487 00a8 07       		.uleb128 0x7
+ 488 00a9 C3010000 		.4byte	.LASF14
+ 489 00ad 05       		.byte	0x5
+ 490 00ae 4C       		.byte	0x4c
+ 491 00af 91000000 		.4byte	0x91
+ 492 00b3 03       		.uleb128 0x3
+ 493 00b4 11000000 		.4byte	.LASF15
+ 494 00b8 01       		.byte	0x1
+ 495 00b9 2C       		.byte	0x2c
+ 496 00ba BE000000 		.4byte	0xbe
+ 497 00be 08       		.uleb128 0x8
+ 498 00bf 04       		.byte	0x4
+ 499 00c0 C4000000 		.4byte	0xc4
+ 500 00c4 09       		.uleb128 0x9
+ 501 00c5 0A       		.uleb128 0xa
+ 502 00c6 C001     		.2byte	0x1c0
+ 503 00c8 01       		.byte	0x1
+ 504 00c9 31       		.byte	0x31
+ 505 00ca 9B010000 		.4byte	0x19b
+ 506 00ce 0B       		.uleb128 0xb
+ 507 00cf 63000000 		.4byte	.LASF16
+ 508 00d3 01       		.byte	0x1
+ 509 00d4 32       		.byte	0x32
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 10
+
+
+ 510 00d5 9B010000 		.4byte	0x19b
+ 511 00d9 00       		.byte	0
+ 512 00da 0B       		.uleb128 0xb
+ 513 00db 94010000 		.4byte	.LASF17
+ 514 00df 01       		.byte	0x1
+ 515 00e0 33       		.byte	0x33
+ 516 00e1 B3000000 		.4byte	0xb3
+ 517 00e5 04       		.byte	0x4
+ 518 00e6 0B       		.uleb128 0xb
+ 519 00e7 40010000 		.4byte	.LASF18
+ 520 00eb 01       		.byte	0x1
+ 521 00ec 34       		.byte	0x34
+ 522 00ed B3000000 		.4byte	0xb3
+ 523 00f1 08       		.byte	0x8
+ 524 00f2 0B       		.uleb128 0xb
+ 525 00f3 23010000 		.4byte	.LASF19
+ 526 00f7 01       		.byte	0x1
+ 527 00f8 35       		.byte	0x35
+ 528 00f9 B3000000 		.4byte	0xb3
+ 529 00fd 0C       		.byte	0xc
+ 530 00fe 0B       		.uleb128 0xb
+ 531 00ff 50030000 		.4byte	.LASF20
+ 532 0103 01       		.byte	0x1
+ 533 0104 36       		.byte	0x36
+ 534 0105 B3000000 		.4byte	0xb3
+ 535 0109 10       		.byte	0x10
+ 536 010a 0B       		.uleb128 0xb
+ 537 010b 00000000 		.4byte	.LASF21
+ 538 010f 01       		.byte	0x1
+ 539 0110 37       		.byte	0x37
+ 540 0111 B3000000 		.4byte	0xb3
+ 541 0115 14       		.byte	0x14
+ 542 0116 0B       		.uleb128 0xb
+ 543 0117 A2010000 		.4byte	.LASF22
+ 544 011b 01       		.byte	0x1
+ 545 011c 38       		.byte	0x38
+ 546 011d B3000000 		.4byte	0xb3
+ 547 0121 18       		.byte	0x18
+ 548 0122 0B       		.uleb128 0xb
+ 549 0123 1A010000 		.4byte	.LASF23
+ 550 0127 01       		.byte	0x1
+ 551 0128 39       		.byte	0x39
+ 552 0129 B3000000 		.4byte	0xb3
+ 553 012d 1C       		.byte	0x1c
+ 554 012e 0B       		.uleb128 0xb
+ 555 012f 59010000 		.4byte	.LASF24
+ 556 0133 01       		.byte	0x1
+ 557 0134 3A       		.byte	0x3a
+ 558 0135 B3000000 		.4byte	0xb3
+ 559 0139 20       		.byte	0x20
+ 560 013a 0B       		.uleb128 0xb
+ 561 013b 79010000 		.4byte	.LASF25
+ 562 013f 01       		.byte	0x1
+ 563 0140 3B       		.byte	0x3b
+ 564 0141 B3000000 		.4byte	0xb3
+ 565 0145 24       		.byte	0x24
+ 566 0146 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 11
+
+
+ 567 0147 82010000 		.4byte	.LASF26
+ 568 014b 01       		.byte	0x1
+ 569 014c 3C       		.byte	0x3c
+ 570 014d B3000000 		.4byte	0xb3
+ 571 0151 28       		.byte	0x28
+ 572 0152 0B       		.uleb128 0xb
+ 573 0153 AB000000 		.4byte	.LASF27
+ 574 0157 01       		.byte	0x1
+ 575 0158 3D       		.byte	0x3d
+ 576 0159 B3000000 		.4byte	0xb3
+ 577 015d 2C       		.byte	0x2c
+ 578 015e 0B       		.uleb128 0xb
+ 579 015f 76000000 		.4byte	.LASF28
+ 580 0163 01       		.byte	0x1
+ 581 0164 3E       		.byte	0x3e
+ 582 0165 B3000000 		.4byte	0xb3
+ 583 0169 30       		.byte	0x30
+ 584 016a 0B       		.uleb128 0xb
+ 585 016b 1E000000 		.4byte	.LASF29
+ 586 016f 01       		.byte	0x1
+ 587 0170 3F       		.byte	0x3f
+ 588 0171 B3000000 		.4byte	0xb3
+ 589 0175 34       		.byte	0x34
+ 590 0176 0B       		.uleb128 0xb
+ 591 0177 27000000 		.4byte	.LASF30
+ 592 017b 01       		.byte	0x1
+ 593 017c 40       		.byte	0x40
+ 594 017d B3000000 		.4byte	0xb3
+ 595 0181 38       		.byte	0x38
+ 596 0182 0B       		.uleb128 0xb
+ 597 0183 40000000 		.4byte	.LASF31
+ 598 0187 01       		.byte	0x1
+ 599 0188 41       		.byte	0x41
+ 600 0189 B3000000 		.4byte	0xb3
+ 601 018d 3C       		.byte	0x3c
+ 602 018e 0B       		.uleb128 0xb
+ 603 018f E8010000 		.4byte	.LASF32
+ 604 0193 01       		.byte	0x1
+ 605 0194 42       		.byte	0x42
+ 606 0195 A1010000 		.4byte	0x1a1
+ 607 0199 40       		.byte	0x40
+ 608 019a 00       		.byte	0
+ 609 019b 08       		.uleb128 0x8
+ 610 019c 04       		.byte	0x4
+ 611 019d 91000000 		.4byte	0x91
+ 612 01a1 0C       		.uleb128 0xc
+ 613 01a2 B3000000 		.4byte	0xb3
+ 614 01a6 B1010000 		.4byte	0x1b1
+ 615 01aa 0D       		.uleb128 0xd
+ 616 01ab 7A000000 		.4byte	0x7a
+ 617 01af 5F       		.byte	0x5f
+ 618 01b0 00       		.byte	0
+ 619 01b1 03       		.uleb128 0x3
+ 620 01b2 6E030000 		.4byte	.LASF33
+ 621 01b6 01       		.byte	0x1
+ 622 01b7 43       		.byte	0x43
+ 623 01b8 C5000000 		.4byte	0xc5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 12
+
+
+ 624 01bc 07       		.uleb128 0x7
+ 625 01bd B3030000 		.4byte	.LASF34
+ 626 01c1 01       		.byte	0x1
+ 627 01c2 58       		.byte	0x58
+ 628 01c3 91000000 		.4byte	0x91
+ 629 01c7 0E       		.uleb128 0xe
+ 630 01c8 8B010000 		.4byte	.LASF35
+ 631 01cc 01       		.byte	0x1
+ 632 01cd D701     		.2byte	0x1d7
+ 633 01cf B1010000 		.4byte	0x1b1
+ 634 01d3 05       		.uleb128 0x5
+ 635 01d4 03       		.byte	0x3
+ 636 01d5 00000000 		.4byte	_vectors
+ 637 01d9 0F       		.uleb128 0xf
+ 638 01da D3010000 		.4byte	.LASF39
+ 639 01de 01       		.byte	0x1
+ 640 01df 4F       		.byte	0x4f
+ 641 01e0 00000000 		.4byte	.LFB112
+ 642 01e4 1C000000 		.4byte	.LFE112-.LFB112
+ 643 01e8 01       		.uleb128 0x1
+ 644 01e9 9C       		.byte	0x9c
+ 645 01ea 00       		.byte	0
+ 646              		.section	.debug_abbrev,"",%progbits
+ 647              	.Ldebug_abbrev0:
+ 648 0000 01       		.uleb128 0x1
+ 649 0001 11       		.uleb128 0x11
+ 650 0002 01       		.byte	0x1
+ 651 0003 25       		.uleb128 0x25
+ 652 0004 0E       		.uleb128 0xe
+ 653 0005 13       		.uleb128 0x13
+ 654 0006 0B       		.uleb128 0xb
+ 655 0007 03       		.uleb128 0x3
+ 656 0008 0E       		.uleb128 0xe
+ 657 0009 1B       		.uleb128 0x1b
+ 658 000a 0E       		.uleb128 0xe
+ 659 000b 55       		.uleb128 0x55
+ 660 000c 17       		.uleb128 0x17
+ 661 000d 11       		.uleb128 0x11
+ 662 000e 01       		.uleb128 0x1
+ 663 000f 10       		.uleb128 0x10
+ 664 0010 17       		.uleb128 0x17
+ 665 0011 00       		.byte	0
+ 666 0012 00       		.byte	0
+ 667 0013 02       		.uleb128 0x2
+ 668 0014 24       		.uleb128 0x24
+ 669 0015 00       		.byte	0
+ 670 0016 0B       		.uleb128 0xb
+ 671 0017 0B       		.uleb128 0xb
+ 672 0018 3E       		.uleb128 0x3e
+ 673 0019 0B       		.uleb128 0xb
+ 674 001a 03       		.uleb128 0x3
+ 675 001b 0E       		.uleb128 0xe
+ 676 001c 00       		.byte	0
+ 677 001d 00       		.byte	0
+ 678 001e 03       		.uleb128 0x3
+ 679 001f 16       		.uleb128 0x16
+ 680 0020 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 13
+
+
+ 681 0021 03       		.uleb128 0x3
+ 682 0022 0E       		.uleb128 0xe
+ 683 0023 3A       		.uleb128 0x3a
+ 684 0024 0B       		.uleb128 0xb
+ 685 0025 3B       		.uleb128 0x3b
+ 686 0026 0B       		.uleb128 0xb
+ 687 0027 49       		.uleb128 0x49
+ 688 0028 13       		.uleb128 0x13
+ 689 0029 00       		.byte	0
+ 690 002a 00       		.byte	0
+ 691 002b 04       		.uleb128 0x4
+ 692 002c 24       		.uleb128 0x24
+ 693 002d 00       		.byte	0
+ 694 002e 0B       		.uleb128 0xb
+ 695 002f 0B       		.uleb128 0xb
+ 696 0030 3E       		.uleb128 0x3e
+ 697 0031 0B       		.uleb128 0xb
+ 698 0032 03       		.uleb128 0x3
+ 699 0033 08       		.uleb128 0x8
+ 700 0034 00       		.byte	0
+ 701 0035 00       		.byte	0
+ 702 0036 05       		.uleb128 0x5
+ 703 0037 35       		.uleb128 0x35
+ 704 0038 00       		.byte	0
+ 705 0039 49       		.uleb128 0x49
+ 706 003a 13       		.uleb128 0x13
+ 707 003b 00       		.byte	0
+ 708 003c 00       		.byte	0
+ 709 003d 06       		.uleb128 0x6
+ 710 003e 34       		.uleb128 0x34
+ 711 003f 00       		.byte	0
+ 712 0040 03       		.uleb128 0x3
+ 713 0041 0E       		.uleb128 0xe
+ 714 0042 3A       		.uleb128 0x3a
+ 715 0043 0B       		.uleb128 0xb
+ 716 0044 3B       		.uleb128 0x3b
+ 717 0045 05       		.uleb128 0x5
+ 718 0046 49       		.uleb128 0x49
+ 719 0047 13       		.uleb128 0x13
+ 720 0048 3F       		.uleb128 0x3f
+ 721 0049 19       		.uleb128 0x19
+ 722 004a 3C       		.uleb128 0x3c
+ 723 004b 19       		.uleb128 0x19
+ 724 004c 00       		.byte	0
+ 725 004d 00       		.byte	0
+ 726 004e 07       		.uleb128 0x7
+ 727 004f 34       		.uleb128 0x34
+ 728 0050 00       		.byte	0
+ 729 0051 03       		.uleb128 0x3
+ 730 0052 0E       		.uleb128 0xe
+ 731 0053 3A       		.uleb128 0x3a
+ 732 0054 0B       		.uleb128 0xb
+ 733 0055 3B       		.uleb128 0x3b
+ 734 0056 0B       		.uleb128 0xb
+ 735 0057 49       		.uleb128 0x49
+ 736 0058 13       		.uleb128 0x13
+ 737 0059 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 14
+
+
+ 738 005a 19       		.uleb128 0x19
+ 739 005b 3C       		.uleb128 0x3c
+ 740 005c 19       		.uleb128 0x19
+ 741 005d 00       		.byte	0
+ 742 005e 00       		.byte	0
+ 743 005f 08       		.uleb128 0x8
+ 744 0060 0F       		.uleb128 0xf
+ 745 0061 00       		.byte	0
+ 746 0062 0B       		.uleb128 0xb
+ 747 0063 0B       		.uleb128 0xb
+ 748 0064 49       		.uleb128 0x49
+ 749 0065 13       		.uleb128 0x13
+ 750 0066 00       		.byte	0
+ 751 0067 00       		.byte	0
+ 752 0068 09       		.uleb128 0x9
+ 753 0069 15       		.uleb128 0x15
+ 754 006a 00       		.byte	0
+ 755 006b 27       		.uleb128 0x27
+ 756 006c 19       		.uleb128 0x19
+ 757 006d 00       		.byte	0
+ 758 006e 00       		.byte	0
+ 759 006f 0A       		.uleb128 0xa
+ 760 0070 13       		.uleb128 0x13
+ 761 0071 01       		.byte	0x1
+ 762 0072 0B       		.uleb128 0xb
+ 763 0073 05       		.uleb128 0x5
+ 764 0074 3A       		.uleb128 0x3a
+ 765 0075 0B       		.uleb128 0xb
+ 766 0076 3B       		.uleb128 0x3b
+ 767 0077 0B       		.uleb128 0xb
+ 768 0078 01       		.uleb128 0x1
+ 769 0079 13       		.uleb128 0x13
+ 770 007a 00       		.byte	0
+ 771 007b 00       		.byte	0
+ 772 007c 0B       		.uleb128 0xb
+ 773 007d 0D       		.uleb128 0xd
+ 774 007e 00       		.byte	0
+ 775 007f 03       		.uleb128 0x3
+ 776 0080 0E       		.uleb128 0xe
+ 777 0081 3A       		.uleb128 0x3a
+ 778 0082 0B       		.uleb128 0xb
+ 779 0083 3B       		.uleb128 0x3b
+ 780 0084 0B       		.uleb128 0xb
+ 781 0085 49       		.uleb128 0x49
+ 782 0086 13       		.uleb128 0x13
+ 783 0087 38       		.uleb128 0x38
+ 784 0088 0B       		.uleb128 0xb
+ 785 0089 00       		.byte	0
+ 786 008a 00       		.byte	0
+ 787 008b 0C       		.uleb128 0xc
+ 788 008c 01       		.uleb128 0x1
+ 789 008d 01       		.byte	0x1
+ 790 008e 49       		.uleb128 0x49
+ 791 008f 13       		.uleb128 0x13
+ 792 0090 01       		.uleb128 0x1
+ 793 0091 13       		.uleb128 0x13
+ 794 0092 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 15
+
+
+ 795 0093 00       		.byte	0
+ 796 0094 0D       		.uleb128 0xd
+ 797 0095 21       		.uleb128 0x21
+ 798 0096 00       		.byte	0
+ 799 0097 49       		.uleb128 0x49
+ 800 0098 13       		.uleb128 0x13
+ 801 0099 2F       		.uleb128 0x2f
+ 802 009a 0B       		.uleb128 0xb
+ 803 009b 00       		.byte	0
+ 804 009c 00       		.byte	0
+ 805 009d 0E       		.uleb128 0xe
+ 806 009e 34       		.uleb128 0x34
+ 807 009f 00       		.byte	0
+ 808 00a0 03       		.uleb128 0x3
+ 809 00a1 0E       		.uleb128 0xe
+ 810 00a2 3A       		.uleb128 0x3a
+ 811 00a3 0B       		.uleb128 0xb
+ 812 00a4 3B       		.uleb128 0x3b
+ 813 00a5 05       		.uleb128 0x5
+ 814 00a6 49       		.uleb128 0x49
+ 815 00a7 13       		.uleb128 0x13
+ 816 00a8 3F       		.uleb128 0x3f
+ 817 00a9 19       		.uleb128 0x19
+ 818 00aa 02       		.uleb128 0x2
+ 819 00ab 18       		.uleb128 0x18
+ 820 00ac 00       		.byte	0
+ 821 00ad 00       		.byte	0
+ 822 00ae 0F       		.uleb128 0xf
+ 823 00af 2E       		.uleb128 0x2e
+ 824 00b0 00       		.byte	0
+ 825 00b1 3F       		.uleb128 0x3f
+ 826 00b2 19       		.uleb128 0x19
+ 827 00b3 03       		.uleb128 0x3
+ 828 00b4 0E       		.uleb128 0xe
+ 829 00b5 3A       		.uleb128 0x3a
+ 830 00b6 0B       		.uleb128 0xb
+ 831 00b7 3B       		.uleb128 0x3b
+ 832 00b8 0B       		.uleb128 0xb
+ 833 00b9 27       		.uleb128 0x27
+ 834 00ba 19       		.uleb128 0x19
+ 835 00bb 11       		.uleb128 0x11
+ 836 00bc 01       		.uleb128 0x1
+ 837 00bd 12       		.uleb128 0x12
+ 838 00be 06       		.uleb128 0x6
+ 839 00bf 40       		.uleb128 0x40
+ 840 00c0 18       		.uleb128 0x18
+ 841 00c1 9642     		.uleb128 0x2116
+ 842 00c3 19       		.uleb128 0x19
+ 843 00c4 00       		.byte	0
+ 844 00c5 00       		.byte	0
+ 845 00c6 00       		.byte	0
+ 846              		.section	.debug_aranges,"",%progbits
+ 847 0000 1C000000 		.4byte	0x1c
+ 848 0004 0200     		.2byte	0x2
+ 849 0006 00000000 		.4byte	.Ldebug_info0
+ 850 000a 04       		.byte	0x4
+ 851 000b 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 16
+
+
+ 852 000c 0000     		.2byte	0
+ 853 000e 0000     		.2byte	0
+ 854 0010 00000000 		.4byte	.LFB112
+ 855 0014 1C000000 		.4byte	.LFE112-.LFB112
+ 856 0018 00000000 		.4byte	0
+ 857 001c 00000000 		.4byte	0
+ 858              		.section	.debug_ranges,"",%progbits
+ 859              	.Ldebug_ranges0:
+ 860 0000 00000000 		.4byte	.LFB112
+ 861 0004 1C000000 		.4byte	.LFE112
+ 862 0008 00000000 		.4byte	0
+ 863 000c 00000000 		.4byte	0
+ 864              		.section	.debug_line,"",%progbits
+ 865              	.Ldebug_line0:
+ 866 0000 47020000 		.section	.debug_str,"MS",%progbits,1
+ 866      02002A02 
+ 866      00000201 
+ 866      FB0E0D00 
+ 866      01010101 
+ 867              	.LASF21:
+ 868 0000 62757366 		.ascii	"busfault_handler\000"
+ 868      61756C74 
+ 868      5F68616E 
+ 868      646C6572 
+ 868      00
+ 869              	.LASF15:
+ 870 0011 6972715F 		.ascii	"irq_vector_t\000"
+ 870      76656374 
+ 870      6F725F74 
+ 870      00
+ 871              	.LASF29:
+ 872 001e 76656374 		.ascii	"vector34\000"
+ 872      6F723334 
+ 872      00
+ 873              	.LASF30:
+ 874 0027 70656E64 		.ascii	"pendsv_handler\000"
+ 874      73765F68 
+ 874      616E646C 
+ 874      657200
+ 875              	.LASF5:
+ 876 0036 5F5F696E 		.ascii	"__int32_t\000"
+ 876      7433325F 
+ 876      7400
+ 877              	.LASF31:
+ 878 0040 73797374 		.ascii	"systick_handler\000"
+ 878      69636B5F 
+ 878      68616E64 
+ 878      6C657200 
+ 879              	.LASF3:
+ 880 0050 73686F72 		.ascii	"short unsigned int\000"
+ 880      7420756E 
+ 880      7369676E 
+ 880      65642069 
+ 880      6E7400
+ 881              	.LASF16:
+ 882 0063 696E6974 		.ascii	"init_stack\000"
+ 882      5F737461 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 17
+
+
+ 882      636B00
+ 883              	.LASF11:
+ 884 006e 696E7433 		.ascii	"int32_t\000"
+ 884      325F7400 
+ 885              	.LASF28:
+ 886 0076 64656275 		.ascii	"debugmonitor_handler\000"
+ 886      676D6F6E 
+ 886      69746F72 
+ 886      5F68616E 
+ 886      646C6572 
+ 887              	.LASF1:
+ 888 008b 756E7369 		.ascii	"unsigned char\000"
+ 888      676E6564 
+ 888      20636861 
+ 888      7200
+ 889              	.LASF7:
+ 890 0099 6C6F6E67 		.ascii	"long unsigned int\000"
+ 890      20756E73 
+ 890      69676E65 
+ 890      6420696E 
+ 890      7400
+ 891              	.LASF27:
+ 892 00ab 7376635F 		.ascii	"svc_handler\000"
+ 892      68616E64 
+ 892      6C657200 
+ 893              	.LASF13:
+ 894 00b7 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 894      52784275 
+ 894      66666572 
+ 894      00
+ 895              	.LASF37:
+ 896 00c4 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/ChibiOS//os/common/po"
+ 896      69622F65 
+ 896      2D707563 
+ 896      6B325F6D 
+ 896      61696E2D 
+ 897 00f7 7274732F 		.ascii	"rts/ARMCMx/compilers/GCC/vectors.c\000"
+ 897      41524D43 
+ 897      4D782F63 
+ 897      6F6D7069 
+ 897      6C657273 
+ 898              	.LASF23:
+ 899 011a 76656374 		.ascii	"vector1c\000"
+ 899      6F723163 
+ 899      00
+ 900              	.LASF19:
+ 901 0123 68617264 		.ascii	"hardfault_handler\000"
+ 901      6661756C 
+ 901      745F6861 
+ 901      6E646C65 
+ 901      7200
+ 902              	.LASF6:
+ 903 0135 5F5F7569 		.ascii	"__uint32_t\000"
+ 903      6E743332 
+ 903      5F7400
+ 904              	.LASF18:
+ 905 0140 6E6D695F 		.ascii	"nmi_handler\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 18
+
+
+ 905      68616E64 
+ 905      6C657200 
+ 906              	.LASF10:
+ 907 014c 756E7369 		.ascii	"unsigned int\000"
+ 907      676E6564 
+ 907      20696E74 
+ 907      00
+ 908              	.LASF24:
+ 909 0159 76656374 		.ascii	"vector20\000"
+ 909      6F723230 
+ 909      00
+ 910              	.LASF9:
+ 911 0162 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 911      206C6F6E 
+ 911      6720756E 
+ 911      7369676E 
+ 911      65642069 
+ 912              	.LASF25:
+ 913 0179 76656374 		.ascii	"vector24\000"
+ 913      6F723234 
+ 913      00
+ 914              	.LASF26:
+ 915 0182 76656374 		.ascii	"vector28\000"
+ 915      6F723238 
+ 915      00
+ 916              	.LASF35:
+ 917 018b 5F766563 		.ascii	"_vectors\000"
+ 917      746F7273 
+ 917      00
+ 918              	.LASF17:
+ 919 0194 72657365 		.ascii	"reset_handler\000"
+ 919      745F6861 
+ 919      6E646C65 
+ 919      7200
+ 920              	.LASF22:
+ 921 01a2 75736167 		.ascii	"usagefault_handler\000"
+ 921      65666175 
+ 921      6C745F68 
+ 921      616E646C 
+ 921      657200
+ 922              	.LASF8:
+ 923 01b5 6C6F6E67 		.ascii	"long long int\000"
+ 923      206C6F6E 
+ 923      6720696E 
+ 923      7400
+ 924              	.LASF14:
+ 925 01c3 53797374 		.ascii	"SystemCoreClock\000"
+ 925      656D436F 
+ 925      7265436C 
+ 925      6F636B00 
+ 926              	.LASF39:
+ 927 01d3 5F756E68 		.ascii	"_unhandled_exception\000"
+ 927      616E646C 
+ 927      65645F65 
+ 927      78636570 
+ 927      74696F6E 
+ 928              	.LASF32:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 19
+
+
+ 929 01e8 76656374 		.ascii	"vectors\000"
+ 929      6F727300 
+ 930              	.LASF2:
+ 931 01f0 73686F72 		.ascii	"short int\000"
+ 931      7420696E 
+ 931      7400
+ 932              	.LASF36:
+ 933 01fa 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 933      43313120 
+ 933      372E322E 
+ 933      31203230 
+ 933      31373039 
+ 934 022d 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
+ 934      20726576 
+ 934      6973696F 
+ 934      6E203235 
+ 934      35323034 
+ 935 0260 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 935      2D6D6670 
+ 935      753D6670 
+ 935      76342D73 
+ 935      702D6431 
+ 936 0293 2D676764 		.ascii	"-ggdb -O0 -fomit-frame-pointer -falign-functions=16"
+ 936      62202D4F 
+ 936      30202D66 
+ 936      6F6D6974 
+ 936      2D667261 
+ 937 02c6 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
+ 937      6F2D7374 
+ 937      72696374 
+ 937      2D616C69 
+ 937      6173696E 
+ 938 02f9 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
+ 938      73656374 
+ 938      696F6E73 
+ 938      202D6664 
+ 938      6174612D 
+ 939 032c 72656369 		.ascii	"recision-constant\000"
+ 939      73696F6E 
+ 939      2D636F6E 
+ 939      7374616E 
+ 939      7400
+ 940              	.LASF12:
+ 941 033e 75696E74 		.ascii	"uint32_t\000"
+ 941      33325F74 
+ 941      00
+ 942              	.LASF4:
+ 943 0347 6C6F6E67 		.ascii	"long int\000"
+ 943      20696E74 
+ 943      00
+ 944              	.LASF20:
+ 945 0350 6D656D6D 		.ascii	"memmanage_handler\000"
+ 945      616E6167 
+ 945      655F6861 
+ 945      6E646C65 
+ 945      7200
+ 946              	.LASF0:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 20
+
+
+ 947 0362 7369676E 		.ascii	"signed char\000"
+ 947      65642063 
+ 947      68617200 
+ 948              	.LASF33:
+ 949 036e 76656374 		.ascii	"vectors_t\000"
+ 949      6F72735F 
+ 949      7400
+ 950              	.LASF38:
+ 951 0378 433A5C55 		.ascii	"C:\\Users\\Pchautems\\Documents\\RobotiqueTP\\Proje"
+ 951      73657273 
+ 951      5C506368 
+ 951      61757465 
+ 951      6D735C44 
+ 952 03a6 745C6D69 		.ascii	"t\\miniprojet\000"
+ 952      6E697072 
+ 952      6F6A6574 
+ 952      00
+ 953              	.LASF34:
+ 954 03b3 5F5F6D61 		.ascii	"__main_stack_end__\000"
+ 954      696E5F73 
+ 954      7461636B 
+ 954      5F656E64 
+ 954      5F5F00
+ 955              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 21
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 vectors.c
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:18     .rodata:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:22     .text._unhandled_exception:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 _unhandled_exception
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:55     .text._unhandled_exception:00000014 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1BC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1B8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1B4
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1B0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1AC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1A8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1A4
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1A0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector19C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector198
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector194
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector190
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector18C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector188
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector184
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector180
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector17C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector178
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector174
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector170
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector16C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector168
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector164
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector160
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector15C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector158
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector154
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector150
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector14C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector148
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector144
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector140
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector13C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector138
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector134
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector130
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector12C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector128
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector124
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector120
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector11C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector118
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector114
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector110
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector10C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector108
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector104
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector100
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorFC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorF8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorF4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 22
+
+
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorF0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorEC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorE8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorE4
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorE0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorDC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorD8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorD4
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorD0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorCC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorC8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorC4
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorC0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorBC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorB8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorB4
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorB0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorAC
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorA8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorA4
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 VectorA0
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector9C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector98
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector94
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector90
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector8C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector88
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector84
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector80
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector7C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector78
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector74
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector70
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector6C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector68
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector64
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector60
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector5C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector58
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector54
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector50
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector4C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector48
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector44
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector40
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 SysTick_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 PendSV_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector34
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 DebugMon_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 SVC_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector28
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector24
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector20
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Vector1C
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 UsageFault_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 BusFault_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 MemManage_Handler
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s 			page 23
+
+
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 HardFault_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 NMI_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:30     .text._unhandled_exception:00000000 Reset_Handler
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:287    .vectors:00000000 _vectors
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccvPPAlD.s:284    .vectors:00000000 $d
+
+UNDEFINED SYMBOLS
+chSysHalt
+__stack_chk_guard
+__main_stack_end__

@@ -1,0 +1,5188 @@
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"vm-buffer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.bss.buffer,"aw",%nobits
+  18              		.align	2
+  19              		.type	buffer, %object
+  20              		.size	buffer, 518
+  21              	buffer:
+  22 0000 00000000 		.space	518
+  22      00000000 
+  22      00000000 
+  22      00000000 
+  22      00000000 
+  23              		.section	.bss.buffer_pos,"aw",%nobits
+  24              		.align	2
+  25              		.type	buffer_pos, %object
+  26              		.size	buffer_pos, 4
+  27              	buffer_pos:
+  28 0000 00000000 		.space	4
+  29              		.section	.text.buffer_add,"ax",%progbits
+  30              		.align	1
+  31              		.p2align 4,,15
+  32              		.syntax unified
+  33              		.thumb
+  34              		.thumb_func
+  35              		.fpu fpv4-sp-d16
+  36              		.type	buffer_add, %function
+  37              	buffer_add:
+  38              	.LFB1:
+  39              		.file 1 "../lib/e-puck2_main-processor/aseba/transport/buffer/vm-buffer.c"
+  40              		.loc 1 31 0
+  41              		.cfi_startproc
+  42              		@ args = 0, pretend = 0, frame = 16
+  43              		@ frame_needed = 0, uses_anonymous_args = 0
+  44 0000 00B5     		push	{lr}
+  45              		.cfi_def_cfa_offset 4
+  46              		.cfi_offset 14, -4
+  47 0002 85B0     		sub	sp, sp, #20
+  48              		.cfi_def_cfa_offset 24
+  49 0004 0190     		str	r0, [sp, #4]
+  50 0006 0B46     		mov	r3, r1
+  51 0008 ADF80230 		strh	r3, [sp, #2]	@ movhi
+  52              		.loc 1 31 0
+  53 000c 134B     		ldr	r3, .L5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 2
+
+
+  54 000e 1B68     		ldr	r3, [r3]
+  55 0010 0393     		str	r3, [sp, #12]
+  56              		.loc 1 32 0
+  57 0012 0023     		movs	r3, #0
+  58 0014 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+  59              		.loc 1 33 0
+  60 0018 0FE0     		b	.L2
+  61              	.L3:
+  62              		.loc 1 41 0
+  63 001a BDF80A30 		ldrh	r3, [sp, #10]
+  64 001e 5A1C     		adds	r2, r3, #1
+  65 0020 ADF80A20 		strh	r2, [sp, #10]	@ movhi
+  66 0024 1A46     		mov	r2, r3
+  67 0026 019B     		ldr	r3, [sp, #4]
+  68 0028 1A44     		add	r2, r2, r3
+  69 002a 0D4B     		ldr	r3, .L5+4
+  70 002c 1B68     		ldr	r3, [r3]
+  71 002e 591C     		adds	r1, r3, #1
+  72 0030 0B48     		ldr	r0, .L5+4
+  73 0032 0160     		str	r1, [r0]
+  74 0034 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+  75 0036 0B4A     		ldr	r2, .L5+8
+  76 0038 D154     		strb	r1, [r2, r3]
+  77              	.L2:
+  78              		.loc 1 33 0
+  79 003a BDF80A20 		ldrh	r2, [sp, #10]
+  80 003e BDF80230 		ldrh	r3, [sp, #2]
+  81 0042 9A42     		cmp	r2, r3
+  82 0044 E9D3     		bcc	.L3
+  83              		.loc 1 43 0
+  84 0046 00BF     		nop
+  85 0048 044B     		ldr	r3, .L5
+  86 004a 039A     		ldr	r2, [sp, #12]
+  87 004c 1B68     		ldr	r3, [r3]
+  88 004e 9A42     		cmp	r2, r3
+  89 0050 01D0     		beq	.L4
+  90 0052 FFF7FEFF 		bl	__stack_chk_fail
+  91              	.L4:
+  92 0056 05B0     		add	sp, sp, #20
+  93              		.cfi_def_cfa_offset 4
+  94              		@ sp needed
+  95 0058 5DF804FB 		ldr	pc, [sp], #4
+  96              	.L6:
+  97              		.align	2
+  98              	.L5:
+  99 005c 00000000 		.word	__stack_chk_guard
+ 100 0060 00000000 		.word	buffer_pos
+ 101 0064 00000000 		.word	buffer
+ 102              		.cfi_endproc
+ 103              	.LFE1:
+ 104              		.size	buffer_add, .-buffer_add
+ 105              		.section	.text.buffer_add_uint8,"ax",%progbits
+ 106              		.align	1
+ 107              		.p2align 4,,15
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 3
+
+
+ 111              		.fpu fpv4-sp-d16
+ 112              		.type	buffer_add_uint8, %function
+ 113              	buffer_add_uint8:
+ 114              	.LFB2:
+ 115              		.loc 1 46 0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 16
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119 0000 00B5     		push	{lr}
+ 120              		.cfi_def_cfa_offset 4
+ 121              		.cfi_offset 14, -4
+ 122 0002 85B0     		sub	sp, sp, #20
+ 123              		.cfi_def_cfa_offset 24
+ 124 0004 0346     		mov	r3, r0
+ 125 0006 8DF80730 		strb	r3, [sp, #7]
+ 126              		.loc 1 46 0
+ 127 000a 0A4B     		ldr	r3, .L9
+ 128 000c 1B68     		ldr	r3, [r3]
+ 129 000e 0393     		str	r3, [sp, #12]
+ 130              		.loc 1 47 0
+ 131 0010 0DF10703 		add	r3, sp, #7
+ 132 0014 0121     		movs	r1, #1
+ 133 0016 1846     		mov	r0, r3
+ 134 0018 FFF7FEFF 		bl	buffer_add
+ 135              		.loc 1 48 0
+ 136 001c 00BF     		nop
+ 137 001e 054B     		ldr	r3, .L9
+ 138 0020 039A     		ldr	r2, [sp, #12]
+ 139 0022 1B68     		ldr	r3, [r3]
+ 140 0024 9A42     		cmp	r2, r3
+ 141 0026 01D0     		beq	.L8
+ 142 0028 FFF7FEFF 		bl	__stack_chk_fail
+ 143              	.L8:
+ 144 002c 05B0     		add	sp, sp, #20
+ 145              		.cfi_def_cfa_offset 4
+ 146              		@ sp needed
+ 147 002e 5DF804FB 		ldr	pc, [sp], #4
+ 148              	.L10:
+ 149 0032 00BF     		.align	2
+ 150              	.L9:
+ 151 0034 00000000 		.word	__stack_chk_guard
+ 152              		.cfi_endproc
+ 153              	.LFE2:
+ 154              		.size	buffer_add_uint8, .-buffer_add_uint8
+ 155              		.section	.text.buffer_add_uint16,"ax",%progbits
+ 156              		.align	1
+ 157              		.p2align 4,,15
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.fpu fpv4-sp-d16
+ 162              		.type	buffer_add_uint16, %function
+ 163              	buffer_add_uint16:
+ 164              	.LFB3:
+ 165              		.loc 1 51 0
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 4
+
+
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169 0000 00B5     		push	{lr}
+ 170              		.cfi_def_cfa_offset 4
+ 171              		.cfi_offset 14, -4
+ 172 0002 85B0     		sub	sp, sp, #20
+ 173              		.cfi_def_cfa_offset 24
+ 174 0004 0346     		mov	r3, r0
+ 175 0006 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 176              		.loc 1 51 0
+ 177 000a 0C4B     		ldr	r3, .L13
+ 178 000c 1B68     		ldr	r3, [r3]
+ 179 000e 0393     		str	r3, [sp, #12]
+ 180              		.loc 1 52 0
+ 181 0010 BDF80630 		ldrh	r3, [sp, #6]	@ movhi
+ 182 0014 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 183              		.loc 1 53 0
+ 184 0018 0DF10A03 		add	r3, sp, #10
+ 185 001c 0221     		movs	r1, #2
+ 186 001e 1846     		mov	r0, r3
+ 187 0020 FFF7FEFF 		bl	buffer_add
+ 188              		.loc 1 54 0
+ 189 0024 00BF     		nop
+ 190 0026 054B     		ldr	r3, .L13
+ 191 0028 039A     		ldr	r2, [sp, #12]
+ 192 002a 1B68     		ldr	r3, [r3]
+ 193 002c 9A42     		cmp	r2, r3
+ 194 002e 01D0     		beq	.L12
+ 195 0030 FFF7FEFF 		bl	__stack_chk_fail
+ 196              	.L12:
+ 197 0034 05B0     		add	sp, sp, #20
+ 198              		.cfi_def_cfa_offset 4
+ 199              		@ sp needed
+ 200 0036 5DF804FB 		ldr	pc, [sp], #4
+ 201              	.L14:
+ 202 003a 00BF     		.align	2
+ 203              	.L13:
+ 204 003c 00000000 		.word	__stack_chk_guard
+ 205              		.cfi_endproc
+ 206              	.LFE3:
+ 207              		.size	buffer_add_uint16, .-buffer_add_uint16
+ 208              		.section	.text.buffer_add_sint16,"ax",%progbits
+ 209              		.align	1
+ 210              		.p2align 4,,15
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 214              		.fpu fpv4-sp-d16
+ 215              		.type	buffer_add_sint16, %function
+ 216              	buffer_add_sint16:
+ 217              	.LFB4:
+ 218              		.loc 1 57 0
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 16
+ 221              		@ frame_needed = 0, uses_anonymous_args = 0
+ 222 0000 00B5     		push	{lr}
+ 223              		.cfi_def_cfa_offset 4
+ 224              		.cfi_offset 14, -4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 5
+
+
+ 225 0002 85B0     		sub	sp, sp, #20
+ 226              		.cfi_def_cfa_offset 24
+ 227 0004 0346     		mov	r3, r0
+ 228 0006 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 229              		.loc 1 57 0
+ 230 000a 0C4B     		ldr	r3, .L17
+ 231 000c 1B68     		ldr	r3, [r3]
+ 232 000e 0393     		str	r3, [sp, #12]
+ 233              		.loc 1 58 0
+ 234 0010 BDF80630 		ldrh	r3, [sp, #6]
+ 235 0014 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 236              		.loc 1 59 0
+ 237 0018 0DF10A03 		add	r3, sp, #10
+ 238 001c 0221     		movs	r1, #2
+ 239 001e 1846     		mov	r0, r3
+ 240 0020 FFF7FEFF 		bl	buffer_add
+ 241              		.loc 1 60 0
+ 242 0024 00BF     		nop
+ 243 0026 054B     		ldr	r3, .L17
+ 244 0028 039A     		ldr	r2, [sp, #12]
+ 245 002a 1B68     		ldr	r3, [r3]
+ 246 002c 9A42     		cmp	r2, r3
+ 247 002e 01D0     		beq	.L16
+ 248 0030 FFF7FEFF 		bl	__stack_chk_fail
+ 249              	.L16:
+ 250 0034 05B0     		add	sp, sp, #20
+ 251              		.cfi_def_cfa_offset 4
+ 252              		@ sp needed
+ 253 0036 5DF804FB 		ldr	pc, [sp], #4
+ 254              	.L18:
+ 255 003a 00BF     		.align	2
+ 256              	.L17:
+ 257 003c 00000000 		.word	__stack_chk_guard
+ 258              		.cfi_endproc
+ 259              	.LFE4:
+ 260              		.size	buffer_add_sint16, .-buffer_add_sint16
+ 261              		.section	.text.buffer_add_string,"ax",%progbits
+ 262              		.align	1
+ 263              		.p2align 4,,15
+ 264              		.syntax unified
+ 265              		.thumb
+ 266              		.thumb_func
+ 267              		.fpu fpv4-sp-d16
+ 268              		.type	buffer_add_string, %function
+ 269              	buffer_add_string:
+ 270              	.LFB5:
+ 271              		.loc 1 63 0
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 16
+ 274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 275 0000 00B5     		push	{lr}
+ 276              		.cfi_def_cfa_offset 4
+ 277              		.cfi_offset 14, -4
+ 278 0002 85B0     		sub	sp, sp, #20
+ 279              		.cfi_def_cfa_offset 24
+ 280 0004 0190     		str	r0, [sp, #4]
+ 281              		.loc 1 63 0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 6
+
+
+ 282 0006 134B     		ldr	r3, .L23
+ 283 0008 1B68     		ldr	r3, [r3]
+ 284 000a 0393     		str	r3, [sp, #12]
+ 285              		.loc 1 64 0
+ 286 000c 0198     		ldr	r0, [sp, #4]
+ 287 000e FFF7FEFF 		bl	strlen
+ 288 0012 0346     		mov	r3, r0
+ 289 0014 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 290              		.loc 1 65 0
+ 291 0018 BDF80A30 		ldrh	r3, [sp, #10]	@ movhi
+ 292 001c DBB2     		uxtb	r3, r3
+ 293 001e 1846     		mov	r0, r3
+ 294 0020 FFF7FEFF 		bl	buffer_add_uint8
+ 295              		.loc 1 66 0
+ 296 0024 06E0     		b	.L20
+ 297              	.L21:
+ 298              		.loc 1 67 0
+ 299 0026 019B     		ldr	r3, [sp, #4]
+ 300 0028 5A1C     		adds	r2, r3, #1
+ 301 002a 0192     		str	r2, [sp, #4]
+ 302 002c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 303 002e 1846     		mov	r0, r3
+ 304 0030 FFF7FEFF 		bl	buffer_add_uint8
+ 305              	.L20:
+ 306              		.loc 1 66 0
+ 307 0034 019B     		ldr	r3, [sp, #4]
+ 308 0036 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 309 0038 002B     		cmp	r3, #0
+ 310 003a F4D1     		bne	.L21
+ 311              		.loc 1 68 0
+ 312 003c 00BF     		nop
+ 313 003e 054B     		ldr	r3, .L23
+ 314 0040 039A     		ldr	r2, [sp, #12]
+ 315 0042 1B68     		ldr	r3, [r3]
+ 316 0044 9A42     		cmp	r2, r3
+ 317 0046 01D0     		beq	.L22
+ 318 0048 FFF7FEFF 		bl	__stack_chk_fail
+ 319              	.L22:
+ 320 004c 05B0     		add	sp, sp, #20
+ 321              		.cfi_def_cfa_offset 4
+ 322              		@ sp needed
+ 323 004e 5DF804FB 		ldr	pc, [sp], #4
+ 324              	.L24:
+ 325 0052 00BF     		.align	2
+ 326              	.L23:
+ 327 0054 00000000 		.word	__stack_chk_guard
+ 328              		.cfi_endproc
+ 329              	.LFE5:
+ 330              		.size	buffer_add_string, .-buffer_add_string
+ 331              		.section	.text.AsebaSendMessage,"ax",%progbits
+ 332              		.align	1
+ 333              		.p2align 4,,15
+ 334              		.global	AsebaSendMessage
+ 335              		.syntax unified
+ 336              		.thumb
+ 337              		.thumb_func
+ 338              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 7
+
+
+ 339              		.type	AsebaSendMessage, %function
+ 340              	AsebaSendMessage:
+ 341              	.LFB6:
+ 342              		.loc 1 73 0
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 24
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346 0000 00B5     		push	{lr}
+ 347              		.cfi_def_cfa_offset 4
+ 348              		.cfi_offset 14, -4
+ 349 0002 87B0     		sub	sp, sp, #28
+ 350              		.cfi_def_cfa_offset 32
+ 351 0004 0390     		str	r0, [sp, #12]
+ 352 0006 0192     		str	r2, [sp, #4]
+ 353 0008 1A46     		mov	r2, r3
+ 354 000a 0B46     		mov	r3, r1	@ movhi
+ 355 000c ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 356 0010 1346     		mov	r3, r2	@ movhi
+ 357 0012 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 358              		.loc 1 73 0
+ 359 0016 1A4B     		ldr	r3, .L29
+ 360 0018 1B68     		ldr	r3, [r3]
+ 361 001a 0593     		str	r3, [sp, #20]
+ 362              		.loc 1 76 0
+ 363 001c 194B     		ldr	r3, .L29+4
+ 364 001e 0022     		movs	r2, #0
+ 365 0020 1A60     		str	r2, [r3]
+ 366              		.loc 1 77 0
+ 367 0022 BDF80A30 		ldrh	r3, [sp, #10]
+ 368 0026 1846     		mov	r0, r3
+ 369 0028 FFF7FEFF 		bl	buffer_add_uint16
+ 370              		.loc 1 78 0
+ 371 002c 0023     		movs	r3, #0
+ 372 002e ADF81230 		strh	r3, [sp, #18]	@ movhi
+ 373 0032 0CE0     		b	.L26
+ 374              	.L27:
+ 375              		.loc 1 79 0 discriminator 3
+ 376 0034 BDF81230 		ldrh	r3, [sp, #18]
+ 377 0038 019A     		ldr	r2, [sp, #4]
+ 378 003a 1344     		add	r3, r3, r2
+ 379 003c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 380 003e 1846     		mov	r0, r3
+ 381 0040 FFF7FEFF 		bl	buffer_add_uint8
+ 382              		.loc 1 78 0 discriminator 3
+ 383 0044 BDF81230 		ldrh	r3, [sp, #18]
+ 384 0048 0133     		adds	r3, r3, #1
+ 385 004a ADF81230 		strh	r3, [sp, #18]	@ movhi
+ 386              	.L26:
+ 387              		.loc 1 78 0 is_stmt 0 discriminator 1
+ 388 004e BDF81220 		ldrh	r2, [sp, #18]
+ 389 0052 BDF80830 		ldrh	r3, [sp, #8]
+ 390 0056 9A42     		cmp	r2, r3
+ 391 0058 ECD3     		bcc	.L27
+ 392              		.loc 1 81 0 is_stmt 1
+ 393 005a 0A4B     		ldr	r3, .L29+4
+ 394 005c 1B68     		ldr	r3, [r3]
+ 395 005e 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 8
+
+
+ 396 0060 1A46     		mov	r2, r3
+ 397 0062 0949     		ldr	r1, .L29+8
+ 398 0064 0398     		ldr	r0, [sp, #12]
+ 399 0066 FFF7FEFF 		bl	AsebaSendBuffer
+ 400              		.loc 1 82 0
+ 401 006a 00BF     		nop
+ 402 006c 044B     		ldr	r3, .L29
+ 403 006e 059A     		ldr	r2, [sp, #20]
+ 404 0070 1B68     		ldr	r3, [r3]
+ 405 0072 9A42     		cmp	r2, r3
+ 406 0074 01D0     		beq	.L28
+ 407 0076 FFF7FEFF 		bl	__stack_chk_fail
+ 408              	.L28:
+ 409 007a 07B0     		add	sp, sp, #28
+ 410              		.cfi_def_cfa_offset 4
+ 411              		@ sp needed
+ 412 007c 5DF804FB 		ldr	pc, [sp], #4
+ 413              	.L30:
+ 414              		.align	2
+ 415              	.L29:
+ 416 0080 00000000 		.word	__stack_chk_guard
+ 417 0084 00000000 		.word	buffer_pos
+ 418 0088 00000000 		.word	buffer
+ 419              		.cfi_endproc
+ 420              	.LFE6:
+ 421              		.size	AsebaSendMessage, .-AsebaSendMessage
+ 422              		.section	.text.AsebaSendVariables,"ax",%progbits
+ 423              		.align	1
+ 424              		.p2align 4,,15
+ 425              		.global	AsebaSendVariables
+ 426              		.syntax unified
+ 427              		.thumb
+ 428              		.thumb_func
+ 429              		.fpu fpv4-sp-d16
+ 430              		.type	AsebaSendVariables, %function
+ 431              	AsebaSendVariables:
+ 432              	.LFB7:
+ 433              		.loc 1 99 0
+ 434              		.cfi_startproc
+ 435              		@ args = 0, pretend = 0, frame = 16
+ 436              		@ frame_needed = 0, uses_anonymous_args = 0
+ 437 0000 00B5     		push	{lr}
+ 438              		.cfi_def_cfa_offset 4
+ 439              		.cfi_offset 14, -4
+ 440 0002 85B0     		sub	sp, sp, #20
+ 441              		.cfi_def_cfa_offset 24
+ 442 0004 0190     		str	r0, [sp, #4]
+ 443 0006 0B46     		mov	r3, r1
+ 444 0008 ADF80230 		strh	r3, [sp, #2]	@ movhi
+ 445 000c 1346     		mov	r3, r2	@ movhi
+ 446 000e ADF80030 		strh	r3, [sp]	@ movhi
+ 447              		.loc 1 99 0
+ 448 0012 204B     		ldr	r3, .L35
+ 449 0014 1B68     		ldr	r3, [r3]
+ 450 0016 0393     		str	r3, [sp, #12]
+ 451              		.loc 1 102 0
+ 452 0018 1F4B     		ldr	r3, .L35+4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 9
+
+
+ 453 001a 0022     		movs	r2, #0
+ 454 001c 1A60     		str	r2, [r3]
+ 455              		.loc 1 103 0
+ 456 001e 49F20500 		movw	r0, #36869
+ 457 0022 FFF7FEFF 		bl	buffer_add_uint16
+ 458              		.loc 1 104 0
+ 459 0026 BDF80230 		ldrh	r3, [sp, #2]
+ 460 002a 1846     		mov	r0, r3
+ 461 002c FFF7FEFF 		bl	buffer_add_uint16
+ 462              		.loc 1 105 0
+ 463 0030 BDF80230 		ldrh	r3, [sp, #2]	@ movhi
+ 464 0034 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 465 0038 10E0     		b	.L32
+ 466              	.L33:
+ 467              		.loc 1 106 0 discriminator 3
+ 468 003a 019B     		ldr	r3, [sp, #4]
+ 469 003c DA68     		ldr	r2, [r3, #12]
+ 470 003e BDF80A30 		ldrh	r3, [sp, #10]
+ 471 0042 5B00     		lsls	r3, r3, #1
+ 472 0044 1344     		add	r3, r3, r2
+ 473 0046 B3F90030 		ldrsh	r3, [r3]
+ 474 004a 9BB2     		uxth	r3, r3
+ 475 004c 1846     		mov	r0, r3
+ 476 004e FFF7FEFF 		bl	buffer_add_uint16
+ 477              		.loc 1 105 0 discriminator 3
+ 478 0052 BDF80A30 		ldrh	r3, [sp, #10]
+ 479 0056 0133     		adds	r3, r3, #1
+ 480 0058 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 481              	.L32:
+ 482              		.loc 1 105 0 is_stmt 0 discriminator 1
+ 483 005c BDF80A20 		ldrh	r2, [sp, #10]
+ 484 0060 BDF80210 		ldrh	r1, [sp, #2]
+ 485 0064 BDF80030 		ldrh	r3, [sp]
+ 486 0068 0B44     		add	r3, r3, r1
+ 487 006a 9A42     		cmp	r2, r3
+ 488 006c E5DB     		blt	.L33
+ 489              		.loc 1 108 0 is_stmt 1
+ 490 006e 0A4B     		ldr	r3, .L35+4
+ 491 0070 1B68     		ldr	r3, [r3]
+ 492 0072 9BB2     		uxth	r3, r3
+ 493 0074 1A46     		mov	r2, r3
+ 494 0076 0949     		ldr	r1, .L35+8
+ 495 0078 0198     		ldr	r0, [sp, #4]
+ 496 007a FFF7FEFF 		bl	AsebaSendBuffer
+ 497              		.loc 1 129 0
+ 498 007e 00BF     		nop
+ 499 0080 044B     		ldr	r3, .L35
+ 500 0082 039A     		ldr	r2, [sp, #12]
+ 501 0084 1B68     		ldr	r3, [r3]
+ 502 0086 9A42     		cmp	r2, r3
+ 503 0088 01D0     		beq	.L34
+ 504 008a FFF7FEFF 		bl	__stack_chk_fail
+ 505              	.L34:
+ 506 008e 05B0     		add	sp, sp, #20
+ 507              		.cfi_def_cfa_offset 4
+ 508              		@ sp needed
+ 509 0090 5DF804FB 		ldr	pc, [sp], #4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 10
+
+
+ 510              	.L36:
+ 511              		.align	2
+ 512              	.L35:
+ 513 0094 00000000 		.word	__stack_chk_guard
+ 514 0098 00000000 		.word	buffer_pos
+ 515 009c 00000000 		.word	buffer
+ 516              		.cfi_endproc
+ 517              	.LFE7:
+ 518              		.size	AsebaSendVariables, .-AsebaSendVariables
+ 519              		.section	.text.AsebaSendDescription,"ax",%progbits
+ 520              		.align	1
+ 521              		.p2align 4,,15
+ 522              		.global	AsebaSendDescription
+ 523              		.syntax unified
+ 524              		.thumb
+ 525              		.thumb_func
+ 526              		.fpu fpv4-sp-d16
+ 527              		.type	AsebaSendDescription, %function
+ 528              	AsebaSendDescription:
+ 529              	.LFB8:
+ 530              		.loc 1 132 0
+ 531              		.cfi_startproc
+ 532              		@ args = 0, pretend = 0, frame = 32
+ 533              		@ frame_needed = 0, uses_anonymous_args = 0
+ 534 0000 00B5     		push	{lr}
+ 535              		.cfi_def_cfa_offset 4
+ 536              		.cfi_offset 14, -4
+ 537 0002 89B0     		sub	sp, sp, #36
+ 538              		.cfi_def_cfa_offset 40
+ 539 0004 0190     		str	r0, [sp, #4]
+ 540              		.loc 1 132 0
+ 541 0006 B74B     		ldr	r3, .L55
+ 542 0008 1B68     		ldr	r3, [r3]
+ 543 000a 0793     		str	r3, [sp, #28]
+ 544              		.loc 1 133 0
+ 545 000c 0198     		ldr	r0, [sp, #4]
+ 546 000e FFF7FEFF 		bl	AsebaGetVMDescription
+ 547 0012 0390     		str	r0, [sp, #12]
+ 548              		.loc 1 134 0
+ 549 0014 039B     		ldr	r3, [sp, #12]
+ 550 0016 0433     		adds	r3, r3, #4
+ 551 0018 0493     		str	r3, [sp, #16]
+ 552              		.loc 1 135 0
+ 553 001a 0198     		ldr	r0, [sp, #4]
+ 554 001c FFF7FEFF 		bl	AsebaGetNativeFunctionsDescriptions
+ 555 0020 0590     		str	r0, [sp, #20]
+ 556              		.loc 1 136 0
+ 557 0022 0198     		ldr	r0, [sp, #4]
+ 558 0024 FFF7FEFF 		bl	AsebaGetLocalEventsDescriptions
+ 559 0028 0690     		str	r0, [sp, #24]
+ 560              		.loc 1 138 0
+ 561 002a 0023     		movs	r3, #0
+ 562 002c ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 563              		.loc 1 139 0
+ 564 0030 AD4B     		ldr	r3, .L55+4
+ 565 0032 0022     		movs	r2, #0
+ 566 0034 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 11
+
+
+ 567              		.loc 1 141 0
+ 568 0036 4FF41040 		mov	r0, #36864
+ 569 003a FFF7FEFF 		bl	buffer_add_uint16
+ 570              		.loc 1 143 0
+ 571 003e 039B     		ldr	r3, [sp, #12]
+ 572 0040 1B68     		ldr	r3, [r3]
+ 573 0042 1846     		mov	r0, r3
+ 574 0044 FFF7FEFF 		bl	buffer_add_string
+ 575              		.loc 1 145 0
+ 576 0048 0520     		movs	r0, #5
+ 577 004a FFF7FEFF 		bl	buffer_add_uint16
+ 578              		.loc 1 147 0
+ 579 004e 019B     		ldr	r3, [sp, #4]
+ 580 0050 5B88     		ldrh	r3, [r3, #2]
+ 581 0052 1846     		mov	r0, r3
+ 582 0054 FFF7FEFF 		bl	buffer_add_uint16
+ 583              		.loc 1 148 0
+ 584 0058 019B     		ldr	r3, [sp, #4]
+ 585 005a 1B8A     		ldrh	r3, [r3, #16]
+ 586 005c 1846     		mov	r0, r3
+ 587 005e FFF7FEFF 		bl	buffer_add_uint16
+ 588              		.loc 1 149 0
+ 589 0062 019B     		ldr	r3, [sp, #4]
+ 590 0064 1B89     		ldrh	r3, [r3, #8]
+ 591 0066 1846     		mov	r0, r3
+ 592 0068 FFF7FEFF 		bl	buffer_add_uint16
+ 593              		.loc 1 152 0
+ 594 006c 0023     		movs	r3, #0
+ 595 006e ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 596 0072 04E0     		b	.L38
+ 597              	.L39:
+ 598              		.loc 1 152 0 is_stmt 0 discriminator 3
+ 599 0074 BDF80830 		ldrh	r3, [sp, #8]
+ 600 0078 0133     		adds	r3, r3, #1
+ 601 007a ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 602              	.L38:
+ 603              		.loc 1 152 0 discriminator 1
+ 604 007e BDF80830 		ldrh	r3, [sp, #8]
+ 605 0082 DB00     		lsls	r3, r3, #3
+ 606 0084 049A     		ldr	r2, [sp, #16]
+ 607 0086 1344     		add	r3, r3, r2
+ 608 0088 1B88     		ldrh	r3, [r3]
+ 609 008a 002B     		cmp	r3, #0
+ 610 008c F2D1     		bne	.L39
+ 611              		.loc 1 154 0 is_stmt 1
+ 612 008e BDF80830 		ldrh	r3, [sp, #8]
+ 613 0092 1846     		mov	r0, r3
+ 614 0094 FFF7FEFF 		bl	buffer_add_uint16
+ 615              		.loc 1 157 0
+ 616 0098 0023     		movs	r3, #0
+ 617 009a ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 618 009e 04E0     		b	.L40
+ 619              	.L41:
+ 620              		.loc 1 157 0 is_stmt 0 discriminator 3
+ 621 00a0 BDF80830 		ldrh	r3, [sp, #8]
+ 622 00a4 0133     		adds	r3, r3, #1
+ 623 00a6 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 12
+
+
+ 624              	.L40:
+ 625              		.loc 1 157 0 discriminator 1
+ 626 00aa BDF80830 		ldrh	r3, [sp, #8]
+ 627 00ae DB00     		lsls	r3, r3, #3
+ 628 00b0 069A     		ldr	r2, [sp, #24]
+ 629 00b2 1344     		add	r3, r3, r2
+ 630 00b4 1B68     		ldr	r3, [r3]
+ 631 00b6 002B     		cmp	r3, #0
+ 632 00b8 F2D1     		bne	.L41
+ 633              		.loc 1 159 0 is_stmt 1
+ 634 00ba BDF80830 		ldrh	r3, [sp, #8]
+ 635 00be 1846     		mov	r0, r3
+ 636 00c0 FFF7FEFF 		bl	buffer_add_uint16
+ 637              		.loc 1 162 0
+ 638 00c4 0023     		movs	r3, #0
+ 639 00c6 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 640 00ca 04E0     		b	.L42
+ 641              	.L43:
+ 642              		.loc 1 162 0 is_stmt 0 discriminator 3
+ 643 00cc BDF80830 		ldrh	r3, [sp, #8]
+ 644 00d0 0133     		adds	r3, r3, #1
+ 645 00d2 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 646              	.L42:
+ 647              		.loc 1 162 0 discriminator 1
+ 648 00d6 BDF80830 		ldrh	r3, [sp, #8]
+ 649 00da 9B00     		lsls	r3, r3, #2
+ 650 00dc 059A     		ldr	r2, [sp, #20]
+ 651 00de 1344     		add	r3, r3, r2
+ 652 00e0 1B68     		ldr	r3, [r3]
+ 653 00e2 002B     		cmp	r3, #0
+ 654 00e4 F2D1     		bne	.L43
+ 655              		.loc 1 164 0 is_stmt 1
+ 656 00e6 BDF80830 		ldrh	r3, [sp, #8]
+ 657 00ea 1846     		mov	r0, r3
+ 658 00ec FFF7FEFF 		bl	buffer_add_uint16
+ 659              		.loc 1 167 0
+ 660 00f0 7D4B     		ldr	r3, .L55+4
+ 661 00f2 1B68     		ldr	r3, [r3]
+ 662 00f4 9BB2     		uxth	r3, r3
+ 663 00f6 1A46     		mov	r2, r3
+ 664 00f8 7C49     		ldr	r1, .L55+8
+ 665 00fa 0198     		ldr	r0, [sp, #4]
+ 666 00fc FFF7FEFF 		bl	AsebaSendBuffer
+ 667              		.loc 1 170 0
+ 668 0100 0023     		movs	r3, #0
+ 669 0102 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 670 0106 25E0     		b	.L44
+ 671              	.L45:
+ 672              		.loc 1 172 0 discriminator 3
+ 673 0108 774B     		ldr	r3, .L55+4
+ 674 010a 0022     		movs	r2, #0
+ 675 010c 1A60     		str	r2, [r3]
+ 676              		.loc 1 174 0 discriminator 3
+ 677 010e 49F20100 		movw	r0, #36865
+ 678 0112 FFF7FEFF 		bl	buffer_add_uint16
+ 679              		.loc 1 176 0 discriminator 3
+ 680 0116 BDF80830 		ldrh	r3, [sp, #8]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 13
+
+
+ 681 011a DB00     		lsls	r3, r3, #3
+ 682 011c 049A     		ldr	r2, [sp, #16]
+ 683 011e 1344     		add	r3, r3, r2
+ 684 0120 1B88     		ldrh	r3, [r3]
+ 685 0122 1846     		mov	r0, r3
+ 686 0124 FFF7FEFF 		bl	buffer_add_uint16
+ 687              		.loc 1 177 0 discriminator 3
+ 688 0128 BDF80830 		ldrh	r3, [sp, #8]
+ 689 012c DB00     		lsls	r3, r3, #3
+ 690 012e 049A     		ldr	r2, [sp, #16]
+ 691 0130 1344     		add	r3, r3, r2
+ 692 0132 5B68     		ldr	r3, [r3, #4]
+ 693 0134 1846     		mov	r0, r3
+ 694 0136 FFF7FEFF 		bl	buffer_add_string
+ 695              		.loc 1 180 0 discriminator 3
+ 696 013a 6B4B     		ldr	r3, .L55+4
+ 697 013c 1B68     		ldr	r3, [r3]
+ 698 013e 9BB2     		uxth	r3, r3
+ 699 0140 1A46     		mov	r2, r3
+ 700 0142 6A49     		ldr	r1, .L55+8
+ 701 0144 0198     		ldr	r0, [sp, #4]
+ 702 0146 FFF7FEFF 		bl	AsebaSendBuffer
+ 703              		.loc 1 170 0 discriminator 3
+ 704 014a BDF80830 		ldrh	r3, [sp, #8]
+ 705 014e 0133     		adds	r3, r3, #1
+ 706 0150 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 707              	.L44:
+ 708              		.loc 1 170 0 is_stmt 0 discriminator 1
+ 709 0154 BDF80830 		ldrh	r3, [sp, #8]
+ 710 0158 DB00     		lsls	r3, r3, #3
+ 711 015a 049A     		ldr	r2, [sp, #16]
+ 712 015c 1344     		add	r3, r3, r2
+ 713 015e 5B68     		ldr	r3, [r3, #4]
+ 714 0160 002B     		cmp	r3, #0
+ 715 0162 D1D1     		bne	.L45
+ 716              		.loc 1 184 0 is_stmt 1
+ 717 0164 0023     		movs	r3, #0
+ 718 0166 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 719 016a 25E0     		b	.L46
+ 720              	.L47:
+ 721              		.loc 1 186 0 discriminator 3
+ 722 016c 5E4B     		ldr	r3, .L55+4
+ 723 016e 0022     		movs	r2, #0
+ 724 0170 1A60     		str	r2, [r3]
+ 725              		.loc 1 188 0 discriminator 3
+ 726 0172 49F20200 		movw	r0, #36866
+ 727 0176 FFF7FEFF 		bl	buffer_add_uint16
+ 728              		.loc 1 190 0 discriminator 3
+ 729 017a BDF80830 		ldrh	r3, [sp, #8]
+ 730 017e DB00     		lsls	r3, r3, #3
+ 731 0180 069A     		ldr	r2, [sp, #24]
+ 732 0182 1344     		add	r3, r3, r2
+ 733 0184 1B68     		ldr	r3, [r3]
+ 734 0186 1846     		mov	r0, r3
+ 735 0188 FFF7FEFF 		bl	buffer_add_string
+ 736              		.loc 1 191 0 discriminator 3
+ 737 018c BDF80830 		ldrh	r3, [sp, #8]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 14
+
+
+ 738 0190 DB00     		lsls	r3, r3, #3
+ 739 0192 069A     		ldr	r2, [sp, #24]
+ 740 0194 1344     		add	r3, r3, r2
+ 741 0196 5B68     		ldr	r3, [r3, #4]
+ 742 0198 1846     		mov	r0, r3
+ 743 019a FFF7FEFF 		bl	buffer_add_string
+ 744              		.loc 1 194 0 discriminator 3
+ 745 019e 524B     		ldr	r3, .L55+4
+ 746 01a0 1B68     		ldr	r3, [r3]
+ 747 01a2 9BB2     		uxth	r3, r3
+ 748 01a4 1A46     		mov	r2, r3
+ 749 01a6 5149     		ldr	r1, .L55+8
+ 750 01a8 0198     		ldr	r0, [sp, #4]
+ 751 01aa FFF7FEFF 		bl	AsebaSendBuffer
+ 752              		.loc 1 184 0 discriminator 3
+ 753 01ae BDF80830 		ldrh	r3, [sp, #8]
+ 754 01b2 0133     		adds	r3, r3, #1
+ 755 01b4 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 756              	.L46:
+ 757              		.loc 1 184 0 is_stmt 0 discriminator 1
+ 758 01b8 BDF80830 		ldrh	r3, [sp, #8]
+ 759 01bc DB00     		lsls	r3, r3, #3
+ 760 01be 069A     		ldr	r2, [sp, #24]
+ 761 01c0 1344     		add	r3, r3, r2
+ 762 01c2 1B68     		ldr	r3, [r3]
+ 763 01c4 002B     		cmp	r3, #0
+ 764 01c6 D1D1     		bne	.L47
+ 765              		.loc 1 198 0 is_stmt 1
+ 766 01c8 0023     		movs	r3, #0
+ 767 01ca ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 768 01ce 75E0     		b	.L48
+ 769              	.L53:
+ 770              	.LBB2:
+ 771              		.loc 1 202 0
+ 772 01d0 454B     		ldr	r3, .L55+4
+ 773 01d2 0022     		movs	r2, #0
+ 774 01d4 1A60     		str	r2, [r3]
+ 775              		.loc 1 204 0
+ 776 01d6 49F20300 		movw	r0, #36867
+ 777 01da FFF7FEFF 		bl	buffer_add_uint16
+ 778              		.loc 1 207 0
+ 779 01de BDF80830 		ldrh	r3, [sp, #8]
+ 780 01e2 9B00     		lsls	r3, r3, #2
+ 781 01e4 059A     		ldr	r2, [sp, #20]
+ 782 01e6 1344     		add	r3, r3, r2
+ 783 01e8 1B68     		ldr	r3, [r3]
+ 784 01ea 1B68     		ldr	r3, [r3]
+ 785 01ec 1846     		mov	r0, r3
+ 786 01ee FFF7FEFF 		bl	buffer_add_string
+ 787              		.loc 1 208 0
+ 788 01f2 BDF80830 		ldrh	r3, [sp, #8]
+ 789 01f6 9B00     		lsls	r3, r3, #2
+ 790 01f8 059A     		ldr	r2, [sp, #20]
+ 791 01fa 1344     		add	r3, r3, r2
+ 792 01fc 1B68     		ldr	r3, [r3]
+ 793 01fe 5B68     		ldr	r3, [r3, #4]
+ 794 0200 1846     		mov	r0, r3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 15
+
+
+ 795 0202 FFF7FEFF 		bl	buffer_add_string
+ 796              		.loc 1 209 0
+ 797 0206 0023     		movs	r3, #0
+ 798 0208 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 799 020c 04E0     		b	.L49
+ 800              	.L50:
+ 801              		.loc 1 209 0 is_stmt 0 discriminator 3
+ 802 020e BDF80A30 		ldrh	r3, [sp, #10]
+ 803 0212 0133     		adds	r3, r3, #1
+ 804 0214 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 805              	.L49:
+ 806              		.loc 1 209 0 discriminator 1
+ 807 0218 BDF80830 		ldrh	r3, [sp, #8]
+ 808 021c 9B00     		lsls	r3, r3, #2
+ 809 021e 059A     		ldr	r2, [sp, #20]
+ 810 0220 1344     		add	r3, r3, r2
+ 811 0222 1B68     		ldr	r3, [r3]
+ 812 0224 BDF80A20 		ldrh	r2, [sp, #10]
+ 813 0228 0132     		adds	r2, r2, #1
+ 814 022a 33F93230 		ldrsh	r3, [r3, r2, lsl #3]
+ 815 022e 002B     		cmp	r3, #0
+ 816 0230 EDD1     		bne	.L50
+ 817              		.loc 1 211 0 is_stmt 1
+ 818 0232 BDF80A30 		ldrh	r3, [sp, #10]
+ 819 0236 1846     		mov	r0, r3
+ 820 0238 FFF7FEFF 		bl	buffer_add_uint16
+ 821              		.loc 1 212 0
+ 822 023c 0023     		movs	r3, #0
+ 823 023e ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 824 0242 21E0     		b	.L51
+ 825              	.L52:
+ 826              		.loc 1 214 0 discriminator 3
+ 827 0244 BDF80830 		ldrh	r3, [sp, #8]
+ 828 0248 9B00     		lsls	r3, r3, #2
+ 829 024a 059A     		ldr	r2, [sp, #20]
+ 830 024c 1344     		add	r3, r3, r2
+ 831 024e 1B68     		ldr	r3, [r3]
+ 832 0250 BDF80A20 		ldrh	r2, [sp, #10]
+ 833 0254 0132     		adds	r2, r2, #1
+ 834 0256 33F93230 		ldrsh	r3, [r3, r2, lsl #3]
+ 835 025a 1846     		mov	r0, r3
+ 836 025c FFF7FEFF 		bl	buffer_add_sint16
+ 837              		.loc 1 215 0 discriminator 3
+ 838 0260 BDF80830 		ldrh	r3, [sp, #8]
+ 839 0264 9B00     		lsls	r3, r3, #2
+ 840 0266 059A     		ldr	r2, [sp, #20]
+ 841 0268 1344     		add	r3, r3, r2
+ 842 026a 1A68     		ldr	r2, [r3]
+ 843 026c BDF80A30 		ldrh	r3, [sp, #10]
+ 844 0270 0133     		adds	r3, r3, #1
+ 845 0272 DB00     		lsls	r3, r3, #3
+ 846 0274 1344     		add	r3, r3, r2
+ 847 0276 5B68     		ldr	r3, [r3, #4]
+ 848 0278 1846     		mov	r0, r3
+ 849 027a FFF7FEFF 		bl	buffer_add_string
+ 850              		.loc 1 212 0 discriminator 3
+ 851 027e BDF80A30 		ldrh	r3, [sp, #10]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 16
+
+
+ 852 0282 0133     		adds	r3, r3, #1
+ 853 0284 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 854              	.L51:
+ 855              		.loc 1 212 0 is_stmt 0 discriminator 1
+ 856 0288 BDF80830 		ldrh	r3, [sp, #8]
+ 857 028c 9B00     		lsls	r3, r3, #2
+ 858 028e 059A     		ldr	r2, [sp, #20]
+ 859 0290 1344     		add	r3, r3, r2
+ 860 0292 1B68     		ldr	r3, [r3]
+ 861 0294 BDF80A20 		ldrh	r2, [sp, #10]
+ 862 0298 0132     		adds	r2, r2, #1
+ 863 029a 33F93230 		ldrsh	r3, [r3, r2, lsl #3]
+ 864 029e 002B     		cmp	r3, #0
+ 865 02a0 D0D1     		bne	.L52
+ 866              		.loc 1 219 0 is_stmt 1 discriminator 2
+ 867 02a2 114B     		ldr	r3, .L55+4
+ 868 02a4 1B68     		ldr	r3, [r3]
+ 869 02a6 9BB2     		uxth	r3, r3
+ 870 02a8 1A46     		mov	r2, r3
+ 871 02aa 1049     		ldr	r1, .L55+8
+ 872 02ac 0198     		ldr	r0, [sp, #4]
+ 873 02ae FFF7FEFF 		bl	AsebaSendBuffer
+ 874              	.LBE2:
+ 875              		.loc 1 198 0 discriminator 2
+ 876 02b2 BDF80830 		ldrh	r3, [sp, #8]
+ 877 02b6 0133     		adds	r3, r3, #1
+ 878 02b8 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 879              	.L48:
+ 880              		.loc 1 198 0 is_stmt 0 discriminator 1
+ 881 02bc BDF80830 		ldrh	r3, [sp, #8]
+ 882 02c0 9B00     		lsls	r3, r3, #2
+ 883 02c2 059A     		ldr	r2, [sp, #20]
+ 884 02c4 1344     		add	r3, r3, r2
+ 885 02c6 1B68     		ldr	r3, [r3]
+ 886 02c8 002B     		cmp	r3, #0
+ 887 02ca 81D1     		bne	.L53
+ 888              		.loc 1 221 0 is_stmt 1
+ 889 02cc 00BF     		nop
+ 890 02ce 054B     		ldr	r3, .L55
+ 891 02d0 079A     		ldr	r2, [sp, #28]
+ 892 02d2 1B68     		ldr	r3, [r3]
+ 893 02d4 9A42     		cmp	r2, r3
+ 894 02d6 01D0     		beq	.L54
+ 895 02d8 FFF7FEFF 		bl	__stack_chk_fail
+ 896              	.L54:
+ 897 02dc 09B0     		add	sp, sp, #36
+ 898              		.cfi_def_cfa_offset 4
+ 899              		@ sp needed
+ 900 02de 5DF804FB 		ldr	pc, [sp], #4
+ 901              	.L56:
+ 902 02e2 00BF     		.align	2
+ 903              	.L55:
+ 904 02e4 00000000 		.word	__stack_chk_guard
+ 905 02e8 00000000 		.word	buffer_pos
+ 906 02ec 00000000 		.word	buffer
+ 907              		.cfi_endproc
+ 908              	.LFE8:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 17
+
+
+ 909              		.size	AsebaSendDescription, .-AsebaSendDescription
+ 910              		.section	.text.AsebaProcessIncomingEvents,"ax",%progbits
+ 911              		.align	1
+ 912              		.p2align 4,,15
+ 913              		.global	AsebaProcessIncomingEvents
+ 914              		.syntax unified
+ 915              		.thumb
+ 916              		.thumb_func
+ 917              		.fpu fpv4-sp-d16
+ 918              		.type	AsebaProcessIncomingEvents, %function
+ 919              	AsebaProcessIncomingEvents:
+ 920              	.LFB9:
+ 921              		.loc 1 224 0
+ 922              		.cfi_startproc
+ 923              		@ args = 0, pretend = 0, frame = 40
+ 924              		@ frame_needed = 0, uses_anonymous_args = 0
+ 925 0000 00B5     		push	{lr}
+ 926              		.cfi_def_cfa_offset 4
+ 927              		.cfi_offset 14, -4
+ 928 0002 8BB0     		sub	sp, sp, #44
+ 929              		.cfi_def_cfa_offset 48
+ 930 0004 0190     		str	r0, [sp, #4]
+ 931              		.loc 1 224 0
+ 932 0006 444B     		ldr	r3, .L67
+ 933 0008 1B68     		ldr	r3, [r3]
+ 934 000a 0993     		str	r3, [sp, #36]
+ 935              		.loc 1 226 0
+ 936 000c 0198     		ldr	r0, [sp, #4]
+ 937 000e FFF7FEFF 		bl	AsebaGetVMDescription
+ 938 0012 0790     		str	r0, [sp, #28]
+ 939              		.loc 1 228 0
+ 940 0014 0DF10E03 		add	r3, sp, #14
+ 941 0018 40F20622 		movw	r2, #518
+ 942 001c 3F49     		ldr	r1, .L67+4
+ 943 001e 0198     		ldr	r0, [sp, #4]
+ 944 0020 FFF7FEFF 		bl	AsebaGetBuffer
+ 945 0024 0346     		mov	r3, r0
+ 946 0026 ADF81230 		strh	r3, [sp, #18]	@ movhi
+ 947              		.loc 1 230 0
+ 948 002a BDF81230 		ldrh	r3, [sp, #18]
+ 949 002e 002B     		cmp	r3, #0
+ 950 0030 67D0     		beq	.L66
+ 951              	.LBB3:
+ 952              		.loc 1 232 0
+ 953 0032 3A4B     		ldr	r3, .L67+4
+ 954 0034 1B88     		ldrh	r3, [r3]	@ movhi
+ 955 0036 ADF81430 		strh	r3, [sp, #20]	@ movhi
+ 956              		.loc 1 233 0
+ 957 003a 394B     		ldr	r3, .L67+8
+ 958 003c 0893     		str	r3, [sp, #32]
+ 959              		.loc 1 234 0
+ 960 003e BDF81230 		ldrh	r3, [sp, #18]
+ 961 0042 023B     		subs	r3, r3, #2
+ 962 0044 DA0F     		lsrs	r2, r3, #31
+ 963 0046 1344     		add	r3, r3, r2
+ 964 0048 5B10     		asrs	r3, r3, #1
+ 965 004a ADF81630 		strh	r3, [sp, #22]	@ movhi
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 18
+
+
+ 966              		.loc 1 235 0
+ 967 004e BDF91430 		ldrsh	r3, [sp, #20]
+ 968 0052 002B     		cmp	r3, #0
+ 969 0054 4DDB     		blt	.L59
+ 970              		.loc 1 238 0
+ 971 0056 019B     		ldr	r3, [sp, #4]
+ 972 0058 1B8B     		ldrh	r3, [r3, #24]
+ 973 005a 03F00203 		and	r3, r3, #2
+ 974 005e 002B     		cmp	r3, #0
+ 975 0060 05D0     		beq	.L60
+ 976              		.loc 1 238 0 is_stmt 0 discriminator 1
+ 977 0062 019B     		ldr	r3, [sp, #4]
+ 978 0064 1B8B     		ldrh	r3, [r3, #24]
+ 979 0066 03F00103 		and	r3, r3, #1
+ 980 006a 002B     		cmp	r3, #0
+ 981 006c 49D1     		bne	.L66
+ 982              	.L60:
+ 983              	.LBB4:
+ 984              		.loc 1 242 0 is_stmt 1
+ 985 006e 079B     		ldr	r3, [sp, #28]
+ 986 0070 9B89     		ldrh	r3, [r3, #12]	@ movhi
+ 987 0072 ADF81830 		strh	r3, [sp, #24]	@ movhi
+ 988              		.loc 1 243 0
+ 989 0076 079B     		ldr	r3, [sp, #28]
+ 990 0078 9B8A     		ldrh	r3, [r3, #20]	@ movhi
+ 991 007a ADF81A30 		strh	r3, [sp, #26]	@ movhi
+ 992              		.loc 1 245 0
+ 993 007e BDF80E10 		ldrh	r1, [sp, #14]
+ 994 0082 019B     		ldr	r3, [sp, #4]
+ 995 0084 DA68     		ldr	r2, [r3, #12]
+ 996 0086 BDF81830 		ldrh	r3, [sp, #24]
+ 997 008a 581C     		adds	r0, r3, #1
+ 998 008c ADF81800 		strh	r0, [sp, #24]	@ movhi
+ 999 0090 5B00     		lsls	r3, r3, #1
+ 1000 0092 1344     		add	r3, r3, r2
+ 1001 0094 0AB2     		sxth	r2, r1
+ 1002 0096 1A80     		strh	r2, [r3]	@ movhi
+ 1003              		.loc 1 246 0
+ 1004 0098 0023     		movs	r3, #0
+ 1005 009a ADF81030 		strh	r3, [sp, #16]	@ movhi
+ 1006 009e 15E0     		b	.L62
+ 1007              	.L64:
+ 1008              		.loc 1 247 0 discriminator 4
+ 1009 00a0 BDF81030 		ldrh	r3, [sp, #16]
+ 1010 00a4 5B00     		lsls	r3, r3, #1
+ 1011 00a6 089A     		ldr	r2, [sp, #32]
+ 1012 00a8 1344     		add	r3, r3, r2
+ 1013 00aa 1888     		ldrh	r0, [r3]
+ 1014 00ac 019B     		ldr	r3, [sp, #4]
+ 1015 00ae DA68     		ldr	r2, [r3, #12]
+ 1016 00b0 BDF81810 		ldrh	r1, [sp, #24]
+ 1017 00b4 BDF81030 		ldrh	r3, [sp, #16]
+ 1018 00b8 0B44     		add	r3, r3, r1
+ 1019 00ba 5B00     		lsls	r3, r3, #1
+ 1020 00bc 1344     		add	r3, r3, r2
+ 1021 00be 02B2     		sxth	r2, r0
+ 1022 00c0 1A80     		strh	r2, [r3]	@ movhi
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 19
+
+
+ 1023              		.loc 1 246 0 discriminator 4
+ 1024 00c2 BDF81030 		ldrh	r3, [sp, #16]
+ 1025 00c6 0133     		adds	r3, r3, #1
+ 1026 00c8 ADF81030 		strh	r3, [sp, #16]	@ movhi
+ 1027              	.L62:
+ 1028              		.loc 1 246 0 is_stmt 0 discriminator 1
+ 1029 00cc BDF81020 		ldrh	r2, [sp, #16]
+ 1030 00d0 BDF81A30 		ldrh	r3, [sp, #26]
+ 1031 00d4 9A42     		cmp	r2, r3
+ 1032 00d6 05D2     		bcs	.L63
+ 1033              		.loc 1 246 0 discriminator 3
+ 1034 00d8 BDF81020 		ldrh	r2, [sp, #16]
+ 1035 00dc BDF81630 		ldrh	r3, [sp, #22]
+ 1036 00e0 9A42     		cmp	r2, r3
+ 1037 00e2 DDD3     		bcc	.L64
+ 1038              	.L63:
+ 1039              		.loc 1 248 0 is_stmt 1
+ 1040 00e4 BDF81430 		ldrh	r3, [sp, #20]
+ 1041 00e8 1946     		mov	r1, r3
+ 1042 00ea 0198     		ldr	r0, [sp, #4]
+ 1043 00ec FFF7FEFF 		bl	AsebaVMSetupEvent
+ 1044              	.LBE4:
+ 1045              	.LBE3:
+ 1046              		.loc 1 257 0
+ 1047 00f0 07E0     		b	.L66
+ 1048              	.L59:
+ 1049              	.LBB5:
+ 1050              		.loc 1 254 0
+ 1051 00f2 BDF81630 		ldrh	r3, [sp, #22]
+ 1052 00f6 BDF81410 		ldrh	r1, [sp, #20]
+ 1053 00fa 089A     		ldr	r2, [sp, #32]
+ 1054 00fc 0198     		ldr	r0, [sp, #4]
+ 1055 00fe FFF7FEFF 		bl	AsebaVMDebugMessage
+ 1056              	.L66:
+ 1057              	.LBE5:
+ 1058              		.loc 1 257 0
+ 1059 0102 00BF     		nop
+ 1060 0104 044B     		ldr	r3, .L67
+ 1061 0106 099A     		ldr	r2, [sp, #36]
+ 1062 0108 1B68     		ldr	r3, [r3]
+ 1063 010a 9A42     		cmp	r2, r3
+ 1064 010c 01D0     		beq	.L65
+ 1065 010e FFF7FEFF 		bl	__stack_chk_fail
+ 1066              	.L65:
+ 1067 0112 0BB0     		add	sp, sp, #44
+ 1068              		.cfi_def_cfa_offset 4
+ 1069              		@ sp needed
+ 1070 0114 5DF804FB 		ldr	pc, [sp], #4
+ 1071              	.L68:
+ 1072              		.align	2
+ 1073              	.L67:
+ 1074 0118 00000000 		.word	__stack_chk_guard
+ 1075 011c 00000000 		.word	buffer
+ 1076 0120 02000000 		.word	buffer+2
+ 1077              		.cfi_endproc
+ 1078              	.LFE9:
+ 1079              		.size	AsebaProcessIncomingEvents, .-AsebaProcessIncomingEvents
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 20
+
+
+ 1080              		.text
+ 1081              	.Letext0:
+ 1082              		.file 2 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 1083              		.file 3 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 1084              		.file 4 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 1085              		.file 5 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 1086              		.file 6 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 1087              		.file 7 "../lib/e-puck2_main-processor/aseba/transport/buffer/../../common/types.h"
+ 1088              		.file 8 "../lib/e-puck2_main-processor/aseba/transport/buffer/../../vm/vm.h"
+ 1089              		.file 9 "../lib/e-puck2_main-processor/aseba/transport/buffer/../../vm/natives.h"
+ 1090              		.file 10 "../lib/e-puck2_main-processor/aseba/transport/buffer/../../common/consts.h"
+ 1091              		.section	.debug_info,"",%progbits
+ 1092              	.Ldebug_info0:
+ 1093 0000 2D100000 		.4byte	0x102d
+ 1094 0004 0400     		.2byte	0x4
+ 1095 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1096 000a 04       		.byte	0x4
+ 1097 000b 01       		.uleb128 0x1
+ 1098 000c 07030000 		.4byte	.LASF238
+ 1099 0010 0C       		.byte	0xc
+ 1100 0011 3E090000 		.4byte	.LASF239
+ 1101 0015 340C0000 		.4byte	.LASF240
+ 1102 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1103 001d 00000000 		.4byte	0
+ 1104 0021 00000000 		.4byte	.Ldebug_line0
+ 1105 0025 02       		.uleb128 0x2
+ 1106 0026 04       		.byte	0x4
+ 1107 0027 07       		.byte	0x7
+ 1108 0028 27060000 		.4byte	.LASF0
+ 1109 002c 03       		.uleb128 0x3
+ 1110 002d 04       		.byte	0x4
+ 1111 002e 05       		.byte	0x5
+ 1112 002f 696E7400 		.ascii	"int\000"
+ 1113 0033 02       		.uleb128 0x2
+ 1114 0034 08       		.byte	0x8
+ 1115 0035 05       		.byte	0x5
+ 1116 0036 50020000 		.4byte	.LASF1
+ 1117 003a 02       		.uleb128 0x2
+ 1118 003b 08       		.byte	0x8
+ 1119 003c 04       		.byte	0x4
+ 1120 003d 26090000 		.4byte	.LASF2
+ 1121 0041 02       		.uleb128 0x2
+ 1122 0042 01       		.byte	0x1
+ 1123 0043 06       		.byte	0x6
+ 1124 0044 5E020000 		.4byte	.LASF3
+ 1125 0048 02       		.uleb128 0x2
+ 1126 0049 01       		.byte	0x1
+ 1127 004a 08       		.byte	0x8
+ 1128 004b 100B0000 		.4byte	.LASF4
+ 1129 004f 02       		.uleb128 0x2
+ 1130 0050 02       		.byte	0x2
+ 1131 0051 05       		.byte	0x5
+ 1132 0052 850B0000 		.4byte	.LASF5
+ 1133 0056 02       		.uleb128 0x2
+ 1134 0057 02       		.byte	0x2
+ 1135 0058 07       		.byte	0x7
+ 1136 0059 36070000 		.4byte	.LASF6
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 21
+
+
+ 1137 005d 02       		.uleb128 0x2
+ 1138 005e 04       		.byte	0x4
+ 1139 005f 05       		.byte	0x5
+ 1140 0060 FE020000 		.4byte	.LASF7
+ 1141 0064 02       		.uleb128 0x2
+ 1142 0065 04       		.byte	0x4
+ 1143 0066 07       		.byte	0x7
+ 1144 0067 8E060000 		.4byte	.LASF8
+ 1145 006b 02       		.uleb128 0x2
+ 1146 006c 08       		.byte	0x8
+ 1147 006d 07       		.byte	0x7
+ 1148 006e 6C010000 		.4byte	.LASF9
+ 1149 0072 04       		.uleb128 0x4
+ 1150 0073 A7070000 		.4byte	.LASF10
+ 1151 0077 02       		.byte	0x2
+ 1152 0078 22       		.byte	0x22
+ 1153 0079 7D000000 		.4byte	0x7d
+ 1154 007d 05       		.uleb128 0x5
+ 1155 007e 04       		.byte	0x4
+ 1156 007f 83000000 		.4byte	0x83
+ 1157 0083 06       		.uleb128 0x6
+ 1158 0084 E00C0000 		.4byte	.LASF117
+ 1159 0088 04       		.uleb128 0x4
+ 1160 0089 130A0000 		.4byte	.LASF11
+ 1161 008d 03       		.byte	0x3
+ 1162 008e 2C       		.byte	0x2c
+ 1163 008f 5D000000 		.4byte	0x5d
+ 1164 0093 04       		.uleb128 0x4
+ 1165 0094 2F0D0000 		.4byte	.LASF12
+ 1166 0098 03       		.byte	0x3
+ 1167 0099 72       		.byte	0x72
+ 1168 009a 5D000000 		.4byte	0x5d
+ 1169 009e 07       		.uleb128 0x7
+ 1170 009f AF070000 		.4byte	.LASF13
+ 1171 00a3 04       		.byte	0x4
+ 1172 00a4 6501     		.2byte	0x165
+ 1173 00a6 25000000 		.4byte	0x25
+ 1174 00aa 08       		.uleb128 0x8
+ 1175 00ab 04       		.byte	0x4
+ 1176 00ac 03       		.byte	0x3
+ 1177 00ad A6       		.byte	0xa6
+ 1178 00ae C9000000 		.4byte	0xc9
+ 1179 00b2 09       		.uleb128 0x9
+ 1180 00b3 A1070000 		.4byte	.LASF14
+ 1181 00b7 03       		.byte	0x3
+ 1182 00b8 A8       		.byte	0xa8
+ 1183 00b9 9E000000 		.4byte	0x9e
+ 1184 00bd 09       		.uleb128 0x9
+ 1185 00be 34060000 		.4byte	.LASF15
+ 1186 00c2 03       		.byte	0x3
+ 1187 00c3 A9       		.byte	0xa9
+ 1188 00c4 C9000000 		.4byte	0xc9
+ 1189 00c8 00       		.byte	0
+ 1190 00c9 0A       		.uleb128 0xa
+ 1191 00ca 48000000 		.4byte	0x48
+ 1192 00ce D9000000 		.4byte	0xd9
+ 1193 00d2 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 22
+
+
+ 1194 00d3 25000000 		.4byte	0x25
+ 1195 00d7 03       		.byte	0x3
+ 1196 00d8 00       		.byte	0
+ 1197 00d9 0C       		.uleb128 0xc
+ 1198 00da 08       		.byte	0x8
+ 1199 00db 03       		.byte	0x3
+ 1200 00dc A3       		.byte	0xa3
+ 1201 00dd FA000000 		.4byte	0xfa
+ 1202 00e1 0D       		.uleb128 0xd
+ 1203 00e2 D80C0000 		.4byte	.LASF16
+ 1204 00e6 03       		.byte	0x3
+ 1205 00e7 A5       		.byte	0xa5
+ 1206 00e8 2C000000 		.4byte	0x2c
+ 1207 00ec 00       		.byte	0
+ 1208 00ed 0D       		.uleb128 0xd
+ 1209 00ee E70C0000 		.4byte	.LASF17
+ 1210 00f2 03       		.byte	0x3
+ 1211 00f3 AA       		.byte	0xaa
+ 1212 00f4 AA000000 		.4byte	0xaa
+ 1213 00f8 04       		.byte	0x4
+ 1214 00f9 00       		.byte	0
+ 1215 00fa 04       		.uleb128 0x4
+ 1216 00fb D00B0000 		.4byte	.LASF18
+ 1217 00ff 03       		.byte	0x3
+ 1218 0100 AB       		.byte	0xab
+ 1219 0101 D9000000 		.4byte	0xd9
+ 1220 0105 04       		.uleb128 0x4
+ 1221 0106 AA050000 		.4byte	.LASF19
+ 1222 010a 03       		.byte	0x3
+ 1223 010b AF       		.byte	0xaf
+ 1224 010c 72000000 		.4byte	0x72
+ 1225 0110 0E       		.uleb128 0xe
+ 1226 0111 04       		.byte	0x4
+ 1227 0112 05       		.uleb128 0x5
+ 1228 0113 04       		.byte	0x4
+ 1229 0114 18010000 		.4byte	0x118
+ 1230 0118 02       		.uleb128 0x2
+ 1231 0119 01       		.byte	0x1
+ 1232 011a 08       		.byte	0x8
+ 1233 011b 520D0000 		.4byte	.LASF20
+ 1234 011f 0F       		.uleb128 0xf
+ 1235 0120 18010000 		.4byte	0x118
+ 1236 0124 04       		.uleb128 0x4
+ 1237 0125 840E0000 		.4byte	.LASF21
+ 1238 0129 05       		.byte	0x5
+ 1239 012a 16       		.byte	0x16
+ 1240 012b 64000000 		.4byte	0x64
+ 1241 012f 10       		.uleb128 0x10
+ 1242 0130 BB050000 		.4byte	.LASF26
+ 1243 0134 18       		.byte	0x18
+ 1244 0135 05       		.byte	0x5
+ 1245 0136 2F       		.byte	0x2f
+ 1246 0137 82010000 		.4byte	0x182
+ 1247 013b 0D       		.uleb128 0xd
+ 1248 013c E60D0000 		.4byte	.LASF22
+ 1249 0140 05       		.byte	0x5
+ 1250 0141 31       		.byte	0x31
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 23
+
+
+ 1251 0142 82010000 		.4byte	0x182
+ 1252 0146 00       		.byte	0
+ 1253 0147 11       		.uleb128 0x11
+ 1254 0148 5F6B00   		.ascii	"_k\000"
+ 1255 014b 05       		.byte	0x5
+ 1256 014c 32       		.byte	0x32
+ 1257 014d 2C000000 		.4byte	0x2c
+ 1258 0151 04       		.byte	0x4
+ 1259 0152 0D       		.uleb128 0xd
+ 1260 0153 9A0C0000 		.4byte	.LASF23
+ 1261 0157 05       		.byte	0x5
+ 1262 0158 32       		.byte	0x32
+ 1263 0159 2C000000 		.4byte	0x2c
+ 1264 015d 08       		.byte	0x8
+ 1265 015e 0D       		.uleb128 0xd
+ 1266 015f 86050000 		.4byte	.LASF24
+ 1267 0163 05       		.byte	0x5
+ 1268 0164 32       		.byte	0x32
+ 1269 0165 2C000000 		.4byte	0x2c
+ 1270 0169 0C       		.byte	0xc
+ 1271 016a 0D       		.uleb128 0xd
+ 1272 016b 0A0F0000 		.4byte	.LASF25
+ 1273 016f 05       		.byte	0x5
+ 1274 0170 32       		.byte	0x32
+ 1275 0171 2C000000 		.4byte	0x2c
+ 1276 0175 10       		.byte	0x10
+ 1277 0176 11       		.uleb128 0x11
+ 1278 0177 5F7800   		.ascii	"_x\000"
+ 1279 017a 05       		.byte	0x5
+ 1280 017b 33       		.byte	0x33
+ 1281 017c 88010000 		.4byte	0x188
+ 1282 0180 14       		.byte	0x14
+ 1283 0181 00       		.byte	0
+ 1284 0182 05       		.uleb128 0x5
+ 1285 0183 04       		.byte	0x4
+ 1286 0184 2F010000 		.4byte	0x12f
+ 1287 0188 0A       		.uleb128 0xa
+ 1288 0189 24010000 		.4byte	0x124
+ 1289 018d 98010000 		.4byte	0x198
+ 1290 0191 0B       		.uleb128 0xb
+ 1291 0192 25000000 		.4byte	0x25
+ 1292 0196 00       		.byte	0
+ 1293 0197 00       		.byte	0
+ 1294 0198 10       		.uleb128 0x10
+ 1295 0199 E2050000 		.4byte	.LASF27
+ 1296 019d 24       		.byte	0x24
+ 1297 019e 05       		.byte	0x5
+ 1298 019f 37       		.byte	0x37
+ 1299 01a0 11020000 		.4byte	0x211
+ 1300 01a4 0D       		.uleb128 0xd
+ 1301 01a5 23020000 		.4byte	.LASF28
+ 1302 01a9 05       		.byte	0x5
+ 1303 01aa 39       		.byte	0x39
+ 1304 01ab 2C000000 		.4byte	0x2c
+ 1305 01af 00       		.byte	0
+ 1306 01b0 0D       		.uleb128 0xd
+ 1307 01b1 750D0000 		.4byte	.LASF29
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 24
+
+
+ 1308 01b5 05       		.byte	0x5
+ 1309 01b6 3A       		.byte	0x3a
+ 1310 01b7 2C000000 		.4byte	0x2c
+ 1311 01bb 04       		.byte	0x4
+ 1312 01bc 0D       		.uleb128 0xd
+ 1313 01bd 98020000 		.4byte	.LASF30
+ 1314 01c1 05       		.byte	0x5
+ 1315 01c2 3B       		.byte	0x3b
+ 1316 01c3 2C000000 		.4byte	0x2c
+ 1317 01c7 08       		.byte	0x8
+ 1318 01c8 0D       		.uleb128 0xd
+ 1319 01c9 58100000 		.4byte	.LASF31
+ 1320 01cd 05       		.byte	0x5
+ 1321 01ce 3C       		.byte	0x3c
+ 1322 01cf 2C000000 		.4byte	0x2c
+ 1323 01d3 0C       		.byte	0xc
+ 1324 01d4 0D       		.uleb128 0xd
+ 1325 01d5 ED090000 		.4byte	.LASF32
+ 1326 01d9 05       		.byte	0x5
+ 1327 01da 3D       		.byte	0x3d
+ 1328 01db 2C000000 		.4byte	0x2c
+ 1329 01df 10       		.byte	0x10
+ 1330 01e0 0D       		.uleb128 0xd
+ 1331 01e1 B7080000 		.4byte	.LASF33
+ 1332 01e5 05       		.byte	0x5
+ 1333 01e6 3E       		.byte	0x3e
+ 1334 01e7 2C000000 		.4byte	0x2c
+ 1335 01eb 14       		.byte	0x14
+ 1336 01ec 0D       		.uleb128 0xd
+ 1337 01ed 0F0F0000 		.4byte	.LASF34
+ 1338 01f1 05       		.byte	0x5
+ 1339 01f2 3F       		.byte	0x3f
+ 1340 01f3 2C000000 		.4byte	0x2c
+ 1341 01f7 18       		.byte	0x18
+ 1342 01f8 0D       		.uleb128 0xd
+ 1343 01f9 8F0B0000 		.4byte	.LASF35
+ 1344 01fd 05       		.byte	0x5
+ 1345 01fe 40       		.byte	0x40
+ 1346 01ff 2C000000 		.4byte	0x2c
+ 1347 0203 1C       		.byte	0x1c
+ 1348 0204 0D       		.uleb128 0xd
+ 1349 0205 D70F0000 		.4byte	.LASF36
+ 1350 0209 05       		.byte	0x5
+ 1351 020a 41       		.byte	0x41
+ 1352 020b 2C000000 		.4byte	0x2c
+ 1353 020f 20       		.byte	0x20
+ 1354 0210 00       		.byte	0
+ 1355 0211 12       		.uleb128 0x12
+ 1356 0212 A7020000 		.4byte	.LASF37
+ 1357 0216 0801     		.2byte	0x108
+ 1358 0218 05       		.byte	0x5
+ 1359 0219 4A       		.byte	0x4a
+ 1360 021a 51020000 		.4byte	0x251
+ 1361 021e 0D       		.uleb128 0xd
+ 1362 021f 21050000 		.4byte	.LASF38
+ 1363 0223 05       		.byte	0x5
+ 1364 0224 4B       		.byte	0x4b
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 25
+
+
+ 1365 0225 51020000 		.4byte	0x251
+ 1366 0229 00       		.byte	0
+ 1367 022a 0D       		.uleb128 0xd
+ 1368 022b 00000000 		.4byte	.LASF39
+ 1369 022f 05       		.byte	0x5
+ 1370 0230 4C       		.byte	0x4c
+ 1371 0231 51020000 		.4byte	0x251
+ 1372 0235 80       		.byte	0x80
+ 1373 0236 13       		.uleb128 0x13
+ 1374 0237 3F0E0000 		.4byte	.LASF40
+ 1375 023b 05       		.byte	0x5
+ 1376 023c 4E       		.byte	0x4e
+ 1377 023d 24010000 		.4byte	0x124
+ 1378 0241 0001     		.2byte	0x100
+ 1379 0243 13       		.uleb128 0x13
+ 1380 0244 52040000 		.4byte	.LASF41
+ 1381 0248 05       		.byte	0x5
+ 1382 0249 51       		.byte	0x51
+ 1383 024a 24010000 		.4byte	0x124
+ 1384 024e 0401     		.2byte	0x104
+ 1385 0250 00       		.byte	0
+ 1386 0251 0A       		.uleb128 0xa
+ 1387 0252 10010000 		.4byte	0x110
+ 1388 0256 61020000 		.4byte	0x261
+ 1389 025a 0B       		.uleb128 0xb
+ 1390 025b 25000000 		.4byte	0x25
+ 1391 025f 1F       		.byte	0x1f
+ 1392 0260 00       		.byte	0
+ 1393 0261 12       		.uleb128 0x12
+ 1394 0262 F6090000 		.4byte	.LASF42
+ 1395 0266 9001     		.2byte	0x190
+ 1396 0268 05       		.byte	0x5
+ 1397 0269 5D       		.byte	0x5d
+ 1398 026a 9F020000 		.4byte	0x29f
+ 1399 026e 0D       		.uleb128 0xd
+ 1400 026f E60D0000 		.4byte	.LASF22
+ 1401 0273 05       		.byte	0x5
+ 1402 0274 5E       		.byte	0x5e
+ 1403 0275 9F020000 		.4byte	0x29f
+ 1404 0279 00       		.byte	0
+ 1405 027a 0D       		.uleb128 0xd
+ 1406 027b 2F0C0000 		.4byte	.LASF43
+ 1407 027f 05       		.byte	0x5
+ 1408 0280 5F       		.byte	0x5f
+ 1409 0281 2C000000 		.4byte	0x2c
+ 1410 0285 04       		.byte	0x4
+ 1411 0286 0D       		.uleb128 0xd
+ 1412 0287 66050000 		.4byte	.LASF44
+ 1413 028b 05       		.byte	0x5
+ 1414 028c 61       		.byte	0x61
+ 1415 028d A5020000 		.4byte	0x2a5
+ 1416 0291 08       		.byte	0x8
+ 1417 0292 0D       		.uleb128 0xd
+ 1418 0293 A7020000 		.4byte	.LASF37
+ 1419 0297 05       		.byte	0x5
+ 1420 0298 62       		.byte	0x62
+ 1421 0299 11020000 		.4byte	0x211
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 26
+
+
+ 1422 029d 88       		.byte	0x88
+ 1423 029e 00       		.byte	0
+ 1424 029f 05       		.uleb128 0x5
+ 1425 02a0 04       		.byte	0x4
+ 1426 02a1 61020000 		.4byte	0x261
+ 1427 02a5 0A       		.uleb128 0xa
+ 1428 02a6 B5020000 		.4byte	0x2b5
+ 1429 02aa B5020000 		.4byte	0x2b5
+ 1430 02ae 0B       		.uleb128 0xb
+ 1431 02af 25000000 		.4byte	0x25
+ 1432 02b3 1F       		.byte	0x1f
+ 1433 02b4 00       		.byte	0
+ 1434 02b5 05       		.uleb128 0x5
+ 1435 02b6 04       		.byte	0x4
+ 1436 02b7 BB020000 		.4byte	0x2bb
+ 1437 02bb 14       		.uleb128 0x14
+ 1438 02bc 10       		.uleb128 0x10
+ 1439 02bd A00B0000 		.4byte	.LASF45
+ 1440 02c1 08       		.byte	0x8
+ 1441 02c2 05       		.byte	0x5
+ 1442 02c3 75       		.byte	0x75
+ 1443 02c4 E1020000 		.4byte	0x2e1
+ 1444 02c8 0D       		.uleb128 0xd
+ 1445 02c9 92020000 		.4byte	.LASF46
+ 1446 02cd 05       		.byte	0x5
+ 1447 02ce 76       		.byte	0x76
+ 1448 02cf E1020000 		.4byte	0x2e1
+ 1449 02d3 00       		.byte	0
+ 1450 02d4 0D       		.uleb128 0xd
+ 1451 02d5 73000000 		.4byte	.LASF47
+ 1452 02d9 05       		.byte	0x5
+ 1453 02da 77       		.byte	0x77
+ 1454 02db 2C000000 		.4byte	0x2c
+ 1455 02df 04       		.byte	0x4
+ 1456 02e0 00       		.byte	0
+ 1457 02e1 05       		.uleb128 0x5
+ 1458 02e2 04       		.byte	0x4
+ 1459 02e3 48000000 		.4byte	0x48
+ 1460 02e7 10       		.uleb128 0x10
+ 1461 02e8 DB0B0000 		.4byte	.LASF48
+ 1462 02ec 68       		.byte	0x68
+ 1463 02ed 05       		.byte	0x5
+ 1464 02ee B5       		.byte	0xb5
+ 1465 02ef 11040000 		.4byte	0x411
+ 1466 02f3 11       		.uleb128 0x11
+ 1467 02f4 5F7000   		.ascii	"_p\000"
+ 1468 02f7 05       		.byte	0x5
+ 1469 02f8 B6       		.byte	0xb6
+ 1470 02f9 E1020000 		.4byte	0x2e1
+ 1471 02fd 00       		.byte	0
+ 1472 02fe 11       		.uleb128 0x11
+ 1473 02ff 5F7200   		.ascii	"_r\000"
+ 1474 0302 05       		.byte	0x5
+ 1475 0303 B7       		.byte	0xb7
+ 1476 0304 2C000000 		.4byte	0x2c
+ 1477 0308 04       		.byte	0x4
+ 1478 0309 11       		.uleb128 0x11
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 27
+
+
+ 1479 030a 5F7700   		.ascii	"_w\000"
+ 1480 030d 05       		.byte	0x5
+ 1481 030e B8       		.byte	0xb8
+ 1482 030f 2C000000 		.4byte	0x2c
+ 1483 0313 08       		.byte	0x8
+ 1484 0314 0D       		.uleb128 0xd
+ 1485 0315 4B040000 		.4byte	.LASF49
+ 1486 0319 05       		.byte	0x5
+ 1487 031a B9       		.byte	0xb9
+ 1488 031b 4F000000 		.4byte	0x4f
+ 1489 031f 0C       		.byte	0xc
+ 1490 0320 0D       		.uleb128 0xd
+ 1491 0321 BB060000 		.4byte	.LASF50
+ 1492 0325 05       		.byte	0x5
+ 1493 0326 BA       		.byte	0xba
+ 1494 0327 4F000000 		.4byte	0x4f
+ 1495 032b 0E       		.byte	0xe
+ 1496 032c 11       		.uleb128 0x11
+ 1497 032d 5F626600 		.ascii	"_bf\000"
+ 1498 0331 05       		.byte	0x5
+ 1499 0332 BB       		.byte	0xbb
+ 1500 0333 BC020000 		.4byte	0x2bc
+ 1501 0337 10       		.byte	0x10
+ 1502 0338 0D       		.uleb128 0xd
+ 1503 0339 83010000 		.4byte	.LASF51
+ 1504 033d 05       		.byte	0x5
+ 1505 033e BC       		.byte	0xbc
+ 1506 033f 2C000000 		.4byte	0x2c
+ 1507 0343 18       		.byte	0x18
+ 1508 0344 0D       		.uleb128 0xd
+ 1509 0345 D3020000 		.4byte	.LASF52
+ 1510 0349 05       		.byte	0x5
+ 1511 034a C3       		.byte	0xc3
+ 1512 034b 10010000 		.4byte	0x110
+ 1513 034f 1C       		.byte	0x1c
+ 1514 0350 0D       		.uleb128 0xd
+ 1515 0351 D2050000 		.4byte	.LASF53
+ 1516 0355 05       		.byte	0x5
+ 1517 0356 C5       		.byte	0xc5
+ 1518 0357 6C050000 		.4byte	0x56c
+ 1519 035b 20       		.byte	0x20
+ 1520 035c 0D       		.uleb128 0xd
+ 1521 035d B0080000 		.4byte	.LASF54
+ 1522 0361 05       		.byte	0x5
+ 1523 0362 C7       		.byte	0xc7
+ 1524 0363 96050000 		.4byte	0x596
+ 1525 0367 24       		.byte	0x24
+ 1526 0368 0D       		.uleb128 0xd
+ 1527 0369 080D0000 		.4byte	.LASF55
+ 1528 036d 05       		.byte	0x5
+ 1529 036e CA       		.byte	0xca
+ 1530 036f BA050000 		.4byte	0x5ba
+ 1531 0373 28       		.byte	0x28
+ 1532 0374 0D       		.uleb128 0xd
+ 1533 0375 F10F0000 		.4byte	.LASF56
+ 1534 0379 05       		.byte	0x5
+ 1535 037a CB       		.byte	0xcb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 28
+
+
+ 1536 037b D4050000 		.4byte	0x5d4
+ 1537 037f 2C       		.byte	0x2c
+ 1538 0380 11       		.uleb128 0x11
+ 1539 0381 5F756200 		.ascii	"_ub\000"
+ 1540 0385 05       		.byte	0x5
+ 1541 0386 CE       		.byte	0xce
+ 1542 0387 BC020000 		.4byte	0x2bc
+ 1543 038b 30       		.byte	0x30
+ 1544 038c 11       		.uleb128 0x11
+ 1545 038d 5F757000 		.ascii	"_up\000"
+ 1546 0391 05       		.byte	0x5
+ 1547 0392 CF       		.byte	0xcf
+ 1548 0393 E1020000 		.4byte	0x2e1
+ 1549 0397 38       		.byte	0x38
+ 1550 0398 11       		.uleb128 0x11
+ 1551 0399 5F757200 		.ascii	"_ur\000"
+ 1552 039d 05       		.byte	0x5
+ 1553 039e D0       		.byte	0xd0
+ 1554 039f 2C000000 		.4byte	0x2c
+ 1555 03a3 3C       		.byte	0x3c
+ 1556 03a4 0D       		.uleb128 0xd
+ 1557 03a5 8C020000 		.4byte	.LASF57
+ 1558 03a9 05       		.byte	0x5
+ 1559 03aa D3       		.byte	0xd3
+ 1560 03ab DA050000 		.4byte	0x5da
+ 1561 03af 40       		.byte	0x40
+ 1562 03b0 0D       		.uleb128 0xd
+ 1563 03b1 8A0F0000 		.4byte	.LASF58
+ 1564 03b5 05       		.byte	0x5
+ 1565 03b6 D4       		.byte	0xd4
+ 1566 03b7 EA050000 		.4byte	0x5ea
+ 1567 03bb 43       		.byte	0x43
+ 1568 03bc 11       		.uleb128 0x11
+ 1569 03bd 5F6C6200 		.ascii	"_lb\000"
+ 1570 03c1 05       		.byte	0x5
+ 1571 03c2 D7       		.byte	0xd7
+ 1572 03c3 BC020000 		.4byte	0x2bc
+ 1573 03c7 44       		.byte	0x44
+ 1574 03c8 0D       		.uleb128 0xd
+ 1575 03c9 61040000 		.4byte	.LASF59
+ 1576 03cd 05       		.byte	0x5
+ 1577 03ce DA       		.byte	0xda
+ 1578 03cf 2C000000 		.4byte	0x2c
+ 1579 03d3 4C       		.byte	0x4c
+ 1580 03d4 0D       		.uleb128 0xd
+ 1581 03d5 D1040000 		.4byte	.LASF60
+ 1582 03d9 05       		.byte	0x5
+ 1583 03da DB       		.byte	0xdb
+ 1584 03db 88000000 		.4byte	0x88
+ 1585 03df 50       		.byte	0x50
+ 1586 03e0 0D       		.uleb128 0xd
+ 1587 03e1 FB000000 		.4byte	.LASF61
+ 1588 03e5 05       		.byte	0x5
+ 1589 03e6 DE       		.byte	0xde
+ 1590 03e7 2F040000 		.4byte	0x42f
+ 1591 03eb 54       		.byte	0x54
+ 1592 03ec 0D       		.uleb128 0xd
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 29
+
+
+ 1593 03ed F5070000 		.4byte	.LASF62
+ 1594 03f1 05       		.byte	0x5
+ 1595 03f2 E2       		.byte	0xe2
+ 1596 03f3 05010000 		.4byte	0x105
+ 1597 03f7 58       		.byte	0x58
+ 1598 03f8 0D       		.uleb128 0xd
+ 1599 03f9 E30B0000 		.4byte	.LASF63
+ 1600 03fd 05       		.byte	0x5
+ 1601 03fe E4       		.byte	0xe4
+ 1602 03ff FA000000 		.4byte	0xfa
+ 1603 0403 5C       		.byte	0x5c
+ 1604 0404 0D       		.uleb128 0xd
+ 1605 0405 38080000 		.4byte	.LASF64
+ 1606 0409 05       		.byte	0x5
+ 1607 040a E5       		.byte	0xe5
+ 1608 040b 2C000000 		.4byte	0x2c
+ 1609 040f 64       		.byte	0x64
+ 1610 0410 00       		.byte	0
+ 1611 0411 15       		.uleb128 0x15
+ 1612 0412 2C000000 		.4byte	0x2c
+ 1613 0416 2F040000 		.4byte	0x42f
+ 1614 041a 16       		.uleb128 0x16
+ 1615 041b 2F040000 		.4byte	0x42f
+ 1616 041f 16       		.uleb128 0x16
+ 1617 0420 10010000 		.4byte	0x110
+ 1618 0424 16       		.uleb128 0x16
+ 1619 0425 12010000 		.4byte	0x112
+ 1620 0429 16       		.uleb128 0x16
+ 1621 042a 2C000000 		.4byte	0x2c
+ 1622 042e 00       		.byte	0
+ 1623 042f 05       		.uleb128 0x5
+ 1624 0430 04       		.byte	0x4
+ 1625 0431 3A040000 		.4byte	0x43a
+ 1626 0435 0F       		.uleb128 0xf
+ 1627 0436 2F040000 		.4byte	0x42f
+ 1628 043a 17       		.uleb128 0x17
+ 1629 043b A20C0000 		.4byte	.LASF65
+ 1630 043f 2804     		.2byte	0x428
+ 1631 0441 05       		.byte	0x5
+ 1632 0442 3902     		.2byte	0x239
+ 1633 0444 6C050000 		.4byte	0x56c
+ 1634 0448 18       		.uleb128 0x18
+ 1635 0449 4B0D0000 		.4byte	.LASF66
+ 1636 044d 05       		.byte	0x5
+ 1637 044e 3B02     		.2byte	0x23b
+ 1638 0450 2C000000 		.4byte	0x2c
+ 1639 0454 00       		.byte	0
+ 1640 0455 18       		.uleb128 0x18
+ 1641 0456 5A040000 		.4byte	.LASF67
+ 1642 045a 05       		.byte	0x5
+ 1643 045b 4002     		.2byte	0x240
+ 1644 045d 41060000 		.4byte	0x641
+ 1645 0461 04       		.byte	0x4
+ 1646 0462 18       		.uleb128 0x18
+ 1647 0463 7E060000 		.4byte	.LASF68
+ 1648 0467 05       		.byte	0x5
+ 1649 0468 4002     		.2byte	0x240
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 30
+
+
+ 1650 046a 41060000 		.4byte	0x641
+ 1651 046e 08       		.byte	0x8
+ 1652 046f 18       		.uleb128 0x18
+ 1653 0470 B3050000 		.4byte	.LASF69
+ 1654 0474 05       		.byte	0x5
+ 1655 0475 4002     		.2byte	0x240
+ 1656 0477 41060000 		.4byte	0x641
+ 1657 047b 0C       		.byte	0xc
+ 1658 047c 18       		.uleb128 0x18
+ 1659 047d 2A0C0000 		.4byte	.LASF70
+ 1660 0481 05       		.byte	0x5
+ 1661 0482 4202     		.2byte	0x242
+ 1662 0484 2C000000 		.4byte	0x2c
+ 1663 0488 10       		.byte	0x10
+ 1664 0489 18       		.uleb128 0x18
+ 1665 048a C0000000 		.4byte	.LASF71
+ 1666 048e 05       		.byte	0x5
+ 1667 048f 4302     		.2byte	0x243
+ 1668 0491 23080000 		.4byte	0x823
+ 1669 0495 14       		.byte	0x14
+ 1670 0496 18       		.uleb128 0x18
+ 1671 0497 810C0000 		.4byte	.LASF72
+ 1672 049b 05       		.byte	0x5
+ 1673 049c 4602     		.2byte	0x246
+ 1674 049e 2C000000 		.4byte	0x2c
+ 1675 04a2 30       		.byte	0x30
+ 1676 04a3 18       		.uleb128 0x18
+ 1677 04a4 6F0C0000 		.4byte	.LASF73
+ 1678 04a8 05       		.byte	0x5
+ 1679 04a9 4702     		.2byte	0x247
+ 1680 04ab 38080000 		.4byte	0x838
+ 1681 04af 34       		.byte	0x34
+ 1682 04b0 18       		.uleb128 0x18
+ 1683 04b1 080A0000 		.4byte	.LASF74
+ 1684 04b5 05       		.byte	0x5
+ 1685 04b6 4902     		.2byte	0x249
+ 1686 04b8 2C000000 		.4byte	0x2c
+ 1687 04bc 38       		.byte	0x38
+ 1688 04bd 18       		.uleb128 0x18
+ 1689 04be 770C0000 		.4byte	.LASF75
+ 1690 04c2 05       		.byte	0x5
+ 1691 04c3 4B02     		.2byte	0x24b
+ 1692 04c5 49080000 		.4byte	0x849
+ 1693 04c9 3C       		.byte	0x3c
+ 1694 04ca 18       		.uleb128 0x18
+ 1695 04cb 99070000 		.4byte	.LASF76
+ 1696 04cf 05       		.byte	0x5
+ 1697 04d0 4E02     		.2byte	0x24e
+ 1698 04d2 82010000 		.4byte	0x182
+ 1699 04d6 40       		.byte	0x40
+ 1700 04d7 18       		.uleb128 0x18
+ 1701 04d8 D8050000 		.4byte	.LASF77
+ 1702 04dc 05       		.byte	0x5
+ 1703 04dd 4F02     		.2byte	0x24f
+ 1704 04df 2C000000 		.4byte	0x2c
+ 1705 04e3 44       		.byte	0x44
+ 1706 04e4 18       		.uleb128 0x18
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 31
+
+
+ 1707 04e5 2E100000 		.4byte	.LASF78
+ 1708 04e9 05       		.byte	0x5
+ 1709 04ea 5002     		.2byte	0x250
+ 1710 04ec 82010000 		.4byte	0x182
+ 1711 04f0 48       		.byte	0x48
+ 1712 04f1 18       		.uleb128 0x18
+ 1713 04f2 670A0000 		.4byte	.LASF79
+ 1714 04f6 05       		.byte	0x5
+ 1715 04f7 5102     		.2byte	0x251
+ 1716 04f9 4F080000 		.4byte	0x84f
+ 1717 04fd 4C       		.byte	0x4c
+ 1718 04fe 18       		.uleb128 0x18
+ 1719 04ff 86060000 		.4byte	.LASF80
+ 1720 0503 05       		.byte	0x5
+ 1721 0504 5402     		.2byte	0x254
+ 1722 0506 2C000000 		.4byte	0x2c
+ 1723 050a 50       		.byte	0x50
+ 1724 050b 18       		.uleb128 0x18
+ 1725 050c C9040000 		.4byte	.LASF81
+ 1726 0510 05       		.byte	0x5
+ 1727 0511 5502     		.2byte	0x255
+ 1728 0513 12010000 		.4byte	0x112
+ 1729 0517 54       		.byte	0x54
+ 1730 0518 18       		.uleb128 0x18
+ 1731 0519 1E0B0000 		.4byte	.LASF82
+ 1732 051d 05       		.byte	0x5
+ 1733 051e 7802     		.2byte	0x278
+ 1734 0520 01080000 		.4byte	0x801
+ 1735 0524 58       		.byte	0x58
+ 1736 0525 19       		.uleb128 0x19
+ 1737 0526 F6090000 		.4byte	.LASF42
+ 1738 052a 05       		.byte	0x5
+ 1739 052b 7C02     		.2byte	0x27c
+ 1740 052d 9F020000 		.4byte	0x29f
+ 1741 0531 4801     		.2byte	0x148
+ 1742 0533 19       		.uleb128 0x19
+ 1743 0534 53070000 		.4byte	.LASF83
+ 1744 0538 05       		.byte	0x5
+ 1745 0539 7D02     		.2byte	0x27d
+ 1746 053b 61020000 		.4byte	0x261
+ 1747 053f 4C01     		.2byte	0x14c
+ 1748 0541 19       		.uleb128 0x19
+ 1749 0542 730F0000 		.4byte	.LASF84
+ 1750 0546 05       		.byte	0x5
+ 1751 0547 8102     		.2byte	0x281
+ 1752 0549 60080000 		.4byte	0x860
+ 1753 054d DC02     		.2byte	0x2dc
+ 1754 054f 19       		.uleb128 0x19
+ 1755 0550 F1020000 		.4byte	.LASF85
+ 1756 0554 05       		.byte	0x5
+ 1757 0555 8602     		.2byte	0x286
+ 1758 0557 06060000 		.4byte	0x606
+ 1759 055b E002     		.2byte	0x2e0
+ 1760 055d 19       		.uleb128 0x19
+ 1761 055e A2020000 		.4byte	.LASF86
+ 1762 0562 05       		.byte	0x5
+ 1763 0563 8802     		.2byte	0x288
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 32
+
+
+ 1764 0565 6C080000 		.4byte	0x86c
+ 1765 0569 EC02     		.2byte	0x2ec
+ 1766 056b 00       		.byte	0
+ 1767 056c 05       		.uleb128 0x5
+ 1768 056d 04       		.byte	0x4
+ 1769 056e 11040000 		.4byte	0x411
+ 1770 0572 15       		.uleb128 0x15
+ 1771 0573 2C000000 		.4byte	0x2c
+ 1772 0577 90050000 		.4byte	0x590
+ 1773 057b 16       		.uleb128 0x16
+ 1774 057c 2F040000 		.4byte	0x42f
+ 1775 0580 16       		.uleb128 0x16
+ 1776 0581 10010000 		.4byte	0x110
+ 1777 0585 16       		.uleb128 0x16
+ 1778 0586 90050000 		.4byte	0x590
+ 1779 058a 16       		.uleb128 0x16
+ 1780 058b 2C000000 		.4byte	0x2c
+ 1781 058f 00       		.byte	0
+ 1782 0590 05       		.uleb128 0x5
+ 1783 0591 04       		.byte	0x4
+ 1784 0592 1F010000 		.4byte	0x11f
+ 1785 0596 05       		.uleb128 0x5
+ 1786 0597 04       		.byte	0x4
+ 1787 0598 72050000 		.4byte	0x572
+ 1788 059c 15       		.uleb128 0x15
+ 1789 059d 93000000 		.4byte	0x93
+ 1790 05a1 BA050000 		.4byte	0x5ba
+ 1791 05a5 16       		.uleb128 0x16
+ 1792 05a6 2F040000 		.4byte	0x42f
+ 1793 05aa 16       		.uleb128 0x16
+ 1794 05ab 10010000 		.4byte	0x110
+ 1795 05af 16       		.uleb128 0x16
+ 1796 05b0 93000000 		.4byte	0x93
+ 1797 05b4 16       		.uleb128 0x16
+ 1798 05b5 2C000000 		.4byte	0x2c
+ 1799 05b9 00       		.byte	0
+ 1800 05ba 05       		.uleb128 0x5
+ 1801 05bb 04       		.byte	0x4
+ 1802 05bc 9C050000 		.4byte	0x59c
+ 1803 05c0 15       		.uleb128 0x15
+ 1804 05c1 2C000000 		.4byte	0x2c
+ 1805 05c5 D4050000 		.4byte	0x5d4
+ 1806 05c9 16       		.uleb128 0x16
+ 1807 05ca 2F040000 		.4byte	0x42f
+ 1808 05ce 16       		.uleb128 0x16
+ 1809 05cf 10010000 		.4byte	0x110
+ 1810 05d3 00       		.byte	0
+ 1811 05d4 05       		.uleb128 0x5
+ 1812 05d5 04       		.byte	0x4
+ 1813 05d6 C0050000 		.4byte	0x5c0
+ 1814 05da 0A       		.uleb128 0xa
+ 1815 05db 48000000 		.4byte	0x48
+ 1816 05df EA050000 		.4byte	0x5ea
+ 1817 05e3 0B       		.uleb128 0xb
+ 1818 05e4 25000000 		.4byte	0x25
+ 1819 05e8 02       		.byte	0x2
+ 1820 05e9 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 33
+
+
+ 1821 05ea 0A       		.uleb128 0xa
+ 1822 05eb 48000000 		.4byte	0x48
+ 1823 05ef FA050000 		.4byte	0x5fa
+ 1824 05f3 0B       		.uleb128 0xb
+ 1825 05f4 25000000 		.4byte	0x25
+ 1826 05f8 00       		.byte	0
+ 1827 05f9 00       		.byte	0
+ 1828 05fa 07       		.uleb128 0x7
+ 1829 05fb C90B0000 		.4byte	.LASF87
+ 1830 05ff 05       		.byte	0x5
+ 1831 0600 1F01     		.2byte	0x11f
+ 1832 0602 E7020000 		.4byte	0x2e7
+ 1833 0606 1A       		.uleb128 0x1a
+ 1834 0607 190F0000 		.4byte	.LASF88
+ 1835 060b 0C       		.byte	0xc
+ 1836 060c 05       		.byte	0x5
+ 1837 060d 2301     		.2byte	0x123
+ 1838 060f 3B060000 		.4byte	0x63b
+ 1839 0613 18       		.uleb128 0x18
+ 1840 0614 E60D0000 		.4byte	.LASF22
+ 1841 0618 05       		.byte	0x5
+ 1842 0619 2501     		.2byte	0x125
+ 1843 061b 3B060000 		.4byte	0x63b
+ 1844 061f 00       		.byte	0
+ 1845 0620 18       		.uleb128 0x18
+ 1846 0621 23070000 		.4byte	.LASF89
+ 1847 0625 05       		.byte	0x5
+ 1848 0626 2601     		.2byte	0x126
+ 1849 0628 2C000000 		.4byte	0x2c
+ 1850 062c 04       		.byte	0x4
+ 1851 062d 18       		.uleb128 0x18
+ 1852 062e A70B0000 		.4byte	.LASF90
+ 1853 0632 05       		.byte	0x5
+ 1854 0633 2701     		.2byte	0x127
+ 1855 0635 41060000 		.4byte	0x641
+ 1856 0639 08       		.byte	0x8
+ 1857 063a 00       		.byte	0
+ 1858 063b 05       		.uleb128 0x5
+ 1859 063c 04       		.byte	0x4
+ 1860 063d 06060000 		.4byte	0x606
+ 1861 0641 05       		.uleb128 0x5
+ 1862 0642 04       		.byte	0x4
+ 1863 0643 FA050000 		.4byte	0x5fa
+ 1864 0647 1A       		.uleb128 0x1a
+ 1865 0648 B8000000 		.4byte	.LASF91
+ 1866 064c 0E       		.byte	0xe
+ 1867 064d 05       		.byte	0x5
+ 1868 064e 3F01     		.2byte	0x13f
+ 1869 0650 7C060000 		.4byte	0x67c
+ 1870 0654 18       		.uleb128 0x18
+ 1871 0655 A90C0000 		.4byte	.LASF92
+ 1872 0659 05       		.byte	0x5
+ 1873 065a 4001     		.2byte	0x140
+ 1874 065c 7C060000 		.4byte	0x67c
+ 1875 0660 00       		.byte	0
+ 1876 0661 18       		.uleb128 0x18
+ 1877 0662 E00D0000 		.4byte	.LASF93
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 34
+
+
+ 1878 0666 05       		.byte	0x5
+ 1879 0667 4101     		.2byte	0x141
+ 1880 0669 7C060000 		.4byte	0x67c
+ 1881 066d 06       		.byte	0x6
+ 1882 066e 18       		.uleb128 0x18
+ 1883 066f 7F0E0000 		.4byte	.LASF94
+ 1884 0673 05       		.byte	0x5
+ 1885 0674 4201     		.2byte	0x142
+ 1886 0676 56000000 		.4byte	0x56
+ 1887 067a 0C       		.byte	0xc
+ 1888 067b 00       		.byte	0
+ 1889 067c 0A       		.uleb128 0xa
+ 1890 067d 56000000 		.4byte	0x56
+ 1891 0681 8C060000 		.4byte	0x68c
+ 1892 0685 0B       		.uleb128 0xb
+ 1893 0686 25000000 		.4byte	0x25
+ 1894 068a 02       		.byte	0x2
+ 1895 068b 00       		.byte	0
+ 1896 068c 1B       		.uleb128 0x1b
+ 1897 068d D0       		.byte	0xd0
+ 1898 068e 05       		.byte	0x5
+ 1899 068f 5902     		.2byte	0x259
+ 1900 0691 8D070000 		.4byte	0x78d
+ 1901 0695 18       		.uleb128 0x18
+ 1902 0696 E20E0000 		.4byte	.LASF95
+ 1903 069a 05       		.byte	0x5
+ 1904 069b 5B02     		.2byte	0x25b
+ 1905 069d 25000000 		.4byte	0x25
+ 1906 06a1 00       		.byte	0
+ 1907 06a2 18       		.uleb128 0x18
+ 1908 06a3 0B0E0000 		.4byte	.LASF96
+ 1909 06a7 05       		.byte	0x5
+ 1910 06a8 5C02     		.2byte	0x25c
+ 1911 06aa 12010000 		.4byte	0x112
+ 1912 06ae 04       		.byte	0x4
+ 1913 06af 18       		.uleb128 0x18
+ 1914 06b0 68070000 		.4byte	.LASF97
+ 1915 06b4 05       		.byte	0x5
+ 1916 06b5 5D02     		.2byte	0x25d
+ 1917 06b7 8D070000 		.4byte	0x78d
+ 1918 06bb 08       		.byte	0x8
+ 1919 06bc 18       		.uleb128 0x18
+ 1920 06bd E20F0000 		.4byte	.LASF98
+ 1921 06c1 05       		.byte	0x5
+ 1922 06c2 5E02     		.2byte	0x25e
+ 1923 06c4 98010000 		.4byte	0x198
+ 1924 06c8 24       		.byte	0x24
+ 1925 06c9 18       		.uleb128 0x18
+ 1926 06ca C3050000 		.4byte	.LASF99
+ 1927 06ce 05       		.byte	0x5
+ 1928 06cf 5F02     		.2byte	0x25f
+ 1929 06d1 2C000000 		.4byte	0x2c
+ 1930 06d5 48       		.byte	0x48
+ 1931 06d6 18       		.uleb128 0x18
+ 1932 06d7 EC0B0000 		.4byte	.LASF100
+ 1933 06db 05       		.byte	0x5
+ 1934 06dc 6002     		.2byte	0x260
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 35
+
+
+ 1935 06de 6B000000 		.4byte	0x6b
+ 1936 06e2 50       		.byte	0x50
+ 1937 06e3 18       		.uleb128 0x18
+ 1938 06e4 15100000 		.4byte	.LASF101
+ 1939 06e8 05       		.byte	0x5
+ 1940 06e9 6102     		.2byte	0x261
+ 1941 06eb 47060000 		.4byte	0x647
+ 1942 06ef 58       		.byte	0x58
+ 1943 06f0 18       		.uleb128 0x18
+ 1944 06f1 1D0C0000 		.4byte	.LASF102
+ 1945 06f5 05       		.byte	0x5
+ 1946 06f6 6202     		.2byte	0x262
+ 1947 06f8 FA000000 		.4byte	0xfa
+ 1948 06fc 68       		.byte	0x68
+ 1949 06fd 18       		.uleb128 0x18
+ 1950 06fe 20100000 		.4byte	.LASF103
+ 1951 0702 05       		.byte	0x5
+ 1952 0703 6302     		.2byte	0x263
+ 1953 0705 FA000000 		.4byte	0xfa
+ 1954 0709 70       		.byte	0x70
+ 1955 070a 18       		.uleb128 0x18
+ 1956 070b 960A0000 		.4byte	.LASF104
+ 1957 070f 05       		.byte	0x5
+ 1958 0710 6402     		.2byte	0x264
+ 1959 0712 FA000000 		.4byte	0xfa
+ 1960 0716 78       		.byte	0x78
+ 1961 0717 18       		.uleb128 0x18
+ 1962 0718 470F0000 		.4byte	.LASF105
+ 1963 071c 05       		.byte	0x5
+ 1964 071d 6502     		.2byte	0x265
+ 1965 071f 9D070000 		.4byte	0x79d
+ 1966 0723 80       		.byte	0x80
+ 1967 0724 18       		.uleb128 0x18
+ 1968 0725 5C070000 		.4byte	.LASF106
+ 1969 0729 05       		.byte	0x5
+ 1970 072a 6602     		.2byte	0x266
+ 1971 072c AD070000 		.4byte	0x7ad
+ 1972 0730 88       		.byte	0x88
+ 1973 0731 18       		.uleb128 0x18
+ 1974 0732 8C0E0000 		.4byte	.LASF107
+ 1975 0736 05       		.byte	0x5
+ 1976 0737 6702     		.2byte	0x267
+ 1977 0739 2C000000 		.4byte	0x2c
+ 1978 073d A0       		.byte	0xa0
+ 1979 073e 18       		.uleb128 0x18
+ 1980 073f 13050000 		.4byte	.LASF108
+ 1981 0743 05       		.byte	0x5
+ 1982 0744 6802     		.2byte	0x268
+ 1983 0746 FA000000 		.4byte	0xfa
+ 1984 074a A4       		.byte	0xa4
+ 1985 074b 18       		.uleb128 0x18
+ 1986 074c EC010000 		.4byte	.LASF109
+ 1987 0750 05       		.byte	0x5
+ 1988 0751 6902     		.2byte	0x269
+ 1989 0753 FA000000 		.4byte	0xfa
+ 1990 0757 AC       		.byte	0xac
+ 1991 0758 18       		.uleb128 0x18
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 36
+
+
+ 1992 0759 02050000 		.4byte	.LASF110
+ 1993 075d 05       		.byte	0x5
+ 1994 075e 6A02     		.2byte	0x26a
+ 1995 0760 FA000000 		.4byte	0xfa
+ 1996 0764 B4       		.byte	0xb4
+ 1997 0765 18       		.uleb128 0x18
+ 1998 0766 1C010000 		.4byte	.LASF111
+ 1999 076a 05       		.byte	0x5
+ 2000 076b 6B02     		.2byte	0x26b
+ 2001 076d FA000000 		.4byte	0xfa
+ 2002 0771 BC       		.byte	0xbc
+ 2003 0772 18       		.uleb128 0x18
+ 2004 0773 4D010000 		.4byte	.LASF112
+ 2005 0777 05       		.byte	0x5
+ 2006 0778 6C02     		.2byte	0x26c
+ 2007 077a FA000000 		.4byte	0xfa
+ 2008 077e C4       		.byte	0xc4
+ 2009 077f 18       		.uleb128 0x18
+ 2010 0780 7C0B0000 		.4byte	.LASF113
+ 2011 0784 05       		.byte	0x5
+ 2012 0785 6D02     		.2byte	0x26d
+ 2013 0787 2C000000 		.4byte	0x2c
+ 2014 078b CC       		.byte	0xcc
+ 2015 078c 00       		.byte	0
+ 2016 078d 0A       		.uleb128 0xa
+ 2017 078e 18010000 		.4byte	0x118
+ 2018 0792 9D070000 		.4byte	0x79d
+ 2019 0796 0B       		.uleb128 0xb
+ 2020 0797 25000000 		.4byte	0x25
+ 2021 079b 19       		.byte	0x19
+ 2022 079c 00       		.byte	0
+ 2023 079d 0A       		.uleb128 0xa
+ 2024 079e 18010000 		.4byte	0x118
+ 2025 07a2 AD070000 		.4byte	0x7ad
+ 2026 07a6 0B       		.uleb128 0xb
+ 2027 07a7 25000000 		.4byte	0x25
+ 2028 07ab 07       		.byte	0x7
+ 2029 07ac 00       		.byte	0
+ 2030 07ad 0A       		.uleb128 0xa
+ 2031 07ae 18010000 		.4byte	0x118
+ 2032 07b2 BD070000 		.4byte	0x7bd
+ 2033 07b6 0B       		.uleb128 0xb
+ 2034 07b7 25000000 		.4byte	0x25
+ 2035 07bb 17       		.byte	0x17
+ 2036 07bc 00       		.byte	0
+ 2037 07bd 1B       		.uleb128 0x1b
+ 2038 07be F0       		.byte	0xf0
+ 2039 07bf 05       		.byte	0x5
+ 2040 07c0 7202     		.2byte	0x272
+ 2041 07c2 E1070000 		.4byte	0x7e1
+ 2042 07c6 18       		.uleb128 0x18
+ 2043 07c7 A8090000 		.4byte	.LASF114
+ 2044 07cb 05       		.byte	0x5
+ 2045 07cc 7502     		.2byte	0x275
+ 2046 07ce E1070000 		.4byte	0x7e1
+ 2047 07d2 00       		.byte	0
+ 2048 07d3 18       		.uleb128 0x18
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 37
+
+
+ 2049 07d4 3E0F0000 		.4byte	.LASF115
+ 2050 07d8 05       		.byte	0x5
+ 2051 07d9 7602     		.2byte	0x276
+ 2052 07db F1070000 		.4byte	0x7f1
+ 2053 07df 78       		.byte	0x78
+ 2054 07e0 00       		.byte	0
+ 2055 07e1 0A       		.uleb128 0xa
+ 2056 07e2 E1020000 		.4byte	0x2e1
+ 2057 07e6 F1070000 		.4byte	0x7f1
+ 2058 07ea 0B       		.uleb128 0xb
+ 2059 07eb 25000000 		.4byte	0x25
+ 2060 07ef 1D       		.byte	0x1d
+ 2061 07f0 00       		.byte	0
+ 2062 07f1 0A       		.uleb128 0xa
+ 2063 07f2 25000000 		.4byte	0x25
+ 2064 07f6 01080000 		.4byte	0x801
+ 2065 07fa 0B       		.uleb128 0xb
+ 2066 07fb 25000000 		.4byte	0x25
+ 2067 07ff 1D       		.byte	0x1d
+ 2068 0800 00       		.byte	0
+ 2069 0801 1C       		.uleb128 0x1c
+ 2070 0802 F0       		.byte	0xf0
+ 2071 0803 05       		.byte	0x5
+ 2072 0804 5702     		.2byte	0x257
+ 2073 0806 23080000 		.4byte	0x823
+ 2074 080a 1D       		.uleb128 0x1d
+ 2075 080b A20C0000 		.4byte	.LASF65
+ 2076 080f 05       		.byte	0x5
+ 2077 0810 6E02     		.2byte	0x26e
+ 2078 0812 8C060000 		.4byte	0x68c
+ 2079 0816 1D       		.uleb128 0x1d
+ 2080 0817 900F0000 		.4byte	.LASF116
+ 2081 081b 05       		.byte	0x5
+ 2082 081c 7702     		.2byte	0x277
+ 2083 081e BD070000 		.4byte	0x7bd
+ 2084 0822 00       		.byte	0
+ 2085 0823 0A       		.uleb128 0xa
+ 2086 0824 18010000 		.4byte	0x118
+ 2087 0828 33080000 		.4byte	0x833
+ 2088 082c 0B       		.uleb128 0xb
+ 2089 082d 25000000 		.4byte	0x25
+ 2090 0831 18       		.byte	0x18
+ 2091 0832 00       		.byte	0
+ 2092 0833 06       		.uleb128 0x6
+ 2093 0834 91010000 		.4byte	.LASF118
+ 2094 0838 05       		.uleb128 0x5
+ 2095 0839 04       		.byte	0x4
+ 2096 083a 33080000 		.4byte	0x833
+ 2097 083e 1E       		.uleb128 0x1e
+ 2098 083f 49080000 		.4byte	0x849
+ 2099 0843 16       		.uleb128 0x16
+ 2100 0844 2F040000 		.4byte	0x42f
+ 2101 0848 00       		.byte	0
+ 2102 0849 05       		.uleb128 0x5
+ 2103 084a 04       		.byte	0x4
+ 2104 084b 3E080000 		.4byte	0x83e
+ 2105 084f 05       		.uleb128 0x5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 38
+
+
+ 2106 0850 04       		.byte	0x4
+ 2107 0851 82010000 		.4byte	0x182
+ 2108 0855 1E       		.uleb128 0x1e
+ 2109 0856 60080000 		.4byte	0x860
+ 2110 085a 16       		.uleb128 0x16
+ 2111 085b 2C000000 		.4byte	0x2c
+ 2112 085f 00       		.byte	0
+ 2113 0860 05       		.uleb128 0x5
+ 2114 0861 04       		.byte	0x4
+ 2115 0862 66080000 		.4byte	0x866
+ 2116 0866 05       		.uleb128 0x5
+ 2117 0867 04       		.byte	0x4
+ 2118 0868 55080000 		.4byte	0x855
+ 2119 086c 0A       		.uleb128 0xa
+ 2120 086d FA050000 		.4byte	0x5fa
+ 2121 0871 7C080000 		.4byte	0x87c
+ 2122 0875 0B       		.uleb128 0xb
+ 2123 0876 25000000 		.4byte	0x25
+ 2124 087a 02       		.byte	0x2
+ 2125 087b 00       		.byte	0
+ 2126 087c 1F       		.uleb128 0x1f
+ 2127 087d 230D0000 		.4byte	.LASF119
+ 2128 0881 05       		.byte	0x5
+ 2129 0882 0703     		.2byte	0x307
+ 2130 0884 2F040000 		.4byte	0x42f
+ 2131 0888 1F       		.uleb128 0x1f
+ 2132 0889 BD0E0000 		.4byte	.LASF120
+ 2133 088d 05       		.byte	0x5
+ 2134 088e 0803     		.2byte	0x308
+ 2135 0890 35040000 		.4byte	0x435
+ 2136 0894 05       		.uleb128 0x5
+ 2137 0895 04       		.byte	0x4
+ 2138 0896 9A080000 		.4byte	0x89a
+ 2139 089a 20       		.uleb128 0x20
+ 2140 089b 21       		.uleb128 0x21
+ 2141 089c FE090000 		.4byte	.LASF121
+ 2142 08a0 06       		.byte	0x6
+ 2143 08a1 63       		.byte	0x63
+ 2144 08a2 12010000 		.4byte	0x112
+ 2145 08a6 04       		.uleb128 0x4
+ 2146 08a7 77080000 		.4byte	.LASF122
+ 2147 08ab 07       		.byte	0x7
+ 2148 08ac 23       		.byte	0x23
+ 2149 08ad 4F000000 		.4byte	0x4f
+ 2150 08b1 0F       		.uleb128 0xf
+ 2151 08b2 A6080000 		.4byte	0x8a6
+ 2152 08b6 04       		.uleb128 0x4
+ 2153 08b7 19000000 		.4byte	.LASF123
+ 2154 08bb 07       		.byte	0x7
+ 2155 08bc 24       		.byte	0x24
+ 2156 08bd 56000000 		.4byte	0x56
+ 2157 08c1 0F       		.uleb128 0xf
+ 2158 08c2 B6080000 		.4byte	0x8b6
+ 2159 08c6 04       		.uleb128 0x4
+ 2160 08c7 6A040000 		.4byte	.LASF124
+ 2161 08cb 07       		.byte	0x7
+ 2162 08cc 26       		.byte	0x26
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 39
+
+
+ 2163 08cd 48000000 		.4byte	0x48
+ 2164 08d1 0F       		.uleb128 0xf
+ 2165 08d2 C6080000 		.4byte	0x8c6
+ 2166 08d6 22       		.uleb128 0x22
+ 2167 08d7 07       		.byte	0x7
+ 2168 08d8 01       		.byte	0x1
+ 2169 08d9 48000000 		.4byte	0x48
+ 2170 08dd 08       		.byte	0x8
+ 2171 08de 37       		.byte	0x37
+ 2172 08df EA080000 		.4byte	0x8ea
+ 2173 08e3 23       		.uleb128 0x23
+ 2174 08e4 DB020000 		.4byte	.LASF166
+ 2175 08e8 10       		.byte	0x10
+ 2176 08e9 00       		.byte	0
+ 2177 08ea 0C       		.uleb128 0xc
+ 2178 08eb 40       		.byte	0x40
+ 2179 08ec 08       		.byte	0x8
+ 2180 08ed 45       		.byte	0x45
+ 2181 08ee 81090000 		.4byte	0x981
+ 2182 08f2 0D       		.uleb128 0xd
+ 2183 08f3 2A070000 		.4byte	.LASF125
+ 2184 08f7 08       		.byte	0x8
+ 2185 08f8 48       		.byte	0x48
+ 2186 08f9 B6080000 		.4byte	0x8b6
+ 2187 08fd 00       		.byte	0
+ 2188 08fe 0D       		.uleb128 0xd
+ 2189 08ff 0C000000 		.4byte	.LASF126
+ 2190 0903 08       		.byte	0x8
+ 2191 0904 4B       		.byte	0x4b
+ 2192 0905 B6080000 		.4byte	0x8b6
+ 2193 0909 02       		.byte	0x2
+ 2194 090a 0D       		.uleb128 0xd
+ 2195 090b 58080000 		.4byte	.LASF127
+ 2196 090f 08       		.byte	0x8
+ 2197 0910 4C       		.byte	0x4c
+ 2198 0911 81090000 		.4byte	0x981
+ 2199 0915 04       		.byte	0x4
+ 2200 0916 0D       		.uleb128 0xd
+ 2201 0917 5E010000 		.4byte	.LASF128
+ 2202 091b 08       		.byte	0x8
+ 2203 091c 4F       		.byte	0x4f
+ 2204 091d B6080000 		.4byte	0x8b6
+ 2205 0921 08       		.byte	0x8
+ 2206 0922 0D       		.uleb128 0xd
+ 2207 0923 A0000000 		.4byte	.LASF129
+ 2208 0927 08       		.byte	0x8
+ 2209 0928 50       		.byte	0x50
+ 2210 0929 87090000 		.4byte	0x987
+ 2211 092d 0C       		.byte	0xc
+ 2212 092e 0D       		.uleb128 0xd
+ 2213 092f 7E0D0000 		.4byte	.LASF130
+ 2214 0933 08       		.byte	0x8
+ 2215 0934 53       		.byte	0x53
+ 2216 0935 B6080000 		.4byte	0x8b6
+ 2217 0939 10       		.byte	0x10
+ 2218 093a 0D       		.uleb128 0xd
+ 2219 093b 7D0F0000 		.4byte	.LASF131
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 40
+
+
+ 2220 093f 08       		.byte	0x8
+ 2221 0940 54       		.byte	0x54
+ 2222 0941 87090000 		.4byte	0x987
+ 2223 0945 14       		.byte	0x14
+ 2224 0946 0D       		.uleb128 0xd
+ 2225 0947 510F0000 		.4byte	.LASF132
+ 2226 094b 08       		.byte	0x8
+ 2227 094c 57       		.byte	0x57
+ 2228 094d B6080000 		.4byte	0x8b6
+ 2229 0951 18       		.byte	0x18
+ 2230 0952 11       		.uleb128 0x11
+ 2231 0953 706300   		.ascii	"pc\000"
+ 2232 0956 08       		.byte	0x8
+ 2233 0957 58       		.byte	0x58
+ 2234 0958 B6080000 		.4byte	0x8b6
+ 2235 095c 1A       		.byte	0x1a
+ 2236 095d 11       		.uleb128 0x11
+ 2237 095e 737000   		.ascii	"sp\000"
+ 2238 0961 08       		.byte	0x8
+ 2239 0962 59       		.byte	0x59
+ 2240 0963 A6080000 		.4byte	0x8a6
+ 2241 0967 1C       		.byte	0x1c
+ 2242 0968 0D       		.uleb128 0xd
+ 2243 0969 3C050000 		.4byte	.LASF133
+ 2244 096d 08       		.byte	0x8
+ 2245 096e 5C       		.byte	0x5c
+ 2246 096f 8D090000 		.4byte	0x98d
+ 2247 0973 1E       		.byte	0x1e
+ 2248 0974 0D       		.uleb128 0xd
+ 2249 0975 A40A0000 		.4byte	.LASF134
+ 2250 0979 08       		.byte	0x8
+ 2251 097a 5D       		.byte	0x5d
+ 2252 097b B6080000 		.4byte	0x8b6
+ 2253 097f 3E       		.byte	0x3e
+ 2254 0980 00       		.byte	0
+ 2255 0981 05       		.uleb128 0x5
+ 2256 0982 04       		.byte	0x4
+ 2257 0983 B6080000 		.4byte	0x8b6
+ 2258 0987 05       		.uleb128 0x5
+ 2259 0988 04       		.byte	0x4
+ 2260 0989 A6080000 		.4byte	0x8a6
+ 2261 098d 0A       		.uleb128 0xa
+ 2262 098e B6080000 		.4byte	0x8b6
+ 2263 0992 9D090000 		.4byte	0x99d
+ 2264 0996 0B       		.uleb128 0xb
+ 2265 0997 25000000 		.4byte	0x25
+ 2266 099b 0F       		.byte	0xf
+ 2267 099c 00       		.byte	0
+ 2268 099d 04       		.uleb128 0x4
+ 2269 099e DC080000 		.4byte	.LASF135
+ 2270 09a2 08       		.byte	0x8
+ 2271 09a3 5E       		.byte	0x5e
+ 2272 09a4 EA080000 		.4byte	0x8ea
+ 2273 09a8 0C       		.uleb128 0xc
+ 2274 09a9 08       		.byte	0x8
+ 2275 09aa 09       		.byte	0x9
+ 2276 09ab 2F       		.byte	0x2f
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 41
+
+
+ 2277 09ac C9090000 		.4byte	0x9c9
+ 2278 09b0 0D       		.uleb128 0xd
+ 2279 09b1 31070000 		.4byte	.LASF136
+ 2280 09b5 09       		.byte	0x9
+ 2281 09b6 31       		.byte	0x31
+ 2282 09b7 B6080000 		.4byte	0x8b6
+ 2283 09bb 00       		.byte	0
+ 2284 09bc 0D       		.uleb128 0xd
+ 2285 09bd E1060000 		.4byte	.LASF137
+ 2286 09c1 09       		.byte	0x9
+ 2287 09c2 32       		.byte	0x32
+ 2288 09c3 90050000 		.4byte	0x590
+ 2289 09c7 04       		.byte	0x4
+ 2290 09c8 00       		.byte	0
+ 2291 09c9 04       		.uleb128 0x4
+ 2292 09ca EF0C0000 		.4byte	.LASF138
+ 2293 09ce 09       		.byte	0x9
+ 2294 09cf 33       		.byte	0x33
+ 2295 09d0 A8090000 		.4byte	0x9a8
+ 2296 09d4 0F       		.uleb128 0xf
+ 2297 09d5 C9090000 		.4byte	0x9c9
+ 2298 09d9 0C       		.uleb128 0xc
+ 2299 09da 04       		.byte	0x4
+ 2300 09db 09       		.byte	0x9
+ 2301 09dc 36       		.byte	0x36
+ 2302 09dd FA090000 		.4byte	0x9fa
+ 2303 09e1 0D       		.uleb128 0xd
+ 2304 09e2 E1060000 		.4byte	.LASF137
+ 2305 09e6 09       		.byte	0x9
+ 2306 09e7 38       		.byte	0x38
+ 2307 09e8 90050000 		.4byte	0x590
+ 2308 09ec 00       		.byte	0
+ 2309 09ed 0D       		.uleb128 0xd
+ 2310 09ee A0000000 		.4byte	.LASF129
+ 2311 09f2 09       		.byte	0x9
+ 2312 09f3 39       		.byte	0x39
+ 2313 09f4 FA090000 		.4byte	0x9fa
+ 2314 09f8 04       		.byte	0x4
+ 2315 09f9 00       		.byte	0
+ 2316 09fa 0A       		.uleb128 0xa
+ 2317 09fb C9090000 		.4byte	0x9c9
+ 2318 09ff 090A0000 		.4byte	0xa09
+ 2319 0a03 24       		.uleb128 0x24
+ 2320 0a04 25000000 		.4byte	0x25
+ 2321 0a08 00       		.byte	0
+ 2322 0a09 04       		.uleb128 0x4
+ 2323 0a0a DA090000 		.4byte	.LASF139
+ 2324 0a0e 09       		.byte	0x9
+ 2325 0a0f 3A       		.byte	0x3a
+ 2326 0a10 D9090000 		.4byte	0x9d9
+ 2327 0a14 0F       		.uleb128 0xf
+ 2328 0a15 090A0000 		.4byte	0xa09
+ 2329 0a19 0C       		.uleb128 0xc
+ 2330 0a1a 08       		.byte	0x8
+ 2331 0a1b 09       		.byte	0x9
+ 2332 0a1c 3D       		.byte	0x3d
+ 2333 0a1d 3A0A0000 		.4byte	0xa3a
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 42
+
+
+ 2334 0a21 0D       		.uleb128 0xd
+ 2335 0a22 E1060000 		.4byte	.LASF137
+ 2336 0a26 09       		.byte	0x9
+ 2337 0a27 3F       		.byte	0x3f
+ 2338 0a28 90050000 		.4byte	0x590
+ 2339 0a2c 00       		.byte	0
+ 2340 0a2d 11       		.uleb128 0x11
+ 2341 0a2e 646F6300 		.ascii	"doc\000"
+ 2342 0a32 09       		.byte	0x9
+ 2343 0a33 40       		.byte	0x40
+ 2344 0a34 90050000 		.4byte	0x590
+ 2345 0a38 04       		.byte	0x4
+ 2346 0a39 00       		.byte	0
+ 2347 0a3a 04       		.uleb128 0x4
+ 2348 0a3b 9A0D0000 		.4byte	.LASF140
+ 2349 0a3f 09       		.byte	0x9
+ 2350 0a40 41       		.byte	0x41
+ 2351 0a41 190A0000 		.4byte	0xa19
+ 2352 0a45 0F       		.uleb128 0xf
+ 2353 0a46 3A0A0000 		.4byte	0xa3a
+ 2354 0a4a 05       		.uleb128 0x5
+ 2355 0a4b 04       		.byte	0x4
+ 2356 0a4c 9D090000 		.4byte	0x99d
+ 2357 0a50 0C       		.uleb128 0xc
+ 2358 0a51 08       		.byte	0x8
+ 2359 0a52 09       		.byte	0x9
+ 2360 0a53 47       		.byte	0x47
+ 2361 0a54 710A0000 		.4byte	0xa71
+ 2362 0a58 0D       		.uleb128 0xd
+ 2363 0a59 31070000 		.4byte	.LASF136
+ 2364 0a5d 09       		.byte	0x9
+ 2365 0a5e 49       		.byte	0x49
+ 2366 0a5f A6080000 		.4byte	0x8a6
+ 2367 0a63 00       		.byte	0
+ 2368 0a64 0D       		.uleb128 0xd
+ 2369 0a65 E1060000 		.4byte	.LASF137
+ 2370 0a69 09       		.byte	0x9
+ 2371 0a6a 4A       		.byte	0x4a
+ 2372 0a6b 90050000 		.4byte	0x590
+ 2373 0a6f 04       		.byte	0x4
+ 2374 0a70 00       		.byte	0
+ 2375 0a71 04       		.uleb128 0x4
+ 2376 0a72 79000000 		.4byte	.LASF141
+ 2377 0a76 09       		.byte	0x9
+ 2378 0a77 4B       		.byte	0x4b
+ 2379 0a78 500A0000 		.4byte	0xa50
+ 2380 0a7c 0C       		.uleb128 0xc
+ 2381 0a7d 08       		.byte	0x8
+ 2382 0a7e 09       		.byte	0x9
+ 2383 0a7f 4E       		.byte	0x4e
+ 2384 0a80 A90A0000 		.4byte	0xaa9
+ 2385 0a84 0D       		.uleb128 0xd
+ 2386 0a85 E1060000 		.4byte	.LASF137
+ 2387 0a89 09       		.byte	0x9
+ 2388 0a8a 50       		.byte	0x50
+ 2389 0a8b 90050000 		.4byte	0x590
+ 2390 0a8f 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 43
+
+
+ 2391 0a90 11       		.uleb128 0x11
+ 2392 0a91 646F6300 		.ascii	"doc\000"
+ 2393 0a95 09       		.byte	0x9
+ 2394 0a96 51       		.byte	0x51
+ 2395 0a97 90050000 		.4byte	0x590
+ 2396 0a9b 04       		.byte	0x4
+ 2397 0a9c 0D       		.uleb128 0xd
+ 2398 0a9d 49070000 		.4byte	.LASF142
+ 2399 0aa1 09       		.byte	0x9
+ 2400 0aa2 52       		.byte	0x52
+ 2401 0aa3 A90A0000 		.4byte	0xaa9
+ 2402 0aa7 08       		.byte	0x8
+ 2403 0aa8 00       		.byte	0
+ 2404 0aa9 0A       		.uleb128 0xa
+ 2405 0aaa 710A0000 		.4byte	0xa71
+ 2406 0aae B80A0000 		.4byte	0xab8
+ 2407 0ab2 24       		.uleb128 0x24
+ 2408 0ab3 25000000 		.4byte	0x25
+ 2409 0ab7 00       		.byte	0
+ 2410 0ab8 04       		.uleb128 0x4
+ 2411 0ab9 B80F0000 		.4byte	.LASF143
+ 2412 0abd 09       		.byte	0x9
+ 2413 0abe 53       		.byte	0x53
+ 2414 0abf 7C0A0000 		.4byte	0xa7c
+ 2415 0ac3 0F       		.uleb128 0xf
+ 2416 0ac4 B80A0000 		.4byte	0xab8
+ 2417 0ac8 21       		.uleb128 0x21
+ 2418 0ac9 F70B0000 		.4byte	.LASF144
+ 2419 0acd 09       		.byte	0x9
+ 2420 0ace 62       		.byte	0x62
+ 2421 0acf C30A0000 		.4byte	0xac3
+ 2422 0ad3 21       		.uleb128 0x21
+ 2423 0ad4 1F0F0000 		.4byte	.LASF145
+ 2424 0ad8 09       		.byte	0x9
+ 2425 0ad9 67       		.byte	0x67
+ 2426 0ada C30A0000 		.4byte	0xac3
+ 2427 0ade 21       		.uleb128 0x21
+ 2428 0adf 2C020000 		.4byte	.LASF146
+ 2429 0ae3 09       		.byte	0x9
+ 2430 0ae4 6C       		.byte	0x6c
+ 2431 0ae5 C30A0000 		.4byte	0xac3
+ 2432 0ae9 21       		.uleb128 0x21
+ 2433 0aea 8C050000 		.4byte	.LASF147
+ 2434 0aee 09       		.byte	0x9
+ 2435 0aef 71       		.byte	0x71
+ 2436 0af0 C30A0000 		.4byte	0xac3
+ 2437 0af4 21       		.uleb128 0x21
+ 2438 0af5 48050000 		.4byte	.LASF148
+ 2439 0af9 09       		.byte	0x9
+ 2440 0afa 76       		.byte	0x76
+ 2441 0afb C30A0000 		.4byte	0xac3
+ 2442 0aff 21       		.uleb128 0x21
+ 2443 0b00 05070000 		.4byte	.LASF149
+ 2444 0b04 09       		.byte	0x9
+ 2445 0b05 7B       		.byte	0x7b
+ 2446 0b06 C30A0000 		.4byte	0xac3
+ 2447 0b0a 21       		.uleb128 0x21
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 44
+
+
+ 2448 0b0b 1A080000 		.4byte	.LASF150
+ 2449 0b0f 09       		.byte	0x9
+ 2450 0b10 80       		.byte	0x80
+ 2451 0b11 C30A0000 		.4byte	0xac3
+ 2452 0b15 21       		.uleb128 0x21
+ 2453 0b16 480E0000 		.4byte	.LASF151
+ 2454 0b1a 09       		.byte	0x9
+ 2455 0b1b 85       		.byte	0x85
+ 2456 0b1c C30A0000 		.4byte	0xac3
+ 2457 0b20 21       		.uleb128 0x21
+ 2458 0b21 570D0000 		.4byte	.LASF152
+ 2459 0b25 09       		.byte	0x9
+ 2460 0b26 8A       		.byte	0x8a
+ 2461 0b27 C30A0000 		.4byte	0xac3
+ 2462 0b2b 21       		.uleb128 0x21
+ 2463 0b2c A9040000 		.4byte	.LASF153
+ 2464 0b30 09       		.byte	0x9
+ 2465 0b31 8F       		.byte	0x8f
+ 2466 0b32 C30A0000 		.4byte	0xac3
+ 2467 0b36 21       		.uleb128 0x21
+ 2468 0b37 8B040000 		.4byte	.LASF154
+ 2469 0b3b 09       		.byte	0x9
+ 2470 0b3c 94       		.byte	0x94
+ 2471 0b3d C30A0000 		.4byte	0xac3
+ 2472 0b41 21       		.uleb128 0x21
+ 2473 0b42 DC000000 		.4byte	.LASF155
+ 2474 0b46 09       		.byte	0x9
+ 2475 0b47 99       		.byte	0x99
+ 2476 0b48 C30A0000 		.4byte	0xac3
+ 2477 0b4c 21       		.uleb128 0x21
+ 2478 0b4d 990E0000 		.4byte	.LASF156
+ 2479 0b51 09       		.byte	0x9
+ 2480 0b52 9E       		.byte	0x9e
+ 2481 0b53 C30A0000 		.4byte	0xac3
+ 2482 0b57 21       		.uleb128 0x21
+ 2483 0b58 EC0D0000 		.4byte	.LASF157
+ 2484 0b5c 09       		.byte	0x9
+ 2485 0b5d A3       		.byte	0xa3
+ 2486 0b5e C30A0000 		.4byte	0xac3
+ 2487 0b62 21       		.uleb128 0x21
+ 2488 0b63 6A020000 		.4byte	.LASF158
+ 2489 0b67 09       		.byte	0x9
+ 2490 0b68 A8       		.byte	0xa8
+ 2491 0b69 C30A0000 		.4byte	0xac3
+ 2492 0b6d 21       		.uleb128 0x21
+ 2493 0b6e 7E080000 		.4byte	.LASF159
+ 2494 0b72 09       		.byte	0x9
+ 2495 0b73 AD       		.byte	0xad
+ 2496 0b74 C30A0000 		.4byte	0xac3
+ 2497 0b78 21       		.uleb128 0x21
+ 2498 0b79 FB070000 		.4byte	.LASF160
+ 2499 0b7d 09       		.byte	0x9
+ 2500 0b7e B2       		.byte	0xb2
+ 2501 0b7f C30A0000 		.4byte	0xac3
+ 2502 0b83 21       		.uleb128 0x21
+ 2503 0b84 FB010000 		.4byte	.LASF161
+ 2504 0b88 09       		.byte	0x9
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 45
+
+
+ 2505 0b89 B7       		.byte	0xb7
+ 2506 0b8a C30A0000 		.4byte	0xac3
+ 2507 0b8e 21       		.uleb128 0x21
+ 2508 0b8f 980F0000 		.4byte	.LASF162
+ 2509 0b93 09       		.byte	0x9
+ 2510 0b94 BC       		.byte	0xbc
+ 2511 0b95 C30A0000 		.4byte	0xac3
+ 2512 0b99 21       		.uleb128 0x21
+ 2513 0b9a C1060000 		.4byte	.LASF163
+ 2514 0b9e 09       		.byte	0x9
+ 2515 0b9f C1       		.byte	0xc1
+ 2516 0ba0 C30A0000 		.4byte	0xac3
+ 2517 0ba4 21       		.uleb128 0x21
+ 2518 0ba5 9C010000 		.4byte	.LASF164
+ 2519 0ba9 09       		.byte	0x9
+ 2520 0baa C6       		.byte	0xc6
+ 2521 0bab C30A0000 		.4byte	0xac3
+ 2522 0baf 21       		.uleb128 0x21
+ 2523 0bb0 E7050000 		.4byte	.LASF165
+ 2524 0bb4 09       		.byte	0x9
+ 2525 0bb5 CF       		.byte	0xcf
+ 2526 0bb6 C30A0000 		.4byte	0xac3
+ 2527 0bba 22       		.uleb128 0x22
+ 2528 0bbb 07       		.byte	0x7
+ 2529 0bbc 01       		.byte	0x1
+ 2530 0bbd 48000000 		.4byte	0x48
+ 2531 0bc1 0A       		.byte	0xa
+ 2532 0bc2 7B       		.byte	0x7b
+ 2533 0bc3 DA0B0000 		.4byte	0xbda
+ 2534 0bc7 23       		.uleb128 0x23
+ 2535 0bc8 70040000 		.4byte	.LASF167
+ 2536 0bcc 01       		.byte	0x1
+ 2537 0bcd 23       		.uleb128 0x23
+ 2538 0bce 01010000 		.4byte	.LASF168
+ 2539 0bd2 02       		.byte	0x2
+ 2540 0bd3 23       		.uleb128 0x23
+ 2541 0bd4 AD0B0000 		.4byte	.LASF169
+ 2542 0bd8 04       		.byte	0x4
+ 2543 0bd9 00       		.byte	0
+ 2544 0bda 22       		.uleb128 0x22
+ 2545 0bdb 07       		.byte	0x7
+ 2546 0bdc 02       		.byte	0x2
+ 2547 0bdd 56000000 		.4byte	0x56
+ 2548 0be1 0A       		.byte	0xa
+ 2549 0be2 90       		.byte	0x90
+ 2550 0be3 F90C0000 		.4byte	0xcf9
+ 2551 0be7 25       		.uleb128 0x25
+ 2552 0be8 7A070000 		.4byte	.LASF170
+ 2553 0bec 0080     		.2byte	0x8000
+ 2554 0bee 25       		.uleb128 0x25
+ 2555 0bef 590B0000 		.4byte	.LASF171
+ 2556 0bf3 0180     		.2byte	0x8001
+ 2557 0bf5 25       		.uleb128 0x25
+ 2558 0bf6 03060000 		.4byte	.LASF172
+ 2559 0bfa 0280     		.2byte	0x8002
+ 2560 0bfc 25       		.uleb128 0x25
+ 2561 0bfd 4A000000 		.4byte	.LASF173
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 46
+
+
+ 2562 0c01 0380     		.2byte	0x8003
+ 2563 0c03 25       		.uleb128 0x25
+ 2564 0c04 B50A0000 		.4byte	.LASF174
+ 2565 0c08 0480     		.2byte	0x8004
+ 2566 0c0a 25       		.uleb128 0x25
+ 2567 0c0b 56060000 		.4byte	.LASF175
+ 2568 0c0f 0580     		.2byte	0x8005
+ 2569 0c11 25       		.uleb128 0x25
+ 2570 0c12 62100000 		.4byte	.LASF176
+ 2571 0c16 0680     		.2byte	0x8006
+ 2572 0c18 25       		.uleb128 0x25
+ 2573 0c19 D9040000 		.4byte	.LASF177
+ 2574 0c1d 0090     		.2byte	0x9000
+ 2575 0c1f 25       		.uleb128 0x25
+ 2576 0c20 AF0C0000 		.4byte	.LASF178
+ 2577 0c24 0190     		.2byte	0x9001
+ 2578 0c26 25       		.uleb128 0x25
+ 2579 0c27 B4090000 		.4byte	.LASF179
+ 2580 0c2b 0290     		.2byte	0x9002
+ 2581 0c2d 25       		.uleb128 0x25
+ 2582 0c2e DA0A0000 		.4byte	.LASF180
+ 2583 0c32 0390     		.2byte	0x9003
+ 2584 0c34 25       		.uleb128 0x25
+ 2585 0c35 6B050000 		.4byte	.LASF181
+ 2586 0c39 0490     		.2byte	0x9004
+ 2587 0c3b 25       		.uleb128 0x25
+ 2588 0c3c 40080000 		.4byte	.LASF182
+ 2589 0c40 0590     		.2byte	0x9005
+ 2590 0c42 25       		.uleb128 0x25
+ 2591 0c43 7F090000 		.4byte	.LASF183
+ 2592 0c47 0690     		.2byte	0x9006
+ 2593 0c49 25       		.uleb128 0x25
+ 2594 0c4a E6060000 		.4byte	.LASF184
+ 2595 0c4e 0790     		.2byte	0x9007
+ 2596 0c50 25       		.uleb128 0x25
+ 2597 0c51 710A0000 		.4byte	.LASF185
+ 2598 0c55 0890     		.2byte	0x9008
+ 2599 0c57 25       		.uleb128 0x25
+ 2600 0c58 2B010000 		.4byte	.LASF186
+ 2601 0c5c 0990     		.2byte	0x9009
+ 2602 0c5e 25       		.uleb128 0x25
+ 2603 0c5f C6010000 		.4byte	.LASF187
+ 2604 0c63 0A90     		.2byte	0x900a
+ 2605 0c65 25       		.uleb128 0x25
+ 2606 0c66 20000000 		.4byte	.LASF188
+ 2607 0c6a 0B90     		.2byte	0x900b
+ 2608 0c6c 25       		.uleb128 0x25
+ 2609 0c6d A0060000 		.4byte	.LASF189
+ 2610 0c71 0C90     		.2byte	0x900c
+ 2611 0c73 25       		.uleb128 0x25
+ 2612 0c74 B5020000 		.4byte	.LASF190
+ 2613 0c78 00A0     		.2byte	0xa000
+ 2614 0c7a 25       		.uleb128 0x25
+ 2615 0c7b C1080000 		.4byte	.LASF191
+ 2616 0c7f 01A0     		.2byte	0xa001
+ 2617 0c81 25       		.uleb128 0x25
+ 2618 0c82 370D0000 		.4byte	.LASF192
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 47
+
+
+ 2619 0c86 02A0     		.2byte	0xa002
+ 2620 0c88 25       		.uleb128 0x25
+ 2621 0c89 CE0D0000 		.4byte	.LASF193
+ 2622 0c8d 03A0     		.2byte	0xa003
+ 2623 0c8f 25       		.uleb128 0x25
+ 2624 0c90 450B0000 		.4byte	.LASF194
+ 2625 0c94 04A0     		.2byte	0xa004
+ 2626 0c96 25       		.uleb128 0x25
+ 2627 0c97 E9080000 		.4byte	.LASF195
+ 2628 0c9b 05A0     		.2byte	0xa005
+ 2629 0c9d 25       		.uleb128 0x25
+ 2630 0c9e 370A0000 		.4byte	.LASF196
+ 2631 0ca2 06A0     		.2byte	0xa006
+ 2632 0ca4 25       		.uleb128 0x25
+ 2633 0ca5 230B0000 		.4byte	.LASF197
+ 2634 0ca9 07A0     		.2byte	0xa007
+ 2635 0cab 25       		.uleb128 0x25
+ 2636 0cac F80F0000 		.4byte	.LASF198
+ 2637 0cb0 08A0     		.2byte	0xa008
+ 2638 0cb2 25       		.uleb128 0x25
+ 2639 0cb3 180E0000 		.4byte	.LASF199
+ 2640 0cb7 09A0     		.2byte	0xa009
+ 2641 0cb9 25       		.uleb128 0x25
+ 2642 0cba B6070000 		.4byte	.LASF200
+ 2643 0cbe 0AA0     		.2byte	0xa00a
+ 2644 0cc0 25       		.uleb128 0x25
+ 2645 0cc1 570F0000 		.4byte	.LASF201
+ 2646 0cc5 0BA0     		.2byte	0xa00b
+ 2647 0cc7 25       		.uleb128 0x25
+ 2648 0cc8 D9070000 		.4byte	.LASF202
+ 2649 0ccc 0CA0     		.2byte	0xa00c
+ 2650 0cce 25       		.uleb128 0x25
+ 2651 0ccf 4A0A0000 		.4byte	.LASF203
+ 2652 0cd3 0DA0     		.2byte	0xa00d
+ 2653 0cd5 25       		.uleb128 0x25
+ 2654 0cd6 0E0D0000 		.4byte	.LASF204
+ 2655 0cda 0EA0     		.2byte	0xa00e
+ 2656 0cdc 25       		.uleb128 0x25
+ 2657 0cdd 1A0A0000 		.4byte	.LASF205
+ 2658 0ce1 0FA0     		.2byte	0xa00f
+ 2659 0ce3 25       		.uleb128 0x25
+ 2660 0ce4 03090000 		.4byte	.LASF206
+ 2661 0ce8 10A0     		.2byte	0xa010
+ 2662 0cea 25       		.uleb128 0x25
+ 2663 0ceb B50D0000 		.4byte	.LASF207
+ 2664 0cef 11A0     		.2byte	0xa011
+ 2665 0cf1 25       		.uleb128 0x25
+ 2666 0cf2 61080000 		.4byte	.LASF208
+ 2667 0cf6 FFFF     		.2byte	0xffff
+ 2668 0cf8 00       		.byte	0
+ 2669 0cf9 22       		.uleb128 0x22
+ 2670 0cfa 07       		.byte	0x7
+ 2671 0cfb 02       		.byte	0x2
+ 2672 0cfc 56000000 		.4byte	0x56
+ 2673 0d00 0A       		.byte	0xa
+ 2674 0d01 CF       		.byte	0xcf
+ 2675 0d02 0E0D0000 		.4byte	0xd0e
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 48
+
+
+ 2676 0d06 25       		.uleb128 0x25
+ 2677 0d07 3E100000 		.4byte	.LASF209
+ 2678 0d0b 0201     		.2byte	0x102
+ 2679 0d0d 00       		.byte	0
+ 2680 0d0e 0A       		.uleb128 0xa
+ 2681 0d0f 48000000 		.4byte	0x48
+ 2682 0d13 1F0D0000 		.4byte	0xd1f
+ 2683 0d17 26       		.uleb128 0x26
+ 2684 0d18 25000000 		.4byte	0x25
+ 2685 0d1c 0502     		.2byte	0x205
+ 2686 0d1e 00       		.byte	0
+ 2687 0d1f 27       		.uleb128 0x27
+ 2688 0d20 160C0000 		.4byte	.LASF210
+ 2689 0d24 01       		.byte	0x1
+ 2690 0d25 1B       		.byte	0x1b
+ 2691 0d26 0E0D0000 		.4byte	0xd0e
+ 2692 0d2a 05       		.uleb128 0x5
+ 2693 0d2b 03       		.byte	0x3
+ 2694 0d2c 00000000 		.4byte	buffer
+ 2695 0d30 27       		.uleb128 0x27
+ 2696 0d31 33100000 		.4byte	.LASF211
+ 2697 0d35 01       		.byte	0x1
+ 2698 0d36 1C       		.byte	0x1c
+ 2699 0d37 25000000 		.4byte	0x25
+ 2700 0d3b 05       		.uleb128 0x5
+ 2701 0d3c 03       		.byte	0x3
+ 2702 0d3d 00000000 		.4byte	buffer_pos
+ 2703 0d41 28       		.uleb128 0x28
+ 2704 0d42 EF0E0000 		.4byte	.LASF220
+ 2705 0d46 01       		.byte	0x1
+ 2706 0d47 DF       		.byte	0xdf
+ 2707 0d48 00000000 		.4byte	.LFB9
+ 2708 0d4c 24010000 		.4byte	.LFE9-.LFB9
+ 2709 0d50 01       		.uleb128 0x1
+ 2710 0d51 9C       		.byte	0x9c
+ 2711 0d52 F00D0000 		.4byte	0xdf0
+ 2712 0d56 29       		.uleb128 0x29
+ 2713 0d57 766D00   		.ascii	"vm\000"
+ 2714 0d5a 01       		.byte	0x1
+ 2715 0d5b DF       		.byte	0xdf
+ 2716 0d5c 4A0A0000 		.4byte	0xa4a
+ 2717 0d60 02       		.uleb128 0x2
+ 2718 0d61 91       		.byte	0x91
+ 2719 0d62 54       		.sleb128 -44
+ 2720 0d63 27       		.uleb128 0x27
+ 2721 0d64 FC080000 		.4byte	.LASF212
+ 2722 0d68 01       		.byte	0x1
+ 2723 0d69 E1       		.byte	0xe1
+ 2724 0d6a B6080000 		.4byte	0x8b6
+ 2725 0d6e 02       		.uleb128 0x2
+ 2726 0d6f 91       		.byte	0x91
+ 2727 0d70 5E       		.sleb128 -34
+ 2728 0d71 27       		.uleb128 0x27
+ 2729 0d72 AF090000 		.4byte	.LASF213
+ 2730 0d76 01       		.byte	0x1
+ 2731 0d77 E2       		.byte	0xe2
+ 2732 0d78 F00D0000 		.4byte	0xdf0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 49
+
+
+ 2733 0d7c 02       		.uleb128 0x2
+ 2734 0d7d 91       		.byte	0x91
+ 2735 0d7e 6C       		.sleb128 -20
+ 2736 0d7f 27       		.uleb128 0x27
+ 2737 0d80 780E0000 		.4byte	.LASF214
+ 2738 0d84 01       		.byte	0x1
+ 2739 0d85 E4       		.byte	0xe4
+ 2740 0d86 B6080000 		.4byte	0x8b6
+ 2741 0d8a 02       		.uleb128 0x2
+ 2742 0d8b 91       		.byte	0x91
+ 2743 0d8c 62       		.sleb128 -30
+ 2744 0d8d 2A       		.uleb128 0x2a
+ 2745 0d8e 00000000 		.4byte	.Ldebug_ranges0+0
+ 2746 0d92 27       		.uleb128 0x27
+ 2747 0d93 75070000 		.4byte	.LASF215
+ 2748 0d97 01       		.byte	0x1
+ 2749 0d98 E8       		.byte	0xe8
+ 2750 0d99 B6080000 		.4byte	0x8b6
+ 2751 0d9d 02       		.uleb128 0x2
+ 2752 0d9e 91       		.byte	0x91
+ 2753 0d9f 64       		.sleb128 -28
+ 2754 0da0 27       		.uleb128 0x27
+ 2755 0da1 370E0000 		.4byte	.LASF216
+ 2756 0da5 01       		.byte	0x1
+ 2757 0da6 E9       		.byte	0xe9
+ 2758 0da7 81090000 		.4byte	0x981
+ 2759 0dab 02       		.uleb128 0x2
+ 2760 0dac 91       		.byte	0x91
+ 2761 0dad 70       		.sleb128 -16
+ 2762 0dae 27       		.uleb128 0x27
+ 2763 0daf 040B0000 		.4byte	.LASF217
+ 2764 0db3 01       		.byte	0x1
+ 2765 0db4 EA       		.byte	0xea
+ 2766 0db5 B6080000 		.4byte	0x8b6
+ 2767 0db9 02       		.uleb128 0x2
+ 2768 0dba 91       		.byte	0x91
+ 2769 0dbb 66       		.sleb128 -26
+ 2770 0dbc 2B       		.uleb128 0x2b
+ 2771 0dbd 6E000000 		.4byte	.LBB4
+ 2772 0dc1 82000000 		.4byte	.LBE4-.LBB4
+ 2773 0dc5 27       		.uleb128 0x27
+ 2774 0dc6 990B0000 		.4byte	.LASF218
+ 2775 0dca 01       		.byte	0x1
+ 2776 0dcb F2       		.byte	0xf2
+ 2777 0dcc B6080000 		.4byte	0x8b6
+ 2778 0dd0 02       		.uleb128 0x2
+ 2779 0dd1 91       		.byte	0x91
+ 2780 0dd2 68       		.sleb128 -24
+ 2781 0dd3 27       		.uleb128 0x27
+ 2782 0dd4 1A020000 		.4byte	.LASF219
+ 2783 0dd8 01       		.byte	0x1
+ 2784 0dd9 F3       		.byte	0xf3
+ 2785 0dda B6080000 		.4byte	0x8b6
+ 2786 0dde 02       		.uleb128 0x2
+ 2787 0ddf 91       		.byte	0x91
+ 2788 0de0 6A       		.sleb128 -22
+ 2789 0de1 2C       		.uleb128 0x2c
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 50
+
+
+ 2790 0de2 6900     		.ascii	"i\000"
+ 2791 0de4 01       		.byte	0x1
+ 2792 0de5 F4       		.byte	0xf4
+ 2793 0de6 B6080000 		.4byte	0x8b6
+ 2794 0dea 02       		.uleb128 0x2
+ 2795 0deb 91       		.byte	0x91
+ 2796 0dec 60       		.sleb128 -32
+ 2797 0ded 00       		.byte	0
+ 2798 0dee 00       		.byte	0
+ 2799 0def 00       		.byte	0
+ 2800 0df0 05       		.uleb128 0x5
+ 2801 0df1 04       		.byte	0x4
+ 2802 0df2 140A0000 		.4byte	0xa14
+ 2803 0df6 28       		.uleb128 0x28
+ 2804 0df7 8A100000 		.4byte	.LASF221
+ 2805 0dfb 01       		.byte	0x1
+ 2806 0dfc 83       		.byte	0x83
+ 2807 0dfd 00000000 		.4byte	.LFB8
+ 2808 0e01 F0020000 		.4byte	.LFE8-.LFB8
+ 2809 0e05 01       		.uleb128 0x1
+ 2810 0e06 9C       		.byte	0x9c
+ 2811 0e07 730E0000 		.4byte	0xe73
+ 2812 0e0b 29       		.uleb128 0x29
+ 2813 0e0c 766D00   		.ascii	"vm\000"
+ 2814 0e0f 01       		.byte	0x1
+ 2815 0e10 83       		.byte	0x83
+ 2816 0e11 4A0A0000 		.4byte	0xa4a
+ 2817 0e15 02       		.uleb128 0x2
+ 2818 0e16 91       		.byte	0x91
+ 2819 0e17 5C       		.sleb128 -36
+ 2820 0e18 27       		.uleb128 0x27
+ 2821 0e19 AA000000 		.4byte	.LASF222
+ 2822 0e1d 01       		.byte	0x1
+ 2823 0e1e 85       		.byte	0x85
+ 2824 0e1f F00D0000 		.4byte	0xdf0
+ 2825 0e23 02       		.uleb128 0x2
+ 2826 0e24 91       		.byte	0x91
+ 2827 0e25 64       		.sleb128 -28
+ 2828 0e26 27       		.uleb128 0x27
+ 2829 0e27 F3040000 		.4byte	.LASF223
+ 2830 0e2b 01       		.byte	0x1
+ 2831 0e2c 86       		.byte	0x86
+ 2832 0e2d 730E0000 		.4byte	0xe73
+ 2833 0e31 02       		.uleb128 0x2
+ 2834 0e32 91       		.byte	0x91
+ 2835 0e33 68       		.sleb128 -24
+ 2836 0e34 27       		.uleb128 0x27
+ 2837 0e35 3B060000 		.4byte	.LASF224
+ 2838 0e39 01       		.byte	0x1
+ 2839 0e3a 87       		.byte	0x87
+ 2840 0e3b 790E0000 		.4byte	0xe79
+ 2841 0e3f 02       		.uleb128 0x2
+ 2842 0e40 91       		.byte	0x91
+ 2843 0e41 6C       		.sleb128 -20
+ 2844 0e42 27       		.uleb128 0x27
+ 2845 0e43 32090000 		.4byte	.LASF225
+ 2846 0e47 01       		.byte	0x1
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 51
+
+
+ 2847 0e48 88       		.byte	0x88
+ 2848 0e49 8A0E0000 		.4byte	0xe8a
+ 2849 0e4d 02       		.uleb128 0x2
+ 2850 0e4e 91       		.byte	0x91
+ 2851 0e4f 70       		.sleb128 -16
+ 2852 0e50 2C       		.uleb128 0x2c
+ 2853 0e51 6900     		.ascii	"i\000"
+ 2854 0e53 01       		.byte	0x1
+ 2855 0e54 8A       		.byte	0x8a
+ 2856 0e55 B6080000 		.4byte	0x8b6
+ 2857 0e59 02       		.uleb128 0x2
+ 2858 0e5a 91       		.byte	0x91
+ 2859 0e5b 60       		.sleb128 -32
+ 2860 0e5c 2B       		.uleb128 0x2b
+ 2861 0e5d D0010000 		.4byte	.LBB2
+ 2862 0e61 E2000000 		.4byte	.LBE2-.LBB2
+ 2863 0e65 2C       		.uleb128 0x2c
+ 2864 0e66 6A00     		.ascii	"j\000"
+ 2865 0e68 01       		.byte	0x1
+ 2866 0e69 C8       		.byte	0xc8
+ 2867 0e6a B6080000 		.4byte	0x8b6
+ 2868 0e6e 02       		.uleb128 0x2
+ 2869 0e6f 91       		.byte	0x91
+ 2870 0e70 62       		.sleb128 -30
+ 2871 0e71 00       		.byte	0
+ 2872 0e72 00       		.byte	0
+ 2873 0e73 05       		.uleb128 0x5
+ 2874 0e74 04       		.byte	0x4
+ 2875 0e75 D4090000 		.4byte	0x9d4
+ 2876 0e79 05       		.uleb128 0x5
+ 2877 0e7a 04       		.byte	0x4
+ 2878 0e7b 850E0000 		.4byte	0xe85
+ 2879 0e7f 05       		.uleb128 0x5
+ 2880 0e80 04       		.byte	0x4
+ 2881 0e81 C30A0000 		.4byte	0xac3
+ 2882 0e85 0F       		.uleb128 0xf
+ 2883 0e86 7F0E0000 		.4byte	0xe7f
+ 2884 0e8a 05       		.uleb128 0x5
+ 2885 0e8b 04       		.byte	0x4
+ 2886 0e8c 450A0000 		.4byte	0xa45
+ 2887 0e90 28       		.uleb128 0x28
+ 2888 0e91 29050000 		.4byte	.LASF226
+ 2889 0e95 01       		.byte	0x1
+ 2890 0e96 62       		.byte	0x62
+ 2891 0e97 00000000 		.4byte	.LFB7
+ 2892 0e9b A0000000 		.4byte	.LFE7-.LFB7
+ 2893 0e9f 01       		.uleb128 0x1
+ 2894 0ea0 9C       		.byte	0x9c
+ 2895 0ea1 DB0E0000 		.4byte	0xedb
+ 2896 0ea5 29       		.uleb128 0x29
+ 2897 0ea6 766D00   		.ascii	"vm\000"
+ 2898 0ea9 01       		.byte	0x1
+ 2899 0eaa 62       		.byte	0x62
+ 2900 0eab 4A0A0000 		.4byte	0xa4a
+ 2901 0eaf 02       		.uleb128 0x2
+ 2902 0eb0 91       		.byte	0x91
+ 2903 0eb1 6C       		.sleb128 -20
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 52
+
+
+ 2904 0eb2 2D       		.uleb128 0x2d
+ 2905 0eb3 1A100000 		.4byte	.LASF227
+ 2906 0eb7 01       		.byte	0x1
+ 2907 0eb8 62       		.byte	0x62
+ 2908 0eb9 B6080000 		.4byte	0x8b6
+ 2909 0ebd 02       		.uleb128 0x2
+ 2910 0ebe 91       		.byte	0x91
+ 2911 0ebf 6A       		.sleb128 -22
+ 2912 0ec0 2D       		.uleb128 0x2d
+ 2913 0ec1 830F0000 		.4byte	.LASF228
+ 2914 0ec5 01       		.byte	0x1
+ 2915 0ec6 62       		.byte	0x62
+ 2916 0ec7 B6080000 		.4byte	0x8b6
+ 2917 0ecb 02       		.uleb128 0x2
+ 2918 0ecc 91       		.byte	0x91
+ 2919 0ecd 68       		.sleb128 -24
+ 2920 0ece 2C       		.uleb128 0x2c
+ 2921 0ecf 6900     		.ascii	"i\000"
+ 2922 0ed1 01       		.byte	0x1
+ 2923 0ed2 64       		.byte	0x64
+ 2924 0ed3 B6080000 		.4byte	0x8b6
+ 2925 0ed7 02       		.uleb128 0x2
+ 2926 0ed8 91       		.byte	0x91
+ 2927 0ed9 72       		.sleb128 -14
+ 2928 0eda 00       		.byte	0
+ 2929 0edb 28       		.uleb128 0x28
+ 2930 0edc CB000000 		.4byte	.LASF229
+ 2931 0ee0 01       		.byte	0x1
+ 2932 0ee1 48       		.byte	0x48
+ 2933 0ee2 00000000 		.4byte	.LFB6
+ 2934 0ee6 8C000000 		.4byte	.LFE6-.LFB6
+ 2935 0eea 01       		.uleb128 0x1
+ 2936 0eeb 9C       		.byte	0x9c
+ 2937 0eec 340F0000 		.4byte	0xf34
+ 2938 0ef0 29       		.uleb128 0x29
+ 2939 0ef1 766D00   		.ascii	"vm\000"
+ 2940 0ef4 01       		.byte	0x1
+ 2941 0ef5 48       		.byte	0x48
+ 2942 0ef6 4A0A0000 		.4byte	0xa4a
+ 2943 0efa 02       		.uleb128 0x2
+ 2944 0efb 91       		.byte	0x91
+ 2945 0efc 6C       		.sleb128 -20
+ 2946 0efd 2D       		.uleb128 0x2d
+ 2947 0efe 75070000 		.4byte	.LASF215
+ 2948 0f02 01       		.byte	0x1
+ 2949 0f03 48       		.byte	0x48
+ 2950 0f04 B6080000 		.4byte	0x8b6
+ 2951 0f08 02       		.uleb128 0x2
+ 2952 0f09 91       		.byte	0x91
+ 2953 0f0a 6A       		.sleb128 -22
+ 2954 0f0b 2D       		.uleb128 0x2d
+ 2955 0f0c 8C010000 		.4byte	.LASF230
+ 2956 0f10 01       		.byte	0x1
+ 2957 0f11 48       		.byte	0x48
+ 2958 0f12 94080000 		.4byte	0x894
+ 2959 0f16 02       		.uleb128 0x2
+ 2960 0f17 91       		.byte	0x91
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 53
+
+
+ 2961 0f18 64       		.sleb128 -28
+ 2962 0f19 2D       		.uleb128 0x2d
+ 2963 0f1a 31070000 		.4byte	.LASF136
+ 2964 0f1e 01       		.byte	0x1
+ 2965 0f1f 48       		.byte	0x48
+ 2966 0f20 B6080000 		.4byte	0x8b6
+ 2967 0f24 02       		.uleb128 0x2
+ 2968 0f25 91       		.byte	0x91
+ 2969 0f26 68       		.sleb128 -24
+ 2970 0f27 2C       		.uleb128 0x2c
+ 2971 0f28 6900     		.ascii	"i\000"
+ 2972 0f2a 01       		.byte	0x1
+ 2973 0f2b 4A       		.byte	0x4a
+ 2974 0f2c B6080000 		.4byte	0x8b6
+ 2975 0f30 02       		.uleb128 0x2
+ 2976 0f31 91       		.byte	0x91
+ 2977 0f32 72       		.sleb128 -14
+ 2978 0f33 00       		.byte	0
+ 2979 0f34 2E       		.uleb128 0x2e
+ 2980 0f35 880D0000 		.4byte	.LASF231
+ 2981 0f39 01       		.byte	0x1
+ 2982 0f3a 3E       		.byte	0x3e
+ 2983 0f3b 00000000 		.4byte	.LFB5
+ 2984 0f3f 58000000 		.4byte	.LFE5-.LFB5
+ 2985 0f43 01       		.uleb128 0x1
+ 2986 0f44 9C       		.byte	0x9c
+ 2987 0f45 640F0000 		.4byte	0xf64
+ 2988 0f49 29       		.uleb128 0x29
+ 2989 0f4a 7300     		.ascii	"s\000"
+ 2990 0f4c 01       		.byte	0x1
+ 2991 0f4d 3E       		.byte	0x3e
+ 2992 0f4e 90050000 		.4byte	0x590
+ 2993 0f52 02       		.uleb128 0x2
+ 2994 0f53 91       		.byte	0x91
+ 2995 0f54 6C       		.sleb128 -20
+ 2996 0f55 2C       		.uleb128 0x2c
+ 2997 0f56 6C656E00 		.ascii	"len\000"
+ 2998 0f5a 01       		.byte	0x1
+ 2999 0f5b 40       		.byte	0x40
+ 3000 0f5c B6080000 		.4byte	0x8b6
+ 3001 0f60 02       		.uleb128 0x2
+ 3002 0f61 91       		.byte	0x91
+ 3003 0f62 72       		.sleb128 -14
+ 3004 0f63 00       		.byte	0
+ 3005 0f64 2E       		.uleb128 0x2e
+ 3006 0f65 D00E0000 		.4byte	.LASF232
+ 3007 0f69 01       		.byte	0x1
+ 3008 0f6a 38       		.byte	0x38
+ 3009 0f6b 00000000 		.4byte	.LFB4
+ 3010 0f6f 40000000 		.4byte	.LFE4-.LFB4
+ 3011 0f73 01       		.uleb128 0x1
+ 3012 0f74 9C       		.byte	0x9c
+ 3013 0f75 960F0000 		.4byte	0xf96
+ 3014 0f79 2D       		.uleb128 0x2d
+ 3015 0f7a 44000000 		.4byte	.LASF233
+ 3016 0f7e 01       		.byte	0x1
+ 3017 0f7f 38       		.byte	0x38
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 54
+
+
+ 3018 0f80 B1080000 		.4byte	0x8b1
+ 3019 0f84 02       		.uleb128 0x2
+ 3020 0f85 91       		.byte	0x91
+ 3021 0f86 6E       		.sleb128 -18
+ 3022 0f87 27       		.uleb128 0x27
+ 3023 0f88 F9020000 		.4byte	.LASF234
+ 3024 0f8c 01       		.byte	0x1
+ 3025 0f8d 3A       		.byte	0x3a
+ 3026 0f8e C1080000 		.4byte	0x8c1
+ 3027 0f92 02       		.uleb128 0x2
+ 3028 0f93 91       		.byte	0x91
+ 3029 0f94 72       		.sleb128 -14
+ 3030 0f95 00       		.byte	0
+ 3031 0f96 2E       		.uleb128 0x2e
+ 3032 0f97 660E0000 		.4byte	.LASF235
+ 3033 0f9b 01       		.byte	0x1
+ 3034 0f9c 32       		.byte	0x32
+ 3035 0f9d 00000000 		.4byte	.LFB3
+ 3036 0fa1 40000000 		.4byte	.LFE3-.LFB3
+ 3037 0fa5 01       		.uleb128 0x1
+ 3038 0fa6 9C       		.byte	0x9c
+ 3039 0fa7 C80F0000 		.4byte	0xfc8
+ 3040 0fab 2D       		.uleb128 0x2d
+ 3041 0fac 44000000 		.4byte	.LASF233
+ 3042 0fb0 01       		.byte	0x1
+ 3043 0fb1 32       		.byte	0x32
+ 3044 0fb2 C1080000 		.4byte	0x8c1
+ 3045 0fb6 02       		.uleb128 0x2
+ 3046 0fb7 91       		.byte	0x91
+ 3047 0fb8 6E       		.sleb128 -18
+ 3048 0fb9 27       		.uleb128 0x27
+ 3049 0fba F9020000 		.4byte	.LASF234
+ 3050 0fbe 01       		.byte	0x1
+ 3051 0fbf 34       		.byte	0x34
+ 3052 0fc0 C1080000 		.4byte	0x8c1
+ 3053 0fc4 02       		.uleb128 0x2
+ 3054 0fc5 91       		.byte	0x91
+ 3055 0fc6 72       		.sleb128 -14
+ 3056 0fc7 00       		.byte	0
+ 3057 0fc8 2E       		.uleb128 0x2e
+ 3058 0fc9 9F080000 		.4byte	.LASF236
+ 3059 0fcd 01       		.byte	0x1
+ 3060 0fce 2D       		.byte	0x2d
+ 3061 0fcf 00000000 		.4byte	.LFB2
+ 3062 0fd3 38000000 		.4byte	.LFE2-.LFB2
+ 3063 0fd7 01       		.uleb128 0x1
+ 3064 0fd8 9C       		.byte	0x9c
+ 3065 0fd9 EC0F0000 		.4byte	0xfec
+ 3066 0fdd 2D       		.uleb128 0x2d
+ 3067 0fde 44000000 		.4byte	.LASF233
+ 3068 0fe2 01       		.byte	0x1
+ 3069 0fe3 2D       		.byte	0x2d
+ 3070 0fe4 D1080000 		.4byte	0x8d1
+ 3071 0fe8 02       		.uleb128 0x2
+ 3072 0fe9 91       		.byte	0x91
+ 3073 0fea 6F       		.sleb128 -17
+ 3074 0feb 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 55
+
+
+ 3075 0fec 2E       		.uleb128 0x2e
+ 3076 0fed 7F100000 		.4byte	.LASF237
+ 3077 0ff1 01       		.byte	0x1
+ 3078 0ff2 1E       		.byte	0x1e
+ 3079 0ff3 00000000 		.4byte	.LFB1
+ 3080 0ff7 68000000 		.4byte	.LFE1-.LFB1
+ 3081 0ffb 01       		.uleb128 0x1
+ 3082 0ffc 9C       		.byte	0x9c
+ 3083 0ffd 2A100000 		.4byte	0x102a
+ 3084 1001 2D       		.uleb128 0x2d
+ 3085 1002 8C010000 		.4byte	.LASF230
+ 3086 1006 01       		.byte	0x1
+ 3087 1007 1E       		.byte	0x1e
+ 3088 1008 2A100000 		.4byte	0x102a
+ 3089 100c 02       		.uleb128 0x2
+ 3090 100d 91       		.byte	0x91
+ 3091 100e 6C       		.sleb128 -20
+ 3092 100f 29       		.uleb128 0x29
+ 3093 1010 6C656E00 		.ascii	"len\000"
+ 3094 1014 01       		.byte	0x1
+ 3095 1015 1E       		.byte	0x1e
+ 3096 1016 C1080000 		.4byte	0x8c1
+ 3097 101a 02       		.uleb128 0x2
+ 3098 101b 91       		.byte	0x91
+ 3099 101c 6A       		.sleb128 -22
+ 3100 101d 2C       		.uleb128 0x2c
+ 3101 101e 6900     		.ascii	"i\000"
+ 3102 1020 01       		.byte	0x1
+ 3103 1021 20       		.byte	0x20
+ 3104 1022 B6080000 		.4byte	0x8b6
+ 3105 1026 02       		.uleb128 0x2
+ 3106 1027 91       		.byte	0x91
+ 3107 1028 72       		.sleb128 -14
+ 3108 1029 00       		.byte	0
+ 3109 102a 05       		.uleb128 0x5
+ 3110 102b 04       		.byte	0x4
+ 3111 102c D1080000 		.4byte	0x8d1
+ 3112 1030 00       		.byte	0
+ 3113              		.section	.debug_abbrev,"",%progbits
+ 3114              	.Ldebug_abbrev0:
+ 3115 0000 01       		.uleb128 0x1
+ 3116 0001 11       		.uleb128 0x11
+ 3117 0002 01       		.byte	0x1
+ 3118 0003 25       		.uleb128 0x25
+ 3119 0004 0E       		.uleb128 0xe
+ 3120 0005 13       		.uleb128 0x13
+ 3121 0006 0B       		.uleb128 0xb
+ 3122 0007 03       		.uleb128 0x3
+ 3123 0008 0E       		.uleb128 0xe
+ 3124 0009 1B       		.uleb128 0x1b
+ 3125 000a 0E       		.uleb128 0xe
+ 3126 000b 55       		.uleb128 0x55
+ 3127 000c 17       		.uleb128 0x17
+ 3128 000d 11       		.uleb128 0x11
+ 3129 000e 01       		.uleb128 0x1
+ 3130 000f 10       		.uleb128 0x10
+ 3131 0010 17       		.uleb128 0x17
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 56
+
+
+ 3132 0011 00       		.byte	0
+ 3133 0012 00       		.byte	0
+ 3134 0013 02       		.uleb128 0x2
+ 3135 0014 24       		.uleb128 0x24
+ 3136 0015 00       		.byte	0
+ 3137 0016 0B       		.uleb128 0xb
+ 3138 0017 0B       		.uleb128 0xb
+ 3139 0018 3E       		.uleb128 0x3e
+ 3140 0019 0B       		.uleb128 0xb
+ 3141 001a 03       		.uleb128 0x3
+ 3142 001b 0E       		.uleb128 0xe
+ 3143 001c 00       		.byte	0
+ 3144 001d 00       		.byte	0
+ 3145 001e 03       		.uleb128 0x3
+ 3146 001f 24       		.uleb128 0x24
+ 3147 0020 00       		.byte	0
+ 3148 0021 0B       		.uleb128 0xb
+ 3149 0022 0B       		.uleb128 0xb
+ 3150 0023 3E       		.uleb128 0x3e
+ 3151 0024 0B       		.uleb128 0xb
+ 3152 0025 03       		.uleb128 0x3
+ 3153 0026 08       		.uleb128 0x8
+ 3154 0027 00       		.byte	0
+ 3155 0028 00       		.byte	0
+ 3156 0029 04       		.uleb128 0x4
+ 3157 002a 16       		.uleb128 0x16
+ 3158 002b 00       		.byte	0
+ 3159 002c 03       		.uleb128 0x3
+ 3160 002d 0E       		.uleb128 0xe
+ 3161 002e 3A       		.uleb128 0x3a
+ 3162 002f 0B       		.uleb128 0xb
+ 3163 0030 3B       		.uleb128 0x3b
+ 3164 0031 0B       		.uleb128 0xb
+ 3165 0032 49       		.uleb128 0x49
+ 3166 0033 13       		.uleb128 0x13
+ 3167 0034 00       		.byte	0
+ 3168 0035 00       		.byte	0
+ 3169 0036 05       		.uleb128 0x5
+ 3170 0037 0F       		.uleb128 0xf
+ 3171 0038 00       		.byte	0
+ 3172 0039 0B       		.uleb128 0xb
+ 3173 003a 0B       		.uleb128 0xb
+ 3174 003b 49       		.uleb128 0x49
+ 3175 003c 13       		.uleb128 0x13
+ 3176 003d 00       		.byte	0
+ 3177 003e 00       		.byte	0
+ 3178 003f 06       		.uleb128 0x6
+ 3179 0040 13       		.uleb128 0x13
+ 3180 0041 00       		.byte	0
+ 3181 0042 03       		.uleb128 0x3
+ 3182 0043 0E       		.uleb128 0xe
+ 3183 0044 3C       		.uleb128 0x3c
+ 3184 0045 19       		.uleb128 0x19
+ 3185 0046 00       		.byte	0
+ 3186 0047 00       		.byte	0
+ 3187 0048 07       		.uleb128 0x7
+ 3188 0049 16       		.uleb128 0x16
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 57
+
+
+ 3189 004a 00       		.byte	0
+ 3190 004b 03       		.uleb128 0x3
+ 3191 004c 0E       		.uleb128 0xe
+ 3192 004d 3A       		.uleb128 0x3a
+ 3193 004e 0B       		.uleb128 0xb
+ 3194 004f 3B       		.uleb128 0x3b
+ 3195 0050 05       		.uleb128 0x5
+ 3196 0051 49       		.uleb128 0x49
+ 3197 0052 13       		.uleb128 0x13
+ 3198 0053 00       		.byte	0
+ 3199 0054 00       		.byte	0
+ 3200 0055 08       		.uleb128 0x8
+ 3201 0056 17       		.uleb128 0x17
+ 3202 0057 01       		.byte	0x1
+ 3203 0058 0B       		.uleb128 0xb
+ 3204 0059 0B       		.uleb128 0xb
+ 3205 005a 3A       		.uleb128 0x3a
+ 3206 005b 0B       		.uleb128 0xb
+ 3207 005c 3B       		.uleb128 0x3b
+ 3208 005d 0B       		.uleb128 0xb
+ 3209 005e 01       		.uleb128 0x1
+ 3210 005f 13       		.uleb128 0x13
+ 3211 0060 00       		.byte	0
+ 3212 0061 00       		.byte	0
+ 3213 0062 09       		.uleb128 0x9
+ 3214 0063 0D       		.uleb128 0xd
+ 3215 0064 00       		.byte	0
+ 3216 0065 03       		.uleb128 0x3
+ 3217 0066 0E       		.uleb128 0xe
+ 3218 0067 3A       		.uleb128 0x3a
+ 3219 0068 0B       		.uleb128 0xb
+ 3220 0069 3B       		.uleb128 0x3b
+ 3221 006a 0B       		.uleb128 0xb
+ 3222 006b 49       		.uleb128 0x49
+ 3223 006c 13       		.uleb128 0x13
+ 3224 006d 00       		.byte	0
+ 3225 006e 00       		.byte	0
+ 3226 006f 0A       		.uleb128 0xa
+ 3227 0070 01       		.uleb128 0x1
+ 3228 0071 01       		.byte	0x1
+ 3229 0072 49       		.uleb128 0x49
+ 3230 0073 13       		.uleb128 0x13
+ 3231 0074 01       		.uleb128 0x1
+ 3232 0075 13       		.uleb128 0x13
+ 3233 0076 00       		.byte	0
+ 3234 0077 00       		.byte	0
+ 3235 0078 0B       		.uleb128 0xb
+ 3236 0079 21       		.uleb128 0x21
+ 3237 007a 00       		.byte	0
+ 3238 007b 49       		.uleb128 0x49
+ 3239 007c 13       		.uleb128 0x13
+ 3240 007d 2F       		.uleb128 0x2f
+ 3241 007e 0B       		.uleb128 0xb
+ 3242 007f 00       		.byte	0
+ 3243 0080 00       		.byte	0
+ 3244 0081 0C       		.uleb128 0xc
+ 3245 0082 13       		.uleb128 0x13
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 58
+
+
+ 3246 0083 01       		.byte	0x1
+ 3247 0084 0B       		.uleb128 0xb
+ 3248 0085 0B       		.uleb128 0xb
+ 3249 0086 3A       		.uleb128 0x3a
+ 3250 0087 0B       		.uleb128 0xb
+ 3251 0088 3B       		.uleb128 0x3b
+ 3252 0089 0B       		.uleb128 0xb
+ 3253 008a 01       		.uleb128 0x1
+ 3254 008b 13       		.uleb128 0x13
+ 3255 008c 00       		.byte	0
+ 3256 008d 00       		.byte	0
+ 3257 008e 0D       		.uleb128 0xd
+ 3258 008f 0D       		.uleb128 0xd
+ 3259 0090 00       		.byte	0
+ 3260 0091 03       		.uleb128 0x3
+ 3261 0092 0E       		.uleb128 0xe
+ 3262 0093 3A       		.uleb128 0x3a
+ 3263 0094 0B       		.uleb128 0xb
+ 3264 0095 3B       		.uleb128 0x3b
+ 3265 0096 0B       		.uleb128 0xb
+ 3266 0097 49       		.uleb128 0x49
+ 3267 0098 13       		.uleb128 0x13
+ 3268 0099 38       		.uleb128 0x38
+ 3269 009a 0B       		.uleb128 0xb
+ 3270 009b 00       		.byte	0
+ 3271 009c 00       		.byte	0
+ 3272 009d 0E       		.uleb128 0xe
+ 3273 009e 0F       		.uleb128 0xf
+ 3274 009f 00       		.byte	0
+ 3275 00a0 0B       		.uleb128 0xb
+ 3276 00a1 0B       		.uleb128 0xb
+ 3277 00a2 00       		.byte	0
+ 3278 00a3 00       		.byte	0
+ 3279 00a4 0F       		.uleb128 0xf
+ 3280 00a5 26       		.uleb128 0x26
+ 3281 00a6 00       		.byte	0
+ 3282 00a7 49       		.uleb128 0x49
+ 3283 00a8 13       		.uleb128 0x13
+ 3284 00a9 00       		.byte	0
+ 3285 00aa 00       		.byte	0
+ 3286 00ab 10       		.uleb128 0x10
+ 3287 00ac 13       		.uleb128 0x13
+ 3288 00ad 01       		.byte	0x1
+ 3289 00ae 03       		.uleb128 0x3
+ 3290 00af 0E       		.uleb128 0xe
+ 3291 00b0 0B       		.uleb128 0xb
+ 3292 00b1 0B       		.uleb128 0xb
+ 3293 00b2 3A       		.uleb128 0x3a
+ 3294 00b3 0B       		.uleb128 0xb
+ 3295 00b4 3B       		.uleb128 0x3b
+ 3296 00b5 0B       		.uleb128 0xb
+ 3297 00b6 01       		.uleb128 0x1
+ 3298 00b7 13       		.uleb128 0x13
+ 3299 00b8 00       		.byte	0
+ 3300 00b9 00       		.byte	0
+ 3301 00ba 11       		.uleb128 0x11
+ 3302 00bb 0D       		.uleb128 0xd
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 59
+
+
+ 3303 00bc 00       		.byte	0
+ 3304 00bd 03       		.uleb128 0x3
+ 3305 00be 08       		.uleb128 0x8
+ 3306 00bf 3A       		.uleb128 0x3a
+ 3307 00c0 0B       		.uleb128 0xb
+ 3308 00c1 3B       		.uleb128 0x3b
+ 3309 00c2 0B       		.uleb128 0xb
+ 3310 00c3 49       		.uleb128 0x49
+ 3311 00c4 13       		.uleb128 0x13
+ 3312 00c5 38       		.uleb128 0x38
+ 3313 00c6 0B       		.uleb128 0xb
+ 3314 00c7 00       		.byte	0
+ 3315 00c8 00       		.byte	0
+ 3316 00c9 12       		.uleb128 0x12
+ 3317 00ca 13       		.uleb128 0x13
+ 3318 00cb 01       		.byte	0x1
+ 3319 00cc 03       		.uleb128 0x3
+ 3320 00cd 0E       		.uleb128 0xe
+ 3321 00ce 0B       		.uleb128 0xb
+ 3322 00cf 05       		.uleb128 0x5
+ 3323 00d0 3A       		.uleb128 0x3a
+ 3324 00d1 0B       		.uleb128 0xb
+ 3325 00d2 3B       		.uleb128 0x3b
+ 3326 00d3 0B       		.uleb128 0xb
+ 3327 00d4 01       		.uleb128 0x1
+ 3328 00d5 13       		.uleb128 0x13
+ 3329 00d6 00       		.byte	0
+ 3330 00d7 00       		.byte	0
+ 3331 00d8 13       		.uleb128 0x13
+ 3332 00d9 0D       		.uleb128 0xd
+ 3333 00da 00       		.byte	0
+ 3334 00db 03       		.uleb128 0x3
+ 3335 00dc 0E       		.uleb128 0xe
+ 3336 00dd 3A       		.uleb128 0x3a
+ 3337 00de 0B       		.uleb128 0xb
+ 3338 00df 3B       		.uleb128 0x3b
+ 3339 00e0 0B       		.uleb128 0xb
+ 3340 00e1 49       		.uleb128 0x49
+ 3341 00e2 13       		.uleb128 0x13
+ 3342 00e3 38       		.uleb128 0x38
+ 3343 00e4 05       		.uleb128 0x5
+ 3344 00e5 00       		.byte	0
+ 3345 00e6 00       		.byte	0
+ 3346 00e7 14       		.uleb128 0x14
+ 3347 00e8 15       		.uleb128 0x15
+ 3348 00e9 00       		.byte	0
+ 3349 00ea 27       		.uleb128 0x27
+ 3350 00eb 19       		.uleb128 0x19
+ 3351 00ec 00       		.byte	0
+ 3352 00ed 00       		.byte	0
+ 3353 00ee 15       		.uleb128 0x15
+ 3354 00ef 15       		.uleb128 0x15
+ 3355 00f0 01       		.byte	0x1
+ 3356 00f1 27       		.uleb128 0x27
+ 3357 00f2 19       		.uleb128 0x19
+ 3358 00f3 49       		.uleb128 0x49
+ 3359 00f4 13       		.uleb128 0x13
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 60
+
+
+ 3360 00f5 01       		.uleb128 0x1
+ 3361 00f6 13       		.uleb128 0x13
+ 3362 00f7 00       		.byte	0
+ 3363 00f8 00       		.byte	0
+ 3364 00f9 16       		.uleb128 0x16
+ 3365 00fa 05       		.uleb128 0x5
+ 3366 00fb 00       		.byte	0
+ 3367 00fc 49       		.uleb128 0x49
+ 3368 00fd 13       		.uleb128 0x13
+ 3369 00fe 00       		.byte	0
+ 3370 00ff 00       		.byte	0
+ 3371 0100 17       		.uleb128 0x17
+ 3372 0101 13       		.uleb128 0x13
+ 3373 0102 01       		.byte	0x1
+ 3374 0103 03       		.uleb128 0x3
+ 3375 0104 0E       		.uleb128 0xe
+ 3376 0105 0B       		.uleb128 0xb
+ 3377 0106 05       		.uleb128 0x5
+ 3378 0107 3A       		.uleb128 0x3a
+ 3379 0108 0B       		.uleb128 0xb
+ 3380 0109 3B       		.uleb128 0x3b
+ 3381 010a 05       		.uleb128 0x5
+ 3382 010b 01       		.uleb128 0x1
+ 3383 010c 13       		.uleb128 0x13
+ 3384 010d 00       		.byte	0
+ 3385 010e 00       		.byte	0
+ 3386 010f 18       		.uleb128 0x18
+ 3387 0110 0D       		.uleb128 0xd
+ 3388 0111 00       		.byte	0
+ 3389 0112 03       		.uleb128 0x3
+ 3390 0113 0E       		.uleb128 0xe
+ 3391 0114 3A       		.uleb128 0x3a
+ 3392 0115 0B       		.uleb128 0xb
+ 3393 0116 3B       		.uleb128 0x3b
+ 3394 0117 05       		.uleb128 0x5
+ 3395 0118 49       		.uleb128 0x49
+ 3396 0119 13       		.uleb128 0x13
+ 3397 011a 38       		.uleb128 0x38
+ 3398 011b 0B       		.uleb128 0xb
+ 3399 011c 00       		.byte	0
+ 3400 011d 00       		.byte	0
+ 3401 011e 19       		.uleb128 0x19
+ 3402 011f 0D       		.uleb128 0xd
+ 3403 0120 00       		.byte	0
+ 3404 0121 03       		.uleb128 0x3
+ 3405 0122 0E       		.uleb128 0xe
+ 3406 0123 3A       		.uleb128 0x3a
+ 3407 0124 0B       		.uleb128 0xb
+ 3408 0125 3B       		.uleb128 0x3b
+ 3409 0126 05       		.uleb128 0x5
+ 3410 0127 49       		.uleb128 0x49
+ 3411 0128 13       		.uleb128 0x13
+ 3412 0129 38       		.uleb128 0x38
+ 3413 012a 05       		.uleb128 0x5
+ 3414 012b 00       		.byte	0
+ 3415 012c 00       		.byte	0
+ 3416 012d 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 61
+
+
+ 3417 012e 13       		.uleb128 0x13
+ 3418 012f 01       		.byte	0x1
+ 3419 0130 03       		.uleb128 0x3
+ 3420 0131 0E       		.uleb128 0xe
+ 3421 0132 0B       		.uleb128 0xb
+ 3422 0133 0B       		.uleb128 0xb
+ 3423 0134 3A       		.uleb128 0x3a
+ 3424 0135 0B       		.uleb128 0xb
+ 3425 0136 3B       		.uleb128 0x3b
+ 3426 0137 05       		.uleb128 0x5
+ 3427 0138 01       		.uleb128 0x1
+ 3428 0139 13       		.uleb128 0x13
+ 3429 013a 00       		.byte	0
+ 3430 013b 00       		.byte	0
+ 3431 013c 1B       		.uleb128 0x1b
+ 3432 013d 13       		.uleb128 0x13
+ 3433 013e 01       		.byte	0x1
+ 3434 013f 0B       		.uleb128 0xb
+ 3435 0140 0B       		.uleb128 0xb
+ 3436 0141 3A       		.uleb128 0x3a
+ 3437 0142 0B       		.uleb128 0xb
+ 3438 0143 3B       		.uleb128 0x3b
+ 3439 0144 05       		.uleb128 0x5
+ 3440 0145 01       		.uleb128 0x1
+ 3441 0146 13       		.uleb128 0x13
+ 3442 0147 00       		.byte	0
+ 3443 0148 00       		.byte	0
+ 3444 0149 1C       		.uleb128 0x1c
+ 3445 014a 17       		.uleb128 0x17
+ 3446 014b 01       		.byte	0x1
+ 3447 014c 0B       		.uleb128 0xb
+ 3448 014d 0B       		.uleb128 0xb
+ 3449 014e 3A       		.uleb128 0x3a
+ 3450 014f 0B       		.uleb128 0xb
+ 3451 0150 3B       		.uleb128 0x3b
+ 3452 0151 05       		.uleb128 0x5
+ 3453 0152 01       		.uleb128 0x1
+ 3454 0153 13       		.uleb128 0x13
+ 3455 0154 00       		.byte	0
+ 3456 0155 00       		.byte	0
+ 3457 0156 1D       		.uleb128 0x1d
+ 3458 0157 0D       		.uleb128 0xd
+ 3459 0158 00       		.byte	0
+ 3460 0159 03       		.uleb128 0x3
+ 3461 015a 0E       		.uleb128 0xe
+ 3462 015b 3A       		.uleb128 0x3a
+ 3463 015c 0B       		.uleb128 0xb
+ 3464 015d 3B       		.uleb128 0x3b
+ 3465 015e 05       		.uleb128 0x5
+ 3466 015f 49       		.uleb128 0x49
+ 3467 0160 13       		.uleb128 0x13
+ 3468 0161 00       		.byte	0
+ 3469 0162 00       		.byte	0
+ 3470 0163 1E       		.uleb128 0x1e
+ 3471 0164 15       		.uleb128 0x15
+ 3472 0165 01       		.byte	0x1
+ 3473 0166 27       		.uleb128 0x27
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 62
+
+
+ 3474 0167 19       		.uleb128 0x19
+ 3475 0168 01       		.uleb128 0x1
+ 3476 0169 13       		.uleb128 0x13
+ 3477 016a 00       		.byte	0
+ 3478 016b 00       		.byte	0
+ 3479 016c 1F       		.uleb128 0x1f
+ 3480 016d 34       		.uleb128 0x34
+ 3481 016e 00       		.byte	0
+ 3482 016f 03       		.uleb128 0x3
+ 3483 0170 0E       		.uleb128 0xe
+ 3484 0171 3A       		.uleb128 0x3a
+ 3485 0172 0B       		.uleb128 0xb
+ 3486 0173 3B       		.uleb128 0x3b
+ 3487 0174 05       		.uleb128 0x5
+ 3488 0175 49       		.uleb128 0x49
+ 3489 0176 13       		.uleb128 0x13
+ 3490 0177 3F       		.uleb128 0x3f
+ 3491 0178 19       		.uleb128 0x19
+ 3492 0179 3C       		.uleb128 0x3c
+ 3493 017a 19       		.uleb128 0x19
+ 3494 017b 00       		.byte	0
+ 3495 017c 00       		.byte	0
+ 3496 017d 20       		.uleb128 0x20
+ 3497 017e 26       		.uleb128 0x26
+ 3498 017f 00       		.byte	0
+ 3499 0180 00       		.byte	0
+ 3500 0181 00       		.byte	0
+ 3501 0182 21       		.uleb128 0x21
+ 3502 0183 34       		.uleb128 0x34
+ 3503 0184 00       		.byte	0
+ 3504 0185 03       		.uleb128 0x3
+ 3505 0186 0E       		.uleb128 0xe
+ 3506 0187 3A       		.uleb128 0x3a
+ 3507 0188 0B       		.uleb128 0xb
+ 3508 0189 3B       		.uleb128 0x3b
+ 3509 018a 0B       		.uleb128 0xb
+ 3510 018b 49       		.uleb128 0x49
+ 3511 018c 13       		.uleb128 0x13
+ 3512 018d 3F       		.uleb128 0x3f
+ 3513 018e 19       		.uleb128 0x19
+ 3514 018f 3C       		.uleb128 0x3c
+ 3515 0190 19       		.uleb128 0x19
+ 3516 0191 00       		.byte	0
+ 3517 0192 00       		.byte	0
+ 3518 0193 22       		.uleb128 0x22
+ 3519 0194 04       		.uleb128 0x4
+ 3520 0195 01       		.byte	0x1
+ 3521 0196 3E       		.uleb128 0x3e
+ 3522 0197 0B       		.uleb128 0xb
+ 3523 0198 0B       		.uleb128 0xb
+ 3524 0199 0B       		.uleb128 0xb
+ 3525 019a 49       		.uleb128 0x49
+ 3526 019b 13       		.uleb128 0x13
+ 3527 019c 3A       		.uleb128 0x3a
+ 3528 019d 0B       		.uleb128 0xb
+ 3529 019e 3B       		.uleb128 0x3b
+ 3530 019f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 63
+
+
+ 3531 01a0 01       		.uleb128 0x1
+ 3532 01a1 13       		.uleb128 0x13
+ 3533 01a2 00       		.byte	0
+ 3534 01a3 00       		.byte	0
+ 3535 01a4 23       		.uleb128 0x23
+ 3536 01a5 28       		.uleb128 0x28
+ 3537 01a6 00       		.byte	0
+ 3538 01a7 03       		.uleb128 0x3
+ 3539 01a8 0E       		.uleb128 0xe
+ 3540 01a9 1C       		.uleb128 0x1c
+ 3541 01aa 0B       		.uleb128 0xb
+ 3542 01ab 00       		.byte	0
+ 3543 01ac 00       		.byte	0
+ 3544 01ad 24       		.uleb128 0x24
+ 3545 01ae 21       		.uleb128 0x21
+ 3546 01af 00       		.byte	0
+ 3547 01b0 49       		.uleb128 0x49
+ 3548 01b1 13       		.uleb128 0x13
+ 3549 01b2 00       		.byte	0
+ 3550 01b3 00       		.byte	0
+ 3551 01b4 25       		.uleb128 0x25
+ 3552 01b5 28       		.uleb128 0x28
+ 3553 01b6 00       		.byte	0
+ 3554 01b7 03       		.uleb128 0x3
+ 3555 01b8 0E       		.uleb128 0xe
+ 3556 01b9 1C       		.uleb128 0x1c
+ 3557 01ba 05       		.uleb128 0x5
+ 3558 01bb 00       		.byte	0
+ 3559 01bc 00       		.byte	0
+ 3560 01bd 26       		.uleb128 0x26
+ 3561 01be 21       		.uleb128 0x21
+ 3562 01bf 00       		.byte	0
+ 3563 01c0 49       		.uleb128 0x49
+ 3564 01c1 13       		.uleb128 0x13
+ 3565 01c2 2F       		.uleb128 0x2f
+ 3566 01c3 05       		.uleb128 0x5
+ 3567 01c4 00       		.byte	0
+ 3568 01c5 00       		.byte	0
+ 3569 01c6 27       		.uleb128 0x27
+ 3570 01c7 34       		.uleb128 0x34
+ 3571 01c8 00       		.byte	0
+ 3572 01c9 03       		.uleb128 0x3
+ 3573 01ca 0E       		.uleb128 0xe
+ 3574 01cb 3A       		.uleb128 0x3a
+ 3575 01cc 0B       		.uleb128 0xb
+ 3576 01cd 3B       		.uleb128 0x3b
+ 3577 01ce 0B       		.uleb128 0xb
+ 3578 01cf 49       		.uleb128 0x49
+ 3579 01d0 13       		.uleb128 0x13
+ 3580 01d1 02       		.uleb128 0x2
+ 3581 01d2 18       		.uleb128 0x18
+ 3582 01d3 00       		.byte	0
+ 3583 01d4 00       		.byte	0
+ 3584 01d5 28       		.uleb128 0x28
+ 3585 01d6 2E       		.uleb128 0x2e
+ 3586 01d7 01       		.byte	0x1
+ 3587 01d8 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 64
+
+
+ 3588 01d9 19       		.uleb128 0x19
+ 3589 01da 03       		.uleb128 0x3
+ 3590 01db 0E       		.uleb128 0xe
+ 3591 01dc 3A       		.uleb128 0x3a
+ 3592 01dd 0B       		.uleb128 0xb
+ 3593 01de 3B       		.uleb128 0x3b
+ 3594 01df 0B       		.uleb128 0xb
+ 3595 01e0 27       		.uleb128 0x27
+ 3596 01e1 19       		.uleb128 0x19
+ 3597 01e2 11       		.uleb128 0x11
+ 3598 01e3 01       		.uleb128 0x1
+ 3599 01e4 12       		.uleb128 0x12
+ 3600 01e5 06       		.uleb128 0x6
+ 3601 01e6 40       		.uleb128 0x40
+ 3602 01e7 18       		.uleb128 0x18
+ 3603 01e8 9642     		.uleb128 0x2116
+ 3604 01ea 19       		.uleb128 0x19
+ 3605 01eb 01       		.uleb128 0x1
+ 3606 01ec 13       		.uleb128 0x13
+ 3607 01ed 00       		.byte	0
+ 3608 01ee 00       		.byte	0
+ 3609 01ef 29       		.uleb128 0x29
+ 3610 01f0 05       		.uleb128 0x5
+ 3611 01f1 00       		.byte	0
+ 3612 01f2 03       		.uleb128 0x3
+ 3613 01f3 08       		.uleb128 0x8
+ 3614 01f4 3A       		.uleb128 0x3a
+ 3615 01f5 0B       		.uleb128 0xb
+ 3616 01f6 3B       		.uleb128 0x3b
+ 3617 01f7 0B       		.uleb128 0xb
+ 3618 01f8 49       		.uleb128 0x49
+ 3619 01f9 13       		.uleb128 0x13
+ 3620 01fa 02       		.uleb128 0x2
+ 3621 01fb 18       		.uleb128 0x18
+ 3622 01fc 00       		.byte	0
+ 3623 01fd 00       		.byte	0
+ 3624 01fe 2A       		.uleb128 0x2a
+ 3625 01ff 0B       		.uleb128 0xb
+ 3626 0200 01       		.byte	0x1
+ 3627 0201 55       		.uleb128 0x55
+ 3628 0202 17       		.uleb128 0x17
+ 3629 0203 00       		.byte	0
+ 3630 0204 00       		.byte	0
+ 3631 0205 2B       		.uleb128 0x2b
+ 3632 0206 0B       		.uleb128 0xb
+ 3633 0207 01       		.byte	0x1
+ 3634 0208 11       		.uleb128 0x11
+ 3635 0209 01       		.uleb128 0x1
+ 3636 020a 12       		.uleb128 0x12
+ 3637 020b 06       		.uleb128 0x6
+ 3638 020c 00       		.byte	0
+ 3639 020d 00       		.byte	0
+ 3640 020e 2C       		.uleb128 0x2c
+ 3641 020f 34       		.uleb128 0x34
+ 3642 0210 00       		.byte	0
+ 3643 0211 03       		.uleb128 0x3
+ 3644 0212 08       		.uleb128 0x8
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 65
+
+
+ 3645 0213 3A       		.uleb128 0x3a
+ 3646 0214 0B       		.uleb128 0xb
+ 3647 0215 3B       		.uleb128 0x3b
+ 3648 0216 0B       		.uleb128 0xb
+ 3649 0217 49       		.uleb128 0x49
+ 3650 0218 13       		.uleb128 0x13
+ 3651 0219 02       		.uleb128 0x2
+ 3652 021a 18       		.uleb128 0x18
+ 3653 021b 00       		.byte	0
+ 3654 021c 00       		.byte	0
+ 3655 021d 2D       		.uleb128 0x2d
+ 3656 021e 05       		.uleb128 0x5
+ 3657 021f 00       		.byte	0
+ 3658 0220 03       		.uleb128 0x3
+ 3659 0221 0E       		.uleb128 0xe
+ 3660 0222 3A       		.uleb128 0x3a
+ 3661 0223 0B       		.uleb128 0xb
+ 3662 0224 3B       		.uleb128 0x3b
+ 3663 0225 0B       		.uleb128 0xb
+ 3664 0226 49       		.uleb128 0x49
+ 3665 0227 13       		.uleb128 0x13
+ 3666 0228 02       		.uleb128 0x2
+ 3667 0229 18       		.uleb128 0x18
+ 3668 022a 00       		.byte	0
+ 3669 022b 00       		.byte	0
+ 3670 022c 2E       		.uleb128 0x2e
+ 3671 022d 2E       		.uleb128 0x2e
+ 3672 022e 01       		.byte	0x1
+ 3673 022f 03       		.uleb128 0x3
+ 3674 0230 0E       		.uleb128 0xe
+ 3675 0231 3A       		.uleb128 0x3a
+ 3676 0232 0B       		.uleb128 0xb
+ 3677 0233 3B       		.uleb128 0x3b
+ 3678 0234 0B       		.uleb128 0xb
+ 3679 0235 27       		.uleb128 0x27
+ 3680 0236 19       		.uleb128 0x19
+ 3681 0237 11       		.uleb128 0x11
+ 3682 0238 01       		.uleb128 0x1
+ 3683 0239 12       		.uleb128 0x12
+ 3684 023a 06       		.uleb128 0x6
+ 3685 023b 40       		.uleb128 0x40
+ 3686 023c 18       		.uleb128 0x18
+ 3687 023d 9642     		.uleb128 0x2116
+ 3688 023f 19       		.uleb128 0x19
+ 3689 0240 01       		.uleb128 0x1
+ 3690 0241 13       		.uleb128 0x13
+ 3691 0242 00       		.byte	0
+ 3692 0243 00       		.byte	0
+ 3693 0244 00       		.byte	0
+ 3694              		.section	.debug_aranges,"",%progbits
+ 3695 0000 5C000000 		.4byte	0x5c
+ 3696 0004 0200     		.2byte	0x2
+ 3697 0006 00000000 		.4byte	.Ldebug_info0
+ 3698 000a 04       		.byte	0x4
+ 3699 000b 00       		.byte	0
+ 3700 000c 0000     		.2byte	0
+ 3701 000e 0000     		.2byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 66
+
+
+ 3702 0010 00000000 		.4byte	.LFB1
+ 3703 0014 68000000 		.4byte	.LFE1-.LFB1
+ 3704 0018 00000000 		.4byte	.LFB2
+ 3705 001c 38000000 		.4byte	.LFE2-.LFB2
+ 3706 0020 00000000 		.4byte	.LFB3
+ 3707 0024 40000000 		.4byte	.LFE3-.LFB3
+ 3708 0028 00000000 		.4byte	.LFB4
+ 3709 002c 40000000 		.4byte	.LFE4-.LFB4
+ 3710 0030 00000000 		.4byte	.LFB5
+ 3711 0034 58000000 		.4byte	.LFE5-.LFB5
+ 3712 0038 00000000 		.4byte	.LFB6
+ 3713 003c 8C000000 		.4byte	.LFE6-.LFB6
+ 3714 0040 00000000 		.4byte	.LFB7
+ 3715 0044 A0000000 		.4byte	.LFE7-.LFB7
+ 3716 0048 00000000 		.4byte	.LFB8
+ 3717 004c F0020000 		.4byte	.LFE8-.LFB8
+ 3718 0050 00000000 		.4byte	.LFB9
+ 3719 0054 24010000 		.4byte	.LFE9-.LFB9
+ 3720 0058 00000000 		.4byte	0
+ 3721 005c 00000000 		.4byte	0
+ 3722              		.section	.debug_ranges,"",%progbits
+ 3723              	.Ldebug_ranges0:
+ 3724 0000 32000000 		.4byte	.LBB3
+ 3725 0004 F0000000 		.4byte	.LBE3
+ 3726 0008 F2000000 		.4byte	.LBB5
+ 3727 000c 02010000 		.4byte	.LBE5
+ 3728 0010 00000000 		.4byte	0
+ 3729 0014 00000000 		.4byte	0
+ 3730 0018 00000000 		.4byte	.LFB1
+ 3731 001c 68000000 		.4byte	.LFE1
+ 3732 0020 00000000 		.4byte	.LFB2
+ 3733 0024 38000000 		.4byte	.LFE2
+ 3734 0028 00000000 		.4byte	.LFB3
+ 3735 002c 40000000 		.4byte	.LFE3
+ 3736 0030 00000000 		.4byte	.LFB4
+ 3737 0034 40000000 		.4byte	.LFE4
+ 3738 0038 00000000 		.4byte	.LFB5
+ 3739 003c 58000000 		.4byte	.LFE5
+ 3740 0040 00000000 		.4byte	.LFB6
+ 3741 0044 8C000000 		.4byte	.LFE6
+ 3742 0048 00000000 		.4byte	.LFB7
+ 3743 004c A0000000 		.4byte	.LFE7
+ 3744 0050 00000000 		.4byte	.LFB8
+ 3745 0054 F0020000 		.4byte	.LFE8
+ 3746 0058 00000000 		.4byte	.LFB9
+ 3747 005c 24010000 		.4byte	.LFE9
+ 3748 0060 00000000 		.4byte	0
+ 3749 0064 00000000 		.4byte	0
+ 3750              		.section	.debug_line,"",%progbits
+ 3751              	.Ldebug_line0:
+ 3752 0000 9B040000 		.section	.debug_str,"MS",%progbits,1
+ 3752      0200C502 
+ 3752      00000201 
+ 3752      FB0E0D00 
+ 3752      01010101 
+ 3753              	.LASF39:
+ 3754 0000 5F64736F 		.ascii	"_dso_handle\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 67
+
+
+ 3754      5F68616E 
+ 3754      646C6500 
+ 3755              	.LASF126:
+ 3756 000c 62797465 		.ascii	"bytecodeSize\000"
+ 3756      636F6465 
+ 3756      53697A65 
+ 3756      00
+ 3757              	.LASF123:
+ 3758 0019 75696E74 		.ascii	"uint16\000"
+ 3758      313600
+ 3759              	.LASF188:
+ 3760 0020 41534542 		.ascii	"ASEBA_MESSAGE_BREAKPOINT_SET_RESULT\000"
+ 3760      415F4D45 
+ 3760      53534147 
+ 3760      455F4252 
+ 3760      45414B50 
+ 3761              	.LASF233:
+ 3762 0044 76616C75 		.ascii	"value\000"
+ 3762      6500
+ 3763              	.LASF173:
+ 3764 004a 41534542 		.ascii	"ASEBA_MESSAGE_BOOTLOADER_PAGE_DATA_WRITE\000"
+ 3764      415F4D45 
+ 3764      53534147 
+ 3764      455F424F 
+ 3764      4F544C4F 
+ 3765              	.LASF47:
+ 3766 0073 5F73697A 		.ascii	"_size\000"
+ 3766      6500
+ 3767              	.LASF141:
+ 3768 0079 41736562 		.ascii	"AsebaNativeFunctionArgumentDescription\000"
+ 3768      614E6174 
+ 3768      69766546 
+ 3768      756E6374 
+ 3768      696F6E41 
+ 3769              	.LASF129:
+ 3770 00a0 76617269 		.ascii	"variables\000"
+ 3770      61626C65 
+ 3770      7300
+ 3771              	.LASF222:
+ 3772 00aa 766D4465 		.ascii	"vmDescription\000"
+ 3772      73637269 
+ 3772      7074696F 
+ 3772      6E00
+ 3773              	.LASF91:
+ 3774 00b8 5F72616E 		.ascii	"_rand48\000"
+ 3774      64343800 
+ 3775              	.LASF71:
+ 3776 00c0 5F656D65 		.ascii	"_emergency\000"
+ 3776      7267656E 
+ 3776      637900
+ 3777              	.LASF229:
+ 3778 00cb 41736562 		.ascii	"AsebaSendMessage\000"
+ 3778      6153656E 
+ 3778      644D6573 
+ 3778      73616765 
+ 3778      00
+ 3779              	.LASF155:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 68
+
+
+ 3780 00dc 41736562 		.ascii	"AsebaNativeDescription_vecstat\000"
+ 3780      614E6174 
+ 3780      69766544 
+ 3780      65736372 
+ 3780      69707469 
+ 3781              	.LASF61:
+ 3782 00fb 5F646174 		.ascii	"_data\000"
+ 3782      6100
+ 3783              	.LASF168:
+ 3784 0101 41534542 		.ascii	"ASEBA_VM_STEP_BY_STEP_MASK\000"
+ 3784      415F564D 
+ 3784      5F535445 
+ 3784      505F4259 
+ 3784      5F535445 
+ 3785              	.LASF111:
+ 3786 011c 5F776372 		.ascii	"_wcrtomb_state\000"
+ 3786      746F6D62 
+ 3786      5F737461 
+ 3786      746500
+ 3787              	.LASF186:
+ 3788 012b 41534542 		.ascii	"ASEBA_MESSAGE_NODE_SPECIFIC_ERROR\000"
+ 3788      415F4D45 
+ 3788      53534147 
+ 3788      455F4E4F 
+ 3788      44455F53 
+ 3789              	.LASF112:
+ 3790 014d 5F776373 		.ascii	"_wcsrtombs_state\000"
+ 3790      72746F6D 
+ 3790      62735F73 
+ 3790      74617465 
+ 3790      00
+ 3791              	.LASF128:
+ 3792 015e 76617269 		.ascii	"variablesSize\000"
+ 3792      61626C65 
+ 3792      7353697A 
+ 3792      6500
+ 3793              	.LASF9:
+ 3794 016c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3794      206C6F6E 
+ 3794      6720756E 
+ 3794      7369676E 
+ 3794      65642069 
+ 3795              	.LASF51:
+ 3796 0183 5F6C6266 		.ascii	"_lbfsize\000"
+ 3796      73697A65 
+ 3796      00
+ 3797              	.LASF230:
+ 3798 018c 64617461 		.ascii	"data\000"
+ 3798      00
+ 3799              	.LASF118:
+ 3800 0191 5F5F6C6F 		.ascii	"__locale_t\000"
+ 3800      63616C65 
+ 3800      5F7400
+ 3801              	.LASF164:
+ 3802 019c 41736562 		.ascii	"AsebaNativeDescription_vecnonzerosequence\000"
+ 3802      614E6174 
+ 3802      69766544 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 69
+
+
+ 3802      65736372 
+ 3802      69707469 
+ 3803              	.LASF187:
+ 3804 01c6 41534542 		.ascii	"ASEBA_MESSAGE_EXECUTION_STATE_CHANGED\000"
+ 3804      415F4D45 
+ 3804      53534147 
+ 3804      455F4558 
+ 3804      45435554 
+ 3805              	.LASF109:
+ 3806 01ec 5F6D6272 		.ascii	"_mbrtowc_state\000"
+ 3806      746F7763 
+ 3806      5F737461 
+ 3806      746500
+ 3807              	.LASF161:
+ 3808 01fb 41736562 		.ascii	"AsebaNativeDescription_mathcos\000"
+ 3808      614E6174 
+ 3808      69766544 
+ 3808      65736372 
+ 3808      69707469 
+ 3809              	.LASF219:
+ 3810 021a 61726773 		.ascii	"argsSize\000"
+ 3810      53697A65 
+ 3810      00
+ 3811              	.LASF28:
+ 3812 0223 5F5F746D 		.ascii	"__tm_sec\000"
+ 3812      5F736563 
+ 3812      00
+ 3813              	.LASF146:
+ 3814 022c 41736562 		.ascii	"AsebaNativeDescription_vecaddscalar\000"
+ 3814      614E6174 
+ 3814      69766544 
+ 3814      65736372 
+ 3814      69707469 
+ 3815              	.LASF1:
+ 3816 0250 6C6F6E67 		.ascii	"long long int\000"
+ 3816      206C6F6E 
+ 3816      6720696E 
+ 3816      7400
+ 3817              	.LASF3:
+ 3818 025e 7369676E 		.ascii	"signed char\000"
+ 3818      65642063 
+ 3818      68617200 
+ 3819              	.LASF158:
+ 3820 026a 41736562 		.ascii	"AsebaNativeDescription_mathmuldiv\000"
+ 3820      614E6174 
+ 3820      69766544 
+ 3820      65736372 
+ 3820      69707469 
+ 3821              	.LASF57:
+ 3822 028c 5F756275 		.ascii	"_ubuf\000"
+ 3822      6600
+ 3823              	.LASF46:
+ 3824 0292 5F626173 		.ascii	"_base\000"
+ 3824      6500
+ 3825              	.LASF30:
+ 3826 0298 5F5F746D 		.ascii	"__tm_hour\000"
+ 3826      5F686F75 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 70
+
+
+ 3826      7200
+ 3827              	.LASF86:
+ 3828 02a2 5F5F7366 		.ascii	"__sf\000"
+ 3828      00
+ 3829              	.LASF37:
+ 3830 02a7 5F6F6E5F 		.ascii	"_on_exit_args\000"
+ 3830      65786974 
+ 3830      5F617267 
+ 3830      7300
+ 3831              	.LASF190:
+ 3832 02b5 41534542 		.ascii	"ASEBA_MESSAGE_GET_DESCRIPTION\000"
+ 3832      415F4D45 
+ 3832      53534147 
+ 3832      455F4745 
+ 3832      545F4445 
+ 3833              	.LASF52:
+ 3834 02d3 5F636F6F 		.ascii	"_cookie\000"
+ 3834      6B696500 
+ 3835              	.LASF166:
+ 3836 02db 41534542 		.ascii	"ASEBA_MAX_BREAKPOINTS\000"
+ 3836      415F4D41 
+ 3836      585F4252 
+ 3836      45414B50 
+ 3836      4F494E54 
+ 3837              	.LASF85:
+ 3838 02f1 5F5F7367 		.ascii	"__sglue\000"
+ 3838      6C756500 
+ 3839              	.LASF234:
+ 3840 02f9 74656D70 		.ascii	"temp\000"
+ 3840      00
+ 3841              	.LASF7:
+ 3842 02fe 6C6F6E67 		.ascii	"long int\000"
+ 3842      20696E74 
+ 3842      00
+ 3843              	.LASF238:
+ 3844 0307 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 3844      43313120 
+ 3844      372E322E 
+ 3844      31203230 
+ 3844      31373039 
+ 3845 033a 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
+ 3845      20726576 
+ 3845      6973696F 
+ 3845      6E203235 
+ 3845      35323034 
+ 3846 036d 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 3846      2D6D6670 
+ 3846      753D6670 
+ 3846      76342D73 
+ 3846      702D6431 
+ 3847 03a0 2D676764 		.ascii	"-ggdb -O0 -fomit-frame-pointer -falign-functions=16"
+ 3847      62202D4F 
+ 3847      30202D66 
+ 3847      6F6D6974 
+ 3847      2D667261 
+ 3848 03d3 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
+ 3848      6F2D7374 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 71
+
+
+ 3848      72696374 
+ 3848      2D616C69 
+ 3848      6173696E 
+ 3849 0406 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
+ 3849      73656374 
+ 3849      696F6E73 
+ 3849      202D6664 
+ 3849      6174612D 
+ 3850 0439 72656369 		.ascii	"recision-constant\000"
+ 3850      73696F6E 
+ 3850      2D636F6E 
+ 3850      7374616E 
+ 3850      7400
+ 3851              	.LASF49:
+ 3852 044b 5F666C61 		.ascii	"_flags\000"
+ 3852      677300
+ 3853              	.LASF41:
+ 3854 0452 5F69735F 		.ascii	"_is_cxa\000"
+ 3854      63786100 
+ 3855              	.LASF67:
+ 3856 045a 5F737464 		.ascii	"_stdin\000"
+ 3856      696E00
+ 3857              	.LASF59:
+ 3858 0461 5F626C6B 		.ascii	"_blksize\000"
+ 3858      73697A65 
+ 3858      00
+ 3859              	.LASF124:
+ 3860 046a 75696E74 		.ascii	"uint8\000"
+ 3860      3800
+ 3861              	.LASF167:
+ 3862 0470 41534542 		.ascii	"ASEBA_VM_EVENT_ACTIVE_MASK\000"
+ 3862      415F564D 
+ 3862      5F455645 
+ 3862      4E545F41 
+ 3862      43544956 
+ 3863              	.LASF154:
+ 3864 048b 41736562 		.ascii	"AsebaNativeDescription_vecdot\000"
+ 3864      614E6174 
+ 3864      69766544 
+ 3864      65736372 
+ 3864      69707469 
+ 3865              	.LASF153:
+ 3866 04a9 41736562 		.ascii	"AsebaNativeDescription_vecclamp\000"
+ 3866      614E6174 
+ 3866      69766544 
+ 3866      65736372 
+ 3866      69707469 
+ 3867              	.LASF81:
+ 3868 04c9 5F637674 		.ascii	"_cvtbuf\000"
+ 3868      62756600 
+ 3869              	.LASF60:
+ 3870 04d1 5F6F6666 		.ascii	"_offset\000"
+ 3870      73657400 
+ 3871              	.LASF177:
+ 3872 04d9 41534542 		.ascii	"ASEBA_MESSAGE_DESCRIPTION\000"
+ 3872      415F4D45 
+ 3872      53534147 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 72
+
+
+ 3872      455F4445 
+ 3872      53435249 
+ 3873              	.LASF223:
+ 3874 04f3 6E616D65 		.ascii	"namedVariables\000"
+ 3874      64566172 
+ 3874      6961626C 
+ 3874      657300
+ 3875              	.LASF110:
+ 3876 0502 5F6D6273 		.ascii	"_mbsrtowcs_state\000"
+ 3876      72746F77 
+ 3876      63735F73 
+ 3876      74617465 
+ 3876      00
+ 3877              	.LASF108:
+ 3878 0513 5F6D6272 		.ascii	"_mbrlen_state\000"
+ 3878      6C656E5F 
+ 3878      73746174 
+ 3878      6500
+ 3879              	.LASF38:
+ 3880 0521 5F666E61 		.ascii	"_fnargs\000"
+ 3880      72677300 
+ 3881              	.LASF226:
+ 3882 0529 41736562 		.ascii	"AsebaSendVariables\000"
+ 3882      6153656E 
+ 3882      64566172 
+ 3882      6961626C 
+ 3882      657300
+ 3883              	.LASF133:
+ 3884 053c 62726561 		.ascii	"breakpoints\000"
+ 3884      6B706F69 
+ 3884      6E747300 
+ 3885              	.LASF148:
+ 3886 0548 41736562 		.ascii	"AsebaNativeDescription_vecsub\000"
+ 3886      614E6174 
+ 3886      69766544 
+ 3886      65736372 
+ 3886      69707469 
+ 3887              	.LASF44:
+ 3888 0566 5F666E73 		.ascii	"_fns\000"
+ 3888      00
+ 3889              	.LASF181:
+ 3890 056b 41534542 		.ascii	"ASEBA_MESSAGE_DISCONNECTED\000"
+ 3890      415F4D45 
+ 3890      53534147 
+ 3890      455F4449 
+ 3890      53434F4E 
+ 3891              	.LASF24:
+ 3892 0586 5F736967 		.ascii	"_sign\000"
+ 3892      6E00
+ 3893              	.LASF147:
+ 3894 058c 41736562 		.ascii	"AsebaNativeDescription_vecadd\000"
+ 3894      614E6174 
+ 3894      69766544 
+ 3894      65736372 
+ 3894      69707469 
+ 3895              	.LASF19:
+ 3896 05aa 5F666C6F 		.ascii	"_flock_t\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 73
+
+
+ 3896      636B5F74 
+ 3896      00
+ 3897              	.LASF69:
+ 3898 05b3 5F737464 		.ascii	"_stderr\000"
+ 3898      65727200 
+ 3899              	.LASF26:
+ 3900 05bb 5F426967 		.ascii	"_Bigint\000"
+ 3900      696E7400 
+ 3901              	.LASF99:
+ 3902 05c3 5F67616D 		.ascii	"_gamma_signgam\000"
+ 3902      6D615F73 
+ 3902      69676E67 
+ 3902      616D00
+ 3903              	.LASF53:
+ 3904 05d2 5F726561 		.ascii	"_read\000"
+ 3904      6400
+ 3905              	.LASF77:
+ 3906 05d8 5F726573 		.ascii	"_result_k\000"
+ 3906      756C745F 
+ 3906      6B00
+ 3907              	.LASF27:
+ 3908 05e2 5F5F746D 		.ascii	"__tm\000"
+ 3908      00
+ 3909              	.LASF165:
+ 3910 05e7 41736562 		.ascii	"AsebaNativeDescription_rand\000"
+ 3910      614E6174 
+ 3910      69766544 
+ 3910      65736372 
+ 3910      69707469 
+ 3911              	.LASF172:
+ 3912 0603 41534542 		.ascii	"ASEBA_MESSAGE_BOOTLOADER_WRITE_PAGE\000"
+ 3912      415F4D45 
+ 3912      53534147 
+ 3912      455F424F 
+ 3912      4F544C4F 
+ 3913              	.LASF0:
+ 3914 0627 756E7369 		.ascii	"unsigned int\000"
+ 3914      676E6564 
+ 3914      20696E74 
+ 3914      00
+ 3915              	.LASF15:
+ 3916 0634 5F5F7763 		.ascii	"__wchb\000"
+ 3916      686200
+ 3917              	.LASF224:
+ 3918 063b 6E617469 		.ascii	"nativeFunctionsDescription\000"
+ 3918      76654675 
+ 3918      6E637469 
+ 3918      6F6E7344 
+ 3918      65736372 
+ 3919              	.LASF175:
+ 3920 0656 41534542 		.ascii	"ASEBA_MESSAGE_BOOTLOADER_PAGE_DATA_READ\000"
+ 3920      415F4D45 
+ 3920      53534147 
+ 3920      455F424F 
+ 3920      4F544C4F 
+ 3921              	.LASF68:
+ 3922 067e 5F737464 		.ascii	"_stdout\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 74
+
+
+ 3922      6F757400 
+ 3923              	.LASF80:
+ 3924 0686 5F637674 		.ascii	"_cvtlen\000"
+ 3924      6C656E00 
+ 3925              	.LASF8:
+ 3926 068e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3926      20756E73 
+ 3926      69676E65 
+ 3926      6420696E 
+ 3926      7400
+ 3927              	.LASF189:
+ 3928 06a0 41534542 		.ascii	"ASEBA_MESSAGE_NODE_PRESENT\000"
+ 3928      415F4D45 
+ 3928      53534147 
+ 3928      455F4E4F 
+ 3928      44455F50 
+ 3929              	.LASF50:
+ 3930 06bb 5F66696C 		.ascii	"_file\000"
+ 3930      6500
+ 3931              	.LASF163:
+ 3932 06c1 41736562 		.ascii	"AsebaNativeDescription_mathsqrt\000"
+ 3932      614E6174 
+ 3932      69766544 
+ 3932      65736372 
+ 3932      69707469 
+ 3933              	.LASF137:
+ 3934 06e1 6E616D65 		.ascii	"name\000"
+ 3934      00
+ 3935              	.LASF184:
+ 3936 06e6 41534542 		.ascii	"ASEBA_MESSAGE_DIVISION_BY_ZERO\000"
+ 3936      415F4D45 
+ 3936      53534147 
+ 3936      455F4449 
+ 3936      56495349 
+ 3937              	.LASF149:
+ 3938 0705 41736562 		.ascii	"AsebaNativeDescription_vecmul\000"
+ 3938      614E6174 
+ 3938      69766544 
+ 3938      65736372 
+ 3938      69707469 
+ 3939              	.LASF89:
+ 3940 0723 5F6E696F 		.ascii	"_niobs\000"
+ 3940      627300
+ 3941              	.LASF125:
+ 3942 072a 6E6F6465 		.ascii	"nodeId\000"
+ 3942      496400
+ 3943              	.LASF136:
+ 3944 0731 73697A65 		.ascii	"size\000"
+ 3944      00
+ 3945              	.LASF6:
+ 3946 0736 73686F72 		.ascii	"short unsigned int\000"
+ 3946      7420756E 
+ 3946      7369676E 
+ 3946      65642069 
+ 3946      6E7400
+ 3947              	.LASF142:
+ 3948 0749 61726775 		.ascii	"arguments\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 75
+
+
+ 3948      6D656E74 
+ 3948      7300
+ 3949              	.LASF83:
+ 3950 0753 5F617465 		.ascii	"_atexit0\000"
+ 3950      78697430 
+ 3950      00
+ 3951              	.LASF106:
+ 3952 075c 5F736967 		.ascii	"_signal_buf\000"
+ 3952      6E616C5F 
+ 3952      62756600 
+ 3953              	.LASF97:
+ 3954 0768 5F617363 		.ascii	"_asctime_buf\000"
+ 3954      74696D65 
+ 3954      5F627566 
+ 3954      00
+ 3955              	.LASF215:
+ 3956 0775 74797065 		.ascii	"type\000"
+ 3956      00
+ 3957              	.LASF170:
+ 3958 077a 41534542 		.ascii	"ASEBA_MESSAGE_BOOTLOADER_RESET\000"
+ 3958      415F4D45 
+ 3958      53534147 
+ 3958      455F424F 
+ 3958      4F544C4F 
+ 3959              	.LASF76:
+ 3960 0799 5F726573 		.ascii	"_result\000"
+ 3960      756C7400 
+ 3961              	.LASF14:
+ 3962 07a1 5F5F7763 		.ascii	"__wch\000"
+ 3962      6800
+ 3963              	.LASF10:
+ 3964 07a7 5F4C4F43 		.ascii	"_LOCK_T\000"
+ 3964      4B5F5400 
+ 3965              	.LASF13:
+ 3966 07af 77696E74 		.ascii	"wint_t\000"
+ 3966      5F7400
+ 3967              	.LASF200:
+ 3968 07b6 41534542 		.ascii	"ASEBA_MESSAGE_BREAKPOINT_CLEAR_ALL\000"
+ 3968      415F4D45 
+ 3968      53534147 
+ 3968      455F4252 
+ 3968      45414B50 
+ 3969              	.LASF202:
+ 3970 07d9 41534542 		.ascii	"ASEBA_MESSAGE_SET_VARIABLES\000"
+ 3970      415F4D45 
+ 3970      53534147 
+ 3970      455F5345 
+ 3970      545F5641 
+ 3971              	.LASF62:
+ 3972 07f5 5F6C6F63 		.ascii	"_lock\000"
+ 3972      6B00
+ 3973              	.LASF160:
+ 3974 07fb 41736562 		.ascii	"AsebaNativeDescription_mathsin\000"
+ 3974      614E6174 
+ 3974      69766544 
+ 3974      65736372 
+ 3974      69707469 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 76
+
+
+ 3975              	.LASF150:
+ 3976 081a 41736562 		.ascii	"AsebaNativeDescription_vecdiv\000"
+ 3976      614E6174 
+ 3976      69766544 
+ 3976      65736372 
+ 3976      69707469 
+ 3977              	.LASF64:
+ 3978 0838 5F666C61 		.ascii	"_flags2\000"
+ 3978      67733200 
+ 3979              	.LASF182:
+ 3980 0840 41534542 		.ascii	"ASEBA_MESSAGE_VARIABLES\000"
+ 3980      415F4D45 
+ 3980      53534147 
+ 3980      455F5641 
+ 3980      52494142 
+ 3981              	.LASF127:
+ 3982 0858 62797465 		.ascii	"bytecode\000"
+ 3982      636F6465 
+ 3982      00
+ 3983              	.LASF208:
+ 3984 0861 41534542 		.ascii	"ASEBA_MESSAGE_INVALID\000"
+ 3984      415F4D45 
+ 3984      53534147 
+ 3984      455F494E 
+ 3984      56414C49 
+ 3985              	.LASF122:
+ 3986 0877 73696E74 		.ascii	"sint16\000"
+ 3986      313600
+ 3987              	.LASF159:
+ 3988 087e 41736562 		.ascii	"AsebaNativeDescription_mathatan2\000"
+ 3988      614E6174 
+ 3988      69766544 
+ 3988      65736372 
+ 3988      69707469 
+ 3989              	.LASF236:
+ 3990 089f 62756666 		.ascii	"buffer_add_uint8\000"
+ 3990      65725F61 
+ 3990      64645F75 
+ 3990      696E7438 
+ 3990      00
+ 3991              	.LASF54:
+ 3992 08b0 5F777269 		.ascii	"_write\000"
+ 3992      746500
+ 3993              	.LASF33:
+ 3994 08b7 5F5F746D 		.ascii	"__tm_year\000"
+ 3994      5F796561 
+ 3994      7200
+ 3995              	.LASF191:
+ 3996 08c1 41534542 		.ascii	"ASEBA_MESSAGE_SET_BYTECODE\000"
+ 3996      415F4D45 
+ 3996      53534147 
+ 3996      455F5345 
+ 3996      545F4259 
+ 3997              	.LASF135:
+ 3998 08dc 41736562 		.ascii	"AsebaVMState\000"
+ 3998      61564D53 
+ 3998      74617465 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 77
+
+
+ 3998      00
+ 3999              	.LASF195:
+ 4000 08e9 41534542 		.ascii	"ASEBA_MESSAGE_STEP\000"
+ 4000      415F4D45 
+ 4000      53534147 
+ 4000      455F5354 
+ 4000      455000
+ 4001              	.LASF212:
+ 4002 08fc 736F7572 		.ascii	"source\000"
+ 4002      636500
+ 4003              	.LASF206:
+ 4004 0903 41534542 		.ascii	"ASEBA_MESSAGE_GET_NODE_DESCRIPTION\000"
+ 4004      415F4D45 
+ 4004      53534147 
+ 4004      455F4745 
+ 4004      545F4E4F 
+ 4005              	.LASF2:
+ 4006 0926 6C6F6E67 		.ascii	"long double\000"
+ 4006      20646F75 
+ 4006      626C6500 
+ 4007              	.LASF225:
+ 4008 0932 6C6F6361 		.ascii	"localEvents\000"
+ 4008      6C457665 
+ 4008      6E747300 
+ 4009              	.LASF239:
+ 4010 093e 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/aseba/transport/buffe"
+ 4010      69622F65 
+ 4010      2D707563 
+ 4010      6B325F6D 
+ 4010      61696E2D 
+ 4011 0971 722F766D 		.ascii	"r/vm-buffer.c\000"
+ 4011      2D627566 
+ 4011      6665722E 
+ 4011      6300
+ 4012              	.LASF183:
+ 4013 097f 41534542 		.ascii	"ASEBA_MESSAGE_ARRAY_ACCESS_OUT_OF_BOUNDS\000"
+ 4013      415F4D45 
+ 4013      53534147 
+ 4013      455F4152 
+ 4013      5241595F 
+ 4014              	.LASF114:
+ 4015 09a8 5F6E6578 		.ascii	"_nextf\000"
+ 4015      746600
+ 4016              	.LASF213:
+ 4017 09af 64657363 		.ascii	"desc\000"
+ 4017      00
+ 4018              	.LASF179:
+ 4019 09b4 41534542 		.ascii	"ASEBA_MESSAGE_LOCAL_EVENT_DESCRIPTION\000"
+ 4019      415F4D45 
+ 4019      53534147 
+ 4019      455F4C4F 
+ 4019      43414C5F 
+ 4020              	.LASF139:
+ 4021 09da 41736562 		.ascii	"AsebaVMDescription\000"
+ 4021      61564D44 
+ 4021      65736372 
+ 4021      69707469 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 78
+
+
+ 4021      6F6E00
+ 4022              	.LASF32:
+ 4023 09ed 5F5F746D 		.ascii	"__tm_mon\000"
+ 4023      5F6D6F6E 
+ 4023      00
+ 4024              	.LASF42:
+ 4025 09f6 5F617465 		.ascii	"_atexit\000"
+ 4025      78697400 
+ 4026              	.LASF121:
+ 4027 09fe 7375626F 		.ascii	"suboptarg\000"
+ 4027      70746172 
+ 4027      6700
+ 4028              	.LASF74:
+ 4029 0a08 5F5F7364 		.ascii	"__sdidinit\000"
+ 4029      6964696E 
+ 4029      697400
+ 4030              	.LASF11:
+ 4031 0a13 5F6F6666 		.ascii	"_off_t\000"
+ 4031      5F7400
+ 4032              	.LASF205:
+ 4033 0a1a 41534542 		.ascii	"ASEBA_MESSAGE_SUSPEND_TO_RAM\000"
+ 4033      415F4D45 
+ 4033      53534147 
+ 4033      455F5355 
+ 4033      5350454E 
+ 4034              	.LASF196:
+ 4035 0a37 41534542 		.ascii	"ASEBA_MESSAGE_STOP\000"
+ 4035      415F4D45 
+ 4035      53534147 
+ 4035      455F5354 
+ 4035      4F5000
+ 4036              	.LASF203:
+ 4037 0a4a 41534542 		.ascii	"ASEBA_MESSAGE_WRITE_BYTECODE\000"
+ 4037      415F4D45 
+ 4037      53534147 
+ 4037      455F5752 
+ 4037      4954455F 
+ 4038              	.LASF79:
+ 4039 0a67 5F667265 		.ascii	"_freelist\000"
+ 4039      656C6973 
+ 4039      7400
+ 4040              	.LASF185:
+ 4041 0a71 41534542 		.ascii	"ASEBA_MESSAGE_EVENT_EXECUTION_KILLED\000"
+ 4041      415F4D45 
+ 4041      53534147 
+ 4041      455F4556 
+ 4041      454E545F 
+ 4042              	.LASF104:
+ 4043 0a96 5F776374 		.ascii	"_wctomb_state\000"
+ 4043      6F6D625F 
+ 4043      73746174 
+ 4043      6500
+ 4044              	.LASF134:
+ 4045 0aa4 62726561 		.ascii	"breakpointsCount\000"
+ 4045      6B706F69 
+ 4045      6E747343 
+ 4045      6F756E74 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 79
+
+
+ 4045      00
+ 4046              	.LASF174:
+ 4047 0ab5 41534542 		.ascii	"ASEBA_MESSAGE_BOOTLOADER_DESCRIPTION\000"
+ 4047      415F4D45 
+ 4047      53534147 
+ 4047      455F424F 
+ 4047      4F544C4F 
+ 4048              	.LASF180:
+ 4049 0ada 41534542 		.ascii	"ASEBA_MESSAGE_NATIVE_FUNCTION_DESCRIPTION\000"
+ 4049      415F4D45 
+ 4049      53534147 
+ 4049      455F4E41 
+ 4049      54495645 
+ 4050              	.LASF217:
+ 4051 0b04 7061796C 		.ascii	"payloadSize\000"
+ 4051      6F616453 
+ 4051      697A6500 
+ 4052              	.LASF4:
+ 4053 0b10 756E7369 		.ascii	"unsigned char\000"
+ 4053      676E6564 
+ 4053      20636861 
+ 4053      7200
+ 4054              	.LASF82:
+ 4055 0b1e 5F6E6577 		.ascii	"_new\000"
+ 4055      00
+ 4056              	.LASF197:
+ 4057 0b23 41534542 		.ascii	"ASEBA_MESSAGE_GET_EXECUTION_STATE\000"
+ 4057      415F4D45 
+ 4057      53534147 
+ 4057      455F4745 
+ 4057      545F4558 
+ 4058              	.LASF194:
+ 4059 0b45 41534542 		.ascii	"ASEBA_MESSAGE_PAUSE\000"
+ 4059      415F4D45 
+ 4059      53534147 
+ 4059      455F5041 
+ 4059      55534500 
+ 4060              	.LASF171:
+ 4061 0b59 41534542 		.ascii	"ASEBA_MESSAGE_BOOTLOADER_READ_PAGE\000"
+ 4061      415F4D45 
+ 4061      53534147 
+ 4061      455F424F 
+ 4061      4F544C4F 
+ 4062              	.LASF113:
+ 4063 0b7c 5F685F65 		.ascii	"_h_errno\000"
+ 4063      72726E6F 
+ 4063      00
+ 4064              	.LASF5:
+ 4065 0b85 73686F72 		.ascii	"short int\000"
+ 4065      7420696E 
+ 4065      7400
+ 4066              	.LASF35:
+ 4067 0b8f 5F5F746D 		.ascii	"__tm_yday\000"
+ 4067      5F796461 
+ 4067      7900
+ 4068              	.LASF218:
+ 4069 0b99 61726750 		.ascii	"argPos\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 80
+
+
+ 4069      6F7300
+ 4070              	.LASF45:
+ 4071 0ba0 5F5F7362 		.ascii	"__sbuf\000"
+ 4071      756600
+ 4072              	.LASF90:
+ 4073 0ba7 5F696F62 		.ascii	"_iobs\000"
+ 4073      7300
+ 4074              	.LASF169:
+ 4075 0bad 41534542 		.ascii	"ASEBA_VM_EVENT_RUNNING_MASK\000"
+ 4075      415F564D 
+ 4075      5F455645 
+ 4075      4E545F52 
+ 4075      554E4E49 
+ 4076              	.LASF87:
+ 4077 0bc9 5F5F4649 		.ascii	"__FILE\000"
+ 4077      4C4500
+ 4078              	.LASF18:
+ 4079 0bd0 5F6D6273 		.ascii	"_mbstate_t\000"
+ 4079      74617465 
+ 4079      5F7400
+ 4080              	.LASF48:
+ 4081 0bdb 5F5F7346 		.ascii	"__sFILE\000"
+ 4081      494C4500 
+ 4082              	.LASF63:
+ 4083 0be3 5F6D6273 		.ascii	"_mbstate\000"
+ 4083      74617465 
+ 4083      00
+ 4084              	.LASF100:
+ 4085 0bec 5F72616E 		.ascii	"_rand_next\000"
+ 4085      645F6E65 
+ 4085      787400
+ 4086              	.LASF144:
+ 4087 0bf7 41736562 		.ascii	"AsebaNativeDescription_veccopy\000"
+ 4087      614E6174 
+ 4087      69766544 
+ 4087      65736372 
+ 4087      69707469 
+ 4088              	.LASF210:
+ 4089 0c16 62756666 		.ascii	"buffer\000"
+ 4089      657200
+ 4090              	.LASF102:
+ 4091 0c1d 5F6D626C 		.ascii	"_mblen_state\000"
+ 4091      656E5F73 
+ 4091      74617465 
+ 4091      00
+ 4092              	.LASF70:
+ 4093 0c2a 5F696E63 		.ascii	"_inc\000"
+ 4093      00
+ 4094              	.LASF43:
+ 4095 0c2f 5F696E64 		.ascii	"_ind\000"
+ 4095      00
+ 4096              	.LASF240:
+ 4097 0c34 433A5C55 		.ascii	"C:\\Users\\Pchautems\\Documents\\RobotiqueTP\\Proje"
+ 4097      73657273 
+ 4097      5C506368 
+ 4097      61757465 
+ 4097      6D735C44 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 81
+
+
+ 4098 0c62 745C6D69 		.ascii	"t\\miniprojet\000"
+ 4098      6E697072 
+ 4098      6F6A6574 
+ 4098      00
+ 4099              	.LASF73:
+ 4100 0c6f 5F6C6F63 		.ascii	"_locale\000"
+ 4100      616C6500 
+ 4101              	.LASF75:
+ 4102 0c77 5F5F636C 		.ascii	"__cleanup\000"
+ 4102      65616E75 
+ 4102      7000
+ 4103              	.LASF72:
+ 4104 0c81 5F756E73 		.ascii	"_unspecified_locale_info\000"
+ 4104      70656369 
+ 4104      66696564 
+ 4104      5F6C6F63 
+ 4104      616C655F 
+ 4105              	.LASF23:
+ 4106 0c9a 5F6D6178 		.ascii	"_maxwds\000"
+ 4106      77647300 
+ 4107              	.LASF65:
+ 4108 0ca2 5F726565 		.ascii	"_reent\000"
+ 4108      6E7400
+ 4109              	.LASF92:
+ 4110 0ca9 5F736565 		.ascii	"_seed\000"
+ 4110      6400
+ 4111              	.LASF178:
+ 4112 0caf 41534542 		.ascii	"ASEBA_MESSAGE_NAMED_VARIABLE_DESCRIPTION\000"
+ 4112      415F4D45 
+ 4112      53534147 
+ 4112      455F4E41 
+ 4112      4D45445F 
+ 4113              	.LASF16:
+ 4114 0cd8 5F5F636F 		.ascii	"__count\000"
+ 4114      756E7400 
+ 4115              	.LASF117:
+ 4116 0ce0 5F5F6C6F 		.ascii	"__lock\000"
+ 4116      636B00
+ 4117              	.LASF17:
+ 4118 0ce7 5F5F7661 		.ascii	"__value\000"
+ 4118      6C756500 
+ 4119              	.LASF138:
+ 4120 0cef 41736562 		.ascii	"AsebaVariableDescription\000"
+ 4120      61566172 
+ 4120      6961626C 
+ 4120      65446573 
+ 4120      63726970 
+ 4121              	.LASF55:
+ 4122 0d08 5F736565 		.ascii	"_seek\000"
+ 4122      6B00
+ 4123              	.LASF204:
+ 4124 0d0e 41534542 		.ascii	"ASEBA_MESSAGE_REBOOT\000"
+ 4124      415F4D45 
+ 4124      53534147 
+ 4124      455F5245 
+ 4124      424F4F54 
+ 4125              	.LASF119:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 82
+
+
+ 4126 0d23 5F696D70 		.ascii	"_impure_ptr\000"
+ 4126      7572655F 
+ 4126      70747200 
+ 4127              	.LASF12:
+ 4128 0d2f 5F66706F 		.ascii	"_fpos_t\000"
+ 4128      735F7400 
+ 4129              	.LASF192:
+ 4130 0d37 41534542 		.ascii	"ASEBA_MESSAGE_RESET\000"
+ 4130      415F4D45 
+ 4130      53534147 
+ 4130      455F5245 
+ 4130      53455400 
+ 4131              	.LASF66:
+ 4132 0d4b 5F657272 		.ascii	"_errno\000"
+ 4132      6E6F00
+ 4133              	.LASF20:
+ 4134 0d52 63686172 		.ascii	"char\000"
+ 4134      00
+ 4135              	.LASF152:
+ 4136 0d57 41736562 		.ascii	"AsebaNativeDescription_vecmax\000"
+ 4136      614E6174 
+ 4136      69766544 
+ 4136      65736372 
+ 4136      69707469 
+ 4137              	.LASF29:
+ 4138 0d75 5F5F746D 		.ascii	"__tm_min\000"
+ 4138      5F6D696E 
+ 4138      00
+ 4139              	.LASF130:
+ 4140 0d7e 73746163 		.ascii	"stackSize\000"
+ 4140      6B53697A 
+ 4140      6500
+ 4141              	.LASF231:
+ 4142 0d88 62756666 		.ascii	"buffer_add_string\000"
+ 4142      65725F61 
+ 4142      64645F73 
+ 4142      7472696E 
+ 4142      6700
+ 4143              	.LASF140:
+ 4144 0d9a 41736562 		.ascii	"AsebaLocalEventDescription\000"
+ 4144      614C6F63 
+ 4144      616C4576 
+ 4144      656E7444 
+ 4144      65736372 
+ 4145              	.LASF207:
+ 4146 0db5 41534542 		.ascii	"ASEBA_MESSAGE_LIST_NODES\000"
+ 4146      415F4D45 
+ 4146      53534147 
+ 4146      455F4C49 
+ 4146      53545F4E 
+ 4147              	.LASF193:
+ 4148 0dce 41534542 		.ascii	"ASEBA_MESSAGE_RUN\000"
+ 4148      415F4D45 
+ 4148      53534147 
+ 4148      455F5255 
+ 4148      4E00
+ 4149              	.LASF93:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 83
+
+
+ 4150 0de0 5F6D756C 		.ascii	"_mult\000"
+ 4150      7400
+ 4151              	.LASF22:
+ 4152 0de6 5F6E6578 		.ascii	"_next\000"
+ 4152      7400
+ 4153              	.LASF157:
+ 4154 0dec 41736562 		.ascii	"AsebaNativeDescription_vecsort\000"
+ 4154      614E6174 
+ 4154      69766544 
+ 4154      65736372 
+ 4154      69707469 
+ 4155              	.LASF96:
+ 4156 0e0b 5F737472 		.ascii	"_strtok_last\000"
+ 4156      746F6B5F 
+ 4156      6C617374 
+ 4156      00
+ 4157              	.LASF199:
+ 4158 0e18 41534542 		.ascii	"ASEBA_MESSAGE_BREAKPOINT_CLEAR\000"
+ 4158      415F4D45 
+ 4158      53534147 
+ 4158      455F4252 
+ 4158      45414B50 
+ 4159              	.LASF216:
+ 4160 0e37 7061796C 		.ascii	"payload\000"
+ 4160      6F616400 
+ 4161              	.LASF40:
+ 4162 0e3f 5F666E74 		.ascii	"_fntypes\000"
+ 4162      79706573 
+ 4162      00
+ 4163              	.LASF151:
+ 4164 0e48 41736562 		.ascii	"AsebaNativeDescription_vecmin\000"
+ 4164      614E6174 
+ 4164      69766544 
+ 4164      65736372 
+ 4164      69707469 
+ 4165              	.LASF235:
+ 4166 0e66 62756666 		.ascii	"buffer_add_uint16\000"
+ 4166      65725F61 
+ 4166      64645F75 
+ 4166      696E7431 
+ 4166      3600
+ 4167              	.LASF214:
+ 4168 0e78 616D6F75 		.ascii	"amount\000"
+ 4168      6E7400
+ 4169              	.LASF94:
+ 4170 0e7f 5F616464 		.ascii	"_add\000"
+ 4170      00
+ 4171              	.LASF21:
+ 4172 0e84 5F5F554C 		.ascii	"__ULong\000"
+ 4172      6F6E6700 
+ 4173              	.LASF107:
+ 4174 0e8c 5F676574 		.ascii	"_getdate_err\000"
+ 4174      64617465 
+ 4174      5F657272 
+ 4174      00
+ 4175              	.LASF156:
+ 4176 0e99 41736562 		.ascii	"AsebaNativeDescription_vecargbounds\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 84
+
+
+ 4176      614E6174 
+ 4176      69766544 
+ 4176      65736372 
+ 4176      69707469 
+ 4177              	.LASF120:
+ 4178 0ebd 5F676C6F 		.ascii	"_global_impure_ptr\000"
+ 4178      62616C5F 
+ 4178      696D7075 
+ 4178      72655F70 
+ 4178      747200
+ 4179              	.LASF232:
+ 4180 0ed0 62756666 		.ascii	"buffer_add_sint16\000"
+ 4180      65725F61 
+ 4180      64645F73 
+ 4180      696E7431 
+ 4180      3600
+ 4181              	.LASF95:
+ 4182 0ee2 5F756E75 		.ascii	"_unused_rand\000"
+ 4182      7365645F 
+ 4182      72616E64 
+ 4182      00
+ 4183              	.LASF220:
+ 4184 0eef 41736562 		.ascii	"AsebaProcessIncomingEvents\000"
+ 4184      6150726F 
+ 4184      63657373 
+ 4184      496E636F 
+ 4184      6D696E67 
+ 4185              	.LASF25:
+ 4186 0f0a 5F776473 		.ascii	"_wds\000"
+ 4186      00
+ 4187              	.LASF34:
+ 4188 0f0f 5F5F746D 		.ascii	"__tm_wday\000"
+ 4188      5F776461 
+ 4188      7900
+ 4189              	.LASF88:
+ 4190 0f19 5F676C75 		.ascii	"_glue\000"
+ 4190      6500
+ 4191              	.LASF145:
+ 4192 0f1f 41736562 		.ascii	"AsebaNativeDescription_vecfill\000"
+ 4192      614E6174 
+ 4192      69766544 
+ 4192      65736372 
+ 4192      69707469 
+ 4193              	.LASF115:
+ 4194 0f3e 5F6E6D61 		.ascii	"_nmalloc\000"
+ 4194      6C6C6F63 
+ 4194      00
+ 4195              	.LASF105:
+ 4196 0f47 5F6C3634 		.ascii	"_l64a_buf\000"
+ 4196      615F6275 
+ 4196      6600
+ 4197              	.LASF132:
+ 4198 0f51 666C6167 		.ascii	"flags\000"
+ 4198      7300
+ 4199              	.LASF201:
+ 4200 0f57 41534542 		.ascii	"ASEBA_MESSAGE_GET_VARIABLES\000"
+ 4200      415F4D45 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 85
+
+
+ 4200      53534147 
+ 4200      455F4745 
+ 4200      545F5641 
+ 4201              	.LASF84:
+ 4202 0f73 5F736967 		.ascii	"_sig_func\000"
+ 4202      5F66756E 
+ 4202      6300
+ 4203              	.LASF131:
+ 4204 0f7d 73746163 		.ascii	"stack\000"
+ 4204      6B00
+ 4205              	.LASF228:
+ 4206 0f83 6C656E67 		.ascii	"length\000"
+ 4206      746800
+ 4207              	.LASF58:
+ 4208 0f8a 5F6E6275 		.ascii	"_nbuf\000"
+ 4208      6600
+ 4209              	.LASF116:
+ 4210 0f90 5F756E75 		.ascii	"_unused\000"
+ 4210      73656400 
+ 4211              	.LASF162:
+ 4212 0f98 41736562 		.ascii	"AsebaNativeDescription_mathrot2\000"
+ 4212      614E6174 
+ 4212      69766544 
+ 4212      65736372 
+ 4212      69707469 
+ 4213              	.LASF143:
+ 4214 0fb8 41736562 		.ascii	"AsebaNativeFunctionDescription\000"
+ 4214      614E6174 
+ 4214      69766546 
+ 4214      756E6374 
+ 4214      696F6E44 
+ 4215              	.LASF36:
+ 4216 0fd7 5F5F746D 		.ascii	"__tm_isdst\000"
+ 4216      5F697364 
+ 4216      737400
+ 4217              	.LASF98:
+ 4218 0fe2 5F6C6F63 		.ascii	"_localtime_buf\000"
+ 4218      616C7469 
+ 4218      6D655F62 
+ 4218      756600
+ 4219              	.LASF56:
+ 4220 0ff1 5F636C6F 		.ascii	"_close\000"
+ 4220      736500
+ 4221              	.LASF198:
+ 4222 0ff8 41534542 		.ascii	"ASEBA_MESSAGE_BREAKPOINT_SET\000"
+ 4222      415F4D45 
+ 4222      53534147 
+ 4222      455F4252 
+ 4222      45414B50 
+ 4223              	.LASF101:
+ 4224 1015 5F723438 		.ascii	"_r48\000"
+ 4224      00
+ 4225              	.LASF227:
+ 4226 101a 73746172 		.ascii	"start\000"
+ 4226      7400
+ 4227              	.LASF103:
+ 4228 1020 5F6D6274 		.ascii	"_mbtowc_state\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 86
+
+
+ 4228      6F77635F 
+ 4228      73746174 
+ 4228      6500
+ 4229              	.LASF78:
+ 4230 102e 5F703573 		.ascii	"_p5s\000"
+ 4230      00
+ 4231              	.LASF211:
+ 4232 1033 62756666 		.ascii	"buffer_pos\000"
+ 4232      65725F70 
+ 4232      6F7300
+ 4233              	.LASF209:
+ 4234 103e 41534542 		.ascii	"ASEBA_MAX_EVENT_ARG_COUNT\000"
+ 4234      415F4D41 
+ 4234      585F4556 
+ 4234      454E545F 
+ 4234      4152475F 
+ 4235              	.LASF31:
+ 4236 1058 5F5F746D 		.ascii	"__tm_mday\000"
+ 4236      5F6D6461 
+ 4236      7900
+ 4237              	.LASF176:
+ 4238 1062 41534542 		.ascii	"ASEBA_MESSAGE_BOOTLOADER_ACK\000"
+ 4238      415F4D45 
+ 4238      53534147 
+ 4238      455F424F 
+ 4238      4F544C4F 
+ 4239              	.LASF237:
+ 4240 107f 62756666 		.ascii	"buffer_add\000"
+ 4240      65725F61 
+ 4240      646400
+ 4241              	.LASF221:
+ 4242 108a 41736562 		.ascii	"AsebaSendDescription\000"
+ 4242      6153656E 
+ 4242      64446573 
+ 4242      63726970 
+ 4242      74696F6E 
+ 4243              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s 			page 87
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 vm-buffer.c
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:18     .bss.buffer:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:21     .bss.buffer:00000000 buffer
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:24     .bss.buffer_pos:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:27     .bss.buffer_pos:00000000 buffer_pos
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:30     .text.buffer_add:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:37     .text.buffer_add:00000000 buffer_add
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:99     .text.buffer_add:0000005c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:106    .text.buffer_add_uint8:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:113    .text.buffer_add_uint8:00000000 buffer_add_uint8
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:151    .text.buffer_add_uint8:00000034 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:156    .text.buffer_add_uint16:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:163    .text.buffer_add_uint16:00000000 buffer_add_uint16
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:204    .text.buffer_add_uint16:0000003c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:209    .text.buffer_add_sint16:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:216    .text.buffer_add_sint16:00000000 buffer_add_sint16
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:257    .text.buffer_add_sint16:0000003c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:262    .text.buffer_add_string:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:269    .text.buffer_add_string:00000000 buffer_add_string
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:327    .text.buffer_add_string:00000054 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:332    .text.AsebaSendMessage:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:340    .text.AsebaSendMessage:00000000 AsebaSendMessage
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:416    .text.AsebaSendMessage:00000080 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:423    .text.AsebaSendVariables:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:431    .text.AsebaSendVariables:00000000 AsebaSendVariables
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:513    .text.AsebaSendVariables:00000094 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:520    .text.AsebaSendDescription:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:528    .text.AsebaSendDescription:00000000 AsebaSendDescription
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:904    .text.AsebaSendDescription:000002e4 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:911    .text.AsebaProcessIncomingEvents:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:919    .text.AsebaProcessIncomingEvents:00000000 AsebaProcessIncomingEvents
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccIbTcpS.s:1074   .text.AsebaProcessIncomingEvents:00000118 $d
+
+UNDEFINED SYMBOLS
+__stack_chk_fail
+__stack_chk_guard
+strlen
+AsebaSendBuffer
+AsebaGetVMDescription
+AsebaGetNativeFunctionsDescriptions
+AsebaGetLocalEventsDescriptions
+AsebaGetBuffer
+AsebaVMSetupEvent
+AsebaVMDebugMessage

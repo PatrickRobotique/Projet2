@@ -1,0 +1,5476 @@
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"chmtx.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.port_lock,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 4,,15
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  24              		.type	port_lock, %function
+  25              	port_lock:
+  26              	.LFB116:
+  27              		.file 1 "../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/chcore_v7m.h"
+  28              		.loc 1 444 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 00B5     		push	{lr}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 14, -4
+  35 0002 83B0     		sub	sp, sp, #12
+  36              		.cfi_def_cfa_offset 16
+  37              		.loc 1 444 0
+  38 0004 094B     		ldr	r3, .L3
+  39 0006 1B68     		ldr	r3, [r3]
+  40 0008 0193     		str	r3, [sp, #4]
+  41 000a 2023     		movs	r3, #32
+  42 000c 0093     		str	r3, [sp]
+  43              	.LBB6:
+  44              	.LBB7:
+  45              		.file 2 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cmFunc.h"
+  46              		.loc 2 546 0
+  47 000e 009B     		ldr	r3, [sp]
+  48              		.syntax unified
+  49              	@ 546 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cmFunc.h" 1
+  50 0010 83F31188 		MSR basepri, r3
+  51              	@ 0 "" 2
+  52              		.thumb
+  53              		.syntax unified
+  54              	.LBE7:
+  55              	.LBE6:
+  56              		.loc 1 451 0
+  57 0014 00BF     		nop
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 2
+
+
+  58 0016 054B     		ldr	r3, .L3
+  59 0018 019A     		ldr	r2, [sp, #4]
+  60 001a 1B68     		ldr	r3, [r3]
+  61 001c 9A42     		cmp	r2, r3
+  62 001e 01D0     		beq	.L2
+  63 0020 FFF7FEFF 		bl	__stack_chk_fail
+  64              	.L2:
+  65 0024 03B0     		add	sp, sp, #12
+  66              		.cfi_def_cfa_offset 4
+  67              		@ sp needed
+  68 0026 5DF804FB 		ldr	pc, [sp], #4
+  69              	.L4:
+  70 002a 00BF     		.align	2
+  71              	.L3:
+  72 002c 00000000 		.word	__stack_chk_guard
+  73              		.cfi_endproc
+  74              	.LFE116:
+  75              		.size	port_lock, .-port_lock
+  76              		.section	.text.port_unlock,"ax",%progbits
+  77              		.align	1
+  78              		.p2align 4,,15
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  82              		.fpu fpv4-sp-d16
+  83              		.type	port_unlock, %function
+  84              	port_unlock:
+  85              	.LFB117:
+  86              		.loc 1 458 0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 8
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90 0000 00B5     		push	{lr}
+  91              		.cfi_def_cfa_offset 4
+  92              		.cfi_offset 14, -4
+  93 0002 83B0     		sub	sp, sp, #12
+  94              		.cfi_def_cfa_offset 16
+  95              		.loc 1 458 0
+  96 0004 094B     		ldr	r3, .L7
+  97 0006 1B68     		ldr	r3, [r3]
+  98 0008 0193     		str	r3, [sp, #4]
+  99 000a 0023     		movs	r3, #0
+ 100 000c 0093     		str	r3, [sp]
+ 101              	.LBB8:
+ 102              	.LBB9:
+ 103              		.loc 2 546 0
+ 104 000e 009B     		ldr	r3, [sp]
+ 105              		.syntax unified
+ 106              	@ 546 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cmFunc.h" 1
+ 107 0010 83F31188 		MSR basepri, r3
+ 108              	@ 0 "" 2
+ 109              		.thumb
+ 110              		.syntax unified
+ 111              	.LBE9:
+ 112              	.LBE8:
+ 113              		.loc 1 465 0
+ 114 0014 00BF     		nop
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 3
+
+
+ 115 0016 054B     		ldr	r3, .L7
+ 116 0018 019A     		ldr	r2, [sp, #4]
+ 117 001a 1B68     		ldr	r3, [r3]
+ 118 001c 9A42     		cmp	r2, r3
+ 119 001e 01D0     		beq	.L6
+ 120 0020 FFF7FEFF 		bl	__stack_chk_fail
+ 121              	.L6:
+ 122 0024 03B0     		add	sp, sp, #12
+ 123              		.cfi_def_cfa_offset 4
+ 124              		@ sp needed
+ 125 0026 5DF804FB 		ldr	pc, [sp], #4
+ 126              	.L8:
+ 127 002a 00BF     		.align	2
+ 128              	.L7:
+ 129 002c 00000000 		.word	__stack_chk_guard
+ 130              		.cfi_endproc
+ 131              	.LFE117:
+ 132              		.size	port_unlock, .-port_unlock
+ 133              		.section	.text.queue_init,"ax",%progbits
+ 134              		.align	1
+ 135              		.p2align 4,,15
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 139              		.fpu fpv4-sp-d16
+ 140              		.type	queue_init, %function
+ 141              	queue_init:
+ 142              	.LFB128:
+ 143              		.file 3 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chschd.h"
+ 144              		.loc 3 602 0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 16
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148 0000 00B5     		push	{lr}
+ 149              		.cfi_def_cfa_offset 4
+ 150              		.cfi_offset 14, -4
+ 151 0002 85B0     		sub	sp, sp, #20
+ 152              		.cfi_def_cfa_offset 24
+ 153 0004 0190     		str	r0, [sp, #4]
+ 154              		.loc 3 602 0
+ 155 0006 0A4B     		ldr	r3, .L11
+ 156 0008 1B68     		ldr	r3, [r3]
+ 157 000a 0393     		str	r3, [sp, #12]
+ 158              		.loc 3 604 0
+ 159 000c 019B     		ldr	r3, [sp, #4]
+ 160 000e 019A     		ldr	r2, [sp, #4]
+ 161 0010 1A60     		str	r2, [r3]
+ 162              		.loc 3 605 0
+ 163 0012 019B     		ldr	r3, [sp, #4]
+ 164 0014 019A     		ldr	r2, [sp, #4]
+ 165 0016 5A60     		str	r2, [r3, #4]
+ 166              		.loc 3 606 0
+ 167 0018 00BF     		nop
+ 168 001a 054B     		ldr	r3, .L11
+ 169 001c 039A     		ldr	r2, [sp, #12]
+ 170 001e 1B68     		ldr	r3, [r3]
+ 171 0020 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 4
+
+
+ 172 0022 01D0     		beq	.L10
+ 173 0024 FFF7FEFF 		bl	__stack_chk_fail
+ 174              	.L10:
+ 175 0028 05B0     		add	sp, sp, #20
+ 176              		.cfi_def_cfa_offset 4
+ 177              		@ sp needed
+ 178 002a 5DF804FB 		ldr	pc, [sp], #4
+ 179              	.L12:
+ 180 002e 00BF     		.align	2
+ 181              	.L11:
+ 182 0030 00000000 		.word	__stack_chk_guard
+ 183              		.cfi_endproc
+ 184              	.LFE128:
+ 185              		.size	queue_init, .-queue_init
+ 186              		.section	.text.queue_notempty,"ax",%progbits
+ 187              		.align	1
+ 188              		.p2align 4,,15
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 192              		.fpu fpv4-sp-d16
+ 193              		.type	queue_notempty, %function
+ 194              	queue_notempty:
+ 195              	.LFB130:
+ 196              		.loc 3 629 0
+ 197              		.cfi_startproc
+ 198              		@ args = 0, pretend = 0, frame = 16
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200 0000 00B5     		push	{lr}
+ 201              		.cfi_def_cfa_offset 4
+ 202              		.cfi_offset 14, -4
+ 203 0002 85B0     		sub	sp, sp, #20
+ 204              		.cfi_def_cfa_offset 24
+ 205 0004 0190     		str	r0, [sp, #4]
+ 206              		.loc 3 629 0
+ 207 0006 0B4B     		ldr	r3, .L16
+ 208 0008 1B68     		ldr	r3, [r3]
+ 209 000a 0393     		str	r3, [sp, #12]
+ 210              		.loc 3 631 0
+ 211 000c 019B     		ldr	r3, [sp, #4]
+ 212 000e 1B68     		ldr	r3, [r3]
+ 213 0010 019A     		ldr	r2, [sp, #4]
+ 214 0012 9A42     		cmp	r2, r3
+ 215 0014 14BF     		ite	ne
+ 216 0016 0123     		movne	r3, #1
+ 217 0018 0023     		moveq	r3, #0
+ 218 001a DBB2     		uxtb	r3, r3
+ 219              		.loc 3 632 0
+ 220 001c 1846     		mov	r0, r3
+ 221 001e 054B     		ldr	r3, .L16
+ 222 0020 039A     		ldr	r2, [sp, #12]
+ 223 0022 1B68     		ldr	r3, [r3]
+ 224 0024 9A42     		cmp	r2, r3
+ 225 0026 01D0     		beq	.L15
+ 226 0028 FFF7FEFF 		bl	__stack_chk_fail
+ 227              	.L15:
+ 228 002c 05B0     		add	sp, sp, #20
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 5
+
+
+ 229              		.cfi_def_cfa_offset 4
+ 230              		@ sp needed
+ 231 002e 5DF804FB 		ldr	pc, [sp], #4
+ 232              	.L17:
+ 233 0032 00BF     		.align	2
+ 234              	.L16:
+ 235 0034 00000000 		.word	__stack_chk_guard
+ 236              		.cfi_endproc
+ 237              	.LFE130:
+ 238              		.size	queue_notempty, .-queue_notempty
+ 239              		.section	.text.queue_prio_insert,"ax",%progbits
+ 240              		.align	1
+ 241              		.p2align 4,,15
+ 242              		.syntax unified
+ 243              		.thumb
+ 244              		.thumb_func
+ 245              		.fpu fpv4-sp-d16
+ 246              		.type	queue_prio_insert, %function
+ 247              	queue_prio_insert:
+ 248              	.LFB133:
+ 249              		.loc 3 651 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 16
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253 0000 00B5     		push	{lr}
+ 254              		.cfi_def_cfa_offset 4
+ 255              		.cfi_offset 14, -4
+ 256 0002 85B0     		sub	sp, sp, #20
+ 257              		.cfi_def_cfa_offset 24
+ 258 0004 0190     		str	r0, [sp, #4]
+ 259 0006 0091     		str	r1, [sp]
+ 260              		.loc 3 651 0
+ 261 0008 154B     		ldr	r3, .L22
+ 262 000a 1B68     		ldr	r3, [r3]
+ 263 000c 0393     		str	r3, [sp, #12]
+ 264              		.loc 3 653 0
+ 265 000e 009B     		ldr	r3, [sp]
+ 266 0010 0293     		str	r3, [sp, #8]
+ 267              	.L20:
+ 268              		.loc 3 655 0 discriminator 2
+ 269 0012 029B     		ldr	r3, [sp, #8]
+ 270 0014 1B68     		ldr	r3, [r3]
+ 271 0016 0293     		str	r3, [sp, #8]
+ 272              		.loc 3 656 0 discriminator 2
+ 273 0018 029A     		ldr	r2, [sp, #8]
+ 274 001a 009B     		ldr	r3, [sp]
+ 275 001c 9A42     		cmp	r2, r3
+ 276 001e 05D0     		beq	.L19
+ 277              		.loc 3 656 0 is_stmt 0 discriminator 1
+ 278 0020 029B     		ldr	r3, [sp, #8]
+ 279 0022 9A68     		ldr	r2, [r3, #8]
+ 280 0024 019B     		ldr	r3, [sp, #4]
+ 281 0026 9B68     		ldr	r3, [r3, #8]
+ 282 0028 9A42     		cmp	r2, r3
+ 283 002a F2D2     		bcs	.L20
+ 284              	.L19:
+ 285              		.loc 3 657 0 is_stmt 1
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 6
+
+
+ 286 002c 019B     		ldr	r3, [sp, #4]
+ 287 002e 029A     		ldr	r2, [sp, #8]
+ 288 0030 1A60     		str	r2, [r3]
+ 289              		.loc 3 658 0
+ 290 0032 029B     		ldr	r3, [sp, #8]
+ 291 0034 5A68     		ldr	r2, [r3, #4]
+ 292 0036 019B     		ldr	r3, [sp, #4]
+ 293 0038 5A60     		str	r2, [r3, #4]
+ 294              		.loc 3 659 0
+ 295 003a 019B     		ldr	r3, [sp, #4]
+ 296 003c 5B68     		ldr	r3, [r3, #4]
+ 297 003e 019A     		ldr	r2, [sp, #4]
+ 298 0040 1A60     		str	r2, [r3]
+ 299              		.loc 3 660 0
+ 300 0042 029B     		ldr	r3, [sp, #8]
+ 301 0044 019A     		ldr	r2, [sp, #4]
+ 302 0046 5A60     		str	r2, [r3, #4]
+ 303              		.loc 3 661 0
+ 304 0048 00BF     		nop
+ 305 004a 054B     		ldr	r3, .L22
+ 306 004c 039A     		ldr	r2, [sp, #12]
+ 307 004e 1B68     		ldr	r3, [r3]
+ 308 0050 9A42     		cmp	r2, r3
+ 309 0052 01D0     		beq	.L21
+ 310 0054 FFF7FEFF 		bl	__stack_chk_fail
+ 311              	.L21:
+ 312 0058 05B0     		add	sp, sp, #20
+ 313              		.cfi_def_cfa_offset 4
+ 314              		@ sp needed
+ 315 005a 5DF804FB 		ldr	pc, [sp], #4
+ 316              	.L23:
+ 317 005e 00BF     		.align	2
+ 318              	.L22:
+ 319 0060 00000000 		.word	__stack_chk_guard
+ 320              		.cfi_endproc
+ 321              	.LFE133:
+ 322              		.size	queue_prio_insert, .-queue_prio_insert
+ 323              		.section	.text.queue_fifo_remove,"ax",%progbits
+ 324              		.align	1
+ 325              		.p2align 4,,15
+ 326              		.syntax unified
+ 327              		.thumb
+ 328              		.thumb_func
+ 329              		.fpu fpv4-sp-d16
+ 330              		.type	queue_fifo_remove, %function
+ 331              	queue_fifo_remove:
+ 332              	.LFB135:
+ 333              		.loc 3 671 0
+ 334              		.cfi_startproc
+ 335              		@ args = 0, pretend = 0, frame = 16
+ 336              		@ frame_needed = 0, uses_anonymous_args = 0
+ 337 0000 00B5     		push	{lr}
+ 338              		.cfi_def_cfa_offset 4
+ 339              		.cfi_offset 14, -4
+ 340 0002 85B0     		sub	sp, sp, #20
+ 341              		.cfi_def_cfa_offset 24
+ 342 0004 0190     		str	r0, [sp, #4]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 7
+
+
+ 343              		.loc 3 671 0
+ 344 0006 0D4B     		ldr	r3, .L27
+ 345 0008 1B68     		ldr	r3, [r3]
+ 346 000a 0393     		str	r3, [sp, #12]
+ 347              		.loc 3 672 0
+ 348 000c 019B     		ldr	r3, [sp, #4]
+ 349 000e 1B68     		ldr	r3, [r3]
+ 350 0010 0293     		str	r3, [sp, #8]
+ 351              		.loc 3 674 0
+ 352 0012 029B     		ldr	r3, [sp, #8]
+ 353 0014 1A68     		ldr	r2, [r3]
+ 354 0016 019B     		ldr	r3, [sp, #4]
+ 355 0018 1A60     		str	r2, [r3]
+ 356              		.loc 3 675 0
+ 357 001a 019B     		ldr	r3, [sp, #4]
+ 358 001c 1B68     		ldr	r3, [r3]
+ 359 001e 019A     		ldr	r2, [sp, #4]
+ 360 0020 5A60     		str	r2, [r3, #4]
+ 361              		.loc 3 677 0
+ 362 0022 029B     		ldr	r3, [sp, #8]
+ 363              		.loc 3 678 0
+ 364 0024 1846     		mov	r0, r3
+ 365 0026 054B     		ldr	r3, .L27
+ 366 0028 039A     		ldr	r2, [sp, #12]
+ 367 002a 1B68     		ldr	r3, [r3]
+ 368 002c 9A42     		cmp	r2, r3
+ 369 002e 01D0     		beq	.L26
+ 370 0030 FFF7FEFF 		bl	__stack_chk_fail
+ 371              	.L26:
+ 372 0034 05B0     		add	sp, sp, #20
+ 373              		.cfi_def_cfa_offset 4
+ 374              		@ sp needed
+ 375 0036 5DF804FB 		ldr	pc, [sp], #4
+ 376              	.L28:
+ 377 003a 00BF     		.align	2
+ 378              	.L27:
+ 379 003c 00000000 		.word	__stack_chk_guard
+ 380              		.cfi_endproc
+ 381              	.LFE135:
+ 382              		.size	queue_fifo_remove, .-queue_fifo_remove
+ 383              		.section	.text.queue_dequeue,"ax",%progbits
+ 384              		.align	1
+ 385              		.p2align 4,,15
+ 386              		.syntax unified
+ 387              		.thumb
+ 388              		.thumb_func
+ 389              		.fpu fpv4-sp-d16
+ 390              		.type	queue_dequeue, %function
+ 391              	queue_dequeue:
+ 392              	.LFB137:
+ 393              		.loc 3 689 0
+ 394              		.cfi_startproc
+ 395              		@ args = 0, pretend = 0, frame = 16
+ 396              		@ frame_needed = 0, uses_anonymous_args = 0
+ 397 0000 00B5     		push	{lr}
+ 398              		.cfi_def_cfa_offset 4
+ 399              		.cfi_offset 14, -4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 8
+
+
+ 400 0002 85B0     		sub	sp, sp, #20
+ 401              		.cfi_def_cfa_offset 24
+ 402 0004 0190     		str	r0, [sp, #4]
+ 403              		.loc 3 689 0
+ 404 0006 0C4B     		ldr	r3, .L32
+ 405 0008 1B68     		ldr	r3, [r3]
+ 406 000a 0393     		str	r3, [sp, #12]
+ 407              		.loc 3 691 0
+ 408 000c 019B     		ldr	r3, [sp, #4]
+ 409 000e 5B68     		ldr	r3, [r3, #4]
+ 410 0010 019A     		ldr	r2, [sp, #4]
+ 411 0012 1268     		ldr	r2, [r2]
+ 412 0014 1A60     		str	r2, [r3]
+ 413              		.loc 3 692 0
+ 414 0016 019B     		ldr	r3, [sp, #4]
+ 415 0018 1B68     		ldr	r3, [r3]
+ 416 001a 019A     		ldr	r2, [sp, #4]
+ 417 001c 5268     		ldr	r2, [r2, #4]
+ 418 001e 5A60     		str	r2, [r3, #4]
+ 419              		.loc 3 694 0
+ 420 0020 019B     		ldr	r3, [sp, #4]
+ 421              		.loc 3 695 0
+ 422 0022 1846     		mov	r0, r3
+ 423 0024 044B     		ldr	r3, .L32
+ 424 0026 039A     		ldr	r2, [sp, #12]
+ 425 0028 1B68     		ldr	r3, [r3]
+ 426 002a 9A42     		cmp	r2, r3
+ 427 002c 01D0     		beq	.L31
+ 428 002e FFF7FEFF 		bl	__stack_chk_fail
+ 429              	.L31:
+ 430 0032 05B0     		add	sp, sp, #20
+ 431              		.cfi_def_cfa_offset 4
+ 432              		@ sp needed
+ 433 0034 5DF804FB 		ldr	pc, [sp], #4
+ 434              	.L33:
+ 435              		.align	2
+ 436              	.L32:
+ 437 0038 00000000 		.word	__stack_chk_guard
+ 438              		.cfi_endproc
+ 439              	.LFE137:
+ 440              		.size	queue_dequeue, .-queue_dequeue
+ 441              		.section	.text.chSysLock,"ax",%progbits
+ 442              		.align	1
+ 443              		.p2align 4,,15
+ 444              		.syntax unified
+ 445              		.thumb
+ 446              		.thumb_func
+ 447              		.fpu fpv4-sp-d16
+ 448              		.type	chSysLock, %function
+ 449              	chSysLock:
+ 450              	.LFB145:
+ 451              		.file 4 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chsys.h"
+ 452              		.loc 4 346 0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 8
+ 455              		@ frame_needed = 0, uses_anonymous_args = 0
+ 456 0000 00B5     		push	{lr}
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 9
+
+
+ 457              		.cfi_def_cfa_offset 4
+ 458              		.cfi_offset 14, -4
+ 459 0002 83B0     		sub	sp, sp, #12
+ 460              		.cfi_def_cfa_offset 16
+ 461              		.loc 4 346 0
+ 462 0004 094B     		ldr	r3, .L36
+ 463 0006 1B68     		ldr	r3, [r3]
+ 464 0008 0193     		str	r3, [sp, #4]
+ 465              		.loc 4 348 0
+ 466 000a FFF7FEFF 		bl	port_lock
+ 467              		.loc 4 349 0
+ 468 000e FFF7FEFF 		bl	_stats_start_measure_crit_thd
+ 469              		.loc 4 350 0
+ 470 0012 FFF7FEFF 		bl	_dbg_check_lock
+ 471              		.loc 4 351 0
+ 472 0016 00BF     		nop
+ 473 0018 044B     		ldr	r3, .L36
+ 474 001a 019A     		ldr	r2, [sp, #4]
+ 475 001c 1B68     		ldr	r3, [r3]
+ 476 001e 9A42     		cmp	r2, r3
+ 477 0020 01D0     		beq	.L35
+ 478 0022 FFF7FEFF 		bl	__stack_chk_fail
+ 479              	.L35:
+ 480 0026 03B0     		add	sp, sp, #12
+ 481              		.cfi_def_cfa_offset 4
+ 482              		@ sp needed
+ 483 0028 5DF804FB 		ldr	pc, [sp], #4
+ 484              	.L37:
+ 485              		.align	2
+ 486              	.L36:
+ 487 002c 00000000 		.word	__stack_chk_guard
+ 488              		.cfi_endproc
+ 489              	.LFE145:
+ 490              		.size	chSysLock, .-chSysLock
+ 491              		.section	.text.chSysUnlock,"ax",%progbits
+ 492              		.align	1
+ 493              		.p2align 4,,15
+ 494              		.syntax unified
+ 495              		.thumb
+ 496              		.thumb_func
+ 497              		.fpu fpv4-sp-d16
+ 498              		.type	chSysUnlock, %function
+ 499              	chSysUnlock:
+ 500              	.LFB146:
+ 501              		.loc 4 358 0
+ 502              		.cfi_startproc
+ 503              		@ args = 0, pretend = 0, frame = 8
+ 504              		@ frame_needed = 0, uses_anonymous_args = 0
+ 505 0000 00B5     		push	{lr}
+ 506              		.cfi_def_cfa_offset 4
+ 507              		.cfi_offset 14, -4
+ 508 0002 83B0     		sub	sp, sp, #12
+ 509              		.cfi_def_cfa_offset 16
+ 510              		.loc 4 358 0
+ 511 0004 114B     		ldr	r3, .L41
+ 512 0006 1B68     		ldr	r3, [r3]
+ 513 0008 0193     		str	r3, [sp, #4]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 10
+
+
+ 514              		.loc 4 360 0
+ 515 000a FFF7FEFF 		bl	_dbg_check_unlock
+ 516              		.loc 4 361 0
+ 517 000e FFF7FEFF 		bl	_stats_stop_measure_crit_thd
+ 518              		.loc 4 367 0
+ 519 0012 0F4B     		ldr	r3, .L41+4
+ 520 0014 1B68     		ldr	r3, [r3]
+ 521 0016 0E4A     		ldr	r2, .L41+4
+ 522 0018 9342     		cmp	r3, r2
+ 523 001a 0AD0     		beq	.L39
+ 524              		.loc 4 367 0 is_stmt 0 discriminator 2
+ 525 001c 0C4B     		ldr	r3, .L41+4
+ 526 001e 9B69     		ldr	r3, [r3, #24]
+ 527 0020 9A68     		ldr	r2, [r3, #8]
+ 528 0022 0B4B     		ldr	r3, .L41+4
+ 529 0024 1B68     		ldr	r3, [r3]
+ 530 0026 9B68     		ldr	r3, [r3, #8]
+ 531 0028 9A42     		cmp	r2, r3
+ 532 002a 02D2     		bcs	.L39
+ 533              		.loc 4 367 0 discriminator 3
+ 534 002c 0948     		ldr	r0, .L41+8
+ 535 002e FFF7FEFF 		bl	chSysHalt
+ 536              	.L39:
+ 537              		.loc 4 371 0 is_stmt 1
+ 538 0032 FFF7FEFF 		bl	port_unlock
+ 539              		.loc 4 372 0
+ 540 0036 00BF     		nop
+ 541 0038 044B     		ldr	r3, .L41
+ 542 003a 019A     		ldr	r2, [sp, #4]
+ 543 003c 1B68     		ldr	r3, [r3]
+ 544 003e 9A42     		cmp	r2, r3
+ 545 0040 01D0     		beq	.L40
+ 546 0042 FFF7FEFF 		bl	__stack_chk_fail
+ 547              	.L40:
+ 548 0046 03B0     		add	sp, sp, #12
+ 549              		.cfi_def_cfa_offset 4
+ 550              		@ sp needed
+ 551 0048 5DF804FB 		ldr	pc, [sp], #4
+ 552              	.L42:
+ 553              		.align	2
+ 554              	.L41:
+ 555 004c 00000000 		.word	__stack_chk_guard
+ 556 0050 00000000 		.word	ch
+ 557 0054 00000000 		.word	__func__.7153
+ 558              		.cfi_endproc
+ 559              	.LFE146:
+ 560              		.size	chSysUnlock, .-chSysUnlock
+ 561              		.section	.text.chMtxQueueNotEmptyS,"ax",%progbits
+ 562              		.align	1
+ 563              		.p2align 4,,15
+ 564              		.syntax unified
+ 565              		.thumb
+ 566              		.thumb_func
+ 567              		.fpu fpv4-sp-d16
+ 568              		.type	chMtxQueueNotEmptyS, %function
+ 569              	chMtxQueueNotEmptyS:
+ 570              	.LFB192:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 11
+
+
+ 571              		.file 5 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chmtx.h"
+ 572              		.loc 5 129 0
+ 573              		.cfi_startproc
+ 574              		@ args = 0, pretend = 0, frame = 16
+ 575              		@ frame_needed = 0, uses_anonymous_args = 0
+ 576 0000 00B5     		push	{lr}
+ 577              		.cfi_def_cfa_offset 4
+ 578              		.cfi_offset 14, -4
+ 579 0002 85B0     		sub	sp, sp, #20
+ 580              		.cfi_def_cfa_offset 24
+ 581 0004 0190     		str	r0, [sp, #4]
+ 582              		.loc 5 129 0
+ 583 0006 0A4B     		ldr	r3, .L46
+ 584 0008 1B68     		ldr	r3, [r3]
+ 585 000a 0393     		str	r3, [sp, #12]
+ 586              		.loc 5 131 0
+ 587 000c FFF7FEFF 		bl	chDbgCheckClassS
+ 588              		.loc 5 133 0
+ 589 0010 019B     		ldr	r3, [sp, #4]
+ 590 0012 1846     		mov	r0, r3
+ 591 0014 FFF7FEFF 		bl	queue_notempty
+ 592 0018 0346     		mov	r3, r0
+ 593              		.loc 5 134 0
+ 594 001a 1846     		mov	r0, r3
+ 595 001c 044B     		ldr	r3, .L46
+ 596 001e 039A     		ldr	r2, [sp, #12]
+ 597 0020 1B68     		ldr	r3, [r3]
+ 598 0022 9A42     		cmp	r2, r3
+ 599 0024 01D0     		beq	.L45
+ 600 0026 FFF7FEFF 		bl	__stack_chk_fail
+ 601              	.L45:
+ 602 002a 05B0     		add	sp, sp, #20
+ 603              		.cfi_def_cfa_offset 4
+ 604              		@ sp needed
+ 605 002c 5DF804FB 		ldr	pc, [sp], #4
+ 606              	.L47:
+ 607              		.align	2
+ 608              	.L46:
+ 609 0030 00000000 		.word	__stack_chk_guard
+ 610              		.cfi_endproc
+ 611              	.LFE192:
+ 612              		.size	chMtxQueueNotEmptyS, .-chMtxQueueNotEmptyS
+ 613              		.section	.text.chMtxObjectInit,"ax",%progbits
+ 614              		.align	1
+ 615              		.p2align 4,,15
+ 616              		.global	chMtxObjectInit
+ 617              		.syntax unified
+ 618              		.thumb
+ 619              		.thumb_func
+ 620              		.fpu fpv4-sp-d16
+ 621              		.type	chMtxObjectInit, %function
+ 622              	chMtxObjectInit:
+ 623              	.LFB219:
+ 624              		.file 6 "../lib/e-puck2_main-processor/ChibiOS//os/rt/src/chmtx.c"
+ 625              		.loc 6 103 0
+ 626              		.cfi_startproc
+ 627              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 12
+
+
+ 628              		@ frame_needed = 0, uses_anonymous_args = 0
+ 629 0000 00B5     		push	{lr}
+ 630              		.cfi_def_cfa_offset 4
+ 631              		.cfi_offset 14, -4
+ 632 0002 85B0     		sub	sp, sp, #20
+ 633              		.cfi_def_cfa_offset 24
+ 634 0004 0190     		str	r0, [sp, #4]
+ 635              		.loc 6 103 0
+ 636 0006 0F4B     		ldr	r3, .L51
+ 637 0008 1B68     		ldr	r3, [r3]
+ 638 000a 0393     		str	r3, [sp, #12]
+ 639              		.loc 6 105 0
+ 640 000c 019B     		ldr	r3, [sp, #4]
+ 641 000e 002B     		cmp	r3, #0
+ 642 0010 02D1     		bne	.L49
+ 643              		.loc 6 105 0 is_stmt 0 discriminator 2
+ 644 0012 0D48     		ldr	r0, .L51+4
+ 645 0014 FFF7FEFF 		bl	chSysHalt
+ 646              	.L49:
+ 647              		.loc 6 107 0 is_stmt 1
+ 648 0018 019B     		ldr	r3, [sp, #4]
+ 649 001a 1846     		mov	r0, r3
+ 650 001c FFF7FEFF 		bl	queue_init
+ 651              		.loc 6 108 0
+ 652 0020 019B     		ldr	r3, [sp, #4]
+ 653 0022 0022     		movs	r2, #0
+ 654 0024 9A60     		str	r2, [r3, #8]
+ 655              		.loc 6 110 0
+ 656 0026 019B     		ldr	r3, [sp, #4]
+ 657 0028 0022     		movs	r2, #0
+ 658 002a 1A61     		str	r2, [r3, #16]
+ 659              		.loc 6 112 0
+ 660 002c 00BF     		nop
+ 661 002e 054B     		ldr	r3, .L51
+ 662 0030 039A     		ldr	r2, [sp, #12]
+ 663 0032 1B68     		ldr	r3, [r3]
+ 664 0034 9A42     		cmp	r2, r3
+ 665 0036 01D0     		beq	.L50
+ 666 0038 FFF7FEFF 		bl	__stack_chk_fail
+ 667              	.L50:
+ 668 003c 05B0     		add	sp, sp, #20
+ 669              		.cfi_def_cfa_offset 4
+ 670              		@ sp needed
+ 671 003e 5DF804FB 		ldr	pc, [sp], #4
+ 672              	.L52:
+ 673 0042 00BF     		.align	2
+ 674              	.L51:
+ 675 0044 00000000 		.word	__stack_chk_guard
+ 676 0048 00000000 		.word	__func__.7849
+ 677              		.cfi_endproc
+ 678              	.LFE219:
+ 679              		.size	chMtxObjectInit, .-chMtxObjectInit
+ 680              		.section	.text.chMtxLock,"ax",%progbits
+ 681              		.align	1
+ 682              		.p2align 4,,15
+ 683              		.global	chMtxLock
+ 684              		.syntax unified
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 13
+
+
+ 685              		.thumb
+ 686              		.thumb_func
+ 687              		.fpu fpv4-sp-d16
+ 688              		.type	chMtxLock, %function
+ 689              	chMtxLock:
+ 690              	.LFB220:
+ 691              		.loc 6 123 0
+ 692              		.cfi_startproc
+ 693              		@ args = 0, pretend = 0, frame = 16
+ 694              		@ frame_needed = 0, uses_anonymous_args = 0
+ 695 0000 00B5     		push	{lr}
+ 696              		.cfi_def_cfa_offset 4
+ 697              		.cfi_offset 14, -4
+ 698 0002 85B0     		sub	sp, sp, #20
+ 699              		.cfi_def_cfa_offset 24
+ 700 0004 0190     		str	r0, [sp, #4]
+ 701              		.loc 6 123 0
+ 702 0006 0A4B     		ldr	r3, .L55
+ 703 0008 1B68     		ldr	r3, [r3]
+ 704 000a 0393     		str	r3, [sp, #12]
+ 705              		.loc 6 125 0
+ 706 000c FFF7FEFF 		bl	chSysLock
+ 707              		.loc 6 126 0
+ 708 0010 0198     		ldr	r0, [sp, #4]
+ 709 0012 FFF7FEFF 		bl	chMtxLockS
+ 710              		.loc 6 127 0
+ 711 0016 FFF7FEFF 		bl	chSysUnlock
+ 712              		.loc 6 128 0
+ 713 001a 00BF     		nop
+ 714 001c 044B     		ldr	r3, .L55
+ 715 001e 039A     		ldr	r2, [sp, #12]
+ 716 0020 1B68     		ldr	r3, [r3]
+ 717 0022 9A42     		cmp	r2, r3
+ 718 0024 01D0     		beq	.L54
+ 719 0026 FFF7FEFF 		bl	__stack_chk_fail
+ 720              	.L54:
+ 721 002a 05B0     		add	sp, sp, #20
+ 722              		.cfi_def_cfa_offset 4
+ 723              		@ sp needed
+ 724 002c 5DF804FB 		ldr	pc, [sp], #4
+ 725              	.L56:
+ 726              		.align	2
+ 727              	.L55:
+ 728 0030 00000000 		.word	__stack_chk_guard
+ 729              		.cfi_endproc
+ 730              	.LFE220:
+ 731              		.size	chMtxLock, .-chMtxLock
+ 732              		.section	.text.chMtxLockS,"ax",%progbits
+ 733              		.align	1
+ 734              		.p2align 4,,15
+ 735              		.global	chMtxLockS
+ 736              		.syntax unified
+ 737              		.thumb
+ 738              		.thumb_func
+ 739              		.fpu fpv4-sp-d16
+ 740              		.type	chMtxLockS, %function
+ 741              	chMtxLockS:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 14
+
+
+ 742              	.LFB221:
+ 743              		.loc 6 139 0
+ 744              		.cfi_startproc
+ 745              		@ args = 0, pretend = 0, frame = 24
+ 746              		@ frame_needed = 0, uses_anonymous_args = 0
+ 747 0000 00B5     		push	{lr}
+ 748              		.cfi_def_cfa_offset 4
+ 749              		.cfi_offset 14, -4
+ 750 0002 87B0     		sub	sp, sp, #28
+ 751              		.cfi_def_cfa_offset 32
+ 752 0004 0190     		str	r0, [sp, #4]
+ 753              		.loc 6 139 0
+ 754 0006 534B     		ldr	r3, .L79
+ 755 0008 1B68     		ldr	r3, [r3]
+ 756 000a 0593     		str	r3, [sp, #20]
+ 757              		.loc 6 140 0
+ 758 000c 524B     		ldr	r3, .L79+4
+ 759 000e 9B69     		ldr	r3, [r3, #24]
+ 760 0010 0493     		str	r3, [sp, #16]
+ 761              		.loc 6 142 0
+ 762 0012 FFF7FEFF 		bl	chDbgCheckClassS
+ 763              		.loc 6 143 0
+ 764 0016 019B     		ldr	r3, [sp, #4]
+ 765 0018 002B     		cmp	r3, #0
+ 766 001a 02D1     		bne	.L58
+ 767              		.loc 6 143 0 is_stmt 0 discriminator 2
+ 768 001c 4F48     		ldr	r0, .L79+8
+ 769 001e FFF7FEFF 		bl	chSysHalt
+ 770              	.L58:
+ 771              		.loc 6 146 0 is_stmt 1
+ 772 0022 019B     		ldr	r3, [sp, #4]
+ 773 0024 9B68     		ldr	r3, [r3, #8]
+ 774 0026 002B     		cmp	r3, #0
+ 775 0028 73D0     		beq	.L59
+ 776              		.loc 6 149 0 discriminator 1
+ 777 002a 019B     		ldr	r3, [sp, #4]
+ 778 002c 1B69     		ldr	r3, [r3, #16]
+ 779 002e 002B     		cmp	r3, #0
+ 780 0030 02DC     		bgt	.L60
+ 781              		.loc 6 149 0 is_stmt 0 discriminator 2
+ 782 0032 4A48     		ldr	r0, .L79+8
+ 783 0034 FFF7FEFF 		bl	chSysHalt
+ 784              	.L60:
+ 785              		.loc 6 153 0 is_stmt 1
+ 786 0038 019B     		ldr	r3, [sp, #4]
+ 787 003a 9B68     		ldr	r3, [r3, #8]
+ 788 003c 049A     		ldr	r2, [sp, #16]
+ 789 003e 9A42     		cmp	r2, r3
+ 790 0040 05D1     		bne	.L61
+ 791              		.loc 6 154 0
+ 792 0042 019B     		ldr	r3, [sp, #4]
+ 793 0044 1B69     		ldr	r3, [r3, #16]
+ 794 0046 5A1C     		adds	r2, r3, #1
+ 795 0048 019B     		ldr	r3, [sp, #4]
+ 796 004a 1A61     		str	r2, [r3, #16]
+ 797              		.loc 6 236 0
+ 798 004c 77E0     		b	.L78
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 15
+
+
+ 799              	.L61:
+ 800              	.LBB10:
+ 801              		.loc 6 161 0
+ 802 004e 019B     		ldr	r3, [sp, #4]
+ 803 0050 9B68     		ldr	r3, [r3, #8]
+ 804 0052 0393     		str	r3, [sp, #12]
+ 805              		.loc 6 165 0
+ 806 0054 34E0     		b	.L63
+ 807              	.L70:
+ 808              		.loc 6 167 0
+ 809 0056 049B     		ldr	r3, [sp, #16]
+ 810 0058 9A68     		ldr	r2, [r3, #8]
+ 811 005a 039B     		ldr	r3, [sp, #12]
+ 812 005c 9A60     		str	r2, [r3, #8]
+ 813              		.loc 6 170 0
+ 814 005e 039B     		ldr	r3, [sp, #12]
+ 815 0060 93F82030 		ldrb	r3, [r3, #32]	@ zero_extendqisi2
+ 816 0064 062B     		cmp	r3, #6
+ 817 0066 04D0     		beq	.L65
+ 818 0068 072B     		cmp	r3, #7
+ 819 006a 11D0     		beq	.L66
+ 820 006c 002B     		cmp	r3, #0
+ 821 006e 1AD0     		beq	.L67
+ 822              		.loc 6 206 0
+ 823 0070 25E0     		b	.L68
+ 824              	.L65:
+ 825              		.loc 6 173 0
+ 826 0072 0398     		ldr	r0, [sp, #12]
+ 827 0074 FFF7FEFF 		bl	queue_dequeue
+ 828 0078 0246     		mov	r2, r0
+ 829 007a 039B     		ldr	r3, [sp, #12]
+ 830 007c 9B6A     		ldr	r3, [r3, #40]
+ 831 007e 1946     		mov	r1, r3
+ 832 0080 1046     		mov	r0, r2
+ 833 0082 FFF7FEFF 		bl	queue_prio_insert
+ 834              		.loc 6 174 0
+ 835 0086 039B     		ldr	r3, [sp, #12]
+ 836 0088 9B6A     		ldr	r3, [r3, #40]
+ 837 008a 9B68     		ldr	r3, [r3, #8]
+ 838 008c 0393     		str	r3, [sp, #12]
+ 839              		.loc 6 176 0
+ 840 008e 17E0     		b	.L63
+ 841              	.L66:
+ 842              		.loc 6 193 0
+ 843 0090 0398     		ldr	r0, [sp, #12]
+ 844 0092 FFF7FEFF 		bl	queue_dequeue
+ 845 0096 0246     		mov	r2, r0
+ 846 0098 039B     		ldr	r3, [sp, #12]
+ 847 009a 9B6A     		ldr	r3, [r3, #40]
+ 848 009c 1946     		mov	r1, r3
+ 849 009e 1046     		mov	r0, r2
+ 850 00a0 FFF7FEFF 		bl	queue_prio_insert
+ 851              		.loc 6 194 0
+ 852 00a4 0BE0     		b	.L68
+ 853              	.L67:
+ 854              		.loc 6 199 0
+ 855 00a6 039B     		ldr	r3, [sp, #12]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 16
+
+
+ 856 00a8 0122     		movs	r2, #1
+ 857 00aa 83F82020 		strb	r2, [r3, #32]
+ 858              		.loc 6 202 0
+ 859 00ae 0398     		ldr	r0, [sp, #12]
+ 860 00b0 FFF7FEFF 		bl	queue_dequeue
+ 861 00b4 0346     		mov	r3, r0
+ 862 00b6 1846     		mov	r0, r3
+ 863 00b8 FFF7FEFF 		bl	chSchReadyI
+ 864              		.loc 6 203 0
+ 865 00bc 00BF     		nop
+ 866              	.L68:
+ 867              		.loc 6 208 0
+ 868 00be 05E0     		b	.L69
+ 869              	.L63:
+ 870              		.loc 6 165 0
+ 871 00c0 039B     		ldr	r3, [sp, #12]
+ 872 00c2 9A68     		ldr	r2, [r3, #8]
+ 873 00c4 049B     		ldr	r3, [sp, #16]
+ 874 00c6 9B68     		ldr	r3, [r3, #8]
+ 875 00c8 9A42     		cmp	r2, r3
+ 876 00ca C4D3     		bcc	.L70
+ 877              	.L69:
+ 878              		.loc 6 212 0
+ 879 00cc 019B     		ldr	r3, [sp, #4]
+ 880 00ce 1946     		mov	r1, r3
+ 881 00d0 0498     		ldr	r0, [sp, #16]
+ 882 00d2 FFF7FEFF 		bl	queue_prio_insert
+ 883              		.loc 6 213 0
+ 884 00d6 049B     		ldr	r3, [sp, #16]
+ 885 00d8 019A     		ldr	r2, [sp, #4]
+ 886 00da 9A62     		str	r2, [r3, #40]
+ 887              		.loc 6 214 0
+ 888 00dc 0620     		movs	r0, #6
+ 889 00de FFF7FEFF 		bl	chSchGoSleepS
+ 890              		.loc 6 218 0
+ 891 00e2 019B     		ldr	r3, [sp, #4]
+ 892 00e4 9B68     		ldr	r3, [r3, #8]
+ 893 00e6 049A     		ldr	r2, [sp, #16]
+ 894 00e8 9A42     		cmp	r2, r3
+ 895 00ea 02D0     		beq	.L76
+ 896              		.loc 6 218 0 is_stmt 0 discriminator 2
+ 897 00ec 1B48     		ldr	r0, .L79+8
+ 898 00ee FFF7FEFF 		bl	chSysHalt
+ 899              	.L76:
+ 900              		.loc 6 219 0 is_stmt 1 discriminator 1
+ 901 00f2 049B     		ldr	r3, [sp, #16]
+ 902 00f4 1B6C     		ldr	r3, [r3, #64]
+ 903 00f6 019A     		ldr	r2, [sp, #4]
+ 904 00f8 9A42     		cmp	r2, r3
+ 905 00fa 02D0     		beq	.L77
+ 906              		.loc 6 219 0 is_stmt 0 discriminator 2
+ 907 00fc 1748     		ldr	r0, .L79+8
+ 908 00fe FFF7FEFF 		bl	chSysHalt
+ 909              	.L77:
+ 910              		.loc 6 221 0 is_stmt 1 discriminator 1
+ 911 0102 019B     		ldr	r3, [sp, #4]
+ 912 0104 1B69     		ldr	r3, [r3, #16]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 17
+
+
+ 913 0106 012B     		cmp	r3, #1
+ 914 0108 19D0     		beq	.L78
+ 915              		.loc 6 221 0 is_stmt 0 discriminator 2
+ 916 010a 1448     		ldr	r0, .L79+8
+ 917 010c FFF7FEFF 		bl	chSysHalt
+ 918              	.LBE10:
+ 919              		.loc 6 236 0 is_stmt 1 discriminator 2
+ 920 0110 15E0     		b	.L78
+ 921              	.L59:
+ 922              		.loc 6 227 0 discriminator 1
+ 923 0112 019B     		ldr	r3, [sp, #4]
+ 924 0114 1B69     		ldr	r3, [r3, #16]
+ 925 0116 002B     		cmp	r3, #0
+ 926 0118 02D0     		beq	.L74
+ 927              		.loc 6 227 0 is_stmt 0 discriminator 2
+ 928 011a 1048     		ldr	r0, .L79+8
+ 929 011c FFF7FEFF 		bl	chSysHalt
+ 930              	.L74:
+ 931              		.loc 6 229 0 is_stmt 1
+ 932 0120 019B     		ldr	r3, [sp, #4]
+ 933 0122 1B69     		ldr	r3, [r3, #16]
+ 934 0124 5A1C     		adds	r2, r3, #1
+ 935 0126 019B     		ldr	r3, [sp, #4]
+ 936 0128 1A61     		str	r2, [r3, #16]
+ 937              		.loc 6 232 0
+ 938 012a 019B     		ldr	r3, [sp, #4]
+ 939 012c 049A     		ldr	r2, [sp, #16]
+ 940 012e 9A60     		str	r2, [r3, #8]
+ 941              		.loc 6 233 0
+ 942 0130 049B     		ldr	r3, [sp, #16]
+ 943 0132 1A6C     		ldr	r2, [r3, #64]
+ 944 0134 019B     		ldr	r3, [sp, #4]
+ 945 0136 DA60     		str	r2, [r3, #12]
+ 946              		.loc 6 234 0
+ 947 0138 049B     		ldr	r3, [sp, #16]
+ 948 013a 019A     		ldr	r2, [sp, #4]
+ 949 013c 1A64     		str	r2, [r3, #64]
+ 950              	.L78:
+ 951              		.loc 6 236 0
+ 952 013e 00BF     		nop
+ 953 0140 044B     		ldr	r3, .L79
+ 954 0142 059A     		ldr	r2, [sp, #20]
+ 955 0144 1B68     		ldr	r3, [r3]
+ 956 0146 9A42     		cmp	r2, r3
+ 957 0148 01D0     		beq	.L75
+ 958 014a FFF7FEFF 		bl	__stack_chk_fail
+ 959              	.L75:
+ 960 014e 07B0     		add	sp, sp, #28
+ 961              		.cfi_def_cfa_offset 4
+ 962              		@ sp needed
+ 963 0150 5DF804FB 		ldr	pc, [sp], #4
+ 964              	.L80:
+ 965              		.align	2
+ 966              	.L79:
+ 967 0154 00000000 		.word	__stack_chk_guard
+ 968 0158 00000000 		.word	ch
+ 969 015c 00000000 		.word	__func__.7857
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 18
+
+
+ 970              		.cfi_endproc
+ 971              	.LFE221:
+ 972              		.size	chMtxLockS, .-chMtxLockS
+ 973              		.section	.text.chMtxTryLock,"ax",%progbits
+ 974              		.align	1
+ 975              		.p2align 4,,15
+ 976              		.global	chMtxTryLock
+ 977              		.syntax unified
+ 978              		.thumb
+ 979              		.thumb_func
+ 980              		.fpu fpv4-sp-d16
+ 981              		.type	chMtxTryLock, %function
+ 982              	chMtxTryLock:
+ 983              	.LFB222:
+ 984              		.loc 6 255 0
+ 985              		.cfi_startproc
+ 986              		@ args = 0, pretend = 0, frame = 16
+ 987              		@ frame_needed = 0, uses_anonymous_args = 0
+ 988 0000 00B5     		push	{lr}
+ 989              		.cfi_def_cfa_offset 4
+ 990              		.cfi_offset 14, -4
+ 991 0002 85B0     		sub	sp, sp, #20
+ 992              		.cfi_def_cfa_offset 24
+ 993 0004 0190     		str	r0, [sp, #4]
+ 994              		.loc 6 255 0
+ 995 0006 0D4B     		ldr	r3, .L84
+ 996 0008 1B68     		ldr	r3, [r3]
+ 997 000a 0393     		str	r3, [sp, #12]
+ 998              		.loc 6 258 0
+ 999 000c FFF7FEFF 		bl	chSysLock
+ 1000              		.loc 6 259 0
+ 1001 0010 0198     		ldr	r0, [sp, #4]
+ 1002 0012 FFF7FEFF 		bl	chMtxTryLockS
+ 1003 0016 0346     		mov	r3, r0
+ 1004 0018 8DF80B30 		strb	r3, [sp, #11]
+ 1005              		.loc 6 260 0
+ 1006 001c FFF7FEFF 		bl	chSysUnlock
+ 1007              		.loc 6 262 0
+ 1008 0020 9DF80B30 		ldrb	r3, [sp, #11]	@ zero_extendqisi2
+ 1009              		.loc 6 263 0
+ 1010 0024 1846     		mov	r0, r3
+ 1011 0026 054B     		ldr	r3, .L84
+ 1012 0028 039A     		ldr	r2, [sp, #12]
+ 1013 002a 1B68     		ldr	r3, [r3]
+ 1014 002c 9A42     		cmp	r2, r3
+ 1015 002e 01D0     		beq	.L83
+ 1016 0030 FFF7FEFF 		bl	__stack_chk_fail
+ 1017              	.L83:
+ 1018 0034 05B0     		add	sp, sp, #20
+ 1019              		.cfi_def_cfa_offset 4
+ 1020              		@ sp needed
+ 1021 0036 5DF804FB 		ldr	pc, [sp], #4
+ 1022              	.L85:
+ 1023 003a 00BF     		.align	2
+ 1024              	.L84:
+ 1025 003c 00000000 		.word	__stack_chk_guard
+ 1026              		.cfi_endproc
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 19
+
+
+ 1027              	.LFE222:
+ 1028              		.size	chMtxTryLock, .-chMtxTryLock
+ 1029              		.section	.text.chMtxTryLockS,"ax",%progbits
+ 1030              		.align	1
+ 1031              		.p2align 4,,15
+ 1032              		.global	chMtxTryLockS
+ 1033              		.syntax unified
+ 1034              		.thumb
+ 1035              		.thumb_func
+ 1036              		.fpu fpv4-sp-d16
+ 1037              		.type	chMtxTryLockS, %function
+ 1038              	chMtxTryLockS:
+ 1039              	.LFB223:
+ 1040              		.loc 6 282 0
+ 1041              		.cfi_startproc
+ 1042              		@ args = 0, pretend = 0, frame = 16
+ 1043              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1044 0000 00B5     		push	{lr}
+ 1045              		.cfi_def_cfa_offset 4
+ 1046              		.cfi_offset 14, -4
+ 1047 0002 85B0     		sub	sp, sp, #20
+ 1048              		.cfi_def_cfa_offset 24
+ 1049 0004 0190     		str	r0, [sp, #4]
+ 1050              		.loc 6 282 0
+ 1051 0006 254B     		ldr	r3, .L94
+ 1052 0008 1B68     		ldr	r3, [r3]
+ 1053 000a 0393     		str	r3, [sp, #12]
+ 1054              		.loc 6 284 0
+ 1055 000c FFF7FEFF 		bl	chDbgCheckClassS
+ 1056              		.loc 6 285 0
+ 1057 0010 019B     		ldr	r3, [sp, #4]
+ 1058 0012 002B     		cmp	r3, #0
+ 1059 0014 02D1     		bne	.L87
+ 1060              		.loc 6 285 0 is_stmt 0 discriminator 2
+ 1061 0016 2248     		ldr	r0, .L94+4
+ 1062 0018 FFF7FEFF 		bl	chSysHalt
+ 1063              	.L87:
+ 1064              		.loc 6 287 0 is_stmt 1
+ 1065 001c 019B     		ldr	r3, [sp, #4]
+ 1066 001e 9B68     		ldr	r3, [r3, #8]
+ 1067 0020 002B     		cmp	r3, #0
+ 1068 0022 15D0     		beq	.L88
+ 1069              		.loc 6 290 0 discriminator 1
+ 1070 0024 019B     		ldr	r3, [sp, #4]
+ 1071 0026 1B69     		ldr	r3, [r3, #16]
+ 1072 0028 002B     		cmp	r3, #0
+ 1073 002a 02DC     		bgt	.L89
+ 1074              		.loc 6 290 0 is_stmt 0 discriminator 2
+ 1075 002c 1C48     		ldr	r0, .L94+4
+ 1076 002e FFF7FEFF 		bl	chSysHalt
+ 1077              	.L89:
+ 1078              		.loc 6 292 0 is_stmt 1
+ 1079 0032 019B     		ldr	r3, [sp, #4]
+ 1080 0034 9A68     		ldr	r2, [r3, #8]
+ 1081 0036 1B4B     		ldr	r3, .L94+8
+ 1082 0038 9B69     		ldr	r3, [r3, #24]
+ 1083 003a 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 20
+
+
+ 1084 003c 06D1     		bne	.L90
+ 1085              		.loc 6 293 0
+ 1086 003e 019B     		ldr	r3, [sp, #4]
+ 1087 0040 1B69     		ldr	r3, [r3, #16]
+ 1088 0042 5A1C     		adds	r2, r3, #1
+ 1089 0044 019B     		ldr	r3, [sp, #4]
+ 1090 0046 1A61     		str	r2, [r3, #16]
+ 1091              		.loc 6 294 0
+ 1092 0048 0123     		movs	r3, #1
+ 1093 004a 1BE0     		b	.L91
+ 1094              	.L90:
+ 1095              		.loc 6 297 0
+ 1096 004c 0023     		movs	r3, #0
+ 1097 004e 19E0     		b	.L91
+ 1098              	.L88:
+ 1099              		.loc 6 301 0 discriminator 1
+ 1100 0050 019B     		ldr	r3, [sp, #4]
+ 1101 0052 1B69     		ldr	r3, [r3, #16]
+ 1102 0054 002B     		cmp	r3, #0
+ 1103 0056 02D0     		beq	.L92
+ 1104              		.loc 6 301 0 is_stmt 0 discriminator 2
+ 1105 0058 1148     		ldr	r0, .L94+4
+ 1106 005a FFF7FEFF 		bl	chSysHalt
+ 1107              	.L92:
+ 1108              		.loc 6 303 0 is_stmt 1
+ 1109 005e 019B     		ldr	r3, [sp, #4]
+ 1110 0060 1B69     		ldr	r3, [r3, #16]
+ 1111 0062 5A1C     		adds	r2, r3, #1
+ 1112 0064 019B     		ldr	r3, [sp, #4]
+ 1113 0066 1A61     		str	r2, [r3, #16]
+ 1114              		.loc 6 305 0
+ 1115 0068 0E4B     		ldr	r3, .L94+8
+ 1116 006a 9A69     		ldr	r2, [r3, #24]
+ 1117 006c 019B     		ldr	r3, [sp, #4]
+ 1118 006e 9A60     		str	r2, [r3, #8]
+ 1119              		.loc 6 306 0
+ 1120 0070 0C4B     		ldr	r3, .L94+8
+ 1121 0072 9B69     		ldr	r3, [r3, #24]
+ 1122 0074 1A6C     		ldr	r2, [r3, #64]
+ 1123 0076 019B     		ldr	r3, [sp, #4]
+ 1124 0078 DA60     		str	r2, [r3, #12]
+ 1125              		.loc 6 307 0
+ 1126 007a 0A4B     		ldr	r3, .L94+8
+ 1127 007c 9B69     		ldr	r3, [r3, #24]
+ 1128 007e 019A     		ldr	r2, [sp, #4]
+ 1129 0080 1A64     		str	r2, [r3, #64]
+ 1130              		.loc 6 308 0
+ 1131 0082 0123     		movs	r3, #1
+ 1132              	.L91:
+ 1133              		.loc 6 309 0
+ 1134 0084 1846     		mov	r0, r3
+ 1135 0086 054B     		ldr	r3, .L94
+ 1136 0088 039A     		ldr	r2, [sp, #12]
+ 1137 008a 1B68     		ldr	r3, [r3]
+ 1138 008c 9A42     		cmp	r2, r3
+ 1139 008e 01D0     		beq	.L93
+ 1140 0090 FFF7FEFF 		bl	__stack_chk_fail
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 21
+
+
+ 1141              	.L93:
+ 1142 0094 05B0     		add	sp, sp, #20
+ 1143              		.cfi_def_cfa_offset 4
+ 1144              		@ sp needed
+ 1145 0096 5DF804FB 		ldr	pc, [sp], #4
+ 1146              	.L95:
+ 1147 009a 00BF     		.align	2
+ 1148              	.L94:
+ 1149 009c 00000000 		.word	__stack_chk_guard
+ 1150 00a0 00000000 		.word	__func__.7874
+ 1151 00a4 00000000 		.word	ch
+ 1152              		.cfi_endproc
+ 1153              	.LFE223:
+ 1154              		.size	chMtxTryLockS, .-chMtxTryLockS
+ 1155              		.section	.text.chMtxUnlock,"ax",%progbits
+ 1156              		.align	1
+ 1157              		.p2align 4,,15
+ 1158              		.global	chMtxUnlock
+ 1159              		.syntax unified
+ 1160              		.thumb
+ 1161              		.thumb_func
+ 1162              		.fpu fpv4-sp-d16
+ 1163              		.type	chMtxUnlock, %function
+ 1164              	chMtxUnlock:
+ 1165              	.LFB224:
+ 1166              		.loc 6 323 0
+ 1167              		.cfi_startproc
+ 1168              		@ args = 0, pretend = 0, frame = 32
+ 1169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1170 0000 00B5     		push	{lr}
+ 1171              		.cfi_def_cfa_offset 4
+ 1172              		.cfi_offset 14, -4
+ 1173 0002 89B0     		sub	sp, sp, #36
+ 1174              		.cfi_def_cfa_offset 40
+ 1175 0004 0190     		str	r0, [sp, #4]
+ 1176              		.loc 6 323 0
+ 1177 0006 434B     		ldr	r3, .L110
+ 1178 0008 1B68     		ldr	r3, [r3]
+ 1179 000a 0793     		str	r3, [sp, #28]
+ 1180              		.loc 6 324 0
+ 1181 000c 424B     		ldr	r3, .L110+4
+ 1182 000e 9B69     		ldr	r3, [r3, #24]
+ 1183 0010 0593     		str	r3, [sp, #20]
+ 1184              		.loc 6 327 0
+ 1185 0012 019B     		ldr	r3, [sp, #4]
+ 1186 0014 002B     		cmp	r3, #0
+ 1187 0016 02D1     		bne	.L97
+ 1188              		.loc 6 327 0 is_stmt 0 discriminator 2
+ 1189 0018 4048     		ldr	r0, .L110+8
+ 1190 001a FFF7FEFF 		bl	chSysHalt
+ 1191              	.L97:
+ 1192              		.loc 6 329 0 is_stmt 1
+ 1193 001e FFF7FEFF 		bl	chSysLock
+ 1194              		.loc 6 331 0
+ 1195 0022 059B     		ldr	r3, [sp, #20]
+ 1196 0024 1B6C     		ldr	r3, [r3, #64]
+ 1197 0026 002B     		cmp	r3, #0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 22
+
+
+ 1198 0028 02D1     		bne	.L108
+ 1199              		.loc 6 331 0 is_stmt 0 discriminator 2
+ 1200 002a 3C48     		ldr	r0, .L110+8
+ 1201 002c FFF7FEFF 		bl	chSysHalt
+ 1202              	.L108:
+ 1203              		.loc 6 332 0 is_stmt 1 discriminator 1
+ 1204 0030 059B     		ldr	r3, [sp, #20]
+ 1205 0032 1B6C     		ldr	r3, [r3, #64]
+ 1206 0034 9B68     		ldr	r3, [r3, #8]
+ 1207 0036 059A     		ldr	r2, [sp, #20]
+ 1208 0038 9A42     		cmp	r2, r3
+ 1209 003a 02D0     		beq	.L109
+ 1210              		.loc 6 332 0 is_stmt 0 discriminator 2
+ 1211 003c 3748     		ldr	r0, .L110+8
+ 1212 003e FFF7FEFF 		bl	chSysHalt
+ 1213              	.L109:
+ 1214              		.loc 6 334 0 is_stmt 1 discriminator 1
+ 1215 0042 019B     		ldr	r3, [sp, #4]
+ 1216 0044 1B69     		ldr	r3, [r3, #16]
+ 1217 0046 002B     		cmp	r3, #0
+ 1218 0048 02DC     		bgt	.L100
+ 1219              		.loc 6 334 0 is_stmt 0 discriminator 2
+ 1220 004a 3448     		ldr	r0, .L110+8
+ 1221 004c FFF7FEFF 		bl	chSysHalt
+ 1222              	.L100:
+ 1223              		.loc 6 336 0 is_stmt 1
+ 1224 0050 019B     		ldr	r3, [sp, #4]
+ 1225 0052 1B69     		ldr	r3, [r3, #16]
+ 1226 0054 5A1E     		subs	r2, r3, #1
+ 1227 0056 019B     		ldr	r3, [sp, #4]
+ 1228 0058 1A61     		str	r2, [r3, #16]
+ 1229 005a 019B     		ldr	r3, [sp, #4]
+ 1230 005c 1B69     		ldr	r3, [r3, #16]
+ 1231 005e 002B     		cmp	r3, #0
+ 1232 0060 4BD1     		bne	.L101
+ 1233              		.loc 6 339 0 discriminator 1
+ 1234 0062 059B     		ldr	r3, [sp, #20]
+ 1235 0064 1B6C     		ldr	r3, [r3, #64]
+ 1236 0066 019A     		ldr	r2, [sp, #4]
+ 1237 0068 9A42     		cmp	r2, r3
+ 1238 006a 02D0     		beq	.L102
+ 1239              		.loc 6 339 0 is_stmt 0 discriminator 2
+ 1240 006c 2B48     		ldr	r0, .L110+8
+ 1241 006e FFF7FEFF 		bl	chSysHalt
+ 1242              	.L102:
+ 1243              		.loc 6 344 0 is_stmt 1
+ 1244 0072 019B     		ldr	r3, [sp, #4]
+ 1245 0074 DA68     		ldr	r2, [r3, #12]
+ 1246 0076 059B     		ldr	r3, [sp, #20]
+ 1247 0078 1A64     		str	r2, [r3, #64]
+ 1248              		.loc 6 347 0
+ 1249 007a 0198     		ldr	r0, [sp, #4]
+ 1250 007c FFF7FEFF 		bl	chMtxQueueNotEmptyS
+ 1251 0080 0346     		mov	r3, r0
+ 1252 0082 002B     		cmp	r3, #0
+ 1253 0084 36D0     		beq	.L103
+ 1254              	.LBB11:
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 23
+
+
+ 1255              		.loc 6 352 0
+ 1256 0086 059B     		ldr	r3, [sp, #20]
+ 1257 0088 5B6C     		ldr	r3, [r3, #68]
+ 1258 008a 0493     		str	r3, [sp, #16]
+ 1259              		.loc 6 353 0
+ 1260 008c 059B     		ldr	r3, [sp, #20]
+ 1261 008e 1B6C     		ldr	r3, [r3, #64]
+ 1262 0090 0393     		str	r3, [sp, #12]
+ 1263              		.loc 6 354 0
+ 1264 0092 12E0     		b	.L104
+ 1265              	.L106:
+ 1266              		.loc 6 358 0
+ 1267 0094 0398     		ldr	r0, [sp, #12]
+ 1268 0096 FFF7FEFF 		bl	chMtxQueueNotEmptyS
+ 1269 009a 0346     		mov	r3, r0
+ 1270 009c 002B     		cmp	r3, #0
+ 1271 009e 09D0     		beq	.L105
+ 1272              		.loc 6 359 0 discriminator 1
+ 1273 00a0 039B     		ldr	r3, [sp, #12]
+ 1274 00a2 1B68     		ldr	r3, [r3]
+ 1275 00a4 9B68     		ldr	r3, [r3, #8]
+ 1276              		.loc 6 358 0 discriminator 1
+ 1277 00a6 049A     		ldr	r2, [sp, #16]
+ 1278 00a8 9A42     		cmp	r2, r3
+ 1279 00aa 03D2     		bcs	.L105
+ 1280              		.loc 6 360 0
+ 1281 00ac 039B     		ldr	r3, [sp, #12]
+ 1282 00ae 1B68     		ldr	r3, [r3]
+ 1283 00b0 9B68     		ldr	r3, [r3, #8]
+ 1284 00b2 0493     		str	r3, [sp, #16]
+ 1285              	.L105:
+ 1286              		.loc 6 362 0
+ 1287 00b4 039B     		ldr	r3, [sp, #12]
+ 1288 00b6 DB68     		ldr	r3, [r3, #12]
+ 1289 00b8 0393     		str	r3, [sp, #12]
+ 1290              	.L104:
+ 1291              		.loc 6 354 0
+ 1292 00ba 039B     		ldr	r3, [sp, #12]
+ 1293 00bc 002B     		cmp	r3, #0
+ 1294 00be E9D1     		bne	.L106
+ 1295              		.loc 6 367 0
+ 1296 00c0 059B     		ldr	r3, [sp, #20]
+ 1297 00c2 049A     		ldr	r2, [sp, #16]
+ 1298 00c4 9A60     		str	r2, [r3, #8]
+ 1299              		.loc 6 372 0
+ 1300 00c6 019B     		ldr	r3, [sp, #4]
+ 1301 00c8 0122     		movs	r2, #1
+ 1302 00ca 1A61     		str	r2, [r3, #16]
+ 1303              		.loc 6 374 0
+ 1304 00cc 019B     		ldr	r3, [sp, #4]
+ 1305 00ce 1846     		mov	r0, r3
+ 1306 00d0 FFF7FEFF 		bl	queue_fifo_remove
+ 1307 00d4 0690     		str	r0, [sp, #24]
+ 1308              		.loc 6 375 0
+ 1309 00d6 019B     		ldr	r3, [sp, #4]
+ 1310 00d8 069A     		ldr	r2, [sp, #24]
+ 1311 00da 9A60     		str	r2, [r3, #8]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 24
+
+
+ 1312              		.loc 6 376 0
+ 1313 00dc 069B     		ldr	r3, [sp, #24]
+ 1314 00de 1A6C     		ldr	r2, [r3, #64]
+ 1315 00e0 019B     		ldr	r3, [sp, #4]
+ 1316 00e2 DA60     		str	r2, [r3, #12]
+ 1317              		.loc 6 377 0
+ 1318 00e4 069B     		ldr	r3, [sp, #24]
+ 1319 00e6 019A     		ldr	r2, [sp, #4]
+ 1320 00e8 1A64     		str	r2, [r3, #64]
+ 1321              		.loc 6 378 0
+ 1322 00ea 0021     		movs	r1, #0
+ 1323 00ec 0698     		ldr	r0, [sp, #24]
+ 1324 00ee FFF7FEFF 		bl	chSchWakeupS
+ 1325              	.LBE11:
+ 1326 00f2 02E0     		b	.L101
+ 1327              	.L103:
+ 1328              		.loc 6 381 0
+ 1329 00f4 019B     		ldr	r3, [sp, #4]
+ 1330 00f6 0022     		movs	r2, #0
+ 1331 00f8 9A60     		str	r2, [r3, #8]
+ 1332              	.L101:
+ 1333              		.loc 6 387 0
+ 1334 00fa FFF7FEFF 		bl	chSysUnlock
+ 1335              		.loc 6 388 0
+ 1336 00fe 00BF     		nop
+ 1337 0100 044B     		ldr	r3, .L110
+ 1338 0102 079A     		ldr	r2, [sp, #28]
+ 1339 0104 1B68     		ldr	r3, [r3]
+ 1340 0106 9A42     		cmp	r2, r3
+ 1341 0108 01D0     		beq	.L107
+ 1342 010a FFF7FEFF 		bl	__stack_chk_fail
+ 1343              	.L107:
+ 1344 010e 09B0     		add	sp, sp, #36
+ 1345              		.cfi_def_cfa_offset 4
+ 1346              		@ sp needed
+ 1347 0110 5DF804FB 		ldr	pc, [sp], #4
+ 1348              	.L111:
+ 1349              		.align	2
+ 1350              	.L110:
+ 1351 0114 00000000 		.word	__stack_chk_guard
+ 1352 0118 00000000 		.word	ch
+ 1353 011c 00000000 		.word	__func__.7880
+ 1354              		.cfi_endproc
+ 1355              	.LFE224:
+ 1356              		.size	chMtxUnlock, .-chMtxUnlock
+ 1357              		.section	.text.chMtxUnlockS,"ax",%progbits
+ 1358              		.align	1
+ 1359              		.p2align 4,,15
+ 1360              		.global	chMtxUnlockS
+ 1361              		.syntax unified
+ 1362              		.thumb
+ 1363              		.thumb_func
+ 1364              		.fpu fpv4-sp-d16
+ 1365              		.type	chMtxUnlockS, %function
+ 1366              	chMtxUnlockS:
+ 1367              	.LFB225:
+ 1368              		.loc 6 404 0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 25
+
+
+ 1369              		.cfi_startproc
+ 1370              		@ args = 0, pretend = 0, frame = 32
+ 1371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1372 0000 00B5     		push	{lr}
+ 1373              		.cfi_def_cfa_offset 4
+ 1374              		.cfi_offset 14, -4
+ 1375 0002 89B0     		sub	sp, sp, #36
+ 1376              		.cfi_def_cfa_offset 40
+ 1377 0004 0190     		str	r0, [sp, #4]
+ 1378              		.loc 6 404 0
+ 1379 0006 424B     		ldr	r3, .L128
+ 1380 0008 1B68     		ldr	r3, [r3]
+ 1381 000a 0793     		str	r3, [sp, #28]
+ 1382              		.loc 6 405 0
+ 1383 000c 414B     		ldr	r3, .L128+4
+ 1384 000e 9B69     		ldr	r3, [r3, #24]
+ 1385 0010 0593     		str	r3, [sp, #20]
+ 1386              		.loc 6 408 0
+ 1387 0012 FFF7FEFF 		bl	chDbgCheckClassS
+ 1388              		.loc 6 409 0
+ 1389 0016 019B     		ldr	r3, [sp, #4]
+ 1390 0018 002B     		cmp	r3, #0
+ 1391 001a 02D1     		bne	.L124
+ 1392              		.loc 6 409 0 is_stmt 0 discriminator 2
+ 1393 001c 3E48     		ldr	r0, .L128+8
+ 1394 001e FFF7FEFF 		bl	chSysHalt
+ 1395              	.L124:
+ 1396              		.loc 6 411 0 is_stmt 1 discriminator 1
+ 1397 0022 059B     		ldr	r3, [sp, #20]
+ 1398 0024 1B6C     		ldr	r3, [r3, #64]
+ 1399 0026 002B     		cmp	r3, #0
+ 1400 0028 02D1     		bne	.L125
+ 1401              		.loc 6 411 0 is_stmt 0 discriminator 2
+ 1402 002a 3B48     		ldr	r0, .L128+8
+ 1403 002c FFF7FEFF 		bl	chSysHalt
+ 1404              	.L125:
+ 1405              		.loc 6 412 0 is_stmt 1 discriminator 1
+ 1406 0030 059B     		ldr	r3, [sp, #20]
+ 1407 0032 1B6C     		ldr	r3, [r3, #64]
+ 1408 0034 9B68     		ldr	r3, [r3, #8]
+ 1409 0036 059A     		ldr	r2, [sp, #20]
+ 1410 0038 9A42     		cmp	r2, r3
+ 1411 003a 02D0     		beq	.L126
+ 1412              		.loc 6 412 0 is_stmt 0 discriminator 2
+ 1413 003c 3648     		ldr	r0, .L128+8
+ 1414 003e FFF7FEFF 		bl	chSysHalt
+ 1415              	.L126:
+ 1416              		.loc 6 414 0 is_stmt 1 discriminator 1
+ 1417 0042 019B     		ldr	r3, [sp, #4]
+ 1418 0044 1B69     		ldr	r3, [r3, #16]
+ 1419 0046 002B     		cmp	r3, #0
+ 1420 0048 02DC     		bgt	.L116
+ 1421              		.loc 6 414 0 is_stmt 0 discriminator 2
+ 1422 004a 3348     		ldr	r0, .L128+8
+ 1423 004c FFF7FEFF 		bl	chSysHalt
+ 1424              	.L116:
+ 1425              		.loc 6 416 0 is_stmt 1
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 26
+
+
+ 1426 0050 019B     		ldr	r3, [sp, #4]
+ 1427 0052 1B69     		ldr	r3, [r3, #16]
+ 1428 0054 5A1E     		subs	r2, r3, #1
+ 1429 0056 019B     		ldr	r3, [sp, #4]
+ 1430 0058 1A61     		str	r2, [r3, #16]
+ 1431 005a 019B     		ldr	r3, [sp, #4]
+ 1432 005c 1B69     		ldr	r3, [r3, #16]
+ 1433 005e 002B     		cmp	r3, #0
+ 1434 0060 4AD1     		bne	.L127
+ 1435              		.loc 6 419 0 discriminator 1
+ 1436 0062 059B     		ldr	r3, [sp, #20]
+ 1437 0064 1B6C     		ldr	r3, [r3, #64]
+ 1438 0066 019A     		ldr	r2, [sp, #4]
+ 1439 0068 9A42     		cmp	r2, r3
+ 1440 006a 02D0     		beq	.L118
+ 1441              		.loc 6 419 0 is_stmt 0 discriminator 2
+ 1442 006c 2A48     		ldr	r0, .L128+8
+ 1443 006e FFF7FEFF 		bl	chSysHalt
+ 1444              	.L118:
+ 1445              		.loc 6 424 0 is_stmt 1
+ 1446 0072 019B     		ldr	r3, [sp, #4]
+ 1447 0074 DA68     		ldr	r2, [r3, #12]
+ 1448 0076 059B     		ldr	r3, [sp, #20]
+ 1449 0078 1A64     		str	r2, [r3, #64]
+ 1450              		.loc 6 427 0
+ 1451 007a 0198     		ldr	r0, [sp, #4]
+ 1452 007c FFF7FEFF 		bl	chMtxQueueNotEmptyS
+ 1453 0080 0346     		mov	r3, r0
+ 1454 0082 002B     		cmp	r3, #0
+ 1455 0084 35D0     		beq	.L119
+ 1456              	.LBB12:
+ 1457              		.loc 6 432 0
+ 1458 0086 059B     		ldr	r3, [sp, #20]
+ 1459 0088 5B6C     		ldr	r3, [r3, #68]
+ 1460 008a 0493     		str	r3, [sp, #16]
+ 1461              		.loc 6 433 0
+ 1462 008c 059B     		ldr	r3, [sp, #20]
+ 1463 008e 1B6C     		ldr	r3, [r3, #64]
+ 1464 0090 0393     		str	r3, [sp, #12]
+ 1465              		.loc 6 434 0
+ 1466 0092 12E0     		b	.L120
+ 1467              	.L122:
+ 1468              		.loc 6 438 0
+ 1469 0094 0398     		ldr	r0, [sp, #12]
+ 1470 0096 FFF7FEFF 		bl	chMtxQueueNotEmptyS
+ 1471 009a 0346     		mov	r3, r0
+ 1472 009c 002B     		cmp	r3, #0
+ 1473 009e 09D0     		beq	.L121
+ 1474              		.loc 6 439 0 discriminator 1
+ 1475 00a0 039B     		ldr	r3, [sp, #12]
+ 1476 00a2 1B68     		ldr	r3, [r3]
+ 1477 00a4 9B68     		ldr	r3, [r3, #8]
+ 1478              		.loc 6 438 0 discriminator 1
+ 1479 00a6 049A     		ldr	r2, [sp, #16]
+ 1480 00a8 9A42     		cmp	r2, r3
+ 1481 00aa 03D2     		bcs	.L121
+ 1482              		.loc 6 440 0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 27
+
+
+ 1483 00ac 039B     		ldr	r3, [sp, #12]
+ 1484 00ae 1B68     		ldr	r3, [r3]
+ 1485 00b0 9B68     		ldr	r3, [r3, #8]
+ 1486 00b2 0493     		str	r3, [sp, #16]
+ 1487              	.L121:
+ 1488              		.loc 6 442 0
+ 1489 00b4 039B     		ldr	r3, [sp, #12]
+ 1490 00b6 DB68     		ldr	r3, [r3, #12]
+ 1491 00b8 0393     		str	r3, [sp, #12]
+ 1492              	.L120:
+ 1493              		.loc 6 434 0
+ 1494 00ba 039B     		ldr	r3, [sp, #12]
+ 1495 00bc 002B     		cmp	r3, #0
+ 1496 00be E9D1     		bne	.L122
+ 1497              		.loc 6 447 0
+ 1498 00c0 059B     		ldr	r3, [sp, #20]
+ 1499 00c2 049A     		ldr	r2, [sp, #16]
+ 1500 00c4 9A60     		str	r2, [r3, #8]
+ 1501              		.loc 6 452 0
+ 1502 00c6 019B     		ldr	r3, [sp, #4]
+ 1503 00c8 0122     		movs	r2, #1
+ 1504 00ca 1A61     		str	r2, [r3, #16]
+ 1505              		.loc 6 454 0
+ 1506 00cc 019B     		ldr	r3, [sp, #4]
+ 1507 00ce 1846     		mov	r0, r3
+ 1508 00d0 FFF7FEFF 		bl	queue_fifo_remove
+ 1509 00d4 0690     		str	r0, [sp, #24]
+ 1510              		.loc 6 455 0
+ 1511 00d6 019B     		ldr	r3, [sp, #4]
+ 1512 00d8 069A     		ldr	r2, [sp, #24]
+ 1513 00da 9A60     		str	r2, [r3, #8]
+ 1514              		.loc 6 456 0
+ 1515 00dc 069B     		ldr	r3, [sp, #24]
+ 1516 00de 1A6C     		ldr	r2, [r3, #64]
+ 1517 00e0 019B     		ldr	r3, [sp, #4]
+ 1518 00e2 DA60     		str	r2, [r3, #12]
+ 1519              		.loc 6 457 0
+ 1520 00e4 069B     		ldr	r3, [sp, #24]
+ 1521 00e6 019A     		ldr	r2, [sp, #4]
+ 1522 00e8 1A64     		str	r2, [r3, #64]
+ 1523              		.loc 6 458 0
+ 1524 00ea 0698     		ldr	r0, [sp, #24]
+ 1525 00ec FFF7FEFF 		bl	chSchReadyI
+ 1526              	.LBE12:
+ 1527              		.loc 6 466 0
+ 1528 00f0 02E0     		b	.L127
+ 1529              	.L119:
+ 1530              		.loc 6 461 0
+ 1531 00f2 019B     		ldr	r3, [sp, #4]
+ 1532 00f4 0022     		movs	r2, #0
+ 1533 00f6 9A60     		str	r2, [r3, #8]
+ 1534              	.L127:
+ 1535              		.loc 6 466 0
+ 1536 00f8 00BF     		nop
+ 1537 00fa 054B     		ldr	r3, .L128
+ 1538 00fc 079A     		ldr	r2, [sp, #28]
+ 1539 00fe 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 28
+
+
+ 1540 0100 9A42     		cmp	r2, r3
+ 1541 0102 01D0     		beq	.L123
+ 1542 0104 FFF7FEFF 		bl	__stack_chk_fail
+ 1543              	.L123:
+ 1544 0108 09B0     		add	sp, sp, #36
+ 1545              		.cfi_def_cfa_offset 4
+ 1546              		@ sp needed
+ 1547 010a 5DF804FB 		ldr	pc, [sp], #4
+ 1548              	.L129:
+ 1549 010e 00BF     		.align	2
+ 1550              	.L128:
+ 1551 0110 00000000 		.word	__stack_chk_guard
+ 1552 0114 00000000 		.word	ch
+ 1553 0118 00000000 		.word	__func__.7891
+ 1554              		.cfi_endproc
+ 1555              	.LFE225:
+ 1556              		.size	chMtxUnlockS, .-chMtxUnlockS
+ 1557              		.section	.text.chMtxUnlockAll,"ax",%progbits
+ 1558              		.align	1
+ 1559              		.p2align 4,,15
+ 1560              		.global	chMtxUnlockAll
+ 1561              		.syntax unified
+ 1562              		.thumb
+ 1563              		.thumb_func
+ 1564              		.fpu fpv4-sp-d16
+ 1565              		.type	chMtxUnlockAll, %function
+ 1566              	chMtxUnlockAll:
+ 1567              	.LFB226:
+ 1568              		.loc 6 479 0
+ 1569              		.cfi_startproc
+ 1570              		@ args = 0, pretend = 0, frame = 16
+ 1571              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1572 0000 00B5     		push	{lr}
+ 1573              		.cfi_def_cfa_offset 4
+ 1574              		.cfi_offset 14, -4
+ 1575 0002 85B0     		sub	sp, sp, #20
+ 1576              		.cfi_def_cfa_offset 24
+ 1577              		.loc 6 479 0
+ 1578 0004 254B     		ldr	r3, .L136
+ 1579 0006 1B68     		ldr	r3, [r3]
+ 1580 0008 0393     		str	r3, [sp, #12]
+ 1581              		.loc 6 480 0
+ 1582 000a 254B     		ldr	r3, .L136+4
+ 1583 000c 9B69     		ldr	r3, [r3, #24]
+ 1584 000e 0093     		str	r3, [sp]
+ 1585              		.loc 6 482 0
+ 1586 0010 FFF7FEFF 		bl	chSysLock
+ 1587              		.loc 6 483 0
+ 1588 0014 009B     		ldr	r3, [sp]
+ 1589 0016 1B6C     		ldr	r3, [r3, #64]
+ 1590 0018 002B     		cmp	r3, #0
+ 1591 001a 32D0     		beq	.L131
+ 1592              	.L134:
+ 1593              	.LBB13:
+ 1594              		.loc 6 485 0
+ 1595 001c 009B     		ldr	r3, [sp]
+ 1596 001e 1B6C     		ldr	r3, [r3, #64]
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 29
+
+
+ 1597 0020 0193     		str	r3, [sp, #4]
+ 1598              		.loc 6 486 0
+ 1599 0022 019B     		ldr	r3, [sp, #4]
+ 1600 0024 DA68     		ldr	r2, [r3, #12]
+ 1601 0026 009B     		ldr	r3, [sp]
+ 1602 0028 1A64     		str	r2, [r3, #64]
+ 1603              		.loc 6 487 0
+ 1604 002a 0198     		ldr	r0, [sp, #4]
+ 1605 002c FFF7FEFF 		bl	chMtxQueueNotEmptyS
+ 1606 0030 0346     		mov	r3, r0
+ 1607 0032 002B     		cmp	r3, #0
+ 1608 0034 15D0     		beq	.L132
+ 1609              	.LBB14:
+ 1610              		.loc 6 489 0
+ 1611 0036 019B     		ldr	r3, [sp, #4]
+ 1612 0038 0122     		movs	r2, #1
+ 1613 003a 1A61     		str	r2, [r3, #16]
+ 1614              		.loc 6 491 0
+ 1615 003c 019B     		ldr	r3, [sp, #4]
+ 1616 003e 1846     		mov	r0, r3
+ 1617 0040 FFF7FEFF 		bl	queue_fifo_remove
+ 1618 0044 0290     		str	r0, [sp, #8]
+ 1619              		.loc 6 492 0
+ 1620 0046 019B     		ldr	r3, [sp, #4]
+ 1621 0048 029A     		ldr	r2, [sp, #8]
+ 1622 004a 9A60     		str	r2, [r3, #8]
+ 1623              		.loc 6 493 0
+ 1624 004c 029B     		ldr	r3, [sp, #8]
+ 1625 004e 1A6C     		ldr	r2, [r3, #64]
+ 1626 0050 019B     		ldr	r3, [sp, #4]
+ 1627 0052 DA60     		str	r2, [r3, #12]
+ 1628              		.loc 6 494 0
+ 1629 0054 029B     		ldr	r3, [sp, #8]
+ 1630 0056 019A     		ldr	r2, [sp, #4]
+ 1631 0058 1A64     		str	r2, [r3, #64]
+ 1632              		.loc 6 495 0
+ 1633 005a 0298     		ldr	r0, [sp, #8]
+ 1634 005c FFF7FEFF 		bl	chSchReadyI
+ 1635              	.LBE14:
+ 1636 0060 05E0     		b	.L133
+ 1637              	.L132:
+ 1638              		.loc 6 499 0
+ 1639 0062 019B     		ldr	r3, [sp, #4]
+ 1640 0064 0022     		movs	r2, #0
+ 1641 0066 1A61     		str	r2, [r3, #16]
+ 1642              		.loc 6 501 0
+ 1643 0068 019B     		ldr	r3, [sp, #4]
+ 1644 006a 0022     		movs	r2, #0
+ 1645 006c 9A60     		str	r2, [r3, #8]
+ 1646              	.L133:
+ 1647              	.LBE13:
+ 1648              		.loc 6 503 0
+ 1649 006e 009B     		ldr	r3, [sp]
+ 1650 0070 1B6C     		ldr	r3, [r3, #64]
+ 1651 0072 002B     		cmp	r3, #0
+ 1652 0074 D2D1     		bne	.L134
+ 1653              		.loc 6 504 0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 30
+
+
+ 1654 0076 009B     		ldr	r3, [sp]
+ 1655 0078 5A6C     		ldr	r2, [r3, #68]
+ 1656 007a 009B     		ldr	r3, [sp]
+ 1657 007c 9A60     		str	r2, [r3, #8]
+ 1658              		.loc 6 505 0
+ 1659 007e FFF7FEFF 		bl	chSchRescheduleS
+ 1660              	.L131:
+ 1661              		.loc 6 507 0
+ 1662 0082 FFF7FEFF 		bl	chSysUnlock
+ 1663              		.loc 6 508 0
+ 1664 0086 00BF     		nop
+ 1665 0088 044B     		ldr	r3, .L136
+ 1666 008a 039A     		ldr	r2, [sp, #12]
+ 1667 008c 1B68     		ldr	r3, [r3]
+ 1668 008e 9A42     		cmp	r2, r3
+ 1669 0090 01D0     		beq	.L135
+ 1670 0092 FFF7FEFF 		bl	__stack_chk_fail
+ 1671              	.L135:
+ 1672 0096 05B0     		add	sp, sp, #20
+ 1673              		.cfi_def_cfa_offset 4
+ 1674              		@ sp needed
+ 1675 0098 5DF804FB 		ldr	pc, [sp], #4
+ 1676              	.L137:
+ 1677              		.align	2
+ 1678              	.L136:
+ 1679 009c 00000000 		.word	__stack_chk_guard
+ 1680 00a0 00000000 		.word	ch
+ 1681              		.cfi_endproc
+ 1682              	.LFE226:
+ 1683              		.size	chMtxUnlockAll, .-chMtxUnlockAll
+ 1684              		.section	.rodata.__func__.7849,"a",%progbits
+ 1685              		.align	2
+ 1686              		.type	__func__.7849, %object
+ 1687              		.size	__func__.7849, 16
+ 1688              	__func__.7849:
+ 1689 0000 63684D74 		.ascii	"chMtxObjectInit\000"
+ 1689      784F626A 
+ 1689      65637449 
+ 1689      6E697400 
+ 1690              		.section	.rodata.__func__.7153,"a",%progbits
+ 1691              		.align	2
+ 1692              		.type	__func__.7153, %object
+ 1693              		.size	__func__.7153, 12
+ 1694              	__func__.7153:
+ 1695 0000 63685379 		.ascii	"chSysUnlock\000"
+ 1695      73556E6C 
+ 1695      6F636B00 
+ 1696              		.section	.rodata.__func__.7857,"a",%progbits
+ 1697              		.align	2
+ 1698              		.type	__func__.7857, %object
+ 1699              		.size	__func__.7857, 11
+ 1700              	__func__.7857:
+ 1701 0000 63684D74 		.ascii	"chMtxLockS\000"
+ 1701      784C6F63 
+ 1701      6B5300
+ 1702              		.section	.rodata.__func__.7874,"a",%progbits
+ 1703              		.align	2
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 31
+
+
+ 1704              		.type	__func__.7874, %object
+ 1705              		.size	__func__.7874, 14
+ 1706              	__func__.7874:
+ 1707 0000 63684D74 		.ascii	"chMtxTryLockS\000"
+ 1707      78547279 
+ 1707      4C6F636B 
+ 1707      5300
+ 1708              		.section	.rodata.__func__.7880,"a",%progbits
+ 1709              		.align	2
+ 1710              		.type	__func__.7880, %object
+ 1711              		.size	__func__.7880, 12
+ 1712              	__func__.7880:
+ 1713 0000 63684D74 		.ascii	"chMtxUnlock\000"
+ 1713      78556E6C 
+ 1713      6F636B00 
+ 1714              		.section	.rodata.__func__.7891,"a",%progbits
+ 1715              		.align	2
+ 1716              		.type	__func__.7891, %object
+ 1717              		.size	__func__.7891, 13
+ 1718              	__func__.7891:
+ 1719 0000 63684D74 		.ascii	"chMtxUnlockS\000"
+ 1719      78556E6C 
+ 1719      6F636B53 
+ 1719      00
+ 1720              		.text
+ 1721              	.Letext0:
+ 1722              		.file 7 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 1723              		.file 8 "c:\\users\\pchautems\\documents\\robotiquetp\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 1724              		.file 9 "../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/compilers/GCC/chtypes.h"
+ 1725              		.file 10 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chsystypes.h"
+ 1726              		.file 11 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cm4.h"
+ 1727              		.file 12 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/ST/system_stm32f4xx.h"
+ 1728              		.file 13 "../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/chcore.h"
+ 1729              		.file 14 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chdebug.h"
+ 1730              		.file 15 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chtm.h"
+ 1731              		.file 16 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chstats.h"
+ 1732              		.file 17 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chsem.h"
+ 1733              		.file 18 "../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chregistry.h"
+ 1734              		.section	.debug_info,"",%progbits
+ 1735              	.Ldebug_info0:
+ 1736 0000 920E0000 		.4byte	0xe92
+ 1737 0004 0400     		.2byte	0x4
+ 1738 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1739 000a 04       		.byte	0x4
+ 1740 000b 01       		.uleb128 0x1
+ 1741 000c B1010000 		.4byte	.LASF176
+ 1742 0010 0C       		.byte	0xc
+ 1743 0011 57080000 		.4byte	.LASF177
+ 1744 0015 B4060000 		.4byte	.LASF178
+ 1745 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1746 001d 00000000 		.4byte	0
+ 1747 0021 00000000 		.4byte	.Ldebug_line0
+ 1748 0025 02       		.uleb128 0x2
+ 1749 0026 04       		.byte	0x4
+ 1750 0027 05       		.byte	0x5
+ 1751 0028 696E7400 		.ascii	"int\000"
+ 1752 002c 03       		.uleb128 0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 32
+
+
+ 1753 002d 04       		.byte	0x4
+ 1754 002e 07       		.byte	0x7
+ 1755 002f BF030000 		.4byte	.LASF0
+ 1756 0033 03       		.uleb128 0x3
+ 1757 0034 08       		.byte	0x8
+ 1758 0035 05       		.byte	0x5
+ 1759 0036 80030000 		.4byte	.LASF1
+ 1760 003a 03       		.uleb128 0x3
+ 1761 003b 08       		.byte	0x8
+ 1762 003c 04       		.byte	0x4
+ 1763 003d 24050000 		.4byte	.LASF2
+ 1764 0041 03       		.uleb128 0x3
+ 1765 0042 01       		.byte	0x1
+ 1766 0043 06       		.byte	0x6
+ 1767 0044 48010000 		.4byte	.LASF3
+ 1768 0048 04       		.uleb128 0x4
+ 1769 0049 45000000 		.4byte	.LASF6
+ 1770 004d 07       		.byte	0x7
+ 1771 004e 2B       		.byte	0x2b
+ 1772 004f 53000000 		.4byte	0x53
+ 1773 0053 03       		.uleb128 0x3
+ 1774 0054 01       		.byte	0x1
+ 1775 0055 08       		.byte	0x8
+ 1776 0056 31060000 		.4byte	.LASF4
+ 1777 005a 03       		.uleb128 0x3
+ 1778 005b 02       		.byte	0x2
+ 1779 005c 05       		.byte	0x5
+ 1780 005d 51060000 		.4byte	.LASF5
+ 1781 0061 04       		.uleb128 0x4
+ 1782 0062 88070000 		.4byte	.LASF7
+ 1783 0066 07       		.byte	0x7
+ 1784 0067 39       		.byte	0x39
+ 1785 0068 6C000000 		.4byte	0x6c
+ 1786 006c 03       		.uleb128 0x3
+ 1787 006d 02       		.byte	0x2
+ 1788 006e 07       		.byte	0x7
+ 1789 006f 24040000 		.4byte	.LASF8
+ 1790 0073 04       		.uleb128 0x4
+ 1791 0074 C3040000 		.4byte	.LASF9
+ 1792 0078 07       		.byte	0x7
+ 1793 0079 4D       		.byte	0x4d
+ 1794 007a 7E000000 		.4byte	0x7e
+ 1795 007e 03       		.uleb128 0x3
+ 1796 007f 04       		.byte	0x4
+ 1797 0080 05       		.byte	0x5
+ 1798 0081 A8010000 		.4byte	.LASF10
+ 1799 0085 04       		.uleb128 0x4
+ 1800 0086 D1070000 		.4byte	.LASF11
+ 1801 008a 07       		.byte	0x7
+ 1802 008b 4F       		.byte	0x4f
+ 1803 008c 90000000 		.4byte	0x90
+ 1804 0090 03       		.uleb128 0x3
+ 1805 0091 04       		.byte	0x4
+ 1806 0092 07       		.byte	0x7
+ 1807 0093 6A070000 		.4byte	.LASF12
+ 1808 0097 04       		.uleb128 0x4
+ 1809 0098 B8050000 		.4byte	.LASF13
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 33
+
+
+ 1810 009c 07       		.byte	0x7
+ 1811 009d 69       		.byte	0x69
+ 1812 009e A2000000 		.4byte	0xa2
+ 1813 00a2 03       		.uleb128 0x3
+ 1814 00a3 08       		.byte	0x8
+ 1815 00a4 07       		.byte	0x7
+ 1816 00a5 A9000000 		.4byte	.LASF14
+ 1817 00a9 04       		.uleb128 0x4
+ 1818 00aa 4F080000 		.4byte	.LASF15
+ 1819 00ae 08       		.byte	0x8
+ 1820 00af 18       		.byte	0x18
+ 1821 00b0 48000000 		.4byte	0x48
+ 1822 00b4 04       		.uleb128 0x4
+ 1823 00b5 D4030000 		.4byte	.LASF16
+ 1824 00b9 08       		.byte	0x8
+ 1825 00ba 24       		.byte	0x24
+ 1826 00bb 61000000 		.4byte	0x61
+ 1827 00bf 04       		.uleb128 0x4
+ 1828 00c0 29060000 		.4byte	.LASF17
+ 1829 00c4 08       		.byte	0x8
+ 1830 00c5 2C       		.byte	0x2c
+ 1831 00c6 73000000 		.4byte	0x73
+ 1832 00ca 05       		.uleb128 0x5
+ 1833 00cb BF000000 		.4byte	0xbf
+ 1834 00cf 04       		.uleb128 0x4
+ 1835 00d0 35070000 		.4byte	.LASF18
+ 1836 00d4 08       		.byte	0x8
+ 1837 00d5 30       		.byte	0x30
+ 1838 00d6 85000000 		.4byte	0x85
+ 1839 00da 04       		.uleb128 0x4
+ 1840 00db 2F000000 		.4byte	.LASF19
+ 1841 00df 08       		.byte	0x8
+ 1842 00e0 3C       		.byte	0x3c
+ 1843 00e1 97000000 		.4byte	0x97
+ 1844 00e5 04       		.uleb128 0x4
+ 1845 00e6 05050000 		.4byte	.LASF20
+ 1846 00ea 09       		.byte	0x9
+ 1847 00eb 45       		.byte	0x45
+ 1848 00ec CF000000 		.4byte	0xcf
+ 1849 00f0 04       		.uleb128 0x4
+ 1850 00f1 17010000 		.4byte	.LASF21
+ 1851 00f5 09       		.byte	0x9
+ 1852 00f6 46       		.byte	0x46
+ 1853 00f7 DA000000 		.4byte	0xda
+ 1854 00fb 04       		.uleb128 0x4
+ 1855 00fc 7A060000 		.4byte	.LASF22
+ 1856 0100 09       		.byte	0x9
+ 1857 0101 48       		.byte	0x48
+ 1858 0102 A9000000 		.4byte	0xa9
+ 1859 0106 04       		.uleb128 0x4
+ 1860 0107 03030000 		.4byte	.LASF23
+ 1861 010b 09       		.byte	0x9
+ 1862 010c 49       		.byte	0x49
+ 1863 010d A9000000 		.4byte	0xa9
+ 1864 0111 04       		.uleb128 0x4
+ 1865 0112 CE050000 		.4byte	.LASF24
+ 1866 0116 09       		.byte	0x9
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 34
+
+
+ 1867 0117 4A       		.byte	0x4a
+ 1868 0118 A9000000 		.4byte	0xa9
+ 1869 011c 04       		.uleb128 0x4
+ 1870 011d 94010000 		.4byte	.LASF25
+ 1871 0121 09       		.byte	0x9
+ 1872 0122 4B       		.byte	0x4b
+ 1873 0123 A9000000 		.4byte	0xa9
+ 1874 0127 04       		.uleb128 0x4
+ 1875 0128 02060000 		.4byte	.LASF26
+ 1876 012c 09       		.byte	0x9
+ 1877 012d 4C       		.byte	0x4c
+ 1878 012e CF000000 		.4byte	0xcf
+ 1879 0132 04       		.uleb128 0x4
+ 1880 0133 50040000 		.4byte	.LASF27
+ 1881 0137 09       		.byte	0x9
+ 1882 0138 4D       		.byte	0x4d
+ 1883 0139 BF000000 		.4byte	0xbf
+ 1884 013d 04       		.uleb128 0x4
+ 1885 013e AA040000 		.4byte	.LASF28
+ 1886 0142 09       		.byte	0x9
+ 1887 0143 4F       		.byte	0x4f
+ 1888 0144 CF000000 		.4byte	0xcf
+ 1889 0148 04       		.uleb128 0x4
+ 1890 0149 AC030000 		.4byte	.LASF29
+ 1891 014d 09       		.byte	0x9
+ 1892 014e 51       		.byte	0x51
+ 1893 014f BF000000 		.4byte	0xbf
+ 1894 0153 04       		.uleb128 0x4
+ 1895 0154 5B040000 		.4byte	.LASF30
+ 1896 0158 09       		.byte	0x9
+ 1897 0159 52       		.byte	0x52
+ 1898 015a CF000000 		.4byte	0xcf
+ 1899 015e 04       		.uleb128 0x4
+ 1900 015f B3070000 		.4byte	.LASF31
+ 1901 0163 0A       		.byte	0xa
+ 1902 0164 33       		.byte	0x33
+ 1903 0165 CF000000 		.4byte	0xcf
+ 1904 0169 05       		.uleb128 0x5
+ 1905 016a 5E010000 		.4byte	0x15e
+ 1906 016e 04       		.uleb128 0x4
+ 1907 016f 93070000 		.4byte	.LASF32
+ 1908 0173 0A       		.byte	0xa
+ 1909 0174 3F       		.byte	0x3f
+ 1910 0175 79010000 		.4byte	0x179
+ 1911 0179 06       		.uleb128 0x6
+ 1912 017a 46040000 		.4byte	.LASF56
+ 1913 017e 68       		.byte	0x68
+ 1914 017f 03       		.byte	0x3
+ 1915 0180 C2       		.byte	0xc2
+ 1916 0181 97020000 		.4byte	0x297
+ 1917 0185 07       		.uleb128 0x7
+ 1918 0186 73060000 		.4byte	.LASF33
+ 1919 018a 03       		.byte	0x3
+ 1920 018b C3       		.byte	0xc3
+ 1921 018c A2020000 		.4byte	0x2a2
+ 1922 0190 00       		.byte	0
+ 1923 0191 07       		.uleb128 0x7
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 35
+
+
+ 1924 0192 FB050000 		.4byte	.LASF34
+ 1925 0196 03       		.byte	0x3
+ 1926 0197 C5       		.byte	0xc5
+ 1927 0198 A2020000 		.4byte	0x2a2
+ 1928 019c 04       		.byte	0x4
+ 1929 019d 07       		.uleb128 0x7
+ 1930 019e 20010000 		.4byte	.LASF35
+ 1931 01a2 03       		.byte	0x3
+ 1932 01a3 C7       		.byte	0xc7
+ 1933 01a4 27010000 		.4byte	0x127
+ 1934 01a8 08       		.byte	0x8
+ 1935 01a9 07       		.uleb128 0x7
+ 1936 01aa 84050000 		.4byte	.LASF36
+ 1937 01ae 03       		.byte	0x3
+ 1938 01af C8       		.byte	0xc8
+ 1939 01b0 20050000 		.4byte	0x520
+ 1940 01b4 0C       		.byte	0xc
+ 1941 01b5 07       		.uleb128 0x7
+ 1942 01b6 39030000 		.4byte	.LASF37
+ 1943 01ba 03       		.byte	0x3
+ 1944 01bb CA       		.byte	0xca
+ 1945 01bc A2020000 		.4byte	0x2a2
+ 1946 01c0 10       		.byte	0x10
+ 1947 01c1 07       		.uleb128 0x7
+ 1948 01c2 76050000 		.4byte	.LASF38
+ 1949 01c6 03       		.byte	0x3
+ 1950 01c7 CB       		.byte	0xcb
+ 1951 01c8 A2020000 		.4byte	0x2a2
+ 1952 01cc 14       		.byte	0x14
+ 1953 01cd 07       		.uleb128 0x7
+ 1954 01ce AA080000 		.4byte	.LASF39
+ 1955 01d2 03       		.byte	0x3
+ 1956 01d3 D2       		.byte	0xd2
+ 1957 01d4 96080000 		.4byte	0x896
+ 1958 01d8 18       		.byte	0x18
+ 1959 01d9 07       		.uleb128 0x7
+ 1960 01da 9B050000 		.4byte	.LASF40
+ 1961 01de 03       		.byte	0x3
+ 1962 01df D8       		.byte	0xd8
+ 1963 01e0 AD080000 		.4byte	0x8ad
+ 1964 01e4 1C       		.byte	0x1c
+ 1965 01e5 07       		.uleb128 0x7
+ 1966 01e6 3F060000 		.4byte	.LASF41
+ 1967 01ea 03       		.byte	0x3
+ 1968 01eb DD       		.byte	0xdd
+ 1969 01ec 06010000 		.4byte	0x106
+ 1970 01f0 20       		.byte	0x20
+ 1971 01f1 07       		.uleb128 0x7
+ 1972 01f2 91060000 		.4byte	.LASF42
+ 1973 01f6 03       		.byte	0x3
+ 1974 01f7 E1       		.byte	0xe1
+ 1975 01f8 FB000000 		.4byte	0xfb
+ 1976 01fc 21       		.byte	0x21
+ 1977 01fd 07       		.uleb128 0x7
+ 1978 01fe 2A080000 		.4byte	.LASF43
+ 1979 0202 03       		.byte	0x3
+ 1980 0203 E6       		.byte	0xe6
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 36
+
+
+ 1981 0204 11010000 		.4byte	0x111
+ 1982 0208 22       		.byte	0x22
+ 1983 0209 07       		.uleb128 0x7
+ 1984 020a 5B060000 		.4byte	.LASF44
+ 1985 020e 03       		.byte	0x3
+ 1986 020f EC       		.byte	0xec
+ 1987 0210 1C010000 		.4byte	0x11c
+ 1988 0214 23       		.byte	0x23
+ 1989 0215 07       		.uleb128 0x7
+ 1990 0216 ED030000 		.4byte	.LASF45
+ 1991 021a 03       		.byte	0x3
+ 1992 021b F3       		.byte	0xf3
+ 1993 021c 69010000 		.4byte	0x169
+ 1994 0220 24       		.byte	0x24
+ 1995 0221 08       		.uleb128 0x8
+ 1996 0222 705F7500 		.ascii	"p_u\000"
+ 1997 0226 03       		.byte	0x3
+ 1998 0227 3101     		.2byte	0x131
+ 1999 0229 C5070000 		.4byte	0x7c5
+ 2000 022d 28       		.byte	0x28
+ 2001 022e 09       		.uleb128 0x9
+ 2002 022f FB040000 		.4byte	.LASF46
+ 2003 0233 03       		.byte	0x3
+ 2004 0234 3601     		.2byte	0x136
+ 2005 0236 A8020000 		.4byte	0x2a8
+ 2006 023a 2C       		.byte	0x2c
+ 2007 023b 09       		.uleb128 0x9
+ 2008 023c 04040000 		.4byte	.LASF47
+ 2009 0240 03       		.byte	0x3
+ 2010 0241 3C01     		.2byte	0x13c
+ 2011 0243 CC020000 		.4byte	0x2cc
+ 2012 0247 30       		.byte	0x30
+ 2013 0248 09       		.uleb128 0x9
+ 2014 0249 09080000 		.4byte	.LASF48
+ 2015 024d 03       		.byte	0x3
+ 2016 024e 4001     		.2byte	0x140
+ 2017 0250 32010000 		.4byte	0x132
+ 2018 0254 38       		.byte	0x38
+ 2019 0255 09       		.uleb128 0x9
+ 2020 0256 2A070000 		.4byte	.LASF49
+ 2021 025a 03       		.byte	0x3
+ 2022 025b 4601     		.2byte	0x146
+ 2023 025d 3D010000 		.4byte	0x13d
+ 2024 0261 3C       		.byte	0x3c
+ 2025 0262 09       		.uleb128 0x9
+ 2026 0263 47060000 		.4byte	.LASF50
+ 2027 0267 03       		.byte	0x3
+ 2028 0268 4D01     		.2byte	0x14d
+ 2029 026a 90080000 		.4byte	0x890
+ 2030 026e 40       		.byte	0x40
+ 2031 026f 09       		.uleb128 0x9
+ 2032 0270 BD070000 		.4byte	.LASF51
+ 2033 0274 03       		.byte	0x3
+ 2034 0275 5101     		.2byte	0x151
+ 2035 0277 27010000 		.4byte	0x127
+ 2036 027b 44       		.byte	0x44
+ 2037 027c 09       		.uleb128 0x9
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 37
+
+
+ 2038 027d 71010000 		.4byte	.LASF52
+ 2039 0281 03       		.byte	0x3
+ 2040 0282 5801     		.2byte	0x158
+ 2041 0284 84030000 		.4byte	0x384
+ 2042 0288 48       		.byte	0x48
+ 2043 0289 09       		.uleb128 0x9
+ 2044 028a A2060000 		.4byte	.LASF53
+ 2045 028e 03       		.byte	0x3
+ 2046 028f 5E01     		.2byte	0x15e
+ 2047 0291 76070000 		.4byte	0x776
+ 2048 0295 50       		.byte	0x50
+ 2049 0296 00       		.byte	0
+ 2050 0297 04       		.uleb128 0x4
+ 2051 0298 90080000 		.4byte	.LASF54
+ 2052 029c 0A       		.byte	0xa
+ 2053 029d 44       		.byte	0x44
+ 2054 029e A2020000 		.4byte	0x2a2
+ 2055 02a2 0A       		.uleb128 0xa
+ 2056 02a3 04       		.byte	0x4
+ 2057 02a4 6E010000 		.4byte	0x16e
+ 2058 02a8 04       		.uleb128 0x4
+ 2059 02a9 D8040000 		.4byte	.LASF55
+ 2060 02ad 0A       		.byte	0xa
+ 2061 02ae 49       		.byte	0x49
+ 2062 02af B3020000 		.4byte	0x2b3
+ 2063 02b3 06       		.uleb128 0x6
+ 2064 02b4 52070000 		.4byte	.LASF57
+ 2065 02b8 04       		.byte	0x4
+ 2066 02b9 03       		.byte	0x3
+ 2067 02ba B0       		.byte	0xb0
+ 2068 02bb CC020000 		.4byte	0x2cc
+ 2069 02bf 07       		.uleb128 0x7
+ 2070 02c0 73060000 		.4byte	.LASF33
+ 2071 02c4 03       		.byte	0x3
+ 2072 02c5 B1       		.byte	0xb1
+ 2073 02c6 A2020000 		.4byte	0x2a2
+ 2074 02ca 00       		.byte	0
+ 2075 02cb 00       		.byte	0
+ 2076 02cc 04       		.uleb128 0x4
+ 2077 02cd EF060000 		.4byte	.LASF58
+ 2078 02d1 0A       		.byte	0xa
+ 2079 02d2 50       		.byte	0x50
+ 2080 02d3 DC020000 		.4byte	0x2dc
+ 2081 02d7 0B       		.uleb128 0xb
+ 2082 02d8 CC020000 		.4byte	0x2cc
+ 2083 02dc 06       		.uleb128 0x6
+ 2084 02dd 5B000000 		.4byte	.LASF59
+ 2085 02e1 08       		.byte	0x8
+ 2086 02e2 03       		.byte	0x3
+ 2087 02e3 B7       		.byte	0xb7
+ 2088 02e4 01030000 		.4byte	0x301
+ 2089 02e8 07       		.uleb128 0x7
+ 2090 02e9 73060000 		.4byte	.LASF33
+ 2091 02ed 03       		.byte	0x3
+ 2092 02ee B8       		.byte	0xb8
+ 2093 02ef A2020000 		.4byte	0x2a2
+ 2094 02f3 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 38
+
+
+ 2095 02f4 07       		.uleb128 0x7
+ 2096 02f5 FB050000 		.4byte	.LASF34
+ 2097 02f9 03       		.byte	0x3
+ 2098 02fa B9       		.byte	0xb9
+ 2099 02fb A2020000 		.4byte	0x2a2
+ 2100 02ff 04       		.byte	0x4
+ 2101 0300 00       		.byte	0
+ 2102 0301 04       		.uleb128 0x4
+ 2103 0302 0D000000 		.4byte	.LASF60
+ 2104 0306 0A       		.byte	0xa
+ 2105 0307 57       		.byte	0x57
+ 2106 0308 0C030000 		.4byte	0x30c
+ 2107 030c 0C       		.uleb128 0xc
+ 2108 030d 9C040000 		.4byte	.LASF61
+ 2109 0311 1C       		.byte	0x1c
+ 2110 0312 03       		.byte	0x3
+ 2111 0313 9001     		.2byte	0x190
+ 2112 0315 68030000 		.4byte	0x368
+ 2113 0319 09       		.uleb128 0x9
+ 2114 031a 4A070000 		.4byte	.LASF62
+ 2115 031e 03       		.byte	0x3
+ 2116 031f 9101     		.2byte	0x191
+ 2117 0321 CC020000 		.4byte	0x2cc
+ 2118 0325 00       		.byte	0
+ 2119 0326 09       		.uleb128 0x9
+ 2120 0327 65060000 		.4byte	.LASF63
+ 2121 032b 03       		.byte	0x3
+ 2122 032c 9201     		.2byte	0x192
+ 2123 032e 27010000 		.4byte	0x127
+ 2124 0332 08       		.byte	0x8
+ 2125 0333 09       		.uleb128 0x9
+ 2126 0334 7E050000 		.4byte	.LASF64
+ 2127 0338 03       		.byte	0x3
+ 2128 0339 9401     		.2byte	0x194
+ 2129 033b 20050000 		.4byte	0x520
+ 2130 033f 0C       		.byte	0xc
+ 2131 0340 09       		.uleb128 0x9
+ 2132 0341 51030000 		.4byte	.LASF65
+ 2133 0345 03       		.byte	0x3
+ 2134 0346 9701     		.2byte	0x197
+ 2135 0348 A2020000 		.4byte	0x2a2
+ 2136 034c 10       		.byte	0x10
+ 2137 034d 09       		.uleb128 0x9
+ 2138 034e B0050000 		.4byte	.LASF66
+ 2139 0352 03       		.byte	0x3
+ 2140 0353 9801     		.2byte	0x198
+ 2141 0355 A2020000 		.4byte	0x2a2
+ 2142 0359 14       		.byte	0x14
+ 2143 035a 09       		.uleb128 0x9
+ 2144 035b A6050000 		.4byte	.LASF67
+ 2145 035f 03       		.byte	0x3
+ 2146 0360 9B01     		.2byte	0x19b
+ 2147 0362 A2020000 		.4byte	0x2a2
+ 2148 0366 18       		.byte	0x18
+ 2149 0367 00       		.byte	0
+ 2150 0368 04       		.uleb128 0x4
+ 2151 0369 C8070000 		.4byte	.LASF68
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 39
+
+
+ 2152 036d 0A       		.byte	0xa
+ 2153 036e 5C       		.byte	0x5c
+ 2154 036f 73030000 		.4byte	0x373
+ 2155 0373 0A       		.uleb128 0xa
+ 2156 0374 04       		.byte	0x4
+ 2157 0375 79030000 		.4byte	0x379
+ 2158 0379 0D       		.uleb128 0xd
+ 2159 037a 84030000 		.4byte	0x384
+ 2160 037e 0E       		.uleb128 0xe
+ 2161 037f 84030000 		.4byte	0x384
+ 2162 0383 00       		.byte	0
+ 2163 0384 0F       		.uleb128 0xf
+ 2164 0385 04       		.byte	0x4
+ 2165 0386 04       		.uleb128 0x4
+ 2166 0387 EB050000 		.4byte	.LASF69
+ 2167 038b 0A       		.byte	0xa
+ 2168 038c 61       		.byte	0x61
+ 2169 038d 91030000 		.4byte	0x391
+ 2170 0391 0C       		.uleb128 0xc
+ 2171 0392 FF060000 		.4byte	.LASF70
+ 2172 0396 14       		.byte	0x14
+ 2173 0397 03       		.byte	0x3
+ 2174 0398 6B01     		.2byte	0x16b
+ 2175 039a E0030000 		.4byte	0x3e0
+ 2176 039e 09       		.uleb128 0x9
+ 2177 039f CC030000 		.4byte	.LASF71
+ 2178 03a3 03       		.byte	0x3
+ 2179 03a4 6C01     		.2byte	0x16c
+ 2180 03a6 B3080000 		.4byte	0x8b3
+ 2181 03aa 00       		.byte	0
+ 2182 03ab 09       		.uleb128 0x9
+ 2183 03ac 62030000 		.4byte	.LASF72
+ 2184 03b0 03       		.byte	0x3
+ 2185 03b1 6D01     		.2byte	0x16d
+ 2186 03b3 B3080000 		.4byte	0x8b3
+ 2187 03b7 04       		.byte	0x4
+ 2188 03b8 09       		.uleb128 0x9
+ 2189 03b9 FB030000 		.4byte	.LASF73
+ 2190 03bd 03       		.byte	0x3
+ 2191 03be 6E01     		.2byte	0x16e
+ 2192 03c0 5E010000 		.4byte	0x15e
+ 2193 03c4 08       		.byte	0x8
+ 2194 03c5 09       		.uleb128 0x9
+ 2195 03c6 28090000 		.4byte	.LASF74
+ 2196 03ca 03       		.byte	0x3
+ 2197 03cb 6F01     		.2byte	0x16f
+ 2198 03cd 68030000 		.4byte	0x368
+ 2199 03d1 0C       		.byte	0xc
+ 2200 03d2 09       		.uleb128 0x9
+ 2201 03d3 0F080000 		.4byte	.LASF75
+ 2202 03d7 03       		.byte	0x3
+ 2203 03d8 7101     		.2byte	0x171
+ 2204 03da 84030000 		.4byte	0x384
+ 2205 03de 10       		.byte	0x10
+ 2206 03df 00       		.byte	0
+ 2207 03e0 04       		.uleb128 0x4
+ 2208 03e1 F4000000 		.4byte	.LASF76
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 40
+
+
+ 2209 03e5 0A       		.byte	0xa
+ 2210 03e6 66       		.byte	0x66
+ 2211 03e7 EB030000 		.4byte	0x3eb
+ 2212 03eb 0C       		.uleb128 0xc
+ 2213 03ec 0D050000 		.4byte	.LASF77
+ 2214 03f0 10       		.byte	0x10
+ 2215 03f1 03       		.byte	0x3
+ 2216 03f2 7B01     		.2byte	0x17b
+ 2217 03f4 2D040000 		.4byte	0x42d
+ 2218 03f8 09       		.uleb128 0x9
+ 2219 03f9 CC030000 		.4byte	.LASF71
+ 2220 03fd 03       		.byte	0x3
+ 2221 03fe 7C01     		.2byte	0x17c
+ 2222 0400 B3080000 		.4byte	0x8b3
+ 2223 0404 00       		.byte	0
+ 2224 0405 09       		.uleb128 0x9
+ 2225 0406 62030000 		.4byte	.LASF72
+ 2226 040a 03       		.byte	0x3
+ 2227 040b 7E01     		.2byte	0x17e
+ 2228 040d B3080000 		.4byte	0x8b3
+ 2229 0411 04       		.byte	0x4
+ 2230 0412 09       		.uleb128 0x9
+ 2231 0413 FB030000 		.4byte	.LASF73
+ 2232 0417 03       		.byte	0x3
+ 2233 0418 8001     		.2byte	0x180
+ 2234 041a 5E010000 		.4byte	0x15e
+ 2235 041e 08       		.byte	0x8
+ 2236 041f 09       		.uleb128 0x9
+ 2237 0420 B1080000 		.4byte	.LASF78
+ 2238 0424 03       		.byte	0x3
+ 2239 0425 8201     		.2byte	0x182
+ 2240 0427 69010000 		.4byte	0x169
+ 2241 042b 0C       		.byte	0xc
+ 2242 042c 00       		.byte	0
+ 2243 042d 04       		.uleb128 0x4
+ 2244 042e 6C000000 		.4byte	.LASF79
+ 2245 0432 0A       		.byte	0xa
+ 2246 0433 6B       		.byte	0x6b
+ 2247 0434 38040000 		.4byte	0x438
+ 2248 0438 10       		.uleb128 0x10
+ 2249 0439 6A030000 		.4byte	.LASF80
+ 2250 043d 1404     		.2byte	0x414
+ 2251 043f 03       		.byte	0x3
+ 2252 0440 A201     		.2byte	0x1a2
+ 2253 0442 7B040000 		.4byte	0x47b
+ 2254 0446 09       		.uleb128 0x9
+ 2255 0447 F0070000 		.4byte	.LASF81
+ 2256 044b 03       		.byte	0x3
+ 2257 044c AA01     		.2byte	0x1aa
+ 2258 044e 9C080000 		.4byte	0x89c
+ 2259 0452 00       		.byte	0
+ 2260 0453 09       		.uleb128 0x9
+ 2261 0454 31080000 		.4byte	.LASF82
+ 2262 0458 03       		.byte	0x3
+ 2263 0459 AF01     		.2byte	0x1af
+ 2264 045b 48010000 		.4byte	0x148
+ 2265 045f 04       		.byte	0x4
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 41
+
+
+ 2266 0460 09       		.uleb128 0x9
+ 2267 0461 94030000 		.4byte	.LASF83
+ 2268 0465 03       		.byte	0x3
+ 2269 0466 B301     		.2byte	0x1b3
+ 2270 0468 48010000 		.4byte	0x148
+ 2271 046c 08       		.byte	0x8
+ 2272 046d 09       		.uleb128 0x9
+ 2273 046e BC080000 		.4byte	.LASF84
+ 2274 0472 03       		.byte	0x3
+ 2275 0473 B901     		.2byte	0x1b9
+ 2276 0475 08070000 		.4byte	0x708
+ 2277 0479 0C       		.byte	0xc
+ 2278 047a 00       		.byte	0
+ 2279 047b 04       		.uleb128 0x4
+ 2280 047c 62040000 		.4byte	.LASF85
+ 2281 0480 0A       		.byte	0xa
+ 2282 0481 70       		.byte	0x70
+ 2283 0482 86040000 		.4byte	0x486
+ 2284 0486 10       		.uleb128 0x10
+ 2285 0487 9E010000 		.4byte	.LASF86
+ 2286 048b 7006     		.2byte	0x670
+ 2287 048d 03       		.byte	0x3
+ 2288 048e C201     		.2byte	0x1c2
+ 2289 0490 F3040000 		.4byte	0x4f3
+ 2290 0494 09       		.uleb128 0x9
+ 2291 0495 49080000 		.4byte	.LASF87
+ 2292 0499 03       		.byte	0x3
+ 2293 049a C601     		.2byte	0x1c6
+ 2294 049c 01030000 		.4byte	0x301
+ 2295 04a0 00       		.byte	0
+ 2296 04a1 09       		.uleb128 0x9
+ 2297 04a2 81010000 		.4byte	.LASF88
+ 2298 04a6 03       		.byte	0x3
+ 2299 04a7 CA01     		.2byte	0x1ca
+ 2300 04a9 E0030000 		.4byte	0x3e0
+ 2301 04ad 1C       		.byte	0x1c
+ 2302 04ae 08       		.uleb128 0x8
+ 2303 04af 64626700 		.ascii	"dbg\000"
+ 2304 04b3 03       		.byte	0x3
+ 2305 04b4 CE01     		.2byte	0x1ce
+ 2306 04b6 2D040000 		.4byte	0x42d
+ 2307 04ba 2C       		.byte	0x2c
+ 2308 04bb 11       		.uleb128 0x11
+ 2309 04bc E9000000 		.4byte	.LASF89
+ 2310 04c0 03       		.byte	0x3
+ 2311 04c1 D201     		.2byte	0x1d2
+ 2312 04c3 6E010000 		.4byte	0x16e
+ 2313 04c7 4004     		.2byte	0x440
+ 2314 04c9 12       		.uleb128 0x12
+ 2315 04ca 746D00   		.ascii	"tm\000"
+ 2316 04cd 03       		.byte	0x3
+ 2317 04ce D701     		.2byte	0x1d7
+ 2318 04d0 28070000 		.4byte	0x728
+ 2319 04d4 A804     		.2byte	0x4a8
+ 2320 04d6 11       		.uleb128 0x11
+ 2321 04d7 38000000 		.4byte	.LASF90
+ 2322 04db 03       		.byte	0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 42
+
+
+ 2323 04dc DD01     		.2byte	0x1dd
+ 2324 04de BA070000 		.4byte	0x7ba
+ 2325 04e2 B004     		.2byte	0x4b0
+ 2326 04e4 11       		.uleb128 0x11
+ 2327 04e5 9D030000 		.4byte	.LASF91
+ 2328 04e9 03       		.byte	0x3
+ 2329 04ea E301     		.2byte	0x1e3
+ 2330 04ec B9080000 		.4byte	0x8b9
+ 2331 04f0 E804     		.2byte	0x4e8
+ 2332 04f2 00       		.byte	0
+ 2333 04f3 13       		.uleb128 0x13
+ 2334 04f4 0A010000 		.4byte	.LASF92
+ 2335 04f8 0B       		.byte	0xb
+ 2336 04f9 A706     		.2byte	0x6a7
+ 2337 04fb CA000000 		.4byte	0xca
+ 2338 04ff 14       		.uleb128 0x14
+ 2339 0500 DD030000 		.4byte	.LASF93
+ 2340 0504 0C       		.byte	0xc
+ 2341 0505 4C       		.byte	0x4c
+ 2342 0506 CF000000 		.4byte	0xcf
+ 2343 050a 04       		.uleb128 0x4
+ 2344 050b 59030000 		.4byte	.LASF94
+ 2345 050f 0D       		.byte	0xd
+ 2346 0510 65       		.byte	0x65
+ 2347 0511 84030000 		.4byte	0x384
+ 2348 0515 04       		.uleb128 0x4
+ 2349 0516 CD040000 		.4byte	.LASF95
+ 2350 051a 0D       		.byte	0xd
+ 2351 051b 6D       		.byte	0x6d
+ 2352 051c DA000000 		.4byte	0xda
+ 2353 0520 06       		.uleb128 0x6
+ 2354 0521 01080000 		.4byte	.LASF96
+ 2355 0525 04       		.byte	0x4
+ 2356 0526 0D       		.byte	0xd
+ 2357 0527 89       		.byte	0x89
+ 2358 0528 39050000 		.4byte	0x539
+ 2359 052c 15       		.uleb128 0x15
+ 2360 052d 72313300 		.ascii	"r13\000"
+ 2361 0531 0D       		.byte	0xd
+ 2362 0532 8A       		.byte	0x8a
+ 2363 0533 7A060000 		.4byte	0x67a
+ 2364 0537 00       		.byte	0
+ 2365 0538 00       		.byte	0
+ 2366 0539 06       		.uleb128 0x6
+ 2367 053a 4F000000 		.4byte	.LASF97
+ 2368 053e 64       		.byte	0x64
+ 2369 053f 01       		.byte	0x1
+ 2370 0540 F4       		.byte	0xf4
+ 2371 0541 7A060000 		.4byte	0x67a
+ 2372 0545 15       		.uleb128 0x15
+ 2373 0546 73313600 		.ascii	"s16\000"
+ 2374 054a 01       		.byte	0x1
+ 2375 054b F6       		.byte	0xf6
+ 2376 054c 0A050000 		.4byte	0x50a
+ 2377 0550 00       		.byte	0
+ 2378 0551 15       		.uleb128 0x15
+ 2379 0552 73313700 		.ascii	"s17\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 43
+
+
+ 2380 0556 01       		.byte	0x1
+ 2381 0557 F7       		.byte	0xf7
+ 2382 0558 0A050000 		.4byte	0x50a
+ 2383 055c 04       		.byte	0x4
+ 2384 055d 15       		.uleb128 0x15
+ 2385 055e 73313800 		.ascii	"s18\000"
+ 2386 0562 01       		.byte	0x1
+ 2387 0563 F8       		.byte	0xf8
+ 2388 0564 0A050000 		.4byte	0x50a
+ 2389 0568 08       		.byte	0x8
+ 2390 0569 15       		.uleb128 0x15
+ 2391 056a 73313900 		.ascii	"s19\000"
+ 2392 056e 01       		.byte	0x1
+ 2393 056f F9       		.byte	0xf9
+ 2394 0570 0A050000 		.4byte	0x50a
+ 2395 0574 0C       		.byte	0xc
+ 2396 0575 15       		.uleb128 0x15
+ 2397 0576 73323000 		.ascii	"s20\000"
+ 2398 057a 01       		.byte	0x1
+ 2399 057b FA       		.byte	0xfa
+ 2400 057c 0A050000 		.4byte	0x50a
+ 2401 0580 10       		.byte	0x10
+ 2402 0581 15       		.uleb128 0x15
+ 2403 0582 73323100 		.ascii	"s21\000"
+ 2404 0586 01       		.byte	0x1
+ 2405 0587 FB       		.byte	0xfb
+ 2406 0588 0A050000 		.4byte	0x50a
+ 2407 058c 14       		.byte	0x14
+ 2408 058d 15       		.uleb128 0x15
+ 2409 058e 73323200 		.ascii	"s22\000"
+ 2410 0592 01       		.byte	0x1
+ 2411 0593 FC       		.byte	0xfc
+ 2412 0594 0A050000 		.4byte	0x50a
+ 2413 0598 18       		.byte	0x18
+ 2414 0599 15       		.uleb128 0x15
+ 2415 059a 73323300 		.ascii	"s23\000"
+ 2416 059e 01       		.byte	0x1
+ 2417 059f FD       		.byte	0xfd
+ 2418 05a0 0A050000 		.4byte	0x50a
+ 2419 05a4 1C       		.byte	0x1c
+ 2420 05a5 15       		.uleb128 0x15
+ 2421 05a6 73323400 		.ascii	"s24\000"
+ 2422 05aa 01       		.byte	0x1
+ 2423 05ab FE       		.byte	0xfe
+ 2424 05ac 0A050000 		.4byte	0x50a
+ 2425 05b0 20       		.byte	0x20
+ 2426 05b1 15       		.uleb128 0x15
+ 2427 05b2 73323500 		.ascii	"s25\000"
+ 2428 05b6 01       		.byte	0x1
+ 2429 05b7 FF       		.byte	0xff
+ 2430 05b8 0A050000 		.4byte	0x50a
+ 2431 05bc 24       		.byte	0x24
+ 2432 05bd 08       		.uleb128 0x8
+ 2433 05be 73323600 		.ascii	"s26\000"
+ 2434 05c2 01       		.byte	0x1
+ 2435 05c3 0001     		.2byte	0x100
+ 2436 05c5 0A050000 		.4byte	0x50a
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 44
+
+
+ 2437 05c9 28       		.byte	0x28
+ 2438 05ca 08       		.uleb128 0x8
+ 2439 05cb 73323700 		.ascii	"s27\000"
+ 2440 05cf 01       		.byte	0x1
+ 2441 05d0 0101     		.2byte	0x101
+ 2442 05d2 0A050000 		.4byte	0x50a
+ 2443 05d6 2C       		.byte	0x2c
+ 2444 05d7 08       		.uleb128 0x8
+ 2445 05d8 73323800 		.ascii	"s28\000"
+ 2446 05dc 01       		.byte	0x1
+ 2447 05dd 0201     		.2byte	0x102
+ 2448 05df 0A050000 		.4byte	0x50a
+ 2449 05e3 30       		.byte	0x30
+ 2450 05e4 08       		.uleb128 0x8
+ 2451 05e5 73323900 		.ascii	"s29\000"
+ 2452 05e9 01       		.byte	0x1
+ 2453 05ea 0301     		.2byte	0x103
+ 2454 05ec 0A050000 		.4byte	0x50a
+ 2455 05f0 34       		.byte	0x34
+ 2456 05f1 08       		.uleb128 0x8
+ 2457 05f2 73333000 		.ascii	"s30\000"
+ 2458 05f6 01       		.byte	0x1
+ 2459 05f7 0401     		.2byte	0x104
+ 2460 05f9 0A050000 		.4byte	0x50a
+ 2461 05fd 38       		.byte	0x38
+ 2462 05fe 08       		.uleb128 0x8
+ 2463 05ff 73333100 		.ascii	"s31\000"
+ 2464 0603 01       		.byte	0x1
+ 2465 0604 0501     		.2byte	0x105
+ 2466 0606 0A050000 		.4byte	0x50a
+ 2467 060a 3C       		.byte	0x3c
+ 2468 060b 08       		.uleb128 0x8
+ 2469 060c 723400   		.ascii	"r4\000"
+ 2470 060f 01       		.byte	0x1
+ 2471 0610 0701     		.2byte	0x107
+ 2472 0612 0A050000 		.4byte	0x50a
+ 2473 0616 40       		.byte	0x40
+ 2474 0617 08       		.uleb128 0x8
+ 2475 0618 723500   		.ascii	"r5\000"
+ 2476 061b 01       		.byte	0x1
+ 2477 061c 0801     		.2byte	0x108
+ 2478 061e 0A050000 		.4byte	0x50a
+ 2479 0622 44       		.byte	0x44
+ 2480 0623 08       		.uleb128 0x8
+ 2481 0624 723600   		.ascii	"r6\000"
+ 2482 0627 01       		.byte	0x1
+ 2483 0628 0901     		.2byte	0x109
+ 2484 062a 0A050000 		.4byte	0x50a
+ 2485 062e 48       		.byte	0x48
+ 2486 062f 08       		.uleb128 0x8
+ 2487 0630 723700   		.ascii	"r7\000"
+ 2488 0633 01       		.byte	0x1
+ 2489 0634 0A01     		.2byte	0x10a
+ 2490 0636 0A050000 		.4byte	0x50a
+ 2491 063a 4C       		.byte	0x4c
+ 2492 063b 08       		.uleb128 0x8
+ 2493 063c 723800   		.ascii	"r8\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 45
+
+
+ 2494 063f 01       		.byte	0x1
+ 2495 0640 0B01     		.2byte	0x10b
+ 2496 0642 0A050000 		.4byte	0x50a
+ 2497 0646 50       		.byte	0x50
+ 2498 0647 08       		.uleb128 0x8
+ 2499 0648 723900   		.ascii	"r9\000"
+ 2500 064b 01       		.byte	0x1
+ 2501 064c 0C01     		.2byte	0x10c
+ 2502 064e 0A050000 		.4byte	0x50a
+ 2503 0652 54       		.byte	0x54
+ 2504 0653 08       		.uleb128 0x8
+ 2505 0654 72313000 		.ascii	"r10\000"
+ 2506 0658 01       		.byte	0x1
+ 2507 0659 0D01     		.2byte	0x10d
+ 2508 065b 0A050000 		.4byte	0x50a
+ 2509 065f 58       		.byte	0x58
+ 2510 0660 08       		.uleb128 0x8
+ 2511 0661 72313100 		.ascii	"r11\000"
+ 2512 0665 01       		.byte	0x1
+ 2513 0666 0E01     		.2byte	0x10e
+ 2514 0668 0A050000 		.4byte	0x50a
+ 2515 066c 5C       		.byte	0x5c
+ 2516 066d 08       		.uleb128 0x8
+ 2517 066e 6C7200   		.ascii	"lr\000"
+ 2518 0671 01       		.byte	0x1
+ 2519 0672 0F01     		.2byte	0x10f
+ 2520 0674 0A050000 		.4byte	0x50a
+ 2521 0678 60       		.byte	0x60
+ 2522 0679 00       		.byte	0
+ 2523 067a 0A       		.uleb128 0xa
+ 2524 067b 04       		.byte	0x4
+ 2525 067c 39050000 		.4byte	0x539
+ 2526 0680 16       		.uleb128 0x16
+ 2527 0681 10       		.byte	0x10
+ 2528 0682 0E       		.byte	0xe
+ 2529 0683 51       		.byte	0x51
+ 2530 0684 B9060000 		.4byte	0x6b9
+ 2531 0688 07       		.uleb128 0x7
+ 2532 0689 1A000000 		.4byte	.LASF98
+ 2533 068d 0E       		.byte	0xe
+ 2534 068e 55       		.byte	0x55
+ 2535 068f 5E010000 		.4byte	0x15e
+ 2536 0693 00       		.byte	0
+ 2537 0694 07       		.uleb128 0x7
+ 2538 0695 1B030000 		.4byte	.LASF99
+ 2539 0699 0E       		.byte	0xe
+ 2540 069a 59       		.byte	0x59
+ 2541 069b A2020000 		.4byte	0x2a2
+ 2542 069f 04       		.byte	0x4
+ 2543 06a0 07       		.uleb128 0x7
+ 2544 06a1 10090000 		.4byte	.LASF100
+ 2545 06a5 0E       		.byte	0xe
+ 2546 06a6 5D       		.byte	0x5d
+ 2547 06a7 84030000 		.4byte	0x384
+ 2548 06ab 08       		.byte	0x8
+ 2549 06ac 07       		.uleb128 0x7
+ 2550 06ad 40080000 		.4byte	.LASF101
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 46
+
+
+ 2551 06b1 0E       		.byte	0xe
+ 2552 06b2 61       		.byte	0x61
+ 2553 06b3 A9000000 		.4byte	0xa9
+ 2554 06b7 0C       		.byte	0xc
+ 2555 06b8 00       		.byte	0
+ 2556 06b9 04       		.uleb128 0x4
+ 2557 06ba 51050000 		.4byte	.LASF102
+ 2558 06be 0E       		.byte	0xe
+ 2559 06bf 62       		.byte	0x62
+ 2560 06c0 80060000 		.4byte	0x680
+ 2561 06c4 17       		.uleb128 0x17
+ 2562 06c5 0804     		.2byte	0x408
+ 2563 06c7 0E       		.byte	0xe
+ 2564 06c8 67       		.byte	0x67
+ 2565 06c9 F2060000 		.4byte	0x6f2
+ 2566 06cd 07       		.uleb128 0x7
+ 2567 06ce 49030000 		.4byte	.LASF103
+ 2568 06d2 0E       		.byte	0xe
+ 2569 06d3 6B       		.byte	0x6b
+ 2570 06d4 2C000000 		.4byte	0x2c
+ 2571 06d8 00       		.byte	0
+ 2572 06d9 07       		.uleb128 0x7
+ 2573 06da 4A050000 		.4byte	.LASF104
+ 2574 06de 0E       		.byte	0xe
+ 2575 06df 6F       		.byte	0x6f
+ 2576 06e0 F2060000 		.4byte	0x6f2
+ 2577 06e4 04       		.byte	0x4
+ 2578 06e5 07       		.uleb128 0x7
+ 2579 06e6 D6050000 		.4byte	.LASF105
+ 2580 06ea 0E       		.byte	0xe
+ 2581 06eb 73       		.byte	0x73
+ 2582 06ec F8060000 		.4byte	0x6f8
+ 2583 06f0 08       		.byte	0x8
+ 2584 06f1 00       		.byte	0
+ 2585 06f2 0A       		.uleb128 0xa
+ 2586 06f3 04       		.byte	0x4
+ 2587 06f4 B9060000 		.4byte	0x6b9
+ 2588 06f8 18       		.uleb128 0x18
+ 2589 06f9 B9060000 		.4byte	0x6b9
+ 2590 06fd 08070000 		.4byte	0x708
+ 2591 0701 19       		.uleb128 0x19
+ 2592 0702 2C000000 		.4byte	0x2c
+ 2593 0706 3F       		.byte	0x3f
+ 2594 0707 00       		.byte	0
+ 2595 0708 04       		.uleb128 0x4
+ 2596 0709 C0000000 		.4byte	.LASF106
+ 2597 070d 0E       		.byte	0xe
+ 2598 070e 74       		.byte	0x74
+ 2599 070f C4060000 		.4byte	0x6c4
+ 2600 0713 16       		.uleb128 0x16
+ 2601 0714 04       		.byte	0x4
+ 2602 0715 0F       		.byte	0xf
+ 2603 0716 38       		.byte	0x38
+ 2604 0717 28070000 		.4byte	0x728
+ 2605 071b 07       		.uleb128 0x7
+ 2606 071c FA070000 		.4byte	.LASF107
+ 2607 0720 0F       		.byte	0xf
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 47
+
+
+ 2608 0721 3C       		.byte	0x3c
+ 2609 0722 E5000000 		.4byte	0xe5
+ 2610 0726 00       		.byte	0
+ 2611 0727 00       		.byte	0
+ 2612 0728 04       		.uleb128 0x4
+ 2613 0729 8A050000 		.4byte	.LASF108
+ 2614 072d 0F       		.byte	0xf
+ 2615 072e 3D       		.byte	0x3d
+ 2616 072f 13070000 		.4byte	0x713
+ 2617 0733 16       		.uleb128 0x16
+ 2618 0734 18       		.byte	0x18
+ 2619 0735 0F       		.byte	0xf
+ 2620 0736 48       		.byte	0x48
+ 2621 0737 76070000 		.4byte	0x776
+ 2622 073b 07       		.uleb128 0x7
+ 2623 073c 9C070000 		.4byte	.LASF109
+ 2624 0740 0F       		.byte	0xf
+ 2625 0741 49       		.byte	0x49
+ 2626 0742 E5000000 		.4byte	0xe5
+ 2627 0746 00       		.byte	0
+ 2628 0747 07       		.uleb128 0x7
+ 2629 0748 90000000 		.4byte	.LASF110
+ 2630 074c 0F       		.byte	0xf
+ 2631 074d 4A       		.byte	0x4a
+ 2632 074e E5000000 		.4byte	0xe5
+ 2633 0752 04       		.byte	0x4
+ 2634 0753 07       		.uleb128 0x7
+ 2635 0754 56040000 		.4byte	.LASF111
+ 2636 0758 0F       		.byte	0xf
+ 2637 0759 4B       		.byte	0x4b
+ 2638 075a E5000000 		.4byte	0xe5
+ 2639 075e 08       		.byte	0x8
+ 2640 075f 15       		.uleb128 0x15
+ 2641 0760 6E00     		.ascii	"n\000"
+ 2642 0762 0F       		.byte	0xf
+ 2643 0763 4C       		.byte	0x4c
+ 2644 0764 53010000 		.4byte	0x153
+ 2645 0768 0C       		.byte	0xc
+ 2646 0769 07       		.uleb128 0x7
+ 2647 076a C3050000 		.4byte	.LASF112
+ 2648 076e 0F       		.byte	0xf
+ 2649 076f 4D       		.byte	0x4d
+ 2650 0770 F0000000 		.4byte	0xf0
+ 2651 0774 10       		.byte	0x10
+ 2652 0775 00       		.byte	0
+ 2653 0776 04       		.uleb128 0x4
+ 2654 0777 96000000 		.4byte	.LASF113
+ 2655 077b 0F       		.byte	0xf
+ 2656 077c 4E       		.byte	0x4e
+ 2657 077d 33070000 		.4byte	0x733
+ 2658 0781 16       		.uleb128 0x16
+ 2659 0782 38       		.byte	0x38
+ 2660 0783 10       		.byte	0x10
+ 2661 0784 38       		.byte	0x38
+ 2662 0785 BA070000 		.4byte	0x7ba
+ 2663 0789 07       		.uleb128 0x7
+ 2664 078a 18040000 		.4byte	.LASF114
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 48
+
+
+ 2665 078e 10       		.byte	0x10
+ 2666 078f 39       		.byte	0x39
+ 2667 0790 53010000 		.4byte	0x153
+ 2668 0794 00       		.byte	0
+ 2669 0795 07       		.uleb128 0x7
+ 2670 0796 1A060000 		.4byte	.LASF115
+ 2671 079a 10       		.byte	0x10
+ 2672 079b 3A       		.byte	0x3a
+ 2673 079c 53010000 		.4byte	0x153
+ 2674 07a0 04       		.byte	0x4
+ 2675 07a1 07       		.uleb128 0x7
+ 2676 07a2 FD080000 		.4byte	.LASF116
+ 2677 07a6 10       		.byte	0x10
+ 2678 07a7 3B       		.byte	0x3b
+ 2679 07a8 76070000 		.4byte	0x776
+ 2680 07ac 08       		.byte	0x8
+ 2681 07ad 07       		.uleb128 0x7
+ 2682 07ae 91040000 		.4byte	.LASF117
+ 2683 07b2 10       		.byte	0x10
+ 2684 07b3 3D       		.byte	0x3d
+ 2685 07b4 76070000 		.4byte	0x776
+ 2686 07b8 20       		.byte	0x20
+ 2687 07b9 00       		.byte	0
+ 2688 07ba 04       		.uleb128 0x4
+ 2689 07bb 37040000 		.4byte	.LASF118
+ 2690 07bf 10       		.byte	0x10
+ 2691 07c0 3F       		.byte	0x3f
+ 2692 07c1 81070000 		.4byte	0x781
+ 2693 07c5 1A       		.uleb128 0x1a
+ 2694 07c6 04       		.byte	0x4
+ 2695 07c7 03       		.byte	0x3
+ 2696 07c8 FA       		.byte	0xfa
+ 2697 07c9 22080000 		.4byte	0x822
+ 2698 07cd 1B       		.uleb128 0x1b
+ 2699 07ce 28000000 		.4byte	.LASF119
+ 2700 07d2 03       		.byte	0x3
+ 2701 07d3 0101     		.2byte	0x101
+ 2702 07d5 32010000 		.4byte	0x132
+ 2703 07d9 1B       		.uleb128 0x1b
+ 2704 07da E0000000 		.4byte	.LASF120
+ 2705 07de 03       		.byte	0x3
+ 2706 07df 0801     		.2byte	0x108
+ 2707 07e1 32010000 		.4byte	0x132
+ 2708 07e5 1B       		.uleb128 0x1b
+ 2709 07e6 A3080000 		.4byte	.LASF121
+ 2710 07ea 03       		.byte	0x3
+ 2711 07eb 0F01     		.2byte	0x10f
+ 2712 07ed 84030000 		.4byte	0x384
+ 2713 07f1 1B       		.uleb128 0x1b
+ 2714 07f2 22000000 		.4byte	.LASF122
+ 2715 07f6 03       		.byte	0x3
+ 2716 07f7 1601     		.2byte	0x116
+ 2717 07f9 22080000 		.4byte	0x822
+ 2718 07fd 1B       		.uleb128 0x1b
+ 2719 07fe F4030000 		.4byte	.LASF123
+ 2720 0802 03       		.byte	0x3
+ 2721 0803 1E01     		.2byte	0x11e
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 49
+
+
+ 2722 0805 4D080000 		.4byte	0x84d
+ 2723 0809 1B       		.uleb128 0x1b
+ 2724 080a 81070000 		.4byte	.LASF124
+ 2725 080e 03       		.byte	0x3
+ 2726 080f 2701     		.2byte	0x127
+ 2727 0811 90080000 		.4byte	0x890
+ 2728 0815 1B       		.uleb128 0x1b
+ 2729 0816 6C060000 		.4byte	.LASF125
+ 2730 081a 03       		.byte	0x3
+ 2731 081b 2F01     		.2byte	0x12f
+ 2732 081d 3D010000 		.4byte	0x13d
+ 2733 0821 00       		.byte	0
+ 2734 0822 0A       		.uleb128 0xa
+ 2735 0823 04       		.byte	0x4
+ 2736 0824 97020000 		.4byte	0x297
+ 2737 0828 06       		.uleb128 0x6
+ 2738 0829 1D070000 		.4byte	.LASF126
+ 2739 082d 0C       		.byte	0xc
+ 2740 082e 11       		.byte	0x11
+ 2741 082f 34       		.byte	0x34
+ 2742 0830 4D080000 		.4byte	0x84d
+ 2743 0834 07       		.uleb128 0x7
+ 2744 0835 41030000 		.4byte	.LASF127
+ 2745 0839 11       		.byte	0x11
+ 2746 083a 35       		.byte	0x35
+ 2747 083b CC020000 		.4byte	0x2cc
+ 2748 083f 00       		.byte	0
+ 2749 0840 07       		.uleb128 0x7
+ 2750 0841 1E040000 		.4byte	.LASF128
+ 2751 0845 11       		.byte	0x11
+ 2752 0846 37       		.byte	0x37
+ 2753 0847 48010000 		.4byte	0x148
+ 2754 084b 08       		.byte	0x8
+ 2755 084c 00       		.byte	0
+ 2756 084d 0A       		.uleb128 0xa
+ 2757 084e 04       		.byte	0x4
+ 2758 084f 28080000 		.4byte	0x828
+ 2759 0853 06       		.uleb128 0x6
+ 2760 0854 21080000 		.4byte	.LASF129
+ 2761 0858 14       		.byte	0x14
+ 2762 0859 05       		.byte	0x5
+ 2763 085a 39       		.byte	0x39
+ 2764 085b 90080000 		.4byte	0x890
+ 2765 085f 07       		.uleb128 0x7
+ 2766 0860 79010000 		.4byte	.LASF130
+ 2767 0864 05       		.byte	0x5
+ 2768 0865 3A       		.byte	0x3a
+ 2769 0866 CC020000 		.4byte	0x2cc
+ 2770 086a 00       		.byte	0
+ 2771 086b 07       		.uleb128 0x7
+ 2772 086c 08090000 		.4byte	.LASF131
+ 2773 0870 05       		.byte	0x5
+ 2774 0871 3C       		.byte	0x3c
+ 2775 0872 A2020000 		.4byte	0x2a2
+ 2776 0876 08       		.byte	0x8
+ 2777 0877 07       		.uleb128 0x7
+ 2778 0878 39080000 		.4byte	.LASF132
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 50
+
+
+ 2779 087c 05       		.byte	0x5
+ 2780 087d 3E       		.byte	0x3e
+ 2781 087e EB090000 		.4byte	0x9eb
+ 2782 0882 0C       		.byte	0xc
+ 2783 0883 07       		.uleb128 0x7
+ 2784 0884 7A030000 		.4byte	.LASF133
+ 2785 0888 05       		.byte	0x5
+ 2786 0889 41       		.byte	0x41
+ 2787 088a 48010000 		.4byte	0x148
+ 2788 088e 10       		.byte	0x10
+ 2789 088f 00       		.byte	0
+ 2790 0890 0A       		.uleb128 0xa
+ 2791 0891 04       		.byte	0x4
+ 2792 0892 53080000 		.4byte	0x853
+ 2793 0896 0A       		.uleb128 0xa
+ 2794 0897 04       		.byte	0x4
+ 2795 0898 A8080000 		.4byte	0x8a8
+ 2796 089c 05       		.uleb128 0x5
+ 2797 089d 96080000 		.4byte	0x896
+ 2798 08a1 03       		.uleb128 0x3
+ 2799 08a2 01       		.byte	0x1
+ 2800 08a3 08       		.byte	0x8
+ 2801 08a4 7C070000 		.4byte	.LASF134
+ 2802 08a8 0B       		.uleb128 0xb
+ 2803 08a9 A1080000 		.4byte	0x8a1
+ 2804 08ad 0A       		.uleb128 0xa
+ 2805 08ae 04       		.byte	0x4
+ 2806 08af 15050000 		.4byte	0x515
+ 2807 08b3 0A       		.uleb128 0xa
+ 2808 08b4 04       		.byte	0x4
+ 2809 08b5 86030000 		.4byte	0x386
+ 2810 08b9 18       		.uleb128 0x18
+ 2811 08ba 15050000 		.4byte	0x515
+ 2812 08be C9080000 		.4byte	0x8c9
+ 2813 08c2 19       		.uleb128 0x19
+ 2814 08c3 2C000000 		.4byte	0x2c
+ 2815 08c7 30       		.byte	0x30
+ 2816 08c8 00       		.byte	0
+ 2817 08c9 1C       		.uleb128 0x1c
+ 2818 08ca 636800   		.ascii	"ch\000"
+ 2819 08cd 03       		.byte	0x3
+ 2820 08ce 0902     		.2byte	0x209
+ 2821 08d0 7B040000 		.4byte	0x47b
+ 2822 08d4 16       		.uleb128 0x16
+ 2823 08d5 16       		.byte	0x16
+ 2824 08d6 12       		.byte	0x12
+ 2825 08d7 34       		.byte	0x34
+ 2826 08d8 B5090000 		.4byte	0x9b5
+ 2827 08dc 07       		.uleb128 0x7
+ 2828 08dd 1A090000 		.4byte	.LASF135
+ 2829 08e1 12       		.byte	0x12
+ 2830 08e2 35       		.byte	0x35
+ 2831 08e3 B5090000 		.4byte	0x9b5
+ 2832 08e7 00       		.byte	0
+ 2833 08e8 07       		.uleb128 0x7
+ 2834 08e9 E7040000 		.4byte	.LASF136
+ 2835 08ed 12       		.byte	0x12
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 51
+
+
+ 2836 08ee 36       		.byte	0x36
+ 2837 08ef A9000000 		.4byte	0xa9
+ 2838 08f3 04       		.byte	0x4
+ 2839 08f4 07       		.uleb128 0x7
+ 2840 08f5 62070000 		.4byte	.LASF137
+ 2841 08f9 12       		.byte	0x12
+ 2842 08fa 37       		.byte	0x37
+ 2843 08fb A9000000 		.4byte	0xa9
+ 2844 08ff 05       		.byte	0x5
+ 2845 0900 07       		.uleb128 0x7
+ 2846 0901 D5080000 		.4byte	.LASF138
+ 2847 0905 12       		.byte	0x12
+ 2848 0906 38       		.byte	0x38
+ 2849 0907 B4000000 		.4byte	0xb4
+ 2850 090b 06       		.byte	0x6
+ 2851 090c 07       		.uleb128 0x7
+ 2852 090d E0050000 		.4byte	.LASF139
+ 2853 0911 12       		.byte	0x12
+ 2854 0912 39       		.byte	0x39
+ 2855 0913 A9000000 		.4byte	0xa9
+ 2856 0917 08       		.byte	0x8
+ 2857 0918 07       		.uleb128 0x7
+ 2858 0919 3E050000 		.4byte	.LASF140
+ 2859 091d 12       		.byte	0x12
+ 2860 091e 3A       		.byte	0x3a
+ 2861 091f A9000000 		.4byte	0xa9
+ 2862 0923 09       		.byte	0x9
+ 2863 0924 07       		.uleb128 0x7
+ 2864 0925 D2000000 		.4byte	.LASF141
+ 2865 0929 12       		.byte	0x12
+ 2866 092a 3B       		.byte	0x3b
+ 2867 092b A9000000 		.4byte	0xa9
+ 2868 092f 0A       		.byte	0xa
+ 2869 0930 07       		.uleb128 0x7
+ 2870 0931 3E070000 		.4byte	.LASF142
+ 2871 0935 12       		.byte	0x12
+ 2872 0936 3C       		.byte	0x3c
+ 2873 0937 A9000000 		.4byte	0xa9
+ 2874 093b 0B       		.byte	0xb
+ 2875 093c 07       		.uleb128 0x7
+ 2876 093d 16080000 		.4byte	.LASF143
+ 2877 0941 12       		.byte	0x12
+ 2878 0942 3D       		.byte	0x3d
+ 2879 0943 A9000000 		.4byte	0xa9
+ 2880 0947 0C       		.byte	0xc
+ 2881 0948 07       		.uleb128 0x7
+ 2882 0949 10070000 		.4byte	.LASF144
+ 2883 094d 12       		.byte	0x12
+ 2884 094e 3E       		.byte	0x3e
+ 2885 094f A9000000 		.4byte	0xa9
+ 2886 0953 0D       		.byte	0xd
+ 2887 0954 07       		.uleb128 0x7
+ 2888 0955 00000000 		.4byte	.LASF145
+ 2889 0959 12       		.byte	0x12
+ 2890 095a 3F       		.byte	0x3f
+ 2891 095b A9000000 		.4byte	0xa9
+ 2892 095f 0E       		.byte	0xe
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 52
+
+
+ 2893 0960 07       		.uleb128 0x7
+ 2894 0961 60050000 		.4byte	.LASF146
+ 2895 0965 12       		.byte	0x12
+ 2896 0966 40       		.byte	0x40
+ 2897 0967 A9000000 		.4byte	0xa9
+ 2898 096b 0F       		.byte	0xf
+ 2899 096c 07       		.uleb128 0x7
+ 2900 096d 54010000 		.4byte	.LASF147
+ 2901 0971 12       		.byte	0x12
+ 2902 0972 41       		.byte	0x41
+ 2903 0973 A9000000 		.4byte	0xa9
+ 2904 0977 10       		.byte	0x10
+ 2905 0978 07       		.uleb128 0x7
+ 2906 0979 27010000 		.4byte	.LASF148
+ 2907 097d 12       		.byte	0x12
+ 2908 097e 43       		.byte	0x43
+ 2909 097f A9000000 		.4byte	0xa9
+ 2910 0983 11       		.byte	0x11
+ 2911 0984 07       		.uleb128 0x7
+ 2912 0985 64010000 		.4byte	.LASF149
+ 2913 0989 12       		.byte	0x12
+ 2914 098a 44       		.byte	0x44
+ 2915 098b A9000000 		.4byte	0xa9
+ 2916 098f 12       		.byte	0x12
+ 2917 0990 07       		.uleb128 0x7
+ 2918 0991 EF040000 		.4byte	.LASF150
+ 2919 0995 12       		.byte	0x12
+ 2920 0996 45       		.byte	0x45
+ 2921 0997 A9000000 		.4byte	0xa9
+ 2922 099b 13       		.byte	0x13
+ 2923 099c 07       		.uleb128 0x7
+ 2924 099d 82060000 		.4byte	.LASF151
+ 2925 09a1 12       		.byte	0x12
+ 2926 09a2 46       		.byte	0x46
+ 2927 09a3 A9000000 		.4byte	0xa9
+ 2928 09a7 14       		.byte	0x14
+ 2929 09a8 07       		.uleb128 0x7
+ 2930 09a9 85040000 		.4byte	.LASF152
+ 2931 09ad 12       		.byte	0x12
+ 2932 09ae 48       		.byte	0x48
+ 2933 09af A9000000 		.4byte	0xa9
+ 2934 09b3 15       		.byte	0x15
+ 2935 09b4 00       		.byte	0
+ 2936 09b5 18       		.uleb128 0x18
+ 2937 09b6 A1080000 		.4byte	0x8a1
+ 2938 09ba C5090000 		.4byte	0x9c5
+ 2939 09be 19       		.uleb128 0x19
+ 2940 09bf 2C000000 		.4byte	0x2c
+ 2941 09c3 03       		.byte	0x3
+ 2942 09c4 00       		.byte	0
+ 2943 09c5 04       		.uleb128 0x4
+ 2944 09c6 21030000 		.4byte	.LASF153
+ 2945 09ca 12       		.byte	0x12
+ 2946 09cb 49       		.byte	0x49
+ 2947 09cc D4080000 		.4byte	0x8d4
+ 2948 09d0 0B       		.uleb128 0xb
+ 2949 09d1 C5090000 		.4byte	0x9c5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 53
+
+
+ 2950 09d5 14       		.uleb128 0x14
+ 2951 09d6 0F040000 		.4byte	.LASF154
+ 2952 09da 12       		.byte	0x12
+ 2953 09db 6E       		.byte	0x6e
+ 2954 09dc D0090000 		.4byte	0x9d0
+ 2955 09e0 04       		.uleb128 0x4
+ 2956 09e1 34010000 		.4byte	.LASF155
+ 2957 09e5 05       		.byte	0x5
+ 2958 09e6 34       		.byte	0x34
+ 2959 09e7 53080000 		.4byte	0x853
+ 2960 09eb 0A       		.uleb128 0xa
+ 2961 09ec 04       		.byte	0x4
+ 2962 09ed E0090000 		.4byte	0x9e0
+ 2963 09f1 1D       		.uleb128 0x1d
+ 2964 09f2 6E040000 		.4byte	.LASF156
+ 2965 09f6 06       		.byte	0x6
+ 2966 09f7 DF01     		.2byte	0x1df
+ 2967 09f9 00000000 		.4byte	.LFB226
+ 2968 09fd A4000000 		.4byte	.LFE226-.LFB226
+ 2969 0a01 01       		.uleb128 0x1
+ 2970 0a02 9C       		.byte	0x9c
+ 2971 0a03 470A0000 		.4byte	0xa47
+ 2972 0a07 1E       		.uleb128 0x1e
+ 2973 0a08 63747000 		.ascii	"ctp\000"
+ 2974 0a0c 06       		.byte	0x6
+ 2975 0a0d E001     		.2byte	0x1e0
+ 2976 0a0f A2020000 		.4byte	0x2a2
+ 2977 0a13 02       		.uleb128 0x2
+ 2978 0a14 91       		.byte	0x91
+ 2979 0a15 68       		.sleb128 -24
+ 2980 0a16 1F       		.uleb128 0x1f
+ 2981 0a17 1C000000 		.4byte	.LBB13
+ 2982 0a1b 52000000 		.4byte	.LBE13-.LBB13
+ 2983 0a1f 1E       		.uleb128 0x1e
+ 2984 0a20 6D7000   		.ascii	"mp\000"
+ 2985 0a23 06       		.byte	0x6
+ 2986 0a24 E501     		.2byte	0x1e5
+ 2987 0a26 EB090000 		.4byte	0x9eb
+ 2988 0a2a 02       		.uleb128 0x2
+ 2989 0a2b 91       		.byte	0x91
+ 2990 0a2c 6C       		.sleb128 -20
+ 2991 0a2d 1F       		.uleb128 0x1f
+ 2992 0a2e 36000000 		.4byte	.LBB14
+ 2993 0a32 2A000000 		.4byte	.LBE14-.LBB14
+ 2994 0a36 1E       		.uleb128 0x1e
+ 2995 0a37 747000   		.ascii	"tp\000"
+ 2996 0a3a 06       		.byte	0x6
+ 2997 0a3b EB01     		.2byte	0x1eb
+ 2998 0a3d A2020000 		.4byte	0x2a2
+ 2999 0a41 02       		.uleb128 0x2
+ 3000 0a42 91       		.byte	0x91
+ 3001 0a43 70       		.sleb128 -16
+ 3002 0a44 00       		.byte	0
+ 3003 0a45 00       		.byte	0
+ 3004 0a46 00       		.byte	0
+ 3005 0a47 1D       		.uleb128 0x1d
+ 3006 0a48 B2030000 		.4byte	.LASF157
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 54
+
+
+ 3007 0a4c 06       		.byte	0x6
+ 3008 0a4d 9401     		.2byte	0x194
+ 3009 0a4f 00000000 		.4byte	.LFB225
+ 3010 0a53 1C010000 		.4byte	.LFE225-.LFB225
+ 3011 0a57 01       		.uleb128 0x1
+ 3012 0a58 9C       		.byte	0x9c
+ 3013 0a59 C00A0000 		.4byte	0xac0
+ 3014 0a5d 20       		.uleb128 0x20
+ 3015 0a5e 6D7000   		.ascii	"mp\000"
+ 3016 0a61 06       		.byte	0x6
+ 3017 0a62 9401     		.2byte	0x194
+ 3018 0a64 EB090000 		.4byte	0x9eb
+ 3019 0a68 02       		.uleb128 0x2
+ 3020 0a69 91       		.byte	0x91
+ 3021 0a6a 5C       		.sleb128 -36
+ 3022 0a6b 1E       		.uleb128 0x1e
+ 3023 0a6c 63747000 		.ascii	"ctp\000"
+ 3024 0a70 06       		.byte	0x6
+ 3025 0a71 9501     		.2byte	0x195
+ 3026 0a73 A2020000 		.4byte	0x2a2
+ 3027 0a77 02       		.uleb128 0x2
+ 3028 0a78 91       		.byte	0x91
+ 3029 0a79 6C       		.sleb128 -20
+ 3030 0a7a 1E       		.uleb128 0x1e
+ 3031 0a7b 6C6D7000 		.ascii	"lmp\000"
+ 3032 0a7f 06       		.byte	0x6
+ 3033 0a80 9601     		.2byte	0x196
+ 3034 0a82 EB090000 		.4byte	0x9eb
+ 3035 0a86 02       		.uleb128 0x2
+ 3036 0a87 91       		.byte	0x91
+ 3037 0a88 64       		.sleb128 -28
+ 3038 0a89 21       		.uleb128 0x21
+ 3039 0a8a 99060000 		.4byte	.LASF160
+ 3040 0a8e D00A0000 		.4byte	0xad0
+ 3041 0a92 05       		.uleb128 0x5
+ 3042 0a93 03       		.byte	0x3
+ 3043 0a94 00000000 		.4byte	__func__.7891
+ 3044 0a98 1F       		.uleb128 0x1f
+ 3045 0a99 86000000 		.4byte	.LBB12
+ 3046 0a9d 6A000000 		.4byte	.LBE12-.LBB12
+ 3047 0aa1 1E       		.uleb128 0x1e
+ 3048 0aa2 747000   		.ascii	"tp\000"
+ 3049 0aa5 06       		.byte	0x6
+ 3050 0aa6 AC01     		.2byte	0x1ac
+ 3051 0aa8 A2020000 		.4byte	0x2a2
+ 3052 0aac 02       		.uleb128 0x2
+ 3053 0aad 91       		.byte	0x91
+ 3054 0aae 70       		.sleb128 -16
+ 3055 0aaf 22       		.uleb128 0x22
+ 3056 0ab0 7D040000 		.4byte	.LASF158
+ 3057 0ab4 06       		.byte	0x6
+ 3058 0ab5 B001     		.2byte	0x1b0
+ 3059 0ab7 27010000 		.4byte	0x127
+ 3060 0abb 02       		.uleb128 0x2
+ 3061 0abc 91       		.byte	0x91
+ 3062 0abd 68       		.sleb128 -24
+ 3063 0abe 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 55
+
+
+ 3064 0abf 00       		.byte	0
+ 3065 0ac0 18       		.uleb128 0x18
+ 3066 0ac1 A8080000 		.4byte	0x8a8
+ 3067 0ac5 D00A0000 		.4byte	0xad0
+ 3068 0ac9 19       		.uleb128 0x19
+ 3069 0aca 2C000000 		.4byte	0x2c
+ 3070 0ace 0C       		.byte	0xc
+ 3071 0acf 00       		.byte	0
+ 3072 0ad0 0B       		.uleb128 0xb
+ 3073 0ad1 C00A0000 		.4byte	0xac0
+ 3074 0ad5 1D       		.uleb128 0x1d
+ 3075 0ad6 3C010000 		.4byte	.LASF159
+ 3076 0ada 06       		.byte	0x6
+ 3077 0adb 4301     		.2byte	0x143
+ 3078 0add 00000000 		.4byte	.LFB224
+ 3079 0ae1 20010000 		.4byte	.LFE224-.LFB224
+ 3080 0ae5 01       		.uleb128 0x1
+ 3081 0ae6 9C       		.byte	0x9c
+ 3082 0ae7 4E0B0000 		.4byte	0xb4e
+ 3083 0aeb 20       		.uleb128 0x20
+ 3084 0aec 6D7000   		.ascii	"mp\000"
+ 3085 0aef 06       		.byte	0x6
+ 3086 0af0 4301     		.2byte	0x143
+ 3087 0af2 EB090000 		.4byte	0x9eb
+ 3088 0af6 02       		.uleb128 0x2
+ 3089 0af7 91       		.byte	0x91
+ 3090 0af8 5C       		.sleb128 -36
+ 3091 0af9 1E       		.uleb128 0x1e
+ 3092 0afa 63747000 		.ascii	"ctp\000"
+ 3093 0afe 06       		.byte	0x6
+ 3094 0aff 4401     		.2byte	0x144
+ 3095 0b01 A2020000 		.4byte	0x2a2
+ 3096 0b05 02       		.uleb128 0x2
+ 3097 0b06 91       		.byte	0x91
+ 3098 0b07 6C       		.sleb128 -20
+ 3099 0b08 1E       		.uleb128 0x1e
+ 3100 0b09 6C6D7000 		.ascii	"lmp\000"
+ 3101 0b0d 06       		.byte	0x6
+ 3102 0b0e 4501     		.2byte	0x145
+ 3103 0b10 EB090000 		.4byte	0x9eb
+ 3104 0b14 02       		.uleb128 0x2
+ 3105 0b15 91       		.byte	0x91
+ 3106 0b16 64       		.sleb128 -28
+ 3107 0b17 21       		.uleb128 0x21
+ 3108 0b18 99060000 		.4byte	.LASF160
+ 3109 0b1c 5E0B0000 		.4byte	0xb5e
+ 3110 0b20 05       		.uleb128 0x5
+ 3111 0b21 03       		.byte	0x3
+ 3112 0b22 00000000 		.4byte	__func__.7880
+ 3113 0b26 1F       		.uleb128 0x1f
+ 3114 0b27 86000000 		.4byte	.LBB11
+ 3115 0b2b 6C000000 		.4byte	.LBE11-.LBB11
+ 3116 0b2f 1E       		.uleb128 0x1e
+ 3117 0b30 747000   		.ascii	"tp\000"
+ 3118 0b33 06       		.byte	0x6
+ 3119 0b34 5C01     		.2byte	0x15c
+ 3120 0b36 A2020000 		.4byte	0x2a2
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 56
+
+
+ 3121 0b3a 02       		.uleb128 0x2
+ 3122 0b3b 91       		.byte	0x91
+ 3123 0b3c 70       		.sleb128 -16
+ 3124 0b3d 22       		.uleb128 0x22
+ 3125 0b3e 7D040000 		.4byte	.LASF158
+ 3126 0b42 06       		.byte	0x6
+ 3127 0b43 6001     		.2byte	0x160
+ 3128 0b45 27010000 		.4byte	0x127
+ 3129 0b49 02       		.uleb128 0x2
+ 3130 0b4a 91       		.byte	0x91
+ 3131 0b4b 68       		.sleb128 -24
+ 3132 0b4c 00       		.byte	0
+ 3133 0b4d 00       		.byte	0
+ 3134 0b4e 18       		.uleb128 0x18
+ 3135 0b4f A8080000 		.4byte	0x8a8
+ 3136 0b53 5E0B0000 		.4byte	0xb5e
+ 3137 0b57 19       		.uleb128 0x19
+ 3138 0b58 2C000000 		.4byte	0x2c
+ 3139 0b5c 0B       		.byte	0xb
+ 3140 0b5d 00       		.byte	0
+ 3141 0b5e 0B       		.uleb128 0xb
+ 3142 0b5f 4E0B0000 		.4byte	0xb4e
+ 3143 0b63 23       		.uleb128 0x23
+ 3144 0b64 2B030000 		.4byte	.LASF162
+ 3145 0b68 06       		.byte	0x6
+ 3146 0b69 1A01     		.2byte	0x11a
+ 3147 0b6b 9B0B0000 		.4byte	0xb9b
+ 3148 0b6f 00000000 		.4byte	.LFB223
+ 3149 0b73 A8000000 		.4byte	.LFE223-.LFB223
+ 3150 0b77 01       		.uleb128 0x1
+ 3151 0b78 9C       		.byte	0x9c
+ 3152 0b79 9B0B0000 		.4byte	0xb9b
+ 3153 0b7d 20       		.uleb128 0x20
+ 3154 0b7e 6D7000   		.ascii	"mp\000"
+ 3155 0b81 06       		.byte	0x6
+ 3156 0b82 1A01     		.2byte	0x11a
+ 3157 0b84 EB090000 		.4byte	0x9eb
+ 3158 0b88 02       		.uleb128 0x2
+ 3159 0b89 91       		.byte	0x91
+ 3160 0b8a 6C       		.sleb128 -20
+ 3161 0b8b 21       		.uleb128 0x21
+ 3162 0b8c 99060000 		.4byte	.LASF160
+ 3163 0b90 B20B0000 		.4byte	0xbb2
+ 3164 0b94 05       		.uleb128 0x5
+ 3165 0b95 03       		.byte	0x3
+ 3166 0b96 00000000 		.4byte	__func__.7874
+ 3167 0b9a 00       		.byte	0
+ 3168 0b9b 03       		.uleb128 0x3
+ 3169 0b9c 01       		.byte	0x1
+ 3170 0b9d 02       		.byte	0x2
+ 3171 0b9e 23060000 		.4byte	.LASF161
+ 3172 0ba2 18       		.uleb128 0x18
+ 3173 0ba3 A8080000 		.4byte	0x8a8
+ 3174 0ba7 B20B0000 		.4byte	0xbb2
+ 3175 0bab 19       		.uleb128 0x19
+ 3176 0bac 2C000000 		.4byte	0x2c
+ 3177 0bb0 0D       		.byte	0xd
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 57
+
+
+ 3178 0bb1 00       		.byte	0
+ 3179 0bb2 0B       		.uleb128 0xb
+ 3180 0bb3 A20B0000 		.4byte	0xba2
+ 3181 0bb7 24       		.uleb128 0x24
+ 3182 0bb8 B6040000 		.4byte	.LASF163
+ 3183 0bbc 06       		.byte	0x6
+ 3184 0bbd FF       		.byte	0xff
+ 3185 0bbe 9B0B0000 		.4byte	0xb9b
+ 3186 0bc2 00000000 		.4byte	.LFB222
+ 3187 0bc6 40000000 		.4byte	.LFE222-.LFB222
+ 3188 0bca 01       		.uleb128 0x1
+ 3189 0bcb 9C       		.byte	0x9c
+ 3190 0bcc EB0B0000 		.4byte	0xbeb
+ 3191 0bd0 25       		.uleb128 0x25
+ 3192 0bd1 6D7000   		.ascii	"mp\000"
+ 3193 0bd4 06       		.byte	0x6
+ 3194 0bd5 FF       		.byte	0xff
+ 3195 0bd6 EB090000 		.4byte	0x9eb
+ 3196 0bda 02       		.uleb128 0x2
+ 3197 0bdb 91       		.byte	0x91
+ 3198 0bdc 6C       		.sleb128 -20
+ 3199 0bdd 1E       		.uleb128 0x1e
+ 3200 0bde 6200     		.ascii	"b\000"
+ 3201 0be0 06       		.byte	0x6
+ 3202 0be1 0001     		.2byte	0x100
+ 3203 0be3 9B0B0000 		.4byte	0xb9b
+ 3204 0be7 02       		.uleb128 0x2
+ 3205 0be8 91       		.byte	0x91
+ 3206 0be9 73       		.sleb128 -13
+ 3207 0bea 00       		.byte	0
+ 3208 0beb 26       		.uleb128 0x26
+ 3209 0bec E0080000 		.4byte	.LASF164
+ 3210 0bf0 06       		.byte	0x6
+ 3211 0bf1 8B       		.byte	0x8b
+ 3212 0bf2 00000000 		.4byte	.LFB221
+ 3213 0bf6 60010000 		.4byte	.LFE221-.LFB221
+ 3214 0bfa 01       		.uleb128 0x1
+ 3215 0bfb 9C       		.byte	0x9c
+ 3216 0bfc 420C0000 		.4byte	0xc42
+ 3217 0c00 25       		.uleb128 0x25
+ 3218 0c01 6D7000   		.ascii	"mp\000"
+ 3219 0c04 06       		.byte	0x6
+ 3220 0c05 8B       		.byte	0x8b
+ 3221 0c06 EB090000 		.4byte	0x9eb
+ 3222 0c0a 02       		.uleb128 0x2
+ 3223 0c0b 91       		.byte	0x91
+ 3224 0c0c 64       		.sleb128 -28
+ 3225 0c0d 27       		.uleb128 0x27
+ 3226 0c0e 63747000 		.ascii	"ctp\000"
+ 3227 0c12 06       		.byte	0x6
+ 3228 0c13 8C       		.byte	0x8c
+ 3229 0c14 A2020000 		.4byte	0x2a2
+ 3230 0c18 02       		.uleb128 0x2
+ 3231 0c19 91       		.byte	0x91
+ 3232 0c1a 70       		.sleb128 -16
+ 3233 0c1b 21       		.uleb128 0x21
+ 3234 0c1c 99060000 		.4byte	.LASF160
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 58
+
+
+ 3235 0c20 520C0000 		.4byte	0xc52
+ 3236 0c24 05       		.uleb128 0x5
+ 3237 0c25 03       		.byte	0x3
+ 3238 0c26 00000000 		.4byte	__func__.7857
+ 3239 0c2a 1F       		.uleb128 0x1f
+ 3240 0c2b 4E000000 		.4byte	.LBB10
+ 3241 0c2f C2000000 		.4byte	.LBE10-.LBB10
+ 3242 0c33 27       		.uleb128 0x27
+ 3243 0c34 747000   		.ascii	"tp\000"
+ 3244 0c37 06       		.byte	0x6
+ 3245 0c38 A1       		.byte	0xa1
+ 3246 0c39 A2020000 		.4byte	0x2a2
+ 3247 0c3d 02       		.uleb128 0x2
+ 3248 0c3e 91       		.byte	0x91
+ 3249 0c3f 6C       		.sleb128 -20
+ 3250 0c40 00       		.byte	0
+ 3251 0c41 00       		.byte	0
+ 3252 0c42 18       		.uleb128 0x18
+ 3253 0c43 A8080000 		.4byte	0x8a8
+ 3254 0c47 520C0000 		.4byte	0xc52
+ 3255 0c4b 19       		.uleb128 0x19
+ 3256 0c4c 2C000000 		.4byte	0x2c
+ 3257 0c50 0A       		.byte	0xa
+ 3258 0c51 00       		.byte	0
+ 3259 0c52 0B       		.uleb128 0xb
+ 3260 0c53 420C0000 		.4byte	0xc42
+ 3261 0c57 26       		.uleb128 0x26
+ 3262 0c58 6C050000 		.4byte	.LASF165
+ 3263 0c5c 06       		.byte	0x6
+ 3264 0c5d 7B       		.byte	0x7b
+ 3265 0c5e 00000000 		.4byte	.LFB220
+ 3266 0c62 34000000 		.4byte	.LFE220-.LFB220
+ 3267 0c66 01       		.uleb128 0x1
+ 3268 0c67 9C       		.byte	0x9c
+ 3269 0c68 7A0C0000 		.4byte	0xc7a
+ 3270 0c6c 25       		.uleb128 0x25
+ 3271 0c6d 6D7000   		.ascii	"mp\000"
+ 3272 0c70 06       		.byte	0x6
+ 3273 0c71 7B       		.byte	0x7b
+ 3274 0c72 EB090000 		.4byte	0x9eb
+ 3275 0c76 02       		.uleb128 0x2
+ 3276 0c77 91       		.byte	0x91
+ 3277 0c78 6C       		.sleb128 -20
+ 3278 0c79 00       		.byte	0
+ 3279 0c7a 26       		.uleb128 0x26
+ 3280 0c7b 0A060000 		.4byte	.LASF166
+ 3281 0c7f 06       		.byte	0x6
+ 3282 0c80 67       		.byte	0x67
+ 3283 0c81 00000000 		.4byte	.LFB219
+ 3284 0c85 4C000000 		.4byte	.LFE219-.LFB219
+ 3285 0c89 01       		.uleb128 0x1
+ 3286 0c8a 9C       		.byte	0x9c
+ 3287 0c8b AC0C0000 		.4byte	0xcac
+ 3288 0c8f 25       		.uleb128 0x25
+ 3289 0c90 6D7000   		.ascii	"mp\000"
+ 3290 0c93 06       		.byte	0x6
+ 3291 0c94 67       		.byte	0x67
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 59
+
+
+ 3292 0c95 EB090000 		.4byte	0x9eb
+ 3293 0c99 02       		.uleb128 0x2
+ 3294 0c9a 91       		.byte	0x91
+ 3295 0c9b 6C       		.sleb128 -20
+ 3296 0c9c 21       		.uleb128 0x21
+ 3297 0c9d 99060000 		.4byte	.LASF160
+ 3298 0ca1 BC0C0000 		.4byte	0xcbc
+ 3299 0ca5 05       		.uleb128 0x5
+ 3300 0ca6 03       		.byte	0x3
+ 3301 0ca7 00000000 		.4byte	__func__.7849
+ 3302 0cab 00       		.byte	0
+ 3303 0cac 18       		.uleb128 0x18
+ 3304 0cad A8080000 		.4byte	0x8a8
+ 3305 0cb1 BC0C0000 		.4byte	0xcbc
+ 3306 0cb5 19       		.uleb128 0x19
+ 3307 0cb6 2C000000 		.4byte	0x2c
+ 3308 0cba 0F       		.byte	0xf
+ 3309 0cbb 00       		.byte	0
+ 3310 0cbc 0B       		.uleb128 0xb
+ 3311 0cbd AC0C0000 		.4byte	0xcac
+ 3312 0cc1 28       		.uleb128 0x28
+ 3313 0cc2 DC070000 		.4byte	.LASF167
+ 3314 0cc6 05       		.byte	0x5
+ 3315 0cc7 81       		.byte	0x81
+ 3316 0cc8 9B0B0000 		.4byte	0xb9b
+ 3317 0ccc 00000000 		.4byte	.LFB192
+ 3318 0cd0 34000000 		.4byte	.LFE192-.LFB192
+ 3319 0cd4 01       		.uleb128 0x1
+ 3320 0cd5 9C       		.byte	0x9c
+ 3321 0cd6 E80C0000 		.4byte	0xce8
+ 3322 0cda 25       		.uleb128 0x25
+ 3323 0cdb 6D7000   		.ascii	"mp\000"
+ 3324 0cde 05       		.byte	0x5
+ 3325 0cdf 81       		.byte	0x81
+ 3326 0ce0 EB090000 		.4byte	0x9eb
+ 3327 0ce4 02       		.uleb128 0x2
+ 3328 0ce5 91       		.byte	0x91
+ 3329 0ce6 6C       		.sleb128 -20
+ 3330 0ce7 00       		.byte	0
+ 3331 0ce8 29       		.uleb128 0x29
+ 3332 0ce9 C9080000 		.4byte	.LASF170
+ 3333 0ced 04       		.byte	0x4
+ 3334 0cee 6601     		.2byte	0x166
+ 3335 0cf0 00000000 		.4byte	.LFB146
+ 3336 0cf4 58000000 		.4byte	.LFE146-.LFB146
+ 3337 0cf8 01       		.uleb128 0x1
+ 3338 0cf9 9C       		.byte	0x9c
+ 3339 0cfa 0E0D0000 		.4byte	0xd0e
+ 3340 0cfe 21       		.uleb128 0x21
+ 3341 0cff 99060000 		.4byte	.LASF160
+ 3342 0d03 5E0B0000 		.4byte	0xb5e
+ 3343 0d07 05       		.uleb128 0x5
+ 3344 0d08 03       		.byte	0x3
+ 3345 0d09 00000000 		.4byte	__func__.7153
+ 3346 0d0d 00       		.byte	0
+ 3347 0d0e 2A       		.uleb128 0x2a
+ 3348 0d0f AA060000 		.4byte	.LASF179
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 60
+
+
+ 3349 0d13 04       		.byte	0x4
+ 3350 0d14 5A01     		.2byte	0x15a
+ 3351 0d16 00000000 		.4byte	.LFB145
+ 3352 0d1a 30000000 		.4byte	.LFE145-.LFB145
+ 3353 0d1e 01       		.uleb128 0x1
+ 3354 0d1f 9C       		.byte	0x9c
+ 3355 0d20 2B       		.uleb128 0x2b
+ 3356 0d21 F5020000 		.4byte	.LASF168
+ 3357 0d25 03       		.byte	0x3
+ 3358 0d26 B102     		.2byte	0x2b1
+ 3359 0d28 A2020000 		.4byte	0x2a2
+ 3360 0d2c 00000000 		.4byte	.LFB137
+ 3361 0d30 3C000000 		.4byte	.LFE137-.LFB137
+ 3362 0d34 01       		.uleb128 0x1
+ 3363 0d35 9C       		.byte	0x9c
+ 3364 0d36 490D0000 		.4byte	0xd49
+ 3365 0d3a 20       		.uleb128 0x20
+ 3366 0d3b 747000   		.ascii	"tp\000"
+ 3367 0d3e 03       		.byte	0x3
+ 3368 0d3f B102     		.2byte	0x2b1
+ 3369 0d41 A2020000 		.4byte	0x2a2
+ 3370 0d45 02       		.uleb128 0x2
+ 3371 0d46 91       		.byte	0x91
+ 3372 0d47 6C       		.sleb128 -20
+ 3373 0d48 00       		.byte	0
+ 3374 0d49 2B       		.uleb128 0x2b
+ 3375 0d4a A1070000 		.4byte	.LASF169
+ 3376 0d4e 03       		.byte	0x3
+ 3377 0d4f 9F02     		.2byte	0x29f
+ 3378 0d51 A2020000 		.4byte	0x2a2
+ 3379 0d55 00000000 		.4byte	.LFB135
+ 3380 0d59 40000000 		.4byte	.LFE135-.LFB135
+ 3381 0d5d 01       		.uleb128 0x1
+ 3382 0d5e 9C       		.byte	0x9c
+ 3383 0d5f 810D0000 		.4byte	0xd81
+ 3384 0d63 20       		.uleb128 0x20
+ 3385 0d64 74717000 		.ascii	"tqp\000"
+ 3386 0d68 03       		.byte	0x3
+ 3387 0d69 9F02     		.2byte	0x29f
+ 3388 0d6b 810D0000 		.4byte	0xd81
+ 3389 0d6f 02       		.uleb128 0x2
+ 3390 0d70 91       		.byte	0x91
+ 3391 0d71 6C       		.sleb128 -20
+ 3392 0d72 1E       		.uleb128 0x1e
+ 3393 0d73 747000   		.ascii	"tp\000"
+ 3394 0d76 03       		.byte	0x3
+ 3395 0d77 A002     		.2byte	0x2a0
+ 3396 0d79 A2020000 		.4byte	0x2a2
+ 3397 0d7d 02       		.uleb128 0x2
+ 3398 0d7e 91       		.byte	0x91
+ 3399 0d7f 70       		.sleb128 -16
+ 3400 0d80 00       		.byte	0
+ 3401 0d81 0A       		.uleb128 0xa
+ 3402 0d82 04       		.byte	0x4
+ 3403 0d83 CC020000 		.4byte	0x2cc
+ 3404 0d87 29       		.uleb128 0x29
+ 3405 0d88 EB080000 		.4byte	.LASF171
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 61
+
+
+ 3406 0d8c 03       		.byte	0x3
+ 3407 0d8d 8B02     		.2byte	0x28b
+ 3408 0d8f 00000000 		.4byte	.LFB133
+ 3409 0d93 64000000 		.4byte	.LFE133-.LFB133
+ 3410 0d97 01       		.uleb128 0x1
+ 3411 0d98 9C       		.byte	0x9c
+ 3412 0d99 C90D0000 		.4byte	0xdc9
+ 3413 0d9d 20       		.uleb128 0x20
+ 3414 0d9e 747000   		.ascii	"tp\000"
+ 3415 0da1 03       		.byte	0x3
+ 3416 0da2 8B02     		.2byte	0x28b
+ 3417 0da4 A2020000 		.4byte	0x2a2
+ 3418 0da8 02       		.uleb128 0x2
+ 3419 0da9 91       		.byte	0x91
+ 3420 0daa 6C       		.sleb128 -20
+ 3421 0dab 20       		.uleb128 0x20
+ 3422 0dac 74717000 		.ascii	"tqp\000"
+ 3423 0db0 03       		.byte	0x3
+ 3424 0db1 8B02     		.2byte	0x28b
+ 3425 0db3 810D0000 		.4byte	0xd81
+ 3426 0db7 02       		.uleb128 0x2
+ 3427 0db8 91       		.byte	0x91
+ 3428 0db9 68       		.sleb128 -24
+ 3429 0dba 1E       		.uleb128 0x1e
+ 3430 0dbb 637000   		.ascii	"cp\000"
+ 3431 0dbe 03       		.byte	0x3
+ 3432 0dbf 8D02     		.2byte	0x28d
+ 3433 0dc1 A2020000 		.4byte	0x2a2
+ 3434 0dc5 02       		.uleb128 0x2
+ 3435 0dc6 91       		.byte	0x91
+ 3436 0dc7 70       		.sleb128 -16
+ 3437 0dc8 00       		.byte	0
+ 3438 0dc9 2B       		.uleb128 0x2b
+ 3439 0dca 0C030000 		.4byte	.LASF172
+ 3440 0dce 03       		.byte	0x3
+ 3441 0dcf 7502     		.2byte	0x275
+ 3442 0dd1 9B0B0000 		.4byte	0xb9b
+ 3443 0dd5 00000000 		.4byte	.LFB130
+ 3444 0dd9 38000000 		.4byte	.LFE130-.LFB130
+ 3445 0ddd 01       		.uleb128 0x1
+ 3446 0dde 9C       		.byte	0x9c
+ 3447 0ddf F30D0000 		.4byte	0xdf3
+ 3448 0de3 20       		.uleb128 0x20
+ 3449 0de4 74717000 		.ascii	"tqp\000"
+ 3450 0de8 03       		.byte	0x3
+ 3451 0de9 7502     		.2byte	0x275
+ 3452 0deb F30D0000 		.4byte	0xdf3
+ 3453 0def 02       		.uleb128 0x2
+ 3454 0df0 91       		.byte	0x91
+ 3455 0df1 6C       		.sleb128 -20
+ 3456 0df2 00       		.byte	0
+ 3457 0df3 0A       		.uleb128 0xa
+ 3458 0df4 04       		.byte	0x4
+ 3459 0df5 D7020000 		.4byte	0x2d7
+ 3460 0df9 29       		.uleb128 0x29
+ 3461 0dfa 7B000000 		.4byte	.LASF173
+ 3462 0dfe 03       		.byte	0x3
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 62
+
+
+ 3463 0dff 5A02     		.2byte	0x25a
+ 3464 0e01 00000000 		.4byte	.LFB128
+ 3465 0e05 34000000 		.4byte	.LFE128-.LFB128
+ 3466 0e09 01       		.uleb128 0x1
+ 3467 0e0a 9C       		.byte	0x9c
+ 3468 0e0b 1F0E0000 		.4byte	0xe1f
+ 3469 0e0f 20       		.uleb128 0x20
+ 3470 0e10 74717000 		.ascii	"tqp\000"
+ 3471 0e14 03       		.byte	0x3
+ 3472 0e15 5A02     		.2byte	0x25a
+ 3473 0e17 810D0000 		.4byte	0xd81
+ 3474 0e1b 02       		.uleb128 0x2
+ 3475 0e1c 91       		.byte	0x91
+ 3476 0e1d 6C       		.sleb128 -20
+ 3477 0e1e 00       		.byte	0
+ 3478 0e1f 29       		.uleb128 0x29
+ 3479 0e20 88010000 		.4byte	.LASF174
+ 3480 0e24 01       		.byte	0x1
+ 3481 0e25 CA01     		.2byte	0x1ca
+ 3482 0e27 00000000 		.4byte	.LFB117
+ 3483 0e2b 30000000 		.4byte	.LFE117-.LFB117
+ 3484 0e2f 01       		.uleb128 0x1
+ 3485 0e30 9C       		.byte	0x9c
+ 3486 0e31 4F0E0000 		.4byte	0xe4f
+ 3487 0e35 2C       		.uleb128 0x2c
+ 3488 0e36 7F0E0000 		.4byte	0xe7f
+ 3489 0e3a 0E000000 		.4byte	.LBB8
+ 3490 0e3e 06000000 		.4byte	.LBE8-.LBB8
+ 3491 0e42 01       		.byte	0x1
+ 3492 0e43 CD01     		.2byte	0x1cd
+ 3493 0e45 2D       		.uleb128 0x2d
+ 3494 0e46 880E0000 		.4byte	0xe88
+ 3495 0e4a 02       		.uleb128 0x2
+ 3496 0e4b 91       		.byte	0x91
+ 3497 0e4c 70       		.sleb128 -16
+ 3498 0e4d 00       		.byte	0
+ 3499 0e4e 00       		.byte	0
+ 3500 0e4f 29       		.uleb128 0x29
+ 3501 0e50 86000000 		.4byte	.LASF175
+ 3502 0e54 01       		.byte	0x1
+ 3503 0e55 BC01     		.2byte	0x1bc
+ 3504 0e57 00000000 		.4byte	.LFB116
+ 3505 0e5b 30000000 		.4byte	.LFE116-.LFB116
+ 3506 0e5f 01       		.uleb128 0x1
+ 3507 0e60 9C       		.byte	0x9c
+ 3508 0e61 7F0E0000 		.4byte	0xe7f
+ 3509 0e65 2C       		.uleb128 0x2c
+ 3510 0e66 7F0E0000 		.4byte	0xe7f
+ 3511 0e6a 0E000000 		.4byte	.LBB6
+ 3512 0e6e 06000000 		.4byte	.LBE6-.LBB6
+ 3513 0e72 01       		.byte	0x1
+ 3514 0e73 BF01     		.2byte	0x1bf
+ 3515 0e75 2D       		.uleb128 0x2d
+ 3516 0e76 880E0000 		.4byte	0xe88
+ 3517 0e7a 02       		.uleb128 0x2
+ 3518 0e7b 91       		.byte	0x91
+ 3519 0e7c 70       		.sleb128 -16
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 63
+
+
+ 3520 0e7d 00       		.byte	0
+ 3521 0e7e 00       		.byte	0
+ 3522 0e7f 2E       		.uleb128 0x2e
+ 3523 0e80 30050000 		.4byte	.LASF180
+ 3524 0e84 02       		.byte	0x2
+ 3525 0e85 2002     		.2byte	0x220
+ 3526 0e87 03       		.byte	0x3
+ 3527 0e88 2F       		.uleb128 0x2f
+ 3528 0e89 8E030000 		.4byte	.LASF181
+ 3529 0e8d 02       		.byte	0x2
+ 3530 0e8e 2002     		.2byte	0x220
+ 3531 0e90 CF000000 		.4byte	0xcf
+ 3532 0e94 00       		.byte	0
+ 3533 0e95 00       		.byte	0
+ 3534              		.section	.debug_abbrev,"",%progbits
+ 3535              	.Ldebug_abbrev0:
+ 3536 0000 01       		.uleb128 0x1
+ 3537 0001 11       		.uleb128 0x11
+ 3538 0002 01       		.byte	0x1
+ 3539 0003 25       		.uleb128 0x25
+ 3540 0004 0E       		.uleb128 0xe
+ 3541 0005 13       		.uleb128 0x13
+ 3542 0006 0B       		.uleb128 0xb
+ 3543 0007 03       		.uleb128 0x3
+ 3544 0008 0E       		.uleb128 0xe
+ 3545 0009 1B       		.uleb128 0x1b
+ 3546 000a 0E       		.uleb128 0xe
+ 3547 000b 55       		.uleb128 0x55
+ 3548 000c 17       		.uleb128 0x17
+ 3549 000d 11       		.uleb128 0x11
+ 3550 000e 01       		.uleb128 0x1
+ 3551 000f 10       		.uleb128 0x10
+ 3552 0010 17       		.uleb128 0x17
+ 3553 0011 00       		.byte	0
+ 3554 0012 00       		.byte	0
+ 3555 0013 02       		.uleb128 0x2
+ 3556 0014 24       		.uleb128 0x24
+ 3557 0015 00       		.byte	0
+ 3558 0016 0B       		.uleb128 0xb
+ 3559 0017 0B       		.uleb128 0xb
+ 3560 0018 3E       		.uleb128 0x3e
+ 3561 0019 0B       		.uleb128 0xb
+ 3562 001a 03       		.uleb128 0x3
+ 3563 001b 08       		.uleb128 0x8
+ 3564 001c 00       		.byte	0
+ 3565 001d 00       		.byte	0
+ 3566 001e 03       		.uleb128 0x3
+ 3567 001f 24       		.uleb128 0x24
+ 3568 0020 00       		.byte	0
+ 3569 0021 0B       		.uleb128 0xb
+ 3570 0022 0B       		.uleb128 0xb
+ 3571 0023 3E       		.uleb128 0x3e
+ 3572 0024 0B       		.uleb128 0xb
+ 3573 0025 03       		.uleb128 0x3
+ 3574 0026 0E       		.uleb128 0xe
+ 3575 0027 00       		.byte	0
+ 3576 0028 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 64
+
+
+ 3577 0029 04       		.uleb128 0x4
+ 3578 002a 16       		.uleb128 0x16
+ 3579 002b 00       		.byte	0
+ 3580 002c 03       		.uleb128 0x3
+ 3581 002d 0E       		.uleb128 0xe
+ 3582 002e 3A       		.uleb128 0x3a
+ 3583 002f 0B       		.uleb128 0xb
+ 3584 0030 3B       		.uleb128 0x3b
+ 3585 0031 0B       		.uleb128 0xb
+ 3586 0032 49       		.uleb128 0x49
+ 3587 0033 13       		.uleb128 0x13
+ 3588 0034 00       		.byte	0
+ 3589 0035 00       		.byte	0
+ 3590 0036 05       		.uleb128 0x5
+ 3591 0037 35       		.uleb128 0x35
+ 3592 0038 00       		.byte	0
+ 3593 0039 49       		.uleb128 0x49
+ 3594 003a 13       		.uleb128 0x13
+ 3595 003b 00       		.byte	0
+ 3596 003c 00       		.byte	0
+ 3597 003d 06       		.uleb128 0x6
+ 3598 003e 13       		.uleb128 0x13
+ 3599 003f 01       		.byte	0x1
+ 3600 0040 03       		.uleb128 0x3
+ 3601 0041 0E       		.uleb128 0xe
+ 3602 0042 0B       		.uleb128 0xb
+ 3603 0043 0B       		.uleb128 0xb
+ 3604 0044 3A       		.uleb128 0x3a
+ 3605 0045 0B       		.uleb128 0xb
+ 3606 0046 3B       		.uleb128 0x3b
+ 3607 0047 0B       		.uleb128 0xb
+ 3608 0048 01       		.uleb128 0x1
+ 3609 0049 13       		.uleb128 0x13
+ 3610 004a 00       		.byte	0
+ 3611 004b 00       		.byte	0
+ 3612 004c 07       		.uleb128 0x7
+ 3613 004d 0D       		.uleb128 0xd
+ 3614 004e 00       		.byte	0
+ 3615 004f 03       		.uleb128 0x3
+ 3616 0050 0E       		.uleb128 0xe
+ 3617 0051 3A       		.uleb128 0x3a
+ 3618 0052 0B       		.uleb128 0xb
+ 3619 0053 3B       		.uleb128 0x3b
+ 3620 0054 0B       		.uleb128 0xb
+ 3621 0055 49       		.uleb128 0x49
+ 3622 0056 13       		.uleb128 0x13
+ 3623 0057 38       		.uleb128 0x38
+ 3624 0058 0B       		.uleb128 0xb
+ 3625 0059 00       		.byte	0
+ 3626 005a 00       		.byte	0
+ 3627 005b 08       		.uleb128 0x8
+ 3628 005c 0D       		.uleb128 0xd
+ 3629 005d 00       		.byte	0
+ 3630 005e 03       		.uleb128 0x3
+ 3631 005f 08       		.uleb128 0x8
+ 3632 0060 3A       		.uleb128 0x3a
+ 3633 0061 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 65
+
+
+ 3634 0062 3B       		.uleb128 0x3b
+ 3635 0063 05       		.uleb128 0x5
+ 3636 0064 49       		.uleb128 0x49
+ 3637 0065 13       		.uleb128 0x13
+ 3638 0066 38       		.uleb128 0x38
+ 3639 0067 0B       		.uleb128 0xb
+ 3640 0068 00       		.byte	0
+ 3641 0069 00       		.byte	0
+ 3642 006a 09       		.uleb128 0x9
+ 3643 006b 0D       		.uleb128 0xd
+ 3644 006c 00       		.byte	0
+ 3645 006d 03       		.uleb128 0x3
+ 3646 006e 0E       		.uleb128 0xe
+ 3647 006f 3A       		.uleb128 0x3a
+ 3648 0070 0B       		.uleb128 0xb
+ 3649 0071 3B       		.uleb128 0x3b
+ 3650 0072 05       		.uleb128 0x5
+ 3651 0073 49       		.uleb128 0x49
+ 3652 0074 13       		.uleb128 0x13
+ 3653 0075 38       		.uleb128 0x38
+ 3654 0076 0B       		.uleb128 0xb
+ 3655 0077 00       		.byte	0
+ 3656 0078 00       		.byte	0
+ 3657 0079 0A       		.uleb128 0xa
+ 3658 007a 0F       		.uleb128 0xf
+ 3659 007b 00       		.byte	0
+ 3660 007c 0B       		.uleb128 0xb
+ 3661 007d 0B       		.uleb128 0xb
+ 3662 007e 49       		.uleb128 0x49
+ 3663 007f 13       		.uleb128 0x13
+ 3664 0080 00       		.byte	0
+ 3665 0081 00       		.byte	0
+ 3666 0082 0B       		.uleb128 0xb
+ 3667 0083 26       		.uleb128 0x26
+ 3668 0084 00       		.byte	0
+ 3669 0085 49       		.uleb128 0x49
+ 3670 0086 13       		.uleb128 0x13
+ 3671 0087 00       		.byte	0
+ 3672 0088 00       		.byte	0
+ 3673 0089 0C       		.uleb128 0xc
+ 3674 008a 13       		.uleb128 0x13
+ 3675 008b 01       		.byte	0x1
+ 3676 008c 03       		.uleb128 0x3
+ 3677 008d 0E       		.uleb128 0xe
+ 3678 008e 0B       		.uleb128 0xb
+ 3679 008f 0B       		.uleb128 0xb
+ 3680 0090 3A       		.uleb128 0x3a
+ 3681 0091 0B       		.uleb128 0xb
+ 3682 0092 3B       		.uleb128 0x3b
+ 3683 0093 05       		.uleb128 0x5
+ 3684 0094 01       		.uleb128 0x1
+ 3685 0095 13       		.uleb128 0x13
+ 3686 0096 00       		.byte	0
+ 3687 0097 00       		.byte	0
+ 3688 0098 0D       		.uleb128 0xd
+ 3689 0099 15       		.uleb128 0x15
+ 3690 009a 01       		.byte	0x1
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 66
+
+
+ 3691 009b 27       		.uleb128 0x27
+ 3692 009c 19       		.uleb128 0x19
+ 3693 009d 01       		.uleb128 0x1
+ 3694 009e 13       		.uleb128 0x13
+ 3695 009f 00       		.byte	0
+ 3696 00a0 00       		.byte	0
+ 3697 00a1 0E       		.uleb128 0xe
+ 3698 00a2 05       		.uleb128 0x5
+ 3699 00a3 00       		.byte	0
+ 3700 00a4 49       		.uleb128 0x49
+ 3701 00a5 13       		.uleb128 0x13
+ 3702 00a6 00       		.byte	0
+ 3703 00a7 00       		.byte	0
+ 3704 00a8 0F       		.uleb128 0xf
+ 3705 00a9 0F       		.uleb128 0xf
+ 3706 00aa 00       		.byte	0
+ 3707 00ab 0B       		.uleb128 0xb
+ 3708 00ac 0B       		.uleb128 0xb
+ 3709 00ad 00       		.byte	0
+ 3710 00ae 00       		.byte	0
+ 3711 00af 10       		.uleb128 0x10
+ 3712 00b0 13       		.uleb128 0x13
+ 3713 00b1 01       		.byte	0x1
+ 3714 00b2 03       		.uleb128 0x3
+ 3715 00b3 0E       		.uleb128 0xe
+ 3716 00b4 0B       		.uleb128 0xb
+ 3717 00b5 05       		.uleb128 0x5
+ 3718 00b6 3A       		.uleb128 0x3a
+ 3719 00b7 0B       		.uleb128 0xb
+ 3720 00b8 3B       		.uleb128 0x3b
+ 3721 00b9 05       		.uleb128 0x5
+ 3722 00ba 01       		.uleb128 0x1
+ 3723 00bb 13       		.uleb128 0x13
+ 3724 00bc 00       		.byte	0
+ 3725 00bd 00       		.byte	0
+ 3726 00be 11       		.uleb128 0x11
+ 3727 00bf 0D       		.uleb128 0xd
+ 3728 00c0 00       		.byte	0
+ 3729 00c1 03       		.uleb128 0x3
+ 3730 00c2 0E       		.uleb128 0xe
+ 3731 00c3 3A       		.uleb128 0x3a
+ 3732 00c4 0B       		.uleb128 0xb
+ 3733 00c5 3B       		.uleb128 0x3b
+ 3734 00c6 05       		.uleb128 0x5
+ 3735 00c7 49       		.uleb128 0x49
+ 3736 00c8 13       		.uleb128 0x13
+ 3737 00c9 38       		.uleb128 0x38
+ 3738 00ca 05       		.uleb128 0x5
+ 3739 00cb 00       		.byte	0
+ 3740 00cc 00       		.byte	0
+ 3741 00cd 12       		.uleb128 0x12
+ 3742 00ce 0D       		.uleb128 0xd
+ 3743 00cf 00       		.byte	0
+ 3744 00d0 03       		.uleb128 0x3
+ 3745 00d1 08       		.uleb128 0x8
+ 3746 00d2 3A       		.uleb128 0x3a
+ 3747 00d3 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 67
+
+
+ 3748 00d4 3B       		.uleb128 0x3b
+ 3749 00d5 05       		.uleb128 0x5
+ 3750 00d6 49       		.uleb128 0x49
+ 3751 00d7 13       		.uleb128 0x13
+ 3752 00d8 38       		.uleb128 0x38
+ 3753 00d9 05       		.uleb128 0x5
+ 3754 00da 00       		.byte	0
+ 3755 00db 00       		.byte	0
+ 3756 00dc 13       		.uleb128 0x13
+ 3757 00dd 34       		.uleb128 0x34
+ 3758 00de 00       		.byte	0
+ 3759 00df 03       		.uleb128 0x3
+ 3760 00e0 0E       		.uleb128 0xe
+ 3761 00e1 3A       		.uleb128 0x3a
+ 3762 00e2 0B       		.uleb128 0xb
+ 3763 00e3 3B       		.uleb128 0x3b
+ 3764 00e4 05       		.uleb128 0x5
+ 3765 00e5 49       		.uleb128 0x49
+ 3766 00e6 13       		.uleb128 0x13
+ 3767 00e7 3F       		.uleb128 0x3f
+ 3768 00e8 19       		.uleb128 0x19
+ 3769 00e9 3C       		.uleb128 0x3c
+ 3770 00ea 19       		.uleb128 0x19
+ 3771 00eb 00       		.byte	0
+ 3772 00ec 00       		.byte	0
+ 3773 00ed 14       		.uleb128 0x14
+ 3774 00ee 34       		.uleb128 0x34
+ 3775 00ef 00       		.byte	0
+ 3776 00f0 03       		.uleb128 0x3
+ 3777 00f1 0E       		.uleb128 0xe
+ 3778 00f2 3A       		.uleb128 0x3a
+ 3779 00f3 0B       		.uleb128 0xb
+ 3780 00f4 3B       		.uleb128 0x3b
+ 3781 00f5 0B       		.uleb128 0xb
+ 3782 00f6 49       		.uleb128 0x49
+ 3783 00f7 13       		.uleb128 0x13
+ 3784 00f8 3F       		.uleb128 0x3f
+ 3785 00f9 19       		.uleb128 0x19
+ 3786 00fa 3C       		.uleb128 0x3c
+ 3787 00fb 19       		.uleb128 0x19
+ 3788 00fc 00       		.byte	0
+ 3789 00fd 00       		.byte	0
+ 3790 00fe 15       		.uleb128 0x15
+ 3791 00ff 0D       		.uleb128 0xd
+ 3792 0100 00       		.byte	0
+ 3793 0101 03       		.uleb128 0x3
+ 3794 0102 08       		.uleb128 0x8
+ 3795 0103 3A       		.uleb128 0x3a
+ 3796 0104 0B       		.uleb128 0xb
+ 3797 0105 3B       		.uleb128 0x3b
+ 3798 0106 0B       		.uleb128 0xb
+ 3799 0107 49       		.uleb128 0x49
+ 3800 0108 13       		.uleb128 0x13
+ 3801 0109 38       		.uleb128 0x38
+ 3802 010a 0B       		.uleb128 0xb
+ 3803 010b 00       		.byte	0
+ 3804 010c 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 68
+
+
+ 3805 010d 16       		.uleb128 0x16
+ 3806 010e 13       		.uleb128 0x13
+ 3807 010f 01       		.byte	0x1
+ 3808 0110 0B       		.uleb128 0xb
+ 3809 0111 0B       		.uleb128 0xb
+ 3810 0112 3A       		.uleb128 0x3a
+ 3811 0113 0B       		.uleb128 0xb
+ 3812 0114 3B       		.uleb128 0x3b
+ 3813 0115 0B       		.uleb128 0xb
+ 3814 0116 01       		.uleb128 0x1
+ 3815 0117 13       		.uleb128 0x13
+ 3816 0118 00       		.byte	0
+ 3817 0119 00       		.byte	0
+ 3818 011a 17       		.uleb128 0x17
+ 3819 011b 13       		.uleb128 0x13
+ 3820 011c 01       		.byte	0x1
+ 3821 011d 0B       		.uleb128 0xb
+ 3822 011e 05       		.uleb128 0x5
+ 3823 011f 3A       		.uleb128 0x3a
+ 3824 0120 0B       		.uleb128 0xb
+ 3825 0121 3B       		.uleb128 0x3b
+ 3826 0122 0B       		.uleb128 0xb
+ 3827 0123 01       		.uleb128 0x1
+ 3828 0124 13       		.uleb128 0x13
+ 3829 0125 00       		.byte	0
+ 3830 0126 00       		.byte	0
+ 3831 0127 18       		.uleb128 0x18
+ 3832 0128 01       		.uleb128 0x1
+ 3833 0129 01       		.byte	0x1
+ 3834 012a 49       		.uleb128 0x49
+ 3835 012b 13       		.uleb128 0x13
+ 3836 012c 01       		.uleb128 0x1
+ 3837 012d 13       		.uleb128 0x13
+ 3838 012e 00       		.byte	0
+ 3839 012f 00       		.byte	0
+ 3840 0130 19       		.uleb128 0x19
+ 3841 0131 21       		.uleb128 0x21
+ 3842 0132 00       		.byte	0
+ 3843 0133 49       		.uleb128 0x49
+ 3844 0134 13       		.uleb128 0x13
+ 3845 0135 2F       		.uleb128 0x2f
+ 3846 0136 0B       		.uleb128 0xb
+ 3847 0137 00       		.byte	0
+ 3848 0138 00       		.byte	0
+ 3849 0139 1A       		.uleb128 0x1a
+ 3850 013a 17       		.uleb128 0x17
+ 3851 013b 01       		.byte	0x1
+ 3852 013c 0B       		.uleb128 0xb
+ 3853 013d 0B       		.uleb128 0xb
+ 3854 013e 3A       		.uleb128 0x3a
+ 3855 013f 0B       		.uleb128 0xb
+ 3856 0140 3B       		.uleb128 0x3b
+ 3857 0141 0B       		.uleb128 0xb
+ 3858 0142 01       		.uleb128 0x1
+ 3859 0143 13       		.uleb128 0x13
+ 3860 0144 00       		.byte	0
+ 3861 0145 00       		.byte	0
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 69
+
+
+ 3862 0146 1B       		.uleb128 0x1b
+ 3863 0147 0D       		.uleb128 0xd
+ 3864 0148 00       		.byte	0
+ 3865 0149 03       		.uleb128 0x3
+ 3866 014a 0E       		.uleb128 0xe
+ 3867 014b 3A       		.uleb128 0x3a
+ 3868 014c 0B       		.uleb128 0xb
+ 3869 014d 3B       		.uleb128 0x3b
+ 3870 014e 05       		.uleb128 0x5
+ 3871 014f 49       		.uleb128 0x49
+ 3872 0150 13       		.uleb128 0x13
+ 3873 0151 00       		.byte	0
+ 3874 0152 00       		.byte	0
+ 3875 0153 1C       		.uleb128 0x1c
+ 3876 0154 34       		.uleb128 0x34
+ 3877 0155 00       		.byte	0
+ 3878 0156 03       		.uleb128 0x3
+ 3879 0157 08       		.uleb128 0x8
+ 3880 0158 3A       		.uleb128 0x3a
+ 3881 0159 0B       		.uleb128 0xb
+ 3882 015a 3B       		.uleb128 0x3b
+ 3883 015b 05       		.uleb128 0x5
+ 3884 015c 49       		.uleb128 0x49
+ 3885 015d 13       		.uleb128 0x13
+ 3886 015e 3F       		.uleb128 0x3f
+ 3887 015f 19       		.uleb128 0x19
+ 3888 0160 3C       		.uleb128 0x3c
+ 3889 0161 19       		.uleb128 0x19
+ 3890 0162 00       		.byte	0
+ 3891 0163 00       		.byte	0
+ 3892 0164 1D       		.uleb128 0x1d
+ 3893 0165 2E       		.uleb128 0x2e
+ 3894 0166 01       		.byte	0x1
+ 3895 0167 3F       		.uleb128 0x3f
+ 3896 0168 19       		.uleb128 0x19
+ 3897 0169 03       		.uleb128 0x3
+ 3898 016a 0E       		.uleb128 0xe
+ 3899 016b 3A       		.uleb128 0x3a
+ 3900 016c 0B       		.uleb128 0xb
+ 3901 016d 3B       		.uleb128 0x3b
+ 3902 016e 05       		.uleb128 0x5
+ 3903 016f 27       		.uleb128 0x27
+ 3904 0170 19       		.uleb128 0x19
+ 3905 0171 11       		.uleb128 0x11
+ 3906 0172 01       		.uleb128 0x1
+ 3907 0173 12       		.uleb128 0x12
+ 3908 0174 06       		.uleb128 0x6
+ 3909 0175 40       		.uleb128 0x40
+ 3910 0176 18       		.uleb128 0x18
+ 3911 0177 9642     		.uleb128 0x2116
+ 3912 0179 19       		.uleb128 0x19
+ 3913 017a 01       		.uleb128 0x1
+ 3914 017b 13       		.uleb128 0x13
+ 3915 017c 00       		.byte	0
+ 3916 017d 00       		.byte	0
+ 3917 017e 1E       		.uleb128 0x1e
+ 3918 017f 34       		.uleb128 0x34
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 70
+
+
+ 3919 0180 00       		.byte	0
+ 3920 0181 03       		.uleb128 0x3
+ 3921 0182 08       		.uleb128 0x8
+ 3922 0183 3A       		.uleb128 0x3a
+ 3923 0184 0B       		.uleb128 0xb
+ 3924 0185 3B       		.uleb128 0x3b
+ 3925 0186 05       		.uleb128 0x5
+ 3926 0187 49       		.uleb128 0x49
+ 3927 0188 13       		.uleb128 0x13
+ 3928 0189 02       		.uleb128 0x2
+ 3929 018a 18       		.uleb128 0x18
+ 3930 018b 00       		.byte	0
+ 3931 018c 00       		.byte	0
+ 3932 018d 1F       		.uleb128 0x1f
+ 3933 018e 0B       		.uleb128 0xb
+ 3934 018f 01       		.byte	0x1
+ 3935 0190 11       		.uleb128 0x11
+ 3936 0191 01       		.uleb128 0x1
+ 3937 0192 12       		.uleb128 0x12
+ 3938 0193 06       		.uleb128 0x6
+ 3939 0194 00       		.byte	0
+ 3940 0195 00       		.byte	0
+ 3941 0196 20       		.uleb128 0x20
+ 3942 0197 05       		.uleb128 0x5
+ 3943 0198 00       		.byte	0
+ 3944 0199 03       		.uleb128 0x3
+ 3945 019a 08       		.uleb128 0x8
+ 3946 019b 3A       		.uleb128 0x3a
+ 3947 019c 0B       		.uleb128 0xb
+ 3948 019d 3B       		.uleb128 0x3b
+ 3949 019e 05       		.uleb128 0x5
+ 3950 019f 49       		.uleb128 0x49
+ 3951 01a0 13       		.uleb128 0x13
+ 3952 01a1 02       		.uleb128 0x2
+ 3953 01a2 18       		.uleb128 0x18
+ 3954 01a3 00       		.byte	0
+ 3955 01a4 00       		.byte	0
+ 3956 01a5 21       		.uleb128 0x21
+ 3957 01a6 34       		.uleb128 0x34
+ 3958 01a7 00       		.byte	0
+ 3959 01a8 03       		.uleb128 0x3
+ 3960 01a9 0E       		.uleb128 0xe
+ 3961 01aa 49       		.uleb128 0x49
+ 3962 01ab 13       		.uleb128 0x13
+ 3963 01ac 34       		.uleb128 0x34
+ 3964 01ad 19       		.uleb128 0x19
+ 3965 01ae 02       		.uleb128 0x2
+ 3966 01af 18       		.uleb128 0x18
+ 3967 01b0 00       		.byte	0
+ 3968 01b1 00       		.byte	0
+ 3969 01b2 22       		.uleb128 0x22
+ 3970 01b3 34       		.uleb128 0x34
+ 3971 01b4 00       		.byte	0
+ 3972 01b5 03       		.uleb128 0x3
+ 3973 01b6 0E       		.uleb128 0xe
+ 3974 01b7 3A       		.uleb128 0x3a
+ 3975 01b8 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 71
+
+
+ 3976 01b9 3B       		.uleb128 0x3b
+ 3977 01ba 05       		.uleb128 0x5
+ 3978 01bb 49       		.uleb128 0x49
+ 3979 01bc 13       		.uleb128 0x13
+ 3980 01bd 02       		.uleb128 0x2
+ 3981 01be 18       		.uleb128 0x18
+ 3982 01bf 00       		.byte	0
+ 3983 01c0 00       		.byte	0
+ 3984 01c1 23       		.uleb128 0x23
+ 3985 01c2 2E       		.uleb128 0x2e
+ 3986 01c3 01       		.byte	0x1
+ 3987 01c4 3F       		.uleb128 0x3f
+ 3988 01c5 19       		.uleb128 0x19
+ 3989 01c6 03       		.uleb128 0x3
+ 3990 01c7 0E       		.uleb128 0xe
+ 3991 01c8 3A       		.uleb128 0x3a
+ 3992 01c9 0B       		.uleb128 0xb
+ 3993 01ca 3B       		.uleb128 0x3b
+ 3994 01cb 05       		.uleb128 0x5
+ 3995 01cc 27       		.uleb128 0x27
+ 3996 01cd 19       		.uleb128 0x19
+ 3997 01ce 49       		.uleb128 0x49
+ 3998 01cf 13       		.uleb128 0x13
+ 3999 01d0 11       		.uleb128 0x11
+ 4000 01d1 01       		.uleb128 0x1
+ 4001 01d2 12       		.uleb128 0x12
+ 4002 01d3 06       		.uleb128 0x6
+ 4003 01d4 40       		.uleb128 0x40
+ 4004 01d5 18       		.uleb128 0x18
+ 4005 01d6 9642     		.uleb128 0x2116
+ 4006 01d8 19       		.uleb128 0x19
+ 4007 01d9 01       		.uleb128 0x1
+ 4008 01da 13       		.uleb128 0x13
+ 4009 01db 00       		.byte	0
+ 4010 01dc 00       		.byte	0
+ 4011 01dd 24       		.uleb128 0x24
+ 4012 01de 2E       		.uleb128 0x2e
+ 4013 01df 01       		.byte	0x1
+ 4014 01e0 3F       		.uleb128 0x3f
+ 4015 01e1 19       		.uleb128 0x19
+ 4016 01e2 03       		.uleb128 0x3
+ 4017 01e3 0E       		.uleb128 0xe
+ 4018 01e4 3A       		.uleb128 0x3a
+ 4019 01e5 0B       		.uleb128 0xb
+ 4020 01e6 3B       		.uleb128 0x3b
+ 4021 01e7 0B       		.uleb128 0xb
+ 4022 01e8 27       		.uleb128 0x27
+ 4023 01e9 19       		.uleb128 0x19
+ 4024 01ea 49       		.uleb128 0x49
+ 4025 01eb 13       		.uleb128 0x13
+ 4026 01ec 11       		.uleb128 0x11
+ 4027 01ed 01       		.uleb128 0x1
+ 4028 01ee 12       		.uleb128 0x12
+ 4029 01ef 06       		.uleb128 0x6
+ 4030 01f0 40       		.uleb128 0x40
+ 4031 01f1 18       		.uleb128 0x18
+ 4032 01f2 9642     		.uleb128 0x2116
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 72
+
+
+ 4033 01f4 19       		.uleb128 0x19
+ 4034 01f5 01       		.uleb128 0x1
+ 4035 01f6 13       		.uleb128 0x13
+ 4036 01f7 00       		.byte	0
+ 4037 01f8 00       		.byte	0
+ 4038 01f9 25       		.uleb128 0x25
+ 4039 01fa 05       		.uleb128 0x5
+ 4040 01fb 00       		.byte	0
+ 4041 01fc 03       		.uleb128 0x3
+ 4042 01fd 08       		.uleb128 0x8
+ 4043 01fe 3A       		.uleb128 0x3a
+ 4044 01ff 0B       		.uleb128 0xb
+ 4045 0200 3B       		.uleb128 0x3b
+ 4046 0201 0B       		.uleb128 0xb
+ 4047 0202 49       		.uleb128 0x49
+ 4048 0203 13       		.uleb128 0x13
+ 4049 0204 02       		.uleb128 0x2
+ 4050 0205 18       		.uleb128 0x18
+ 4051 0206 00       		.byte	0
+ 4052 0207 00       		.byte	0
+ 4053 0208 26       		.uleb128 0x26
+ 4054 0209 2E       		.uleb128 0x2e
+ 4055 020a 01       		.byte	0x1
+ 4056 020b 3F       		.uleb128 0x3f
+ 4057 020c 19       		.uleb128 0x19
+ 4058 020d 03       		.uleb128 0x3
+ 4059 020e 0E       		.uleb128 0xe
+ 4060 020f 3A       		.uleb128 0x3a
+ 4061 0210 0B       		.uleb128 0xb
+ 4062 0211 3B       		.uleb128 0x3b
+ 4063 0212 0B       		.uleb128 0xb
+ 4064 0213 27       		.uleb128 0x27
+ 4065 0214 19       		.uleb128 0x19
+ 4066 0215 11       		.uleb128 0x11
+ 4067 0216 01       		.uleb128 0x1
+ 4068 0217 12       		.uleb128 0x12
+ 4069 0218 06       		.uleb128 0x6
+ 4070 0219 40       		.uleb128 0x40
+ 4071 021a 18       		.uleb128 0x18
+ 4072 021b 9642     		.uleb128 0x2116
+ 4073 021d 19       		.uleb128 0x19
+ 4074 021e 01       		.uleb128 0x1
+ 4075 021f 13       		.uleb128 0x13
+ 4076 0220 00       		.byte	0
+ 4077 0221 00       		.byte	0
+ 4078 0222 27       		.uleb128 0x27
+ 4079 0223 34       		.uleb128 0x34
+ 4080 0224 00       		.byte	0
+ 4081 0225 03       		.uleb128 0x3
+ 4082 0226 08       		.uleb128 0x8
+ 4083 0227 3A       		.uleb128 0x3a
+ 4084 0228 0B       		.uleb128 0xb
+ 4085 0229 3B       		.uleb128 0x3b
+ 4086 022a 0B       		.uleb128 0xb
+ 4087 022b 49       		.uleb128 0x49
+ 4088 022c 13       		.uleb128 0x13
+ 4089 022d 02       		.uleb128 0x2
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 73
+
+
+ 4090 022e 18       		.uleb128 0x18
+ 4091 022f 00       		.byte	0
+ 4092 0230 00       		.byte	0
+ 4093 0231 28       		.uleb128 0x28
+ 4094 0232 2E       		.uleb128 0x2e
+ 4095 0233 01       		.byte	0x1
+ 4096 0234 03       		.uleb128 0x3
+ 4097 0235 0E       		.uleb128 0xe
+ 4098 0236 3A       		.uleb128 0x3a
+ 4099 0237 0B       		.uleb128 0xb
+ 4100 0238 3B       		.uleb128 0x3b
+ 4101 0239 0B       		.uleb128 0xb
+ 4102 023a 27       		.uleb128 0x27
+ 4103 023b 19       		.uleb128 0x19
+ 4104 023c 49       		.uleb128 0x49
+ 4105 023d 13       		.uleb128 0x13
+ 4106 023e 11       		.uleb128 0x11
+ 4107 023f 01       		.uleb128 0x1
+ 4108 0240 12       		.uleb128 0x12
+ 4109 0241 06       		.uleb128 0x6
+ 4110 0242 40       		.uleb128 0x40
+ 4111 0243 18       		.uleb128 0x18
+ 4112 0244 9642     		.uleb128 0x2116
+ 4113 0246 19       		.uleb128 0x19
+ 4114 0247 01       		.uleb128 0x1
+ 4115 0248 13       		.uleb128 0x13
+ 4116 0249 00       		.byte	0
+ 4117 024a 00       		.byte	0
+ 4118 024b 29       		.uleb128 0x29
+ 4119 024c 2E       		.uleb128 0x2e
+ 4120 024d 01       		.byte	0x1
+ 4121 024e 03       		.uleb128 0x3
+ 4122 024f 0E       		.uleb128 0xe
+ 4123 0250 3A       		.uleb128 0x3a
+ 4124 0251 0B       		.uleb128 0xb
+ 4125 0252 3B       		.uleb128 0x3b
+ 4126 0253 05       		.uleb128 0x5
+ 4127 0254 27       		.uleb128 0x27
+ 4128 0255 19       		.uleb128 0x19
+ 4129 0256 11       		.uleb128 0x11
+ 4130 0257 01       		.uleb128 0x1
+ 4131 0258 12       		.uleb128 0x12
+ 4132 0259 06       		.uleb128 0x6
+ 4133 025a 40       		.uleb128 0x40
+ 4134 025b 18       		.uleb128 0x18
+ 4135 025c 9642     		.uleb128 0x2116
+ 4136 025e 19       		.uleb128 0x19
+ 4137 025f 01       		.uleb128 0x1
+ 4138 0260 13       		.uleb128 0x13
+ 4139 0261 00       		.byte	0
+ 4140 0262 00       		.byte	0
+ 4141 0263 2A       		.uleb128 0x2a
+ 4142 0264 2E       		.uleb128 0x2e
+ 4143 0265 00       		.byte	0
+ 4144 0266 03       		.uleb128 0x3
+ 4145 0267 0E       		.uleb128 0xe
+ 4146 0268 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 74
+
+
+ 4147 0269 0B       		.uleb128 0xb
+ 4148 026a 3B       		.uleb128 0x3b
+ 4149 026b 05       		.uleb128 0x5
+ 4150 026c 27       		.uleb128 0x27
+ 4151 026d 19       		.uleb128 0x19
+ 4152 026e 11       		.uleb128 0x11
+ 4153 026f 01       		.uleb128 0x1
+ 4154 0270 12       		.uleb128 0x12
+ 4155 0271 06       		.uleb128 0x6
+ 4156 0272 40       		.uleb128 0x40
+ 4157 0273 18       		.uleb128 0x18
+ 4158 0274 9642     		.uleb128 0x2116
+ 4159 0276 19       		.uleb128 0x19
+ 4160 0277 00       		.byte	0
+ 4161 0278 00       		.byte	0
+ 4162 0279 2B       		.uleb128 0x2b
+ 4163 027a 2E       		.uleb128 0x2e
+ 4164 027b 01       		.byte	0x1
+ 4165 027c 03       		.uleb128 0x3
+ 4166 027d 0E       		.uleb128 0xe
+ 4167 027e 3A       		.uleb128 0x3a
+ 4168 027f 0B       		.uleb128 0xb
+ 4169 0280 3B       		.uleb128 0x3b
+ 4170 0281 05       		.uleb128 0x5
+ 4171 0282 27       		.uleb128 0x27
+ 4172 0283 19       		.uleb128 0x19
+ 4173 0284 49       		.uleb128 0x49
+ 4174 0285 13       		.uleb128 0x13
+ 4175 0286 11       		.uleb128 0x11
+ 4176 0287 01       		.uleb128 0x1
+ 4177 0288 12       		.uleb128 0x12
+ 4178 0289 06       		.uleb128 0x6
+ 4179 028a 40       		.uleb128 0x40
+ 4180 028b 18       		.uleb128 0x18
+ 4181 028c 9642     		.uleb128 0x2116
+ 4182 028e 19       		.uleb128 0x19
+ 4183 028f 01       		.uleb128 0x1
+ 4184 0290 13       		.uleb128 0x13
+ 4185 0291 00       		.byte	0
+ 4186 0292 00       		.byte	0
+ 4187 0293 2C       		.uleb128 0x2c
+ 4188 0294 1D       		.uleb128 0x1d
+ 4189 0295 01       		.byte	0x1
+ 4190 0296 31       		.uleb128 0x31
+ 4191 0297 13       		.uleb128 0x13
+ 4192 0298 11       		.uleb128 0x11
+ 4193 0299 01       		.uleb128 0x1
+ 4194 029a 12       		.uleb128 0x12
+ 4195 029b 06       		.uleb128 0x6
+ 4196 029c 58       		.uleb128 0x58
+ 4197 029d 0B       		.uleb128 0xb
+ 4198 029e 59       		.uleb128 0x59
+ 4199 029f 05       		.uleb128 0x5
+ 4200 02a0 00       		.byte	0
+ 4201 02a1 00       		.byte	0
+ 4202 02a2 2D       		.uleb128 0x2d
+ 4203 02a3 05       		.uleb128 0x5
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 75
+
+
+ 4204 02a4 00       		.byte	0
+ 4205 02a5 31       		.uleb128 0x31
+ 4206 02a6 13       		.uleb128 0x13
+ 4207 02a7 02       		.uleb128 0x2
+ 4208 02a8 18       		.uleb128 0x18
+ 4209 02a9 00       		.byte	0
+ 4210 02aa 00       		.byte	0
+ 4211 02ab 2E       		.uleb128 0x2e
+ 4212 02ac 2E       		.uleb128 0x2e
+ 4213 02ad 01       		.byte	0x1
+ 4214 02ae 03       		.uleb128 0x3
+ 4215 02af 0E       		.uleb128 0xe
+ 4216 02b0 3A       		.uleb128 0x3a
+ 4217 02b1 0B       		.uleb128 0xb
+ 4218 02b2 3B       		.uleb128 0x3b
+ 4219 02b3 05       		.uleb128 0x5
+ 4220 02b4 27       		.uleb128 0x27
+ 4221 02b5 19       		.uleb128 0x19
+ 4222 02b6 20       		.uleb128 0x20
+ 4223 02b7 0B       		.uleb128 0xb
+ 4224 02b8 00       		.byte	0
+ 4225 02b9 00       		.byte	0
+ 4226 02ba 2F       		.uleb128 0x2f
+ 4227 02bb 05       		.uleb128 0x5
+ 4228 02bc 00       		.byte	0
+ 4229 02bd 03       		.uleb128 0x3
+ 4230 02be 0E       		.uleb128 0xe
+ 4231 02bf 3A       		.uleb128 0x3a
+ 4232 02c0 0B       		.uleb128 0xb
+ 4233 02c1 3B       		.uleb128 0x3b
+ 4234 02c2 05       		.uleb128 0x5
+ 4235 02c3 49       		.uleb128 0x49
+ 4236 02c4 13       		.uleb128 0x13
+ 4237 02c5 00       		.byte	0
+ 4238 02c6 00       		.byte	0
+ 4239 02c7 00       		.byte	0
+ 4240              		.section	.debug_aranges,"",%progbits
+ 4241 0000 A4000000 		.4byte	0xa4
+ 4242 0004 0200     		.2byte	0x2
+ 4243 0006 00000000 		.4byte	.Ldebug_info0
+ 4244 000a 04       		.byte	0x4
+ 4245 000b 00       		.byte	0
+ 4246 000c 0000     		.2byte	0
+ 4247 000e 0000     		.2byte	0
+ 4248 0010 00000000 		.4byte	.LFB116
+ 4249 0014 30000000 		.4byte	.LFE116-.LFB116
+ 4250 0018 00000000 		.4byte	.LFB117
+ 4251 001c 30000000 		.4byte	.LFE117-.LFB117
+ 4252 0020 00000000 		.4byte	.LFB128
+ 4253 0024 34000000 		.4byte	.LFE128-.LFB128
+ 4254 0028 00000000 		.4byte	.LFB130
+ 4255 002c 38000000 		.4byte	.LFE130-.LFB130
+ 4256 0030 00000000 		.4byte	.LFB133
+ 4257 0034 64000000 		.4byte	.LFE133-.LFB133
+ 4258 0038 00000000 		.4byte	.LFB135
+ 4259 003c 40000000 		.4byte	.LFE135-.LFB135
+ 4260 0040 00000000 		.4byte	.LFB137
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 76
+
+
+ 4261 0044 3C000000 		.4byte	.LFE137-.LFB137
+ 4262 0048 00000000 		.4byte	.LFB145
+ 4263 004c 30000000 		.4byte	.LFE145-.LFB145
+ 4264 0050 00000000 		.4byte	.LFB146
+ 4265 0054 58000000 		.4byte	.LFE146-.LFB146
+ 4266 0058 00000000 		.4byte	.LFB192
+ 4267 005c 34000000 		.4byte	.LFE192-.LFB192
+ 4268 0060 00000000 		.4byte	.LFB219
+ 4269 0064 4C000000 		.4byte	.LFE219-.LFB219
+ 4270 0068 00000000 		.4byte	.LFB220
+ 4271 006c 34000000 		.4byte	.LFE220-.LFB220
+ 4272 0070 00000000 		.4byte	.LFB221
+ 4273 0074 60010000 		.4byte	.LFE221-.LFB221
+ 4274 0078 00000000 		.4byte	.LFB222
+ 4275 007c 40000000 		.4byte	.LFE222-.LFB222
+ 4276 0080 00000000 		.4byte	.LFB223
+ 4277 0084 A8000000 		.4byte	.LFE223-.LFB223
+ 4278 0088 00000000 		.4byte	.LFB224
+ 4279 008c 20010000 		.4byte	.LFE224-.LFB224
+ 4280 0090 00000000 		.4byte	.LFB225
+ 4281 0094 1C010000 		.4byte	.LFE225-.LFB225
+ 4282 0098 00000000 		.4byte	.LFB226
+ 4283 009c A4000000 		.4byte	.LFE226-.LFB226
+ 4284 00a0 00000000 		.4byte	0
+ 4285 00a4 00000000 		.4byte	0
+ 4286              		.section	.debug_ranges,"",%progbits
+ 4287              	.Ldebug_ranges0:
+ 4288 0000 00000000 		.4byte	.LFB116
+ 4289 0004 30000000 		.4byte	.LFE116
+ 4290 0008 00000000 		.4byte	.LFB117
+ 4291 000c 30000000 		.4byte	.LFE117
+ 4292 0010 00000000 		.4byte	.LFB128
+ 4293 0014 34000000 		.4byte	.LFE128
+ 4294 0018 00000000 		.4byte	.LFB130
+ 4295 001c 38000000 		.4byte	.LFE130
+ 4296 0020 00000000 		.4byte	.LFB133
+ 4297 0024 64000000 		.4byte	.LFE133
+ 4298 0028 00000000 		.4byte	.LFB135
+ 4299 002c 40000000 		.4byte	.LFE135
+ 4300 0030 00000000 		.4byte	.LFB137
+ 4301 0034 3C000000 		.4byte	.LFE137
+ 4302 0038 00000000 		.4byte	.LFB145
+ 4303 003c 30000000 		.4byte	.LFE145
+ 4304 0040 00000000 		.4byte	.LFB146
+ 4305 0044 58000000 		.4byte	.LFE146
+ 4306 0048 00000000 		.4byte	.LFB192
+ 4307 004c 34000000 		.4byte	.LFE192
+ 4308 0050 00000000 		.4byte	.LFB219
+ 4309 0054 4C000000 		.4byte	.LFE219
+ 4310 0058 00000000 		.4byte	.LFB220
+ 4311 005c 34000000 		.4byte	.LFE220
+ 4312 0060 00000000 		.4byte	.LFB221
+ 4313 0064 60010000 		.4byte	.LFE221
+ 4314 0068 00000000 		.4byte	.LFB222
+ 4315 006c 40000000 		.4byte	.LFE222
+ 4316 0070 00000000 		.4byte	.LFB223
+ 4317 0074 A8000000 		.4byte	.LFE223
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 77
+
+
+ 4318 0078 00000000 		.4byte	.LFB224
+ 4319 007c 20010000 		.4byte	.LFE224
+ 4320 0080 00000000 		.4byte	.LFB225
+ 4321 0084 1C010000 		.4byte	.LFE225
+ 4322 0088 00000000 		.4byte	.LFB226
+ 4323 008c A4000000 		.4byte	.LFE226
+ 4324 0090 00000000 		.4byte	0
+ 4325 0094 00000000 		.4byte	0
+ 4326              		.section	.debug_line,"",%progbits
+ 4327              	.Ldebug_line0:
+ 4328 0000 97060000 		.section	.debug_str,"MS",%progbits,1
+ 4328      02006F03 
+ 4328      00000201 
+ 4328      FB0E0D00 
+ 4328      01010101 
+ 4329              	.LASF145:
+ 4330 0000 63665F6F 		.ascii	"cf_off_older\000"
+ 4330      66665F6F 
+ 4330      6C646572 
+ 4330      00
+ 4331              	.LASF60:
+ 4332 000d 72656164 		.ascii	"ready_list_t\000"
+ 4332      795F6C69 
+ 4332      73745F74 
+ 4332      00
+ 4333              	.LASF98:
+ 4334 001a 73655F74 		.ascii	"se_time\000"
+ 4334      696D6500 
+ 4335              	.LASF122:
+ 4336 0022 77747472 		.ascii	"wttrp\000"
+ 4336      7000
+ 4337              	.LASF119:
+ 4338 0028 7264796D 		.ascii	"rdymsg\000"
+ 4338      736700
+ 4339              	.LASF19:
+ 4340 002f 75696E74 		.ascii	"uint64_t\000"
+ 4340      36345F74 
+ 4340      00
+ 4341              	.LASF90:
+ 4342 0038 6B65726E 		.ascii	"kernel_stats\000"
+ 4342      656C5F73 
+ 4342      74617473 
+ 4342      00
+ 4343              	.LASF6:
+ 4344 0045 5F5F7569 		.ascii	"__uint8_t\000"
+ 4344      6E74385F 
+ 4344      7400
+ 4345              	.LASF97:
+ 4346 004f 706F7274 		.ascii	"port_intctx\000"
+ 4346      5F696E74 
+ 4346      63747800 
+ 4347              	.LASF59:
+ 4348 005b 63685F74 		.ascii	"ch_threads_queue\000"
+ 4348      68726561 
+ 4348      64735F71 
+ 4348      75657565 
+ 4348      00
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 78
+
+
+ 4349              	.LASF79:
+ 4350 006c 73797374 		.ascii	"system_debug_t\000"
+ 4350      656D5F64 
+ 4350      65627567 
+ 4350      5F7400
+ 4351              	.LASF173:
+ 4352 007b 71756575 		.ascii	"queue_init\000"
+ 4352      655F696E 
+ 4352      697400
+ 4353              	.LASF175:
+ 4354 0086 706F7274 		.ascii	"port_lock\000"
+ 4354      5F6C6F63 
+ 4354      6B00
+ 4355              	.LASF110:
+ 4356 0090 776F7273 		.ascii	"worst\000"
+ 4356      7400
+ 4357              	.LASF113:
+ 4358 0096 74696D65 		.ascii	"time_measurement_t\000"
+ 4358      5F6D6561 
+ 4358      73757265 
+ 4358      6D656E74 
+ 4358      5F7400
+ 4359              	.LASF14:
+ 4360 00a9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 4360      206C6F6E 
+ 4360      6720756E 
+ 4360      7369676E 
+ 4360      65642069 
+ 4361              	.LASF106:
+ 4362 00c0 63685F74 		.ascii	"ch_trace_buffer_t\000"
+ 4362      72616365 
+ 4362      5F627566 
+ 4362      6665725F 
+ 4362      7400
+ 4363              	.LASF141:
+ 4364 00d2 63685F74 		.ascii	"ch_threadsize\000"
+ 4364      68726561 
+ 4364      6473697A 
+ 4364      6500
+ 4365              	.LASF120:
+ 4366 00e0 65786974 		.ascii	"exitcode\000"
+ 4366      636F6465 
+ 4366      00
+ 4367              	.LASF89:
+ 4368 00e9 6D61696E 		.ascii	"mainthread\000"
+ 4368      74687265 
+ 4368      616400
+ 4369              	.LASF76:
+ 4370 00f4 76697274 		.ascii	"virtual_timers_list_t\000"
+ 4370      75616C5F 
+ 4370      74696D65 
+ 4370      72735F6C 
+ 4370      6973745F 
+ 4371              	.LASF92:
+ 4372 010a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 4372      52784275 
+ 4372      66666572 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 79
+
+
+ 4372      00
+ 4373              	.LASF21:
+ 4374 0117 72747469 		.ascii	"rttime_t\000"
+ 4374      6D655F74 
+ 4374      00
+ 4375              	.LASF35:
+ 4376 0120 705F7072 		.ascii	"p_prio\000"
+ 4376      696F00
+ 4377              	.LASF148:
+ 4378 0127 63665F6F 		.ascii	"cf_off_state\000"
+ 4378      66665F73 
+ 4378      74617465 
+ 4378      00
+ 4379              	.LASF155:
+ 4380 0134 6D757465 		.ascii	"mutex_t\000"
+ 4380      785F7400 
+ 4381              	.LASF159:
+ 4382 013c 63684D74 		.ascii	"chMtxUnlock\000"
+ 4382      78556E6C 
+ 4382      6F636B00 
+ 4383              	.LASF3:
+ 4384 0148 7369676E 		.ascii	"signed char\000"
+ 4384      65642063 
+ 4384      68617200 
+ 4385              	.LASF147:
+ 4386 0154 63665F6F 		.ascii	"cf_off_stklimit\000"
+ 4386      66665F73 
+ 4386      746B6C69 
+ 4386      6D697400 
+ 4387              	.LASF149:
+ 4388 0164 63665F6F 		.ascii	"cf_off_flags\000"
+ 4388      66665F66 
+ 4388      6C616773 
+ 4388      00
+ 4389              	.LASF52:
+ 4390 0171 705F6D70 		.ascii	"p_mpool\000"
+ 4390      6F6F6C00 
+ 4391              	.LASF130:
+ 4392 0179 6D5F7175 		.ascii	"m_queue\000"
+ 4392      65756500 
+ 4393              	.LASF88:
+ 4394 0181 76746C69 		.ascii	"vtlist\000"
+ 4394      737400
+ 4395              	.LASF174:
+ 4396 0188 706F7274 		.ascii	"port_unlock\000"
+ 4396      5F756E6C 
+ 4396      6F636B00 
+ 4397              	.LASF25:
+ 4398 0194 74736C69 		.ascii	"tslices_t\000"
+ 4398      6365735F 
+ 4398      7400
+ 4399              	.LASF86:
+ 4400 019e 63685F73 		.ascii	"ch_system\000"
+ 4400      79737465 
+ 4400      6D00
+ 4401              	.LASF10:
+ 4402 01a8 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 80
+
+
+ 4402      20696E74 
+ 4402      00
+ 4403              	.LASF176:
+ 4404 01b1 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 4404      43313120 
+ 4404      372E322E 
+ 4404      31203230 
+ 4404      31373039 
+ 4405 01e4 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
+ 4405      20726576 
+ 4405      6973696F 
+ 4405      6E203235 
+ 4405      35323034 
+ 4406 0217 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 4406      2D6D6670 
+ 4406      753D6670 
+ 4406      76342D73 
+ 4406      702D6431 
+ 4407 024a 2D676764 		.ascii	"-ggdb -O0 -fomit-frame-pointer -falign-functions=16"
+ 4407      62202D4F 
+ 4407      30202D66 
+ 4407      6F6D6974 
+ 4407      2D667261 
+ 4408 027d 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
+ 4408      6F2D7374 
+ 4408      72696374 
+ 4408      2D616C69 
+ 4408      6173696E 
+ 4409 02b0 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
+ 4409      73656374 
+ 4409      696F6E73 
+ 4409      202D6664 
+ 4409      6174612D 
+ 4410 02e3 72656369 		.ascii	"recision-constant\000"
+ 4410      73696F6E 
+ 4410      2D636F6E 
+ 4410      7374616E 
+ 4410      7400
+ 4411              	.LASF168:
+ 4412 02f5 71756575 		.ascii	"queue_dequeue\000"
+ 4412      655F6465 
+ 4412      71756575 
+ 4412      6500
+ 4413              	.LASF23:
+ 4414 0303 74737461 		.ascii	"tstate_t\000"
+ 4414      74655F74 
+ 4414      00
+ 4415              	.LASF172:
+ 4416 030c 71756575 		.ascii	"queue_notempty\000"
+ 4416      655F6E6F 
+ 4416      74656D70 
+ 4416      747900
+ 4417              	.LASF99:
+ 4418 031b 73655F74 		.ascii	"se_tp\000"
+ 4418      7000
+ 4419              	.LASF153:
+ 4420 0321 63686465 		.ascii	"chdebug_t\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 81
+
+
+ 4420      6275675F 
+ 4420      7400
+ 4421              	.LASF162:
+ 4422 032b 63684D74 		.ascii	"chMtxTryLockS\000"
+ 4422      78547279 
+ 4422      4C6F636B 
+ 4422      5300
+ 4423              	.LASF37:
+ 4424 0339 705F6E65 		.ascii	"p_newer\000"
+ 4424      77657200 
+ 4425              	.LASF127:
+ 4426 0341 735F7175 		.ascii	"s_queue\000"
+ 4426      65756500 
+ 4427              	.LASF103:
+ 4428 0349 74625F73 		.ascii	"tb_size\000"
+ 4428      697A6500 
+ 4429              	.LASF65:
+ 4430 0351 725F6E65 		.ascii	"r_newer\000"
+ 4430      77657200 
+ 4431              	.LASF94:
+ 4432 0359 72656761 		.ascii	"regarm_t\000"
+ 4432      726D5F74 
+ 4432      00
+ 4433              	.LASF72:
+ 4434 0362 76745F70 		.ascii	"vt_prev\000"
+ 4434      72657600 
+ 4435              	.LASF80:
+ 4436 036a 63685F73 		.ascii	"ch_system_debug\000"
+ 4436      79737465 
+ 4436      6D5F6465 
+ 4436      62756700 
+ 4437              	.LASF133:
+ 4438 037a 6D5F636E 		.ascii	"m_cnt\000"
+ 4438      7400
+ 4439              	.LASF1:
+ 4440 0380 6C6F6E67 		.ascii	"long long int\000"
+ 4440      206C6F6E 
+ 4440      6720696E 
+ 4440      7400
+ 4441              	.LASF181:
+ 4442 038e 76616C75 		.ascii	"value\000"
+ 4442      6500
+ 4443              	.LASF83:
+ 4444 0394 6C6F636B 		.ascii	"lock_cnt\000"
+ 4444      5F636E74 
+ 4444      00
+ 4445              	.LASF91:
+ 4446 039d 69646C65 		.ascii	"idle_thread_wa\000"
+ 4446      5F746872 
+ 4446      6561645F 
+ 4446      776100
+ 4447              	.LASF29:
+ 4448 03ac 636E745F 		.ascii	"cnt_t\000"
+ 4448      7400
+ 4449              	.LASF157:
+ 4450 03b2 63684D74 		.ascii	"chMtxUnlockS\000"
+ 4450      78556E6C 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 82
+
+
+ 4450      6F636B53 
+ 4450      00
+ 4451              	.LASF0:
+ 4452 03bf 756E7369 		.ascii	"unsigned int\000"
+ 4452      676E6564 
+ 4452      20696E74 
+ 4452      00
+ 4453              	.LASF71:
+ 4454 03cc 76745F6E 		.ascii	"vt_next\000"
+ 4454      65787400 
+ 4455              	.LASF16:
+ 4456 03d4 75696E74 		.ascii	"uint16_t\000"
+ 4456      31365F74 
+ 4456      00
+ 4457              	.LASF93:
+ 4458 03dd 53797374 		.ascii	"SystemCoreClock\000"
+ 4458      656D436F 
+ 4458      7265436C 
+ 4458      6F636B00 
+ 4459              	.LASF45:
+ 4460 03ed 705F7469 		.ascii	"p_time\000"
+ 4460      6D6500
+ 4461              	.LASF123:
+ 4462 03f4 77747365 		.ascii	"wtsemp\000"
+ 4462      6D7000
+ 4463              	.LASF73:
+ 4464 03fb 76745F64 		.ascii	"vt_delta\000"
+ 4464      656C7461 
+ 4464      00
+ 4465              	.LASF47:
+ 4466 0404 705F6D73 		.ascii	"p_msgqueue\000"
+ 4466      67717565 
+ 4466      756500
+ 4467              	.LASF154:
+ 4468 040f 63685F64 		.ascii	"ch_debug\000"
+ 4468      65627567 
+ 4468      00
+ 4469              	.LASF114:
+ 4470 0418 6E5F6972 		.ascii	"n_irq\000"
+ 4470      7100
+ 4471              	.LASF128:
+ 4472 041e 735F636E 		.ascii	"s_cnt\000"
+ 4472      7400
+ 4473              	.LASF8:
+ 4474 0424 73686F72 		.ascii	"short unsigned int\000"
+ 4474      7420756E 
+ 4474      7369676E 
+ 4474      65642069 
+ 4474      6E7400
+ 4475              	.LASF118:
+ 4476 0437 6B65726E 		.ascii	"kernel_stats_t\000"
+ 4476      656C5F73 
+ 4476      74617473 
+ 4476      5F7400
+ 4477              	.LASF56:
+ 4478 0446 63685F74 		.ascii	"ch_thread\000"
+ 4478      68726561 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 83
+
+
+ 4478      6400
+ 4479              	.LASF27:
+ 4480 0450 6D73675F 		.ascii	"msg_t\000"
+ 4480      7400
+ 4481              	.LASF111:
+ 4482 0456 6C617374 		.ascii	"last\000"
+ 4482      00
+ 4483              	.LASF30:
+ 4484 045b 75636E74 		.ascii	"ucnt_t\000"
+ 4484      5F7400
+ 4485              	.LASF85:
+ 4486 0462 63685F73 		.ascii	"ch_system_t\000"
+ 4486      79737465 
+ 4486      6D5F7400 
+ 4487              	.LASF156:
+ 4488 046e 63684D74 		.ascii	"chMtxUnlockAll\000"
+ 4488      78556E6C 
+ 4488      6F636B41 
+ 4488      6C6C00
+ 4489              	.LASF158:
+ 4490 047d 6E657770 		.ascii	"newprio\000"
+ 4490      72696F00 
+ 4491              	.LASF152:
+ 4492 0485 63665F6F 		.ascii	"cf_off_time\000"
+ 4492      66665F74 
+ 4492      696D6500 
+ 4493              	.LASF117:
+ 4494 0491 6D5F6372 		.ascii	"m_crit_isr\000"
+ 4494      69745F69 
+ 4494      737200
+ 4495              	.LASF61:
+ 4496 049c 63685F72 		.ascii	"ch_ready_list\000"
+ 4496      65616479 
+ 4496      5F6C6973 
+ 4496      7400
+ 4497              	.LASF28:
+ 4498 04aa 6576656E 		.ascii	"eventmask_t\000"
+ 4498      746D6173 
+ 4498      6B5F7400 
+ 4499              	.LASF163:
+ 4500 04b6 63684D74 		.ascii	"chMtxTryLock\000"
+ 4500      78547279 
+ 4500      4C6F636B 
+ 4500      00
+ 4501              	.LASF9:
+ 4502 04c3 5F5F696E 		.ascii	"__int32_t\000"
+ 4502      7433325F 
+ 4502      7400
+ 4503              	.LASF95:
+ 4504 04cd 73746B61 		.ascii	"stkalign_t\000"
+ 4504      6C69676E 
+ 4504      5F7400
+ 4505              	.LASF55:
+ 4506 04d8 74687265 		.ascii	"threads_list_t\000"
+ 4506      6164735F 
+ 4506      6C697374 
+ 4506      5F7400
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 84
+
+
+ 4507              	.LASF136:
+ 4508 04e7 63685F7A 		.ascii	"ch_zero\000"
+ 4508      65726F00 
+ 4509              	.LASF150:
+ 4510 04ef 63665F6F 		.ascii	"cf_off_refs\000"
+ 4510      66665F72 
+ 4510      65667300 
+ 4511              	.LASF46:
+ 4512 04fb 705F7761 		.ascii	"p_waiting\000"
+ 4512      6974696E 
+ 4512      6700
+ 4513              	.LASF20:
+ 4514 0505 7274636E 		.ascii	"rtcnt_t\000"
+ 4514      745F7400 
+ 4515              	.LASF77:
+ 4516 050d 63685F76 		.ascii	"ch_virtual_timers_list\000"
+ 4516      69727475 
+ 4516      616C5F74 
+ 4516      696D6572 
+ 4516      735F6C69 
+ 4517              	.LASF2:
+ 4518 0524 6C6F6E67 		.ascii	"long double\000"
+ 4518      20646F75 
+ 4518      626C6500 
+ 4519              	.LASF180:
+ 4520 0530 5F5F7365 		.ascii	"__set_BASEPRI\000"
+ 4520      745F4241 
+ 4520      53455052 
+ 4520      4900
+ 4521              	.LASF140:
+ 4522 053e 63685F74 		.ascii	"ch_timesize\000"
+ 4522      696D6573 
+ 4522      697A6500 
+ 4523              	.LASF104:
+ 4524 054a 74625F70 		.ascii	"tb_ptr\000"
+ 4524      747200
+ 4525              	.LASF102:
+ 4526 0551 63685F73 		.ascii	"ch_swc_event_t\000"
+ 4526      77635F65 
+ 4526      76656E74 
+ 4526      5F7400
+ 4527              	.LASF146:
+ 4528 0560 63665F6F 		.ascii	"cf_off_name\000"
+ 4528      66665F6E 
+ 4528      616D6500 
+ 4529              	.LASF165:
+ 4530 056c 63684D74 		.ascii	"chMtxLock\000"
+ 4530      784C6F63 
+ 4530      6B00
+ 4531              	.LASF38:
+ 4532 0576 705F6F6C 		.ascii	"p_older\000"
+ 4532      64657200 
+ 4533              	.LASF64:
+ 4534 057e 725F6374 		.ascii	"r_ctx\000"
+ 4534      7800
+ 4535              	.LASF36:
+ 4536 0584 705F6374 		.ascii	"p_ctx\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 85
+
+
+ 4536      7800
+ 4537              	.LASF108:
+ 4538 058a 746D5F63 		.ascii	"tm_calibration_t\000"
+ 4538      616C6962 
+ 4538      72617469 
+ 4538      6F6E5F74 
+ 4538      00
+ 4539              	.LASF40:
+ 4540 059b 705F7374 		.ascii	"p_stklimit\000"
+ 4540      6B6C696D 
+ 4540      697400
+ 4541              	.LASF67:
+ 4542 05a6 725F6375 		.ascii	"r_current\000"
+ 4542      7272656E 
+ 4542      7400
+ 4543              	.LASF66:
+ 4544 05b0 725F6F6C 		.ascii	"r_older\000"
+ 4544      64657200 
+ 4545              	.LASF13:
+ 4546 05b8 5F5F7569 		.ascii	"__uint64_t\000"
+ 4546      6E743634 
+ 4546      5F7400
+ 4547              	.LASF112:
+ 4548 05c3 63756D75 		.ascii	"cumulative\000"
+ 4548      6C617469 
+ 4548      766500
+ 4549              	.LASF24:
+ 4550 05ce 74726566 		.ascii	"trefs_t\000"
+ 4550      735F7400 
+ 4551              	.LASF105:
+ 4552 05d6 74625F62 		.ascii	"tb_buffer\000"
+ 4552      75666665 
+ 4552      7200
+ 4553              	.LASF139:
+ 4554 05e0 63685F70 		.ascii	"ch_ptrsize\000"
+ 4554      74727369 
+ 4554      7A6500
+ 4555              	.LASF69:
+ 4556 05eb 76697274 		.ascii	"virtual_timer_t\000"
+ 4556      75616C5F 
+ 4556      74696D65 
+ 4556      725F7400 
+ 4557              	.LASF34:
+ 4558 05fb 705F7072 		.ascii	"p_prev\000"
+ 4558      657600
+ 4559              	.LASF26:
+ 4560 0602 74707269 		.ascii	"tprio_t\000"
+ 4560      6F5F7400 
+ 4561              	.LASF166:
+ 4562 060a 63684D74 		.ascii	"chMtxObjectInit\000"
+ 4562      784F626A 
+ 4562      65637449 
+ 4562      6E697400 
+ 4563              	.LASF115:
+ 4564 061a 6E5F6374 		.ascii	"n_ctxswc\000"
+ 4564      78737763 
+ 4564      00
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 86
+
+
+ 4565              	.LASF161:
+ 4566 0623 5F426F6F 		.ascii	"_Bool\000"
+ 4566      6C00
+ 4567              	.LASF17:
+ 4568 0629 696E7433 		.ascii	"int32_t\000"
+ 4568      325F7400 
+ 4569              	.LASF4:
+ 4570 0631 756E7369 		.ascii	"unsigned char\000"
+ 4570      676E6564 
+ 4570      20636861 
+ 4570      7200
+ 4571              	.LASF41:
+ 4572 063f 705F7374 		.ascii	"p_state\000"
+ 4572      61746500 
+ 4573              	.LASF50:
+ 4574 0647 705F6D74 		.ascii	"p_mtxlist\000"
+ 4574      786C6973 
+ 4574      7400
+ 4575              	.LASF5:
+ 4576 0651 73686F72 		.ascii	"short int\000"
+ 4576      7420696E 
+ 4576      7400
+ 4577              	.LASF44:
+ 4578 065b 705F7072 		.ascii	"p_preempt\000"
+ 4578      65656D70 
+ 4578      7400
+ 4579              	.LASF63:
+ 4580 0665 725F7072 		.ascii	"r_prio\000"
+ 4580      696F00
+ 4581              	.LASF125:
+ 4582 066c 65776D61 		.ascii	"ewmask\000"
+ 4582      736B00
+ 4583              	.LASF33:
+ 4584 0673 705F6E65 		.ascii	"p_next\000"
+ 4584      787400
+ 4585              	.LASF22:
+ 4586 067a 746D6F64 		.ascii	"tmode_t\000"
+ 4586      655F7400 
+ 4587              	.LASF151:
+ 4588 0682 63665F6F 		.ascii	"cf_off_preempt\000"
+ 4588      66665F70 
+ 4588      7265656D 
+ 4588      707400
+ 4589              	.LASF42:
+ 4590 0691 705F666C 		.ascii	"p_flags\000"
+ 4590      61677300 
+ 4591              	.LASF160:
+ 4592 0699 5F5F6675 		.ascii	"__func__\000"
+ 4592      6E635F5F 
+ 4592      00
+ 4593              	.LASF53:
+ 4594 06a2 705F7374 		.ascii	"p_stats\000"
+ 4594      61747300 
+ 4595              	.LASF179:
+ 4596 06aa 63685379 		.ascii	"chSysLock\000"
+ 4596      734C6F63 
+ 4596      6B00
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 87
+
+
+ 4597              	.LASF178:
+ 4598 06b4 433A5C55 		.ascii	"C:\\Users\\Pchautems\\Documents\\RobotiqueTP\\Proje"
+ 4598      73657273 
+ 4598      5C506368 
+ 4598      61757465 
+ 4598      6D735C44 
+ 4599 06e2 745C6D69 		.ascii	"t\\miniprojet\000"
+ 4599      6E697072 
+ 4599      6F6A6574 
+ 4599      00
+ 4600              	.LASF58:
+ 4601 06ef 74687265 		.ascii	"threads_queue_t\000"
+ 4601      6164735F 
+ 4601      71756575 
+ 4601      655F7400 
+ 4602              	.LASF70:
+ 4603 06ff 63685F76 		.ascii	"ch_virtual_timer\000"
+ 4603      69727475 
+ 4603      616C5F74 
+ 4603      696D6572 
+ 4603      00
+ 4604              	.LASF144:
+ 4605 0710 63665F6F 		.ascii	"cf_off_newer\000"
+ 4605      66665F6E 
+ 4605      65776572 
+ 4605      00
+ 4606              	.LASF126:
+ 4607 071d 63685F73 		.ascii	"ch_semaphore\000"
+ 4607      656D6170 
+ 4607      686F7265 
+ 4607      00
+ 4608              	.LASF49:
+ 4609 072a 705F6570 		.ascii	"p_epending\000"
+ 4609      656E6469 
+ 4609      6E6700
+ 4610              	.LASF18:
+ 4611 0735 75696E74 		.ascii	"uint32_t\000"
+ 4611      33325F74 
+ 4611      00
+ 4612              	.LASF142:
+ 4613 073e 63665F6F 		.ascii	"cf_off_prio\000"
+ 4613      66665F70 
+ 4613      72696F00 
+ 4614              	.LASF62:
+ 4615 074a 725F7175 		.ascii	"r_queue\000"
+ 4615      65756500 
+ 4616              	.LASF57:
+ 4617 0752 63685F74 		.ascii	"ch_threads_list\000"
+ 4617      68726561 
+ 4617      64735F6C 
+ 4617      69737400 
+ 4618              	.LASF137:
+ 4619 0762 63685F73 		.ascii	"ch_size\000"
+ 4619      697A6500 
+ 4620              	.LASF12:
+ 4621 076a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4621      20756E73 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 88
+
+
+ 4621      69676E65 
+ 4621      6420696E 
+ 4621      7400
+ 4622              	.LASF134:
+ 4623 077c 63686172 		.ascii	"char\000"
+ 4623      00
+ 4624              	.LASF124:
+ 4625 0781 77746D74 		.ascii	"wtmtxp\000"
+ 4625      787000
+ 4626              	.LASF7:
+ 4627 0788 5F5F7569 		.ascii	"__uint16_t\000"
+ 4627      6E743136 
+ 4627      5F7400
+ 4628              	.LASF32:
+ 4629 0793 74687265 		.ascii	"thread_t\000"
+ 4629      61645F74 
+ 4629      00
+ 4630              	.LASF109:
+ 4631 079c 62657374 		.ascii	"best\000"
+ 4631      00
+ 4632              	.LASF169:
+ 4633 07a1 71756575 		.ascii	"queue_fifo_remove\000"
+ 4633      655F6669 
+ 4633      666F5F72 
+ 4633      656D6F76 
+ 4633      6500
+ 4634              	.LASF31:
+ 4635 07b3 73797374 		.ascii	"systime_t\000"
+ 4635      696D655F 
+ 4635      7400
+ 4636              	.LASF51:
+ 4637 07bd 705F7265 		.ascii	"p_realprio\000"
+ 4637      616C7072 
+ 4637      696F00
+ 4638              	.LASF68:
+ 4639 07c8 76746675 		.ascii	"vtfunc_t\000"
+ 4639      6E635F74 
+ 4639      00
+ 4640              	.LASF11:
+ 4641 07d1 5F5F7569 		.ascii	"__uint32_t\000"
+ 4641      6E743332 
+ 4641      5F7400
+ 4642              	.LASF167:
+ 4643 07dc 63684D74 		.ascii	"chMtxQueueNotEmptyS\000"
+ 4643      78517565 
+ 4643      75654E6F 
+ 4643      74456D70 
+ 4643      74795300 
+ 4644              	.LASF81:
+ 4645 07f0 70616E69 		.ascii	"panic_msg\000"
+ 4645      635F6D73 
+ 4645      6700
+ 4646              	.LASF107:
+ 4647 07fa 6F666673 		.ascii	"offset\000"
+ 4647      657400
+ 4648              	.LASF96:
+ 4649 0801 636F6E74 		.ascii	"context\000"
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 89
+
+
+ 4649      65787400 
+ 4650              	.LASF48:
+ 4651 0809 705F6D73 		.ascii	"p_msg\000"
+ 4651      6700
+ 4652              	.LASF75:
+ 4653 080f 76745F70 		.ascii	"vt_par\000"
+ 4653      617200
+ 4654              	.LASF143:
+ 4655 0816 63665F6F 		.ascii	"cf_off_ctx\000"
+ 4655      66665F63 
+ 4655      747800
+ 4656              	.LASF129:
+ 4657 0821 63685F6D 		.ascii	"ch_mutex\000"
+ 4657      75746578 
+ 4657      00
+ 4658              	.LASF43:
+ 4659 082a 705F7265 		.ascii	"p_refs\000"
+ 4659      667300
+ 4660              	.LASF82:
+ 4661 0831 6973725F 		.ascii	"isr_cnt\000"
+ 4661      636E7400 
+ 4662              	.LASF132:
+ 4663 0839 6D5F6E65 		.ascii	"m_next\000"
+ 4663      787400
+ 4664              	.LASF101:
+ 4665 0840 73655F73 		.ascii	"se_state\000"
+ 4665      74617465 
+ 4665      00
+ 4666              	.LASF87:
+ 4667 0849 726C6973 		.ascii	"rlist\000"
+ 4667      7400
+ 4668              	.LASF15:
+ 4669 084f 75696E74 		.ascii	"uint8_t\000"
+ 4669      385F7400 
+ 4670              	.LASF177:
+ 4671 0857 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/ChibiOS//os/rt/src/ch"
+ 4671      69622F65 
+ 4671      2D707563 
+ 4671      6B325F6D 
+ 4671      61696E2D 
+ 4672 088a 6D74782E 		.ascii	"mtx.c\000"
+ 4672      6300
+ 4673              	.LASF54:
+ 4674 0890 74687265 		.ascii	"thread_reference_t\000"
+ 4674      61645F72 
+ 4674      65666572 
+ 4674      656E6365 
+ 4674      5F7400
+ 4675              	.LASF121:
+ 4676 08a3 77746F62 		.ascii	"wtobjp\000"
+ 4676      6A7000
+ 4677              	.LASF39:
+ 4678 08aa 705F6E61 		.ascii	"p_name\000"
+ 4678      6D6500
+ 4679              	.LASF78:
+ 4680 08b1 76745F73 		.ascii	"vt_systime\000"
+ 4680      79737469 
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 90
+
+
+ 4680      6D6500
+ 4681              	.LASF84:
+ 4682 08bc 74726163 		.ascii	"trace_buffer\000"
+ 4682      655F6275 
+ 4682      66666572 
+ 4682      00
+ 4683              	.LASF170:
+ 4684 08c9 63685379 		.ascii	"chSysUnlock\000"
+ 4684      73556E6C 
+ 4684      6F636B00 
+ 4685              	.LASF138:
+ 4686 08d5 63685F76 		.ascii	"ch_version\000"
+ 4686      65727369 
+ 4686      6F6E00
+ 4687              	.LASF164:
+ 4688 08e0 63684D74 		.ascii	"chMtxLockS\000"
+ 4688      784C6F63 
+ 4688      6B5300
+ 4689              	.LASF171:
+ 4690 08eb 71756575 		.ascii	"queue_prio_insert\000"
+ 4690      655F7072 
+ 4690      696F5F69 
+ 4690      6E736572 
+ 4690      7400
+ 4691              	.LASF116:
+ 4692 08fd 6D5F6372 		.ascii	"m_crit_thd\000"
+ 4692      69745F74 
+ 4692      686400
+ 4693              	.LASF131:
+ 4694 0908 6D5F6F77 		.ascii	"m_owner\000"
+ 4694      6E657200 
+ 4695              	.LASF100:
+ 4696 0910 73655F77 		.ascii	"se_wtobjp\000"
+ 4696      746F626A 
+ 4696      7000
+ 4697              	.LASF135:
+ 4698 091a 63685F69 		.ascii	"ch_identifier\000"
+ 4698      64656E74 
+ 4698      69666965 
+ 4698      7200
+ 4699              	.LASF74:
+ 4700 0928 76745F66 		.ascii	"vt_func\000"
+ 4700      756E6300 
+ 4701              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 91
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 chmtx.c
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:18     .text.port_lock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:25     .text.port_lock:00000000 port_lock
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:72     .text.port_lock:0000002c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:77     .text.port_unlock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:84     .text.port_unlock:00000000 port_unlock
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:129    .text.port_unlock:0000002c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:134    .text.queue_init:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:141    .text.queue_init:00000000 queue_init
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:182    .text.queue_init:00000030 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:187    .text.queue_notempty:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:194    .text.queue_notempty:00000000 queue_notempty
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:235    .text.queue_notempty:00000034 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:240    .text.queue_prio_insert:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:247    .text.queue_prio_insert:00000000 queue_prio_insert
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:319    .text.queue_prio_insert:00000060 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:324    .text.queue_fifo_remove:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:331    .text.queue_fifo_remove:00000000 queue_fifo_remove
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:379    .text.queue_fifo_remove:0000003c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:384    .text.queue_dequeue:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:391    .text.queue_dequeue:00000000 queue_dequeue
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:437    .text.queue_dequeue:00000038 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:442    .text.chSysLock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:449    .text.chSysLock:00000000 chSysLock
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:487    .text.chSysLock:0000002c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:492    .text.chSysUnlock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:499    .text.chSysUnlock:00000000 chSysUnlock
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:555    .text.chSysUnlock:0000004c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1694   .rodata.__func__.7153:00000000 __func__.7153
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:562    .text.chMtxQueueNotEmptyS:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:569    .text.chMtxQueueNotEmptyS:00000000 chMtxQueueNotEmptyS
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:609    .text.chMtxQueueNotEmptyS:00000030 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:614    .text.chMtxObjectInit:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:622    .text.chMtxObjectInit:00000000 chMtxObjectInit
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:675    .text.chMtxObjectInit:00000044 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1688   .rodata.__func__.7849:00000000 __func__.7849
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:681    .text.chMtxLock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:689    .text.chMtxLock:00000000 chMtxLock
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:741    .text.chMtxLockS:00000000 chMtxLockS
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:728    .text.chMtxLock:00000030 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:733    .text.chMtxLockS:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:967    .text.chMtxLockS:00000154 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1700   .rodata.__func__.7857:00000000 __func__.7857
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:974    .text.chMtxTryLock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:982    .text.chMtxTryLock:00000000 chMtxTryLock
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1038   .text.chMtxTryLockS:00000000 chMtxTryLockS
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1025   .text.chMtxTryLock:0000003c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1030   .text.chMtxTryLockS:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1149   .text.chMtxTryLockS:0000009c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1706   .rodata.__func__.7874:00000000 __func__.7874
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1156   .text.chMtxUnlock:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1164   .text.chMtxUnlock:00000000 chMtxUnlock
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1351   .text.chMtxUnlock:00000114 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1712   .rodata.__func__.7880:00000000 __func__.7880
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1358   .text.chMtxUnlockS:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1366   .text.chMtxUnlockS:00000000 chMtxUnlockS
+ARM GAS  C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s 			page 92
+
+
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1551   .text.chMtxUnlockS:00000110 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1718   .rodata.__func__.7891:00000000 __func__.7891
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1558   .text.chMtxUnlockAll:00000000 $t
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1566   .text.chMtxUnlockAll:00000000 chMtxUnlockAll
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1679   .text.chMtxUnlockAll:0000009c $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1685   .rodata.__func__.7849:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1691   .rodata.__func__.7153:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1697   .rodata.__func__.7857:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1703   .rodata.__func__.7874:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1709   .rodata.__func__.7880:00000000 $d
+C:\Users\PCHAUT~1\AppData\Local\Temp\ccGFPeii.s:1715   .rodata.__func__.7891:00000000 $d
+
+UNDEFINED SYMBOLS
+__stack_chk_fail
+__stack_chk_guard
+_stats_start_measure_crit_thd
+_dbg_check_lock
+_dbg_check_unlock
+_stats_stop_measure_crit_thd
+chSysHalt
+ch
+chDbgCheckClassS
+chSchReadyI
+chSchGoSleepS
+chSchWakeupS
+chSchRescheduleS
