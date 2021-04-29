@@ -16,8 +16,14 @@
 #include <sensorcalibrate.h>
 #include <utilit.h>
 #include <arm_math.h>
-
-void direction(){
+int MAX = 50; // bon là va falloir faire des mesures pour que avoir une valeur cohérente
+void movebitch(){
+int leftwheel, rightwheel;
+	int sensor[8];
+	double sensorMean[8]=10;
+	int numberOfSamples;
+	int i,n;
+	int sensorsum;
 
 left_motor_set_speed(400);
 right_motor_set_speed(400);
@@ -38,9 +44,12 @@ right_motor_set_speed(400);
     					sensorMean[i]+=12.1514*log((double)sensor[i])/(double)numberOfSamples;
     				}
     			}
-			
-			// condition sensor à mettre et calcul 
+			for (i = 0; i < 8; i++) {
+				sensorsum += sensorMean[i];
+			}
 
+			// condition sensor à mettre et calcul 
+			if(sensorsum> MAX){ 
     			// Add the weighted sensors values
     			for (i = 0; i < 8; i++) {
     				leftwheel += weightleft[i] * (int)sensorMean[i];
@@ -54,7 +63,13 @@ right_motor_set_speed(400);
     			if (leftwheel < -1000) {leftwheel = -1000;}
     			if (rightwheel < -1000) {rightwheel = -1000;}
     			left_motor_set_speed(leftwheel);
+    			right_motor_set_speed(rightwheel);}
+			
+
+			else{
+			left_motor_set_speed(leftwheel);// mettre tes valeurs de moteur ici
     			right_motor_set_speed(rightwheel);
+			}
 
 
     		}

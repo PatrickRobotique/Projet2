@@ -1,5 +1,5 @@
 #ifndef DIRECTION_H
 #define DIRECTION_H
 
-void direction();
+void movebitch();
 #endif
