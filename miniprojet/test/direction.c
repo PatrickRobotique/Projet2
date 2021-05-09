@@ -15,10 +15,15 @@
 #include <fft.h>
 #include <sensorcalibrate.h>
 #include <arm_math.h>
-int MAX = 50; // bon là va falloir faire des mesures pour que avoir une valeur cohérente
+
 // Weights for the Braitenberg obstacle avoidance algorithm
 int weightleft[8] = {-5, -5, -5, 0, 0, 5, 5, 5};
 int weightright[8] = {5, 5, 5, 0, 0, -5, -5, -5};
+static int Speed[4] = {0,0,0,0};
+#define SPEEDLAUDIO 0
+#define SPEEDRAUDIO 1
+#define SPEEDLSENSOR 2
+#define SPEEDRSENSOR 3
 
 void movebitch(void){
 int leftwheel, rightwheel;
@@ -26,11 +31,6 @@ int leftwheel, rightwheel;
 	double sensorMean[8];
 	int numberOfSamples = 10;
 	int i,n;
-	int sensorsum;
-
-left_motor_set_speed(400);
-right_motor_set_speed(400);
-    while (1) {
     			// Forward speed
     			leftwheel = 400;
     			rightwheel = 400;
@@ -42,17 +42,14 @@ right_motor_set_speed(400);
     				// Get sensor values
     				for (i = 0; i < 8; i++) {
     					// Use the sensorzero[i] value generated in sensor_calibrate() to zero sensorvalues
-    					sensor[i] = get_prox(i)-sensorzero[i];
+    					sensor[i] = get_prox(i);
     					//linearize the sensor output and compute the average
     					sensorMean[i]+=12.1514*log((double)sensor[i])/(double)numberOfSamples;
     				}
     			}
-			for (i = 0; i < 8; i++) {
-				sensorsum += sensorMean[i];
-			}
 
 			// condition sensor à mettre et calcul
-			if(sensorsum> MAX){
+			if(sensorMean[0]>80 || sensorMean[1]> 80 || sensorMean[6]>80 || sensorMean[7]>80){
     			// Add the weighted sensors values
     			for (i = 0; i < 8; i++) {
     				leftwheel += weightleft[i] * (int)sensorMean[i];
@@ -65,15 +62,30 @@ right_motor_set_speed(400);
     			if (rightwheel > 1000) {rightwheel = 1000;}
     			if (leftwheel < -1000) {leftwheel = -1000;}
     			if (rightwheel < -1000) {rightwheel = -1000;}
-    			left_motor_set_speed(leftwheel);
-    			right_motor_set_speed(rightwheel);}
-
-
-			else{
-			left_motor_set_speed(leftwheel);// mettre tes valeurs de moteur ici
-    			right_motor_set_speed(rightwheel);
+    			Speed[SPEEDLSENSOR]= leftwheel;
+				Speed[SPEEDRSENSOR]=rightwheel;
+    			left_motor_set_speed(Speed[SPEEDLSENSOR]);
+    			right_motor_set_speed(Speed[SPEEDRSENSOR]);
 			}
 
 
-    		}
+			else{
+			left_motor_set_speed(Speed[SPEEDLAUDIO]);// mettre tes valeurs de moteur ici
+    		right_motor_set_speed(Speed[SPEEDRAUDIO]);
+			}
+
+
+   		}
+
+
+
+void get_speed_audio(int speedLaudio, int speedRaudio){
+
+	Speed[SPEEDLAUDIO] = speedLaudio;
+	Speed[SPEEDRAUDIO] = speedRaudio;
+
 }
+
+
+
+

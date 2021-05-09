@@ -7,6 +7,7 @@
 #include <motors.h>
 #include <audio/microphone.h>
 #include <audio_processing.h>
+#include <direction.h>
 
 #include <fft.h>
 #include <arm_math.h>
@@ -17,145 +18,108 @@ static BSEMAPHORE_DECL(sendToComputer_sem, TRUE);
 //2 times FFT_SIZE because these arrays contain complex numbers (real + imaginary)
 static float micLeft_cmplx_input[2 * FFT_SIZE];
 static float micRight_cmplx_input[2 * FFT_SIZE];
-static float micFront_cmplx_input[2 * FFT_SIZE];
+static float micBack_cmplx_input[2 * FFT_SIZE];
 //Arrays containing the computed magnitude of the complex numbers
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
-static float micFront_output[FFT_SIZE];
-static float oldtheta = 0;
+static float micBack_output[FFT_SIZE];
+static float oldintensity1[5]= {0,0,0,0,0};
+static float oldintensity2[5]= {0,0,0,0,0};
+static float oldintensity3[5]= {0,0,0,0,0};
+static float sum_error=0;
 static int mustsend=0;
-static int speedL=0;
-static int speedR=0;
+static float kp=0.001;
+static float ki=0.001;
+static float weights[5]={0.50,0.25,0.125,0.0625,0.0625};
 
 
 
 
-#define MIN_VALUE_THRESHOLD	5000
-#define SPEED	100
+#define MIN_VALUE_THRESHOLD	10000// minimal value for the amplitude, if it's lower, we leave the thread
 
-#define FREQ_ID	66	//1000Hz
+#define FREQ_ID	65	//1000Hz in the FFT tab
 
-#define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
-#define FREQ_FORWARD	16	//250Hz
-#define FREQ_LEFT		19	//296Hz
-#define FREQ_RIGHT		23	//359HZ
-#define FREQ_BACKWARD	26	//406Hz
-#define MAX_FREQ		150	//we don't analyze after this index to not use resources for nothing
-
+// Values for the PI controller and the speed setting
+#define MAX_SUM_ERROR	500000
+#define ROTATION_THRESHOLD 0.1
+#define ROTATION_COEFF 75
+#define ERROR_THRESHOLD 2000
 /*
 *	b
 *	and to execute a motor command depending on it
 */
-void direction(float theta, int quadrant){
-//	if (quadrant){
-//		if(theta>0){
-//			speedR += SPEED;
-//			speedL -= SPEED;
-//		}
-//		if(theta<0){
-//			speedR -= SPEED;
-//			speedL += SPEED;
-//		}
-//	}
-//	else{
-//		if(theta>0){
-//			speedR += 2*SPEED;
-//			speedL -= 2*SPEED;
-//			}
-//
-//		if(theta<0){
-//			speedR -= 2*SPEED;
-//			speedL += 2*SPEED;
-//		}
-//	}
-	if(abs(theta)>2.5){
-		left_motor_set_speed(1000);
-		right_motor_set_speed(1000);
+
+void saveolddata(void);
+
+
+//simple PI regulator implementation
+int16_t pi_regulator(float distance){
+
+	float error = 0;
+	float speed = 0;
+	float goal = 500000;
+	error = goal-distance;
+
+	//disables the PI regulator if the error is to small
+	//this avoids to always move as we cannot exactly be where we want and
+	//the camera is a bit noisy
+	if(fabs(error) < ERROR_THRESHOLD){
+		return 0;
+	}
+
+	sum_error += error;
+
+	//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
+	if(sum_error > MAX_SUM_ERROR){
+		sum_error = MAX_SUM_ERROR;
+	}else if(sum_error < -MAX_SUM_ERROR){
+		sum_error = -MAX_SUM_ERROR;
+	}
+
+	speed = kp * error;
+	speed = 300;
+
+    return (int16_t)speed;
+}
+void sound_remote(void){
+	int speedR =0;
+	int speedL =0;
+	uint8_t max_norm_index = FREQ_ID;
+	saveolddata();// Save the last amplitude at 1000 Hz
+	if(micRight_output[max_norm_index]<MIN_VALUE_THRESHOLD){
+		get_speed_audio(speedL, speedR);
+		chThdSleepMilliseconds(100);
 		return;
 	}
-	if(abs(theta)<2.5){
-	if(quadrant==1){
-			speedR -= SPEED;
-			speedL += SPEED;
-	}
-	if(quadrant==0){
-				speedL -= SPEED;
-				speedR += SPEED;
-			}
+	float intensity1 = 0,intensity2 = 0,intensity3 = 0,theta = 0;
+
+	for(uint8_t i=0; i<5;i++){//Weight the values the mic stored in each tab to prevent big gaps in theta values
+		intensity1+=(oldintensity1[i]*weights[i]);
+		intensity2+=(oldintensity2[i]*weights[i]);
+		intensity3+=(oldintensity3[i]*weights[i]);
 	}
 
-	if (speedL > 1000) {speedL = 1000;}
-	if (speedR > 1000) {speedR = 1000;}
-	if (speedL < 100) {speedL = 100;}
-	if (speedR < 100) {speedR = 100;}
-	if(abs(theta)<2.5){
-		left_motor_set_speed(speedL);
-		right_motor_set_speed(speedR);
+	intensity1=intensity1*intensity1;//Intensity is proportional to the amplitude squared
+	intensity2=intensity2*intensity2;
+	intensity3=intensity3*intensity3;
+
+		//Angle between robot and source in polar coordinates
+
+	float x = 0;
+	float y = 0;
+	x= (2*intensity1*intensity2)-(intensity2*intensity3)-(intensity1*intensity3);
+	y= (intensity1*intensity3)-(intensity2*intensity3);
+	theta = atan2f(y,x);
+	int16_t speed=pi_regulator(oldintensity1[0]);
+		//if the line is nearly in front of the camera, don't rotate
+	if(abs(theta) < ROTATION_THRESHOLD){
+		theta = 0;
 	}
-}
-void sound_remote(float* mic1,float* mic2,float* mic3){
-		float max_norm1 = MIN_VALUE_THRESHOLD;
-		float max_norm2 = MIN_VALUE_THRESHOLD;
-		float max_norm3 = MIN_VALUE_THRESHOLD;
-		float L1=0;
-		float L2=0;
-		float L3=0;
-		int quadrant;
-		int16_t max_norm_index = FREQ_ID;
-		//search for the highest peak
-//		for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
-//			if(mic1[i] > max_norm1){
-//				max_norm1 = mic1[i];
-//				max_norm_index = i;
-//			}
-//
-//		}
-
-		float theta = 0;
-
-		max_norm1=mic1[max_norm_index];
-//		max_norm2=mic2[max_norm_index];
-//		max_norm3=mic3[max_norm_index];
-		if(max_norm1>MIN_VALUE_THRESHOLD){
-			max_norm1=((mic1[max_norm_index-1]+mic1[max_norm_index]+mic1[max_norm_index+1])/3);
-			max_norm2=((mic2[max_norm_index-1]+mic2[max_norm_index]+mic2[max_norm_index+1])/3);
-			max_norm3=((mic3[max_norm_index-1]+mic3[max_norm_index]+mic3[max_norm_index+1])/3);
-			L1=max_norm1*max_norm1;
-			L2=max_norm2*max_norm2;
-			L3=max_norm3*max_norm3;
-
-		//Angle entre robot et source dans un système polaire
-
-		if((L1*L3)-(L2*L3)>0){
-			quadrant=0;
-		}
-		else{
-			quadrant=1;
-		}
-		float x = 0;
-		float y = 0;
-		x= (2*L1*L2)-(L2*L3)-(L1*L3);
-		y= (L1*L3)-(L2*L3);
-		theta = atan2f(y,x);
-		//Print theta on realterm
-		//chprintf((BaseSequentialStream *) &SDU1, "Theta = %f deg \n",theta);
-		if(abs(theta-oldtheta)<0.3){
-
-			float thetamoy = (oldtheta+theta)/2;
-			oldtheta=theta;
-			direction(thetamoy, quadrant);
-		}
-		else{
-			oldtheta=(theta+oldtheta)/2;
-		}
-
-
-	}
-	if(max_norm1<MIN_VALUE_THRESHOLD){
-		left_motor_set_speed(0);
-		right_motor_set_speed(0);
-	}
-	mustsend++;
+		//applies the speed from the PI regulator and the correction for the rotation
+	speedR = (speed - ROTATION_COEFF * theta);
+	speedL = (speed + ROTATION_COEFF * theta);
+	get_speed_audio(speedL, speedR);
+	chThdSleepMilliseconds(50);
 }
 
 /*
@@ -184,12 +148,13 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		//construct an array of complex numbers. Put 0 to the imaginary part
 		micRight_cmplx_input[nb_samples] = (float)data[i + MIC_RIGHT];
 		micLeft_cmplx_input[nb_samples] = (float)data[i + MIC_LEFT];
-		micFront_cmplx_input[nb_samples] = (float)data[i + MIC_FRONT];
+		micBack_cmplx_input[nb_samples] = (float)data[i + MIC_BACK];
 		nb_samples++;
 
 		micRight_cmplx_input[nb_samples] = 0;
 		micLeft_cmplx_input[nb_samples] = 0;
-		micFront_cmplx_input[nb_samples] = 0;
+		micBack_cmplx_input[nb_samples] = 0;
+
 
 		nb_samples++;
 
@@ -208,7 +173,7 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 		doFFT_optimized(FFT_SIZE, micRight_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micLeft_cmplx_input);
-		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
+		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
 
 		/*	Magnitude processing
 		*
@@ -219,13 +184,13 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		*/
 		arm_cmplx_mag_f32(micRight_cmplx_input, micRight_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micLeft_cmplx_input, micLeft_output, FFT_SIZE);
-		arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
+		arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
 
 		//sends only one FFT result over 10 for 1 mic to not flood the computer
 		//sends to UART3
 
 		nb_samples = 0;
-		sound_remote(micRight_output,micLeft_output,micFront_output);
+		sound_remote();
 	}
 }
 
@@ -240,19 +205,33 @@ float* get_audio_buffer_ptr(BUFFER_NAME_t name){
 	else if (name == RIGHT_CMPLX_INPUT){
 		return micRight_cmplx_input;
 	}
-	else if (name == FRONT_CMPLX_INPUT){
-		return micFront_cmplx_input;
-	}
+	else if (name == BACK_CMPLX_INPUT){
+			return micBack_cmplx_input;
+		}
 	else if (name == LEFT_OUTPUT){
 		return micLeft_output;
 	}
 	else if (name == RIGHT_OUTPUT){
 		return micRight_output;
 	}
-	else if (name == FRONT_OUTPUT){
-		return micFront_output;
+
+	else if (name == BACK_OUTPUT){
+		return micBack_output;
 	}
 	else{
 		return NULL;
 	}
 }
+
+void saveolddata(void){
+	uint8_t i;
+	for(i=4; i>=1;i--){//Push the old intensities one step back, to let the first spot for the new one
+		oldintensity1[i]=oldintensity1[i-1];
+		oldintensity2[i]=oldintensity2[i-1];
+		oldintensity3[i]=oldintensity3[i-1];
+	}
+	oldintensity1[0]=micRight_output[FREQ_ID];// Save the last intensity
+	oldintensity2[0]=micLeft_output[FREQ_ID];
+	oldintensity3[0]=micBack_output[FREQ_ID];
+}
+

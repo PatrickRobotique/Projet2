@@ -10,18 +10,17 @@
 #include <chprintf.h>
 #include <motors.h>
 #include <audio/microphone.h>
-//#include <sensors/proximity.h>
+#include <sensors/proximity.h>
 #include <audio_processing.h>
-//#include <direction.h>
+#include <direction.h>
 #include <fft.h>
 #include <arm_math.h>
 
-//messagebus_t bus;
-//MUTEX_DECL(bus_lock);
-//CONDVAR_DECL(bus_condvar);
-//
-//parameter_namespace_t parameter_root;
+messagebus_t bus;
+MUTEX_DECL(bus_lock);
+CONDVAR_DECL(bus_condvar);
 
+parameter_namespace_t parameter_root;
 
 
 static void serial_start(void)
@@ -37,24 +36,21 @@ static void serial_start(void)
 }
 
 
-//static THD_WORKING_AREA(waThdSensor, 512);
-//static THD_FUNCTION(ThdSensor, arg) {
-//
-//    chRegSetThreadName(__FUNCTION__);
-//    (void)arg;
-//
-//    while(1){
-//    	chSysLock();
-//    	movebitch();
-//    	chSysUnlock();
-//        /*
-//        *   1st case :  pause the thread during 500ms
-//        */
-//         chThdSleepMilliseconds(100);
-//
-//    }
-//
-//}
+static THD_WORKING_AREA(waThdSensor, 2048);
+static THD_FUNCTION(ThdSensor, arg) {
+
+    chRegSetThreadName(__FUNCTION__);
+    (void)arg;
+
+    while(1){
+    	movebitch();
+        /*
+        *   1st case :  pause the thread during 500ms
+        */
+         chThdSleepMilliseconds(100);
+    }
+
+}
 
 
 int main(void)
@@ -67,8 +63,8 @@ int main(void)
     /** Inits the Inter Process Communication bus. */
     motors_init();
 
-    //messagebus_init(&bus, &bus_lock, &bus_condvar);
-   // parameter_namespace_declare(&parameter_root, NULL, NULL);
+    messagebus_init(&bus, &bus_lock, &bus_condvar);
+    parameter_namespace_declare(&parameter_root, NULL, NULL);
     //starts the serial communication
     serial_start();
     //starts the USB communication
@@ -77,11 +73,14 @@ int main(void)
     //inits the motors
 
     //start prox sensor
-    //proximity_start();
-    //start microphone
     mic_start(&processAudioData);
-   // chThdCreateStatic(waThdSensor, sizeof(waThdSensor), NORMALPRIO, ThdSensor, NULL);
-   // messagebus_topic_t *prox_topic = messagebus_find_topic_blocking(&bus, "/proximity");
+
+    proximity_start();
+
+    //chThdSleepMilliseconds(100);
+    //start microphone
+
+    chThdCreateStatic(waThdSensor, sizeof(waThdSensor), NORMALPRIO, ThdSensor, NULL);
 
 
     /* Infinite loop. */
