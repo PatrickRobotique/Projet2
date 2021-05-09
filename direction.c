@@ -21,7 +21,7 @@ void movebitch(){
 int leftwheel, rightwheel;
 	int sensor[8];
 	double sensorMean[8]=10;
-	int numberOfSamples;
+	int numberOfSamples=10;
 	int i,n;
 	int sensorsum;
 
