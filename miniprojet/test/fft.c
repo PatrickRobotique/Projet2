@@ -1,3 +1,4 @@
+//similaire à la fonction fft de base 
 #include "ch.h"
 #include "hal.h"
 #include <main.h>
