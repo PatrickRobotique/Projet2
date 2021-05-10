@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "ch.h"
 #include "hal.h"
-
 #include <main.h>
 #include <chprintf.h>
 #include <motors.h>
@@ -20,6 +18,7 @@
 int weightleft[8] = {-5, -5, -5, 0, 0, 5, 5, 5};
 int weightright[8] = {5, 5, 5, 0, 0, -5, -5, -5};
 static int Speed[4] = {0,0,0,0};
+//Variables contenant les vitesses à donner aux moteurs
 #define SPEEDLAUDIO 0
 #define SPEEDRAUDIO 1
 #define SPEEDLSENSOR 2
@@ -47,45 +46,32 @@ int leftwheel, rightwheel;
     					sensorMean[i]+=12.1514*log((double)sensor[i])/(double)numberOfSamples;
     				}
     			}
-
-			// condition sensor � mettre et calcul
+			// condition sensor à mettre et calcul
 			if(sensorMean[0]>80 || sensorMean[1]> 80 || sensorMean[6]>80 || sensorMean[7]>80){
     			// Add the weighted sensors values
     			for (i = 0; i < 8; i++) {
     				leftwheel += weightleft[i] * (int)sensorMean[i];
     				rightwheel += weightright[i] * (int)sensorMean[i];
     			}
-
-
     			// Speed bounds, to avoid setting to high speeds to the motor
     			if (leftwheel > 1000) {leftwheel = 1000;}
     			if (rightwheel > 1000) {rightwheel = 1000;}
     			if (leftwheel < -1000) {leftwheel = -1000;}
     			if (rightwheel < -1000) {rightwheel = -1000;}
     			Speed[SPEEDLSENSOR]= leftwheel;
-				Speed[SPEEDRSENSOR]=rightwheel;
+			Speed[SPEEDRSENSOR]=rightwheel;
+			//vitesses si les capteurs de proximité détectent des objets à éviter
     			left_motor_set_speed(Speed[SPEEDLSENSOR]);
     			right_motor_set_speed(Speed[SPEEDRSENSOR]);
 			}
-
-
 			else{
-			left_motor_set_speed(Speed[SPEEDLAUDIO]);// mettre tes valeurs de moteur ici
-    		right_motor_set_speed(Speed[SPEEDRAUDIO]);
+			//vitesses si il n'y pas d'objets à éviter, déterminé par la triangulation
+			left_motor_set_speed(Speed[SPEEDLAUDIO]);
+    			right_motor_set_speed(Speed[SPEEDRAUDIO]);
 			}
-
-
    		}
 
-
-
 void get_speed_audio(int speedLaudio, int speedRaudio){
-
 	Speed[SPEEDLAUDIO] = speedLaudio;
 	Speed[SPEEDRAUDIO] = speedRaudio;
-
 }
-
-
-
-
