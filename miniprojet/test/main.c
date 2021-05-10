@@ -45,7 +45,7 @@ static THD_FUNCTION(ThdSensor, arg) {
     while(1){
     	movebitch();
         /*
-        *   1st case :  pause the thread during 500ms
+        *   1st case :  pause the thread during 100ms
         */
          chThdSleepMilliseconds(100);
     }
@@ -55,46 +55,29 @@ static THD_FUNCTION(ThdSensor, arg) {
 
 int main(void)
 {
-
+    //Ici nous avons fait toutes les initialisations nécessaire pour le programme
     halInit();
     chSysInit();
     mpu_init();
-
-    /** Inits the Inter Process Communication bus. */
+    //start motors
     motors_init();
-
+    /** Inits the Inter Process Communication bus. */
     messagebus_init(&bus, &bus_lock, &bus_condvar);
     parameter_namespace_declare(&parameter_root, NULL, NULL);
     //starts the serial communication
     serial_start();
     //starts the USB communication
     usb_start();
-    //starts timer 12
-    //inits the motors
-
-    //start prox sensor
-    mic_start(&processAudioData);
-
-    proximity_start();
-
-    //chThdSleepMilliseconds(100);
     //start microphone
-
+    mic_start(&processAudioData);
+    //start prox sensor
+    proximity_start();
     chThdCreateStatic(waThdSensor, sizeof(waThdSensor), NORMALPRIO, ThdSensor, NULL);
-
-
     /* Infinite loop. */
     while (1){
     }
 }
-
-
-
-
-
 #define STACK_CHK_GUARD 0xe2dee396
-
-
 #define STACK_CHK_GUARD 0xe2dee396
 uintptr_t __stack_chk_guard = STACK_CHK_GUARD;
 
