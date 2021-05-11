@@ -41,7 +41,7 @@ int leftwheel, rightwheel;
     				// Get sensor values
     				for (i = 0; i < 8; i++) {
     					// Use the sensorzero[i] value generated in sensor_calibrate() to zero sensorvalues
-    					sensor[i] = get_prox(i);
+    					sensor[i] = get_prox(i)-sensorzero[i];
     					//linearize the sensor output and compute the average
     					sensorMean[i]+=12.1514*log((double)sensor[i])/(double)numberOfSamples;
     				}
