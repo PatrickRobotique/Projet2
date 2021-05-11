@@ -23,14 +23,14 @@ static float micBack_cmplx_input[2 * FFT_SIZE];
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
-static float oldintensity1[5]= {0,0,0,0,0};
-static float oldintensity2[5]= {0,0,0,0,0};
-static float oldintensity3[5]= {0,0,0,0,0};
-static float oldtheta[5]= {0,0,0,0,0};
+static float oldintensity1[5]={0,0,0,0,0};
+static float oldintensity2[5]={0,0,0,0,0};
+static float oldintensity3[5]={0,0,0,0,0};
+static float oldtheta[5]={0,0,0,0,0};
 static float sum_error=0;
 static int mustsend=0;
-static float kp=0.001;
-static float ki=0.001;
+static float kp=0.005;
+static float ki=0.005;
 static float weights[5]={0.20,0.2,0.2,0.2,0.2};
 
 
@@ -41,9 +41,9 @@ static float weights[5]={0.20,0.2,0.2,0.2,0.2};
 #define FREQ_ID	65	//1000Hz in the FFT tab
 
 // Values for the PI controller and the speed setting
-#define MAX_SUM_ERROR	500000
-#define ROTATION_THRESHOLD 0.1
-#define ROTATION_COEFF 60
+#define MAX_SUM_ERROR	100000
+#define ROTATION_THRESHOLD 0.05
+#define ROTATION_COEFF 150
 #define ERROR_THRESHOLD 2000
 /*
 *	b
@@ -67,11 +67,12 @@ void saveolddata(void);
 
 
 //simple PI regulator implementation
-int16_t pi_regulator(float distance){
+int16_t pi_regulator(void){
 
 	float error = 0;
 	float speed = 0;
-	float goal = 500000;
+	float goal = 300000;
+	float distance = oldintensity1[0];
 	error = goal-distance;
 
 	//disables the PI regulator if the error is to small
@@ -81,7 +82,7 @@ int16_t pi_regulator(float distance){
 		return 0;
 	}
 
-	sum_error += error;
+	sum_error += error-50000;
 
 	//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
 	if(sum_error > MAX_SUM_ERROR){
@@ -90,15 +91,15 @@ int16_t pi_regulator(float distance){
 		sum_error = -MAX_SUM_ERROR;
 	}
 
-	speed = kp * error;
-	speed = 500;
-
+	speed = kp * error +ki*sum_error;
+	if (speed > 1000) {speed = 1000;}
     return (int16_t)speed;
 }
 void sound_remote(void){
 
 	int speedR =0;
 	int speedL =0;
+	saveolddata();
 	uint8_t max_norm_index = FREQ_ID;
 	if(micRight_output[max_norm_index]<MIN_VALUE_THRESHOLD){
 		get_speed_audio(speedL, speedR);
@@ -110,15 +111,17 @@ void sound_remote(void){
 	float intensity1 = 0,intensity2 = 0,intensity3 = 0,theta = 0;
 
 	for(uint8_t i=0; i<5;i++){//Weight the values the mic stored in each tab to prevent big gaps in theta values
-		intensity1+=(oldintensity1[i]*weights[i]);
-		intensity2+=(oldintensity2[i]*weights[i]);
-		intensity3+=(oldintensity3[i]*weights[i]);
+		intensity1+=(oldintensity1[i]);
+		intensity2+=(oldintensity2[i]);
+		intensity3+=(oldintensity3[i]);
 	}
 
-	intensity1=intensity1*intensity1;//Intensity is proportional to the amplitude squared
-	intensity2=intensity2*intensity2;
-	intensity3=intensity3*intensity3;
-
+	float intensity1norm=3*intensity1/(intensity1+intensity2+intensity3);//Intensity is proportional to the amplitude squared
+	float intensity2norm=3*intensity2/(intensity1+intensity2+intensity3);
+	float intensity3norm=3*intensity3/(intensity1+intensity2+intensity3);
+	intensity1=intensity1norm;
+	intensity2=intensity2norm;
+	intensity3=intensity3norm;
 		//Angle between robot and source in polar coordinates
 
 	float x = 0;
@@ -126,8 +129,11 @@ void sound_remote(void){
 	x= (2*intensity1*intensity2)-(intensity2*intensity3)-(intensity1*intensity3);
 	y= (intensity1*intensity3)-(intensity2*intensity3);
 	theta = atan2f(y,x);
-	saveolddata();
 
+	mustsend++;
+	if(mustsend%5==0){
+		mustsend=0;
+	}
 	uint8_t quadrant=0;
 	if(theta<0){
 		quadrant=1;
@@ -142,11 +148,11 @@ void sound_remote(void){
 	if(quadrant){
 		theta=-theta;
 	}
-	int16_t speed=pi_regulator(oldintensity1[0]);
+	int16_t speed=pi_regulator();
 
 
 		//if the line is nearly in front of the camera, don't rotate
-	if(abs(theta) < ROTATION_THRESHOLD){
+	if(fabs(theta) < ROTATION_THRESHOLD){
 		theta = 0;
 	}
 		//applies the speed from the PI regulator and the correction for the rotation
@@ -273,5 +279,4 @@ void saveolddata(void){
 	oldintensity2[0]=micLeft_output[FREQ_ID];
 	oldintensity3[0]=micBack_output[FREQ_ID];
 }
-
 
