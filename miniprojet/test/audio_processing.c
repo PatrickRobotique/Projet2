@@ -26,11 +26,12 @@ static float micBack_output[FFT_SIZE];
 static float oldintensity1[5]= {0,0,0,0,0};
 static float oldintensity2[5]= {0,0,0,0,0};
 static float oldintensity3[5]= {0,0,0,0,0};
+static float oldtheta[5]= {0,0,0,0,0};
 static float sum_error=0;
 static int mustsend=0;
 static float kp=0.001;
 static float ki=0.001;
-static float weights[5]={0.50,0.25,0.125,0.0625,0.0625};
+static float weights[5]={0.20,0.2,0.2,0.2,0.2};
 
 
 
@@ -42,12 +43,25 @@ static float weights[5]={0.50,0.25,0.125,0.0625,0.0625};
 // Values for the PI controller and the speed setting
 #define MAX_SUM_ERROR	500000
 #define ROTATION_THRESHOLD 0.1
-#define ROTATION_COEFF 75
+#define ROTATION_COEFF 60
 #define ERROR_THRESHOLD 2000
 /*
 *	b
 *	and to execute a motor command depending on it
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void saveolddata(void);
 
@@ -77,18 +91,20 @@ int16_t pi_regulator(float distance){
 	}
 
 	speed = kp * error;
-	speed = 300;
+	speed = 500;
 
     return (int16_t)speed;
 }
 void sound_remote(void){
+
 	int speedR =0;
 	int speedL =0;
 	uint8_t max_norm_index = FREQ_ID;
-	saveolddata();// Save the last amplitude at 1000 Hz
 	if(micRight_output[max_norm_index]<MIN_VALUE_THRESHOLD){
 		get_speed_audio(speedL, speedR);
+
 		chThdSleepMilliseconds(100);
+
 		return;
 	}
 	float intensity1 = 0,intensity2 = 0,intensity3 = 0,theta = 0;
@@ -110,7 +126,25 @@ void sound_remote(void){
 	x= (2*intensity1*intensity2)-(intensity2*intensity3)-(intensity1*intensity3);
 	y= (intensity1*intensity3)-(intensity2*intensity3);
 	theta = atan2f(y,x);
+	saveolddata();
+
+	uint8_t quadrant=0;
+	if(theta<0){
+		quadrant=1;
+		theta=-theta;
+		oldtheta[0]=theta;
+	}
+	oldtheta[0]=theta;
+	for(uint8_t i=1; i<5;i++){
+	theta+=oldtheta[i];
+	}
+	theta=theta/5;
+	if(quadrant){
+		theta=-theta;
+	}
 	int16_t speed=pi_regulator(oldintensity1[0]);
+
+
 		//if the line is nearly in front of the camera, don't rotate
 	if(abs(theta) < ROTATION_THRESHOLD){
 		theta = 0;
@@ -119,7 +153,10 @@ void sound_remote(void){
 	speedR = (speed - ROTATION_COEFF * theta);
 	speedL = (speed + ROTATION_COEFF * theta);
 	get_speed_audio(speedL, speedR);
-	chThdSleepMilliseconds(50);
+
+	//chSysUnlock();
+	//chprintf((BaseSequentialStream *) &SDU1, "time fft = %d us\n",time_fft);
+	chThdSleepMilliseconds(100);
 }
 
 /*
@@ -140,6 +177,7 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 	*	1024 samples, then we compute the FFTs.
 	*
 	*/
+
 
 	static uint16_t nb_samples = 0;
 
@@ -229,9 +267,11 @@ void saveolddata(void){
 		oldintensity1[i]=oldintensity1[i-1];
 		oldintensity2[i]=oldintensity2[i-1];
 		oldintensity3[i]=oldintensity3[i-1];
+		oldtheta[i]=oldtheta[i-1];
 	}
 	oldintensity1[0]=micRight_output[FREQ_ID];// Save the last intensity
 	oldintensity2[0]=micLeft_output[FREQ_ID];
 	oldintensity3[0]=micBack_output[FREQ_ID];
 }
+
 
