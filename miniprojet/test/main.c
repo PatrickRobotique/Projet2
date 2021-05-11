@@ -14,7 +14,6 @@
 #include <direction.h>
 #include <fft.h>
 #include <arm_math.h>
-#include "sensorcalibrate.h"
 messagebus_t bus;
 MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
@@ -71,7 +70,7 @@ int main(void)
     mic_start(&processAudioData);
     //start prox sensor
     proximity_start();
-    sensor_calibrate();
+    calibrate_ir();
     chThdCreateStatic(waThdSensor, sizeof(waThdSensor), NORMALPRIO, ThdSensor, NULL);
     /* Infinite loop. */
     while (1){
