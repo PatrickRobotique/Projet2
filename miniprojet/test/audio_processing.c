@@ -159,6 +159,8 @@ void sound_remote(void){
 	speedR = (speed - ROTATION_COEFF * theta);
 	speedL = (speed + ROTATION_COEFF * theta);
 	get_speed_audio(speedL, speedR);
+	left_motor_set_speed(speedL);
+    	right_motor_set_speed(speedR);
 
 	//chSysUnlock();
 	//chprintf((BaseSequentialStream *) &SDU1, "time fft = %d us\n",time_fft);
