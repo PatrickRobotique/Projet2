@@ -3,86 +3,191 @@
 #include <main.h>
 #include <usbcfg.h>
 #include <chprintf.h>
-
 #include <motors.h>
 #include <audio/microphone.h>
 #include <audio_processing.h>
-#include <communications.h>
+#include <direction.h>
 #include <fft.h>
 #include <arm_math.h>
-
-//semaphore
-static BSEMAPHORE_DECL(sendToComputer_sem, TRUE);
 
 //2 times FFT_SIZE because these arrays contain complex numbers (real + imaginary)
 static float micLeft_cmplx_input[2 * FFT_SIZE];
 static float micRight_cmplx_input[2 * FFT_SIZE];
-static float micFront_cmplx_input[2 * FFT_SIZE];
 static float micBack_cmplx_input[2 * FFT_SIZE];
 //Arrays containing the computed magnitude of the complex numbers
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
-static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
+//Arrays containing the last values of amplitude at 1000 Hz
+static float oldintensity1[5]={0,0,0,0,0};
+static float oldintensity2[5]={0,0,0,0,0};
+static float oldintensity3[5]={0,0,0,0,0};
+static float sum_error=0;
+//Calibration values computed at each reset of the e-puck
+static float cali1=0;
+static float cali2=0;
+static float cali3=0;
+//Array containing the last values of theta
+static uint8_t oldtheta[5]={0,0,0,0,0};
+static uint8_t calibrated=0;
 
-#define MIN_VALUE_THRESHOLD	10000 
 
-#define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
-#define FREQ_FORWARD	16	//250Hz
-#define FREQ_LEFT		19	//296Hz
-#define FREQ_RIGHT		23	//359HZ
-#define FREQ_BACKWARD	26	//406Hz
-#define MAX_FREQ		30	//we don't analyze after this index to not use resources for nothing
+#define MIN_VALUE_THRESHOLD	20000// minimal value for the amplitude
+#define FREQ_ID	64	//1000Hz in the FFT tab
+#define TRUE 1
+#define FALSE 0
+#define DIVSUM 25
+// Values for the PI controller and the speed settings
+#define MAX_SUM_ERROR	2000
+#define ROTATION_THRESHOLD 3
+#define ROTATION_COEFF 15
+#define ERROR_THRESHOLD 10
+#define GOAL 500
+#define KP 2
+#define KI 0.1
 
-#define FREQ_FORWARD_L		(FREQ_FORWARD-1)
-#define FREQ_FORWARD_H		(FREQ_FORWARD+1)
-#define FREQ_LEFT_L			(FREQ_LEFT-1)
-#define FREQ_LEFT_H			(FREQ_LEFT+1)
-#define FREQ_RIGHT_L		(FREQ_RIGHT-1)
-#define FREQ_RIGHT_H		(FREQ_RIGHT+1)
-#define FREQ_BACKWARD_L		(FREQ_BACKWARD-1)
-#define FREQ_BACKWARD_H		(FREQ_BACKWARD+1)
 
-/*
-*	Simple function used to detect the highest value in a buffer
-*	and to execute a motor command depending on it
-*/
-void sound_remote(float* data){
-	float max_norm = MIN_VALUE_THRESHOLD;
-	int16_t max_norm_index = -1; 
-	//search for the highest peak
-	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
-		if(data[i] > max_norm){
-			max_norm = data[i];
-			max_norm_index = i;
+
+void saveolddata(void);
+
+
+void audio_calibration(void);
+
+
+	/*
+	 * PI_regulator that uses the sound amplitude on one
+	 * microphone and a theoretical "goal" amplitude.
+	 */
+int16_t pi_regulator(void){
+
+	int16_t error = 0;
+		int16_t speed = 0;
+		uint16_t goal = GOAL;
+		/*The distance is proportional to the intensity of the sound,
+		 *which is in 1/r^2, so to have a linear decrement of speed
+		 *while approaching the GOAL, we take the square root of intensity.
+	 	*/
+		uint16_t distance = (int16_t)sqrt(oldintensity1[0]*cali1);
+		error = goal-distance;
+
+		/*If the e-puck is at the GOAL distance from the source of sound,
+		*the speed will be set to zero, so it won't oscillate.
+		*/
+		if(abs(error) < ERROR_THRESHOLD){
+			return 0;
 		}
+
+		sum_error += error;
+
+		//To avoid infinite growth of the error in some cases, we set a maximum
+		if(sum_error > MAX_SUM_ERROR){
+			sum_error = MAX_SUM_ERROR;
+		}else if(sum_error < -MAX_SUM_ERROR){
+			sum_error = -MAX_SUM_ERROR;
+		}
+		//
+		speed = KP * error + KI*sum_error;
+		//Speed can't be too big, due to the time between 2 updates of theta,
+
+		if (speed > 400){
+			speed = 400;
+		}
+		if (speed < -400){
+			speed = -400;
+				}
+	    return (int16_t)speed;
+}
+	/*
+	* This function uses the amplitudes at 1000 Hz from the 3 microphones
+	* to compute an angle in polar coordinates between the source of
+	* sound and the center of the circle formed by the three microphones.
+	*/
+void sound_remote(void){
+
+	int speedR =0;
+	int speedL =0;
+	uint8_t max_norm_index = FREQ_ID;
+	/*
+	* If there is no sound, the motors are set to 0 and we leave
+	* this function and this thread.
+	*/
+	if(micRight_output[max_norm_index]<MIN_VALUE_THRESHOLD ){
+		get_speed_audio(speedL, speedR);
+		chThdSleepMilliseconds(50);
+		return;
+	}
+	/*
+	* The last amplitude is stored, and if there has already been
+	* a calibration, we continue. Or else we leave this function
+	*/
+	saveolddata();
+	if(!calibrated){
+		chThdSleepMilliseconds(50);
+		return;
 	}
 
-	//go forward
-	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
-		left_motor_set_speed(600);
-		right_motor_set_speed(600);
+	float intensity1 = 0,intensity2 = 0,intensity3 = 0;
+	//Normalizes the values stored by the microphone in each tab to prevent
+	//big gaps between theta values.
+	for(uint8_t i=0; i<5;i++){
+		intensity1+=(oldintensity1[i]*cali1);
+		intensity2+=(oldintensity2[i]*cali2);
+		intensity3+=(oldintensity3[i]*cali3);
 	}
-	//turn left
-	else if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
-		left_motor_set_speed(-600);
-		right_motor_set_speed(600);
+	//The intensity is the amplitude squared, divided by 25 because
+	//we summed 5 amplitudes for each microphone.
+
+	intensity1=intensity1*intensity1/DIVSUM;
+	intensity2=intensity2*intensity2/DIVSUM;
+	intensity3=intensity3*intensity3/DIVSUM;
+
+	/*
+	* Angle between robot and source in polar coordinates.
+	* This angle comes from the paper:"Mutual accoustic identification
+	* in the swarm of e-puck robots".
+	* atan2(y,x) gives the arctangent of y/x as well as the quadrant, so
+	* we have different values according to the sign of x.
+	* The way intensities and y/x are put together is given in the paper.
+	*/
+
+	float x= (2*intensity1*intensity2)-(intensity2*intensity3)-(intensity1*intensity3);
+	float y= (intensity1*intensity3)-(intensity2*intensity3);
+	float vrai_theta = 0;
+	vrai_theta = atan2f(y,x);
+	vrai_theta=vrai_theta*10;
+	int8_t theta = (int8_t)vrai_theta;
+	_Bool quadrant=FALSE;
+	// Theta negative implies that y/x is on the left quadrant
+	if(theta<0){
+			quadrant=TRUE;
+			theta=-theta;
 	}
-	//turn right
-	else if(max_norm_index >= FREQ_RIGHT_L && max_norm_index <= FREQ_RIGHT_H){
-		left_motor_set_speed(600);
-		right_motor_set_speed(-600);
+	//The value of theta is stored, so we can normalize it with old values
+	oldtheta[0]=theta;
+	uint8_t sum_theta=0;
+		for(uint8_t i=0; i<5;i++){
+			sum_theta+=oldtheta[i];
+		}
+		theta=sum_theta/5;
+	if(quadrant){
+		theta=-theta;
 	}
-	//go backward
-	else if(max_norm_index >= FREQ_BACKWARD_L && max_norm_index <= FREQ_BACKWARD_H){
-		left_motor_set_speed(-600);
-		right_motor_set_speed(-600);
+	// The speed is given by the pi_regulator here
+	int16_t speed=pi_regulator();
+
+	/*To prevent the oscillation of the robot, the value of theta is set to 0 below
+	 * a fixed threshold and the rotation_coeff is not taken into account for the
+	 * speed.
+	 */
+	if(abs(theta) < ROTATION_THRESHOLD){
+		theta = 0;
 	}
-	else{
-		left_motor_set_speed(0);
-		right_motor_set_speed(0);
-	}
-	
+	//applies the speed from the PI regulator and the correction for the rotation
+	speedR = (speed - ROTATION_COEFF * theta);
+	speedL = (speed + ROTATION_COEFF * theta);
+	// Stores the speed in "direction.c"
+	get_speed_audio(speedL, speedR);
+	chThdSleepMilliseconds(50);
 }
 
 /*
@@ -104,8 +209,8 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 	*
 	*/
 
+
 	static uint16_t nb_samples = 0;
-	static uint8_t mustSend = 0;
 
 	//loop to fill the buffers
 	for(uint16_t i = 0 ; i < num_samples ; i+=4){
@@ -113,13 +218,12 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		micRight_cmplx_input[nb_samples] = (float)data[i + MIC_RIGHT];
 		micLeft_cmplx_input[nb_samples] = (float)data[i + MIC_LEFT];
 		micBack_cmplx_input[nb_samples] = (float)data[i + MIC_BACK];
-		micFront_cmplx_input[nb_samples] = (float)data[i + MIC_FRONT];
 		nb_samples++;
 
 		micRight_cmplx_input[nb_samples] = 0;
 		micLeft_cmplx_input[nb_samples] = 0;
 		micBack_cmplx_input[nb_samples] = 0;
-		micFront_cmplx_input[nb_samples] = 0;
+
 
 		nb_samples++;
 
@@ -138,7 +242,6 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 		doFFT_optimized(FFT_SIZE, micRight_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micLeft_cmplx_input);
-		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
 
 		/*	Magnitude processing
@@ -150,25 +253,14 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		*/
 		arm_cmplx_mag_f32(micRight_cmplx_input, micRight_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micLeft_cmplx_input, micLeft_output, FFT_SIZE);
-		arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
 
-		//sends only one FFT result over 10 for 1 mic to not flood the computer
-		//sends to UART3
-		if(mustSend > 8){
-			//signals to send the result to the computer
-			chBSemSignal(&sendToComputer_sem);
-			mustSend = 0;
-		}
 		nb_samples = 0;
-		mustSend++;
-
-		sound_remote(micLeft_output);
+		sound_remote();
+		if(!calibrated){
+			audio_calibration();
+		}
 	}
-}
-
-void wait_send_to_computer(void){
-	chBSemWait(&sendToComputer_sem);
 }
 
 float* get_audio_buffer_ptr(BUFFER_NAME_t name){
@@ -178,25 +270,77 @@ float* get_audio_buffer_ptr(BUFFER_NAME_t name){
 	else if (name == RIGHT_CMPLX_INPUT){
 		return micRight_cmplx_input;
 	}
-	else if (name == FRONT_CMPLX_INPUT){
-		return micFront_cmplx_input;
-	}
 	else if (name == BACK_CMPLX_INPUT){
-		return micBack_cmplx_input;
-	}
+			return micBack_cmplx_input;
+		}
 	else if (name == LEFT_OUTPUT){
 		return micLeft_output;
 	}
 	else if (name == RIGHT_OUTPUT){
 		return micRight_output;
 	}
-	else if (name == FRONT_OUTPUT){
-		return micFront_output;
-	}
+
 	else if (name == BACK_OUTPUT){
 		return micBack_output;
 	}
 	else{
 		return NULL;
 	}
+}
+/*
+ * Simple function that stores the value of each amplitude for further use
+ */
+void saveolddata(void){
+	uint8_t i;
+	//Push the old amplitude one step back, to let the first spot for the new one
+	for(i=4; i>=1;i--){
+		oldintensity1[i]=oldintensity1[i-1];
+		oldintensity2[i]=oldintensity2[i-1];
+		oldintensity3[i]=oldintensity3[i-1];
+		oldtheta[i]=oldtheta[i-1];
+	}
+	// Saves the last amplitude given by the mics.
+	oldintensity1[0]=micRight_output[FREQ_ID];
+	oldintensity2[0]=micLeft_output[FREQ_ID];
+	oldintensity3[0]=micBack_output[FREQ_ID];
+}
+/*
+ * This function is run while the source of sound is equidistant
+ * from each microphone, we suppose that its amplitude at 1000 Hz for each microphone
+ * is the same.
+ */
+void audio_calibration(void){
+	// Only processes calibration if we have 5 samples for each microphone.
+	if(!oldintensity1[4]){
+
+		chThdSleepMilliseconds(50);
+
+		return;
+	}
+	float intensity1=0;
+	float intensity2=0;
+	float intensity3=0;
+	//5 samples for each microphone are summed
+	for(uint8_t i=0; i<5;i++){
+		intensity1+=(oldintensity1[i]);
+		intensity2+=(oldintensity2[i]);
+		intensity3+=(oldintensity3[i]);
+		}
+	/*
+	* In order to calibrate, we calculate the mean of the sum of the three amplitudes.
+	* As we know the amplitude at each microphone, we can compute the ratio between
+	* each microphone amplitude and the mean.
+	* Then we set cali1,2,3 to be the three calibration multipliers.
+	*/
+	float intensity_moyenne= (intensity1+intensity2+intensity3)/3;
+	/*
+	* Cali1,2 and 3 will be used for calibration until next reset
+	* from the epuck2, which sets all values to 0. Thus they will be recalculated.
+	*/
+	cali1=intensity_moyenne/intensity1;
+	cali2=intensity_moyenne/intensity2;
+	cali3=intensity_moyenne/intensity3;
+	// This function is run only once at each reset.
+	calibrated=TRUE;
+
 }
