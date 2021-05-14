@@ -6,15 +6,13 @@
 PROJECT = test
 
 #Define path to the e-puck2_main-processor folder
-GLOBAL_PATH = ../lib/e-puck2_main-processor
+GLOBAL_PATH = ../../lib/e-puck2_main-processor
 
 #Source files to include
 CSRC += ./main.c \
 		./audio_processing.c \
-		./communications.c \
 		./fft.c \
 		./direction.c \
-		./sensorcalibrate.c \
 
 #Header folders to include
 INCDIR += 
