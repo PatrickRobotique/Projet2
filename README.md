@@ -1,3 +1,3 @@
 # Projet2
-Ajouter ce dosser dans le même dossier que la lib epuck, et le tour est joué!
+Ajouter ce dossier dans le même dossier que la lib epuck, et le tour est joué!
 
