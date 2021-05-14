@@ -26,125 +26,128 @@ static float micBack_output[FFT_SIZE];
 static float oldintensity1[5]={0,0,0,0,0};
 static float oldintensity2[5]={0,0,0,0,0};
 static float oldintensity3[5]={0,0,0,0,0};
-static float oldtheta[5]={0,0,0,0,0};
+static uint8_t oldtheta[5]={0,0,0,0,0};
+static uint8_t calibrated=0;
 static float sum_error=0;
-static int mustsend=0;
-static float kp=0.005;
-static float ki=0.005;
-static float weights[5]={0.20,0.2,0.2,0.2,0.2};
+static float cali1=0;
+static float cali2=0;
+static float cali3=0;
+static int mustsend=1;
 
 
+#define MIN_VALUE_THRESHOLD	20000// minimal value for the amplitude, if it's lower, we leave the thread
 
-
-#define MIN_VALUE_THRESHOLD	10000// minimal value for the amplitude, if it's lower, we leave the thread
-
-#define FREQ_ID	65	//1000Hz in the FFT tab
+#define FREQ_ID	64	//1000Hz in the FFT tab
 
 // Values for the PI controller and the speed setting
-#define MAX_SUM_ERROR	100000
-#define ROTATION_THRESHOLD 0.05
-#define ROTATION_COEFF 150
-#define ERROR_THRESHOLD 2000
-/*
-*	b
-*	and to execute a motor command depending on it
-*/
-
-
-
-
-
-
-
-
-
-
-
-
+#define MAX_SUM_ERROR	2000
+#define ROTATION_THRESHOLD 3
+#define ROTATION_COEFF 15
+#define ERROR_THRESHOLD 10
+#define GOAL 500
+#define KP 2
+#define KI 0.1
+#define TRUE 1
+#define FALSE 0
 
 
 void saveolddata(void);
 
 
+void audio_calibration(void);
+
+
 //simple PI regulator implementation
 int16_t pi_regulator(void){
 
-	float error = 0;
-	float speed = 0;
-	float goal = 300000;
-	float distance = oldintensity1[0];
-	error = goal-distance;
+	int16_t error = 0;
+		int16_t speed = 0;
+		uint16_t goal = GOAL;
+		/*The distance is proportional to the intensity of the sound,
+		 *which is in 1/r^2, so to have a linear decrement of speed
+		 *while approaching the GOAL, we take the square root of intensity.
+		*/
+		uint16_t distance = (int16_t)sqrt(oldintensity1[0]*cali1);
+		error = goal-distance;
 
-	//disables the PI regulator if the error is to small
-	//this avoids to always move as we cannot exactly be where we want and
-	//the camera is a bit noisy
-	if(fabs(error) < ERROR_THRESHOLD){
-		return 0;
-	}
+		/*If the e-puck is at the GOAL distance from the source of sound,
+		*the speed will be set to zero, so it won't oscillate.
+		*/
+		if(abs(error) < ERROR_THRESHOLD){
+			return 0;
+		}
 
-	sum_error += error-50000;
+		sum_error += error;
 
-	//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
-	if(sum_error > MAX_SUM_ERROR){
-		sum_error = MAX_SUM_ERROR;
-	}else if(sum_error < -MAX_SUM_ERROR){
-		sum_error = -MAX_SUM_ERROR;
-	}
+		//To avoid infinite growth of the error in some cases, we set a maximum
+		if(sum_error > MAX_SUM_ERROR){
+			sum_error = MAX_SUM_ERROR;
+		}else if(sum_error < -MAX_SUM_ERROR){
+			sum_error = -MAX_SUM_ERROR;
+		}
+		//
+		speed = KP * error + KI*sum_error;
+		//Speed can't be too big, due to the time between 2 updates of theta,
 
-	speed = kp * error +ki*sum_error;
-	if (speed > 1000) {speed = 1000;}
-    return (int16_t)speed;
+		if (speed > 400){
+			speed = 400;
+		}
+		if (speed < -400){
+			speed = -400;
+				}
+	    return (int16_t)speed;
 }
 void sound_remote(void){
 
 	int speedR =0;
 	int speedL =0;
-	saveolddata();
 	uint8_t max_norm_index = FREQ_ID;
-	if(micRight_output[max_norm_index]<MIN_VALUE_THRESHOLD){
+	if(micRight_output[max_norm_index]<MIN_VALUE_THRESHOLD ){
 		get_speed_audio(speedL, speedR);
 
-		chThdSleepMilliseconds(100);
+		chThdSleepMilliseconds(50);
 
 		return;
 	}
-	float intensity1 = 0,intensity2 = 0,intensity3 = 0,theta = 0;
+	saveolddata();
+	if(!calibrated){
+		chThdSleepMilliseconds(50);
 
-	for(uint8_t i=0; i<5;i++){//Weight the values the mic stored in each tab to prevent big gaps in theta values
-		intensity1+=(oldintensity1[i]);
-		intensity2+=(oldintensity2[i]);
-		intensity3+=(oldintensity3[i]);
+		return;
 	}
+	float intensity1 = 0,intensity2 = 0,intensity3 = 0;
 
-	float intensity1norm=3*intensity1/(intensity1+intensity2+intensity3);//Intensity is proportional to the amplitude squared
-	float intensity2norm=3*intensity2/(intensity1+intensity2+intensity3);
-	float intensity3norm=3*intensity3/(intensity1+intensity2+intensity3);
-	intensity1=intensity1norm;
-	intensity2=intensity2norm;
-	intensity3=intensity3norm;
+	for(uint8_t i=0; i<5;i++){//Weight the values the mic stored in each tab to prevent big gaps between theta values
+		intensity1+=(oldintensity1[i]*cali1);
+		intensity2+=(oldintensity2[i]*cali2);
+		intensity3+=(oldintensity3[i]*cali3);
+	}
+	intensity1=intensity1*intensity1/25;
+	intensity2=intensity2*intensity2/25;
+	intensity3=intensity3*intensity3/25;
+	if(mustsend%5){
+		mustsend=1;
+	}
+	mustsend++;
 		//Angle between robot and source in polar coordinates
 
-	float x = 0;
-	float y = 0;
-	x= (2*intensity1*intensity2)-(intensity2*intensity3)-(intensity1*intensity3);
-	y= (intensity1*intensity3)-(intensity2*intensity3);
-	theta = atan2f(y,x);
-
-	mustsend++;
-	if(mustsend%5==0){
-		mustsend=0;
-	}
-	uint8_t quadrant=0;
+	float x= (2*intensity1*intensity2)-(intensity2*intensity3)-(intensity1*intensity3);
+	float y= (intensity1*intensity3)-(intensity2*intensity3);
+	float vrai_theta = 0;
+	vrai_theta = atan2f(y,x);
+	vrai_theta=vrai_theta*10;
+	int8_t theta = (int8_t)vrai_theta;
+	_Bool quadrant=FALSE;
 	if(theta<0){
-		quadrant=1;
-		theta=-theta;
-		oldtheta[0]=theta;
+			quadrant=TRUE;
+			theta=-theta;
 	}
 	oldtheta[0]=theta;
-	for(uint8_t i=1; i<5;i++){
-	theta+=oldtheta[i];
-	}
-	theta=theta/5;
+	uint8_t sum_theta=0;
+		for(uint8_t i=0; i<5;i++){
+			sum_theta+=oldtheta[i];
+		}
+		theta=sum_theta/5;
 	if(quadrant){
 		theta=-theta;
 	}
@@ -152,19 +155,14 @@ void sound_remote(void){
 
 
 		//if the line is nearly in front of the camera, don't rotate
-	if(fabs(theta) < ROTATION_THRESHOLD){
+	if(abs(theta) < ROTATION_THRESHOLD){
 		theta = 0;
 	}
 		//applies the speed from the PI regulator and the correction for the rotation
 	speedR = (speed - ROTATION_COEFF * theta);
 	speedL = (speed + ROTATION_COEFF * theta);
 	get_speed_audio(speedL, speedR);
-	left_motor_set_speed(speedL);
-    	right_motor_set_speed(speedR);
-
-	//chSysUnlock();
-	//chprintf((BaseSequentialStream *) &SDU1, "time fft = %d us\n",time_fft);
-	chThdSleepMilliseconds(100);
+	chThdSleepMilliseconds(50);
 }
 
 /*
@@ -237,6 +235,9 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 		nb_samples = 0;
 		sound_remote();
+		if(!calibrated){
+			audio_calibration();
+		}
 	}
 }
 
@@ -282,3 +283,27 @@ void saveolddata(void){
 	oldintensity3[0]=micBack_output[FREQ_ID];
 }
 
+void audio_calibration(void){
+
+	if(!oldintensity1[4]){
+
+		chThdSleepMilliseconds(50);
+
+		return;
+	}
+	float intensity1=0;
+	float intensity2=0;
+	float intensity3=0;
+	for(uint8_t i=0; i<5;i++){//Weight the values the mic stored in each tab to prevent big gaps between theta values
+		intensity1+=(oldintensity1[i]);
+		intensity2+=(oldintensity2[i]);
+		intensity3+=(oldintensity3[i]);
+		}
+	float intensity_moyenne= (intensity1+intensity2+intensity3)/3;
+	cali1=intensity_moyenne/intensity1;
+	cali2=intensity_moyenne/intensity2;
+	cali3=intensity_moyenne/intensity3;
+
+	calibrated=TRUE;
+
+}
