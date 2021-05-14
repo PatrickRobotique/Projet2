@@ -1,10 +1,12 @@
+/*Cet partie du programme détermine la vitesse des moteurs.
+Il y a aussi la gestion des capteurs infrarouges ainsi que
+l'algorithme de Braitenberg, inspiré d'un exercice de Distributed Intelligent System
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "ch.h"
 #include "hal.h"
-
 #include <main.h>
 #include <motors.h>
 #include <msgbus/messagebus.h>
@@ -12,9 +14,10 @@
 #include <sensors/proximity.h>
 #include <arm_math.h>
 
-// Weights for the Braitenberg obstacle avoidance algorithm
+// Poids des capteurs IR
 int weightleft[8] = {-5, -5, -5, 0, 0, 5, 5, 5};
 int weightright[8] = {5, 5, 5, 0, 0, -5, -5, -5};
+
 static int Speed[4] = {0,0,0,0};
 #define SPEEDLAUDIO 0
 #define SPEEDRAUDIO 1
@@ -28,33 +31,31 @@ int leftwheel, rightwheel;
 	float sensorMean[8];
 	int numberOfSamples = 10;
 	int i,n;
-    			// Forward speed
+    			// Vitesse avant modification
     			leftwheel = 400;
     			rightwheel = 400;
     			for (i=0;i<8;i++)
     				sensorMean[i]=0;
-    			//Compute an average value of each sensor on multiple samples to reduce noise
+    			//On fait une moyenne des mesures des capteurs IR pour plus de précision
     			for (n=0;n<numberOfSamples;n++)
     			{
-    				// Get sensor values
+    				//Mesures capteurs IR 
     				for (i = 0; i < 8; i++) {
-    					// Use the sensorzero[i] value generated in sensor_calibrate() to zero sensorvalues
     					sensor[i] = get_calibrated_prox(i);
-    					//linearize the sensor output and compute the average
+    					//linéarisation des mesures (cf rapport)
     					sensorMean[i]+=12.1514*log((double)sensor[i]+1)/(double)numberOfSamples;
     				}
     			}
 
-			// condition sensor à mettre et calcul
+			// condition des capteurs IR avants pour savoir si ils contrôlent les moteurs
 			if(sensorMean[0]>54 || sensorMean[1]> 54 || sensorMean[6]>54 || sensorMean[7]>54){
-    			// Add the weighted sensors values
+    			// Ajout des poids
     			for (i = 0; i < 8; i++) {
     				leftwheel += weightleft[i] * (int)sensorMean[i];
     				rightwheel += weightright[i] * (int)sensorMean[i];
     			}
 
-
-    			// Speed bounds, to avoid setting to high speeds to the motor
+    			// Limites sur les vitesses
     			if (leftwheel > 1000) {leftwheel = 1000;}
     			if (rightwheel > 1000) {rightwheel = 1000;}
     			if (leftwheel < -1000) {leftwheel = -1000;}
@@ -64,15 +65,12 @@ int leftwheel, rightwheel;
     			left_motor_set_speed(Speed[SPEEDLSENSOR]);
     			right_motor_set_speed(Speed[SPEEDRSENSOR]);
 			}
-
-
+			//Sinon c'est la triangulation qui dirige les moteurs
 			else{
-			left_motor_set_speed(Speed[SPEEDLAUDIO]);// mettre tes valeurs de moteur ici
-    		right_motor_set_speed(Speed[SPEEDRAUDIO]);
+			left_motor_set_speed(Speed[SPEEDLAUDIO]);
+    			right_motor_set_speed(Speed[SPEEDRAUDIO]);
 			}
    		}
-
-
 
 void get_speed_audio(int speedLaudio, int speedRaudio){
 
@@ -80,7 +78,6 @@ void get_speed_audio(int speedLaudio, int speedRaudio){
 	Speed[SPEEDRAUDIO] = speedRaudio;
 
 }
-
 
 static THD_WORKING_AREA(waThdSensor, 4096);
 static THD_FUNCTION(ThdSensor, arg) {
@@ -90,9 +87,7 @@ static THD_FUNCTION(ThdSensor, arg) {
 
     while(1){
     	sensor_values();
-        /*
-        *   pause the thread during 100ms
-        */
+        //pause de 50 ms
     	  chThdSleepMilliseconds(50);
     }
 
@@ -101,5 +96,3 @@ static THD_FUNCTION(ThdSensor, arg) {
 void thd_sensor_start(void){
 	chThdCreateStatic(waThdSensor, sizeof(waThdSensor), NORMALPRIO, ThdSensor, NULL);
 }
-
-
