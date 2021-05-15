@@ -19,9 +19,9 @@ static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 //Arrays containing the last values of amplitude at 1000 Hz
-static float oldintensity1[5]={0,0,0,0,0};
-static float oldintensity2[5]={0,0,0,0,0};
-static float oldintensity3[5]={0,0,0,0,0};
+static float oldamplitude1[5]={0,0,0,0,0};
+static float oldamplitude2[5]={0,0,0,0,0};
+static float oldamplitude3[5]={0,0,0,0,0};
 static float sum_error=0;
 //Calibration values computed at each reset of the e-puck
 static float cali1=0;
@@ -43,6 +43,7 @@ static uint8_t calibrated=0;
 #define ROTATION_COEFF 15
 #define ERROR_THRESHOLD 10
 #define GOAL 500
+#define HALFWAY 250
 #define KP 2
 #define KI 0.1
 
@@ -67,7 +68,7 @@ int16_t pi_regulator(void){
 		 *which is in 1/r^2, so to have a linear decrement of speed
 		 *while approaching the GOAL, we take the square root of intensity.
 	 	*/
-		uint16_t distance = (int16_t)sqrt(oldintensity1[0]*cali1);
+		uint16_t distance = (int16_t)sqrt(oldamplitude1[0]*cali1);
 		error = goal-distance;
 
 		/*If the e-puck is at the GOAL distance from the source of sound,
@@ -77,7 +78,7 @@ int16_t pi_regulator(void){
 			return 0;
 		}
 
-		sum_error += error;
+		sum_error += error-HALFWAY;
 
 		//To avoid infinite growth of the error in some cases, we set a maximum
 		if(sum_error > MAX_SUM_ERROR){
@@ -126,20 +127,22 @@ void sound_remote(void){
 		return;
 	}
 
-	float intensity1 = 0,intensity2 = 0,intensity3 = 0;
+	float amplitude1 = 0,amplitude2 = 0,amplitude3 = 0;
 	//Normalizes the values stored by the microphone in each tab to prevent
 	//big gaps between theta values.
 	for(uint8_t i=0; i<5;i++){
-		intensity1+=(oldintensity1[i]*cali1);
-		intensity2+=(oldintensity2[i]*cali2);
-		intensity3+=(oldintensity3[i]*cali3);
+		amplitude1+=(oldamplitude1[i]*cali1);
+		amplitude2+=(oldamplitude2[i]*cali2);
+		amplitude3+=(oldamplitude3[i]*cali3);
 	}
-	//The intensity is the amplitude squared, divided by 25 because
-	//we summed 5 amplitudes for each microphone.
-
-	intensity1=intensity1*intensity1/DIVSUM;
-	intensity2=intensity2*intensity2/DIVSUM;
-	intensity3=intensity3*intensity3/DIVSUM;
+	/*The intensity is directly proportionnal to the amplitude squared,
+	* divided by 25 because we summed 5 amplitudes for each microphone.
+	* In order to save space, the variables will keep the name "amplitudeX",
+	* but they are actually intensities.
+	*/
+	amplitude1=amplitude1*amplitude1/DIVSUM;
+	amplitude2=amplitude2*amplitude2/DIVSUM;
+	amplitude3=amplitude3*amplitude3/DIVSUM;
 
 	/*
 	* Angle between robot and source in polar coordinates.
@@ -148,10 +151,11 @@ void sound_remote(void){
 	* atan2(y,x) gives the arctangent of y/x as well as the quadrant, so
 	* we have different values according to the sign of x.
 	* The way intensities and y/x are put together is given in the paper.
+	* Everything is explained in details in the "rapport".
 	*/
 
-	float x= (2*intensity1*intensity2)-(intensity2*intensity3)-(intensity1*intensity3);
-	float y= (intensity1*intensity3)-(intensity2*intensity3);
+	float x= (2*amplitude1*amplitude2)-(amplitude2*amplitude3)-(amplitude1*amplitude3);
+	float y= (amplitude1*amplitude3)-(amplitude2*amplitude3);
 	float vrai_theta = 0;
 	vrai_theta = atan2f(y,x);
 	vrai_theta=vrai_theta*10;
@@ -187,7 +191,7 @@ void sound_remote(void){
 	speedL = (speed + ROTATION_COEFF * theta);
 	// Stores the speed in "direction.c"
 	get_speed_audio(speedL, speedR);
-	chThdSleepMilliseconds(50);
+	chThdSleepMilliseconds(45);
 }
 
 /*
@@ -294,15 +298,15 @@ void saveolddata(void){
 	uint8_t i;
 	//Push the old amplitude one step back, to let the first spot for the new one
 	for(i=4; i>=1;i--){
-		oldintensity1[i]=oldintensity1[i-1];
-		oldintensity2[i]=oldintensity2[i-1];
-		oldintensity3[i]=oldintensity3[i-1];
+		oldamplitude1[i]=oldamplitude1[i-1];
+		oldamplitude2[i]=oldamplitude2[i-1];
+		oldamplitude3[i]=oldamplitude3[i-1];
 		oldtheta[i]=oldtheta[i-1];
 	}
 	// Saves the last amplitude given by the mics.
-	oldintensity1[0]=micRight_output[FREQ_ID];
-	oldintensity2[0]=micLeft_output[FREQ_ID];
-	oldintensity3[0]=micBack_output[FREQ_ID];
+	oldamplitude1[0]=micRight_output[FREQ_ID];
+	oldamplitude2[0]=micLeft_output[FREQ_ID];
+	oldamplitude3[0]=micBack_output[FREQ_ID];
 }
 /*
  * This function is run while the source of sound is equidistant
@@ -311,20 +315,20 @@ void saveolddata(void){
  */
 void audio_calibration(void){
 	// Only processes calibration if we have 5 samples for each microphone.
-	if(!oldintensity1[4]){
+	if(!oldamplitude1[4]){
 
 		chThdSleepMilliseconds(50);
 
 		return;
 	}
-	float intensity1=0;
-	float intensity2=0;
-	float intensity3=0;
+	float amplitude1=0;
+	float amplitude2=0;
+	float amplitude3=0;
 	//5 samples for each microphone are summed
 	for(uint8_t i=0; i<5;i++){
-		intensity1+=(oldintensity1[i]);
-		intensity2+=(oldintensity2[i]);
-		intensity3+=(oldintensity3[i]);
+		amplitude1+=(oldamplitude1[i]);
+		amplitude2+=(oldamplitude2[i]);
+		amplitude3+=(oldamplitude3[i]);
 		}
 	/*
 	* In order to calibrate, we calculate the mean of the sum of the three amplitudes.
@@ -332,14 +336,14 @@ void audio_calibration(void){
 	* each microphone amplitude and the mean.
 	* Then we set cali1,2,3 to be the three calibration multipliers.
 	*/
-	float intensity_moyenne= (intensity1+intensity2+intensity3)/3;
+	float amplitude_moyenne= (amplitude1+amplitude2+amplitude3)/3;
 	/*
 	* Cali1,2 and 3 will be used for calibration until next reset
 	* from the epuck2, which sets all values to 0. Thus they will be recalculated.
 	*/
-	cali1=intensity_moyenne/intensity1;
-	cali2=intensity_moyenne/intensity2;
-	cali3=intensity_moyenne/intensity3;
+	cali1=amplitude_moyenne/amplitude1;
+	cali2=amplitude_moyenne/amplitude2;
+	cali3=amplitude_moyenne/amplitude3;
 	// This function is run only once at each reset.
 	calibrated=TRUE;
 
