@@ -42,7 +42,6 @@ static float cali3=1;
 #define FALSE 0
 // Values for the PI controller and the speed settings
 #define MAX_SUM_ERROR	1000
-
 #define ERROR_THRESHOLD 25
 #define MIN_SPEED		50
 #define MAX_SPEED 		600
@@ -315,7 +314,8 @@ void saveolddata(void){
 /*
  * This function is run while the source of sound is equidistant
  * from each microphone, we suppose that its amplitude at 1000 Hz for each microphone
- * is the same.
+ * is the same. It's supposed that the source of sound is above the e-puck2,
+ * at about 10 cm, and parallele to the plan made by the 3 microphones.
  */
 void audio_calibration(void){
 
@@ -348,7 +348,7 @@ void audio_calibration(void){
 	*/
 	cali1=amplitude_moyenne/amplitude1;
 	cali2=amplitude_moyenne/amplitude2;
-	cali3=amplitude_moyenne*0.9/amplitude3;
+	cali3=amplitude_moyenne/amplitude3;
 
 	// This function is run only once at each reset.
 
