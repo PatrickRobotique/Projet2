@@ -86,7 +86,6 @@ void get_speed_audio(int speedLaudio, int speedRaudio){
 
 	Speed[SPEEDLAUDIO] = speedLaudio;
 	Speed[SPEEDRAUDIO] = speedRaudio;
-
 }
 
 static THD_WORKING_AREA(waThdSensor, 2048);
@@ -100,7 +99,6 @@ static THD_FUNCTION(ThdSensor, arg) {
         //pause de 50 ms
     	chThdSleepMilliseconds(50);
     }
-
 }
 void thd_sensor_start(void){
 	chThdCreateStatic(waThdSensor, sizeof(waThdSensor), NORMALPRIO, ThdSensor, NULL);
