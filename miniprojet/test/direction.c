@@ -1,6 +1,6 @@
-/*Cette partie du programme dÃ©termine la vitesse des moteurs.
+/*Cette partie du programme détermine la vitesse des moteurs.
 Il y a aussi la gestion des capteurs infrarouges ainsi que
-l'algorithme de Braitenberg, inspirÃ© d'un exercice de Distributed Intelligent System
+l'algorithme de Braitenberg, inspiré d'un exercice de Distributed Intelligent System
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -41,45 +41,45 @@ void sensor_values(void){
 	float sensorMean[NUM_CAPTEUR];
 	int numberOfSamples = 10;
 	int i,n;
-    	// Vitesse avant modification
-    	leftwheel = SPD_INI;
-    	rightwheel = SPD_INI;
-    	for (i=0;i<NUM_CAPTEUR;i++){
-    		sensorMean[i]=0;
-    		//On fait une moyenne des mesures des capteurs IR pour plus de prÃ©cision
-    		for (n=0;n<numberOfSamples;n++){
-    			//Mesures capteurs IR 
-    			for (i = 0; i < NUM_CAPTEUR; i++) {
-    				sensor[i] = get_calibrated_prox(i);
-    				//linÃ©arisation des mesures
-    				sensorMean[i]+=12.1514*log((double)sensor[i]+1)/(double)numberOfSamples;
-    			}
-    		}
-
-		// conditions des capteurs IR pour savoir si ils contrÃ´lent les moteurs
-		if(sensorMean[AVT_CNTRE_DT]>DIST_OBJET || sensorMean[AVT_CNTRE_GC]>DIST_OBJET||
-				sensorMean[AVT_DT]> DIST_OBJET || sensorMean[AVT_GC]>DIST_OBJET ||
-				sensorMean[DROITE]>DIST_OBJET  || sensorMean[GAUCHE]>DIST_OBJET){
-    		// Ajout des poids
-    		for (i = 0; i < NUM_CAPTEUR; i++) {
-    			leftwheel += weightleft[i] * (int)sensorMean[i];
-    			rightwheel += weightright[i] * (int)sensorMean[i];
-    		}
-    		// Limites sur les vitesses
-    		if (leftwheel > SPD_MAX) {leftwheel = SPD_MAX;}
+    // Vitesse avant modification
+    leftwheel = SPD_INI;
+    rightwheel = SPD_INI;
+    for (i=0;i<NUM_CAPTEUR;i++){
+    	sensorMean[i]=0;
+    }
+    //On fait une moyenne des mesures des capteurs IR pour plus de précision
+    for (n=0;n<numberOfSamples;n++){
+    	//Mesures capteurs IR
+    	for (i = 0; i < NUM_CAPTEUR; i++) {
+    		sensor[i] = get_calibrated_prox(i);
+    		//linéarisation des mesures
+    		sensorMean[i]+=12.1514*log((double)sensor[i]+1)/(double)numberOfSamples;
+    	}
+    }
+	// conditions des capteurs IR pour savoir si ils contrôlent les moteurs
+	if(sensorMean[AVT_CNTRE_DT]>DIST_OBJET || sensorMean[AVT_CNTRE_GC]>DIST_OBJET||
+		sensorMean[AVT_DT]> DIST_OBJET || sensorMean[AVT_GC]>DIST_OBJET ||
+		sensorMean[DROITE]>DIST_OBJET  || sensorMean[GAUCHE]>DIST_OBJET){
+		// Ajout des poids
+		for (i = 0; i < NUM_CAPTEUR; i++) {
+			leftwheel += weightleft[i] * (int)sensorMean[i];
+			rightwheel += weightright[i] * (int)sensorMean[i];
+		}
+		// Limites sur les vitesses
+		if (leftwheel > SPD_MAX) {leftwheel = SPD_MAX;}
 		if (rightwheel > SPD_MAX) {rightwheel = SPD_MAX;}
-    		if (leftwheel < -SPD_MAX) {leftwheel = -SPD_MAX;}
-    		if (rightwheel < -SPD_MAX) {rightwheel = -SPD_MAX;}
-   		Speed[SPEEDLSENSOR]= leftwheel;
+		if (leftwheel < -SPD_MAX) {leftwheel = -SPD_MAX;}
+		if (rightwheel < -SPD_MAX) {rightwheel = -SPD_MAX;}
+		Speed[SPEEDLSENSOR]= leftwheel;
 		Speed[SPEEDRSENSOR]=rightwheel;
 		left_motor_set_speed(Speed[SPEEDLSENSOR]);
-    		right_motor_set_speed(Speed[SPEEDRSENSOR]);
-		}
-		//Sinon c'est la triangulation qui dirige les moteurs
-		else{
-			left_motor_set_speed(Speed[SPEEDLAUDIO]);
-    			right_motor_set_speed(Speed[SPEEDRAUDIO]);
-		}
+		right_motor_set_speed(Speed[SPEEDRSENSOR]);
+	}
+	//Sinon c'est la triangulation qui dirige les moteurs
+	else{
+		left_motor_set_speed(Speed[SPEEDLAUDIO]);
+    	right_motor_set_speed(Speed[SPEEDRAUDIO]);
+	}
 }
 
 void get_speed_audio(int speedLaudio, int speedRaudio){
@@ -103,3 +103,5 @@ static THD_FUNCTION(ThdSensor, arg) {
 void thd_sensor_start(void){
 	chThdCreateStatic(waThdSensor, sizeof(waThdSensor), NORMALPRIO, ThdSensor, NULL);
 }
+
+
