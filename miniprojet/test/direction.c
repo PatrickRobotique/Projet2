@@ -44,7 +44,7 @@ void sensor_values(void){
     	// Vitesse avant modification
     	leftwheel = SPD_INI;
     	rightwheel = SPD_INI;
-    	for (i=0;i<NUM_CAPTEUR;i++)
+    	for (i=0;i<NUM_CAPTEUR;i++){
     		sensorMean[i]=0;
     		//On fait une moyenne des mesures des capteurs IR pour plus de précision
     		for (n=0;n<numberOfSamples;n++){
