@@ -125,7 +125,7 @@ int16_t pi_regulator(void){
  */
 void source_position(void){
 
-	int speedR=0,speedL=0;
+	int16_t speedR=0,speedL=0;
 	uint8_t max_norm_index = FREQ_ID;
 	/*
 	* If there is no sound, the motors are set to 0 and we leave
